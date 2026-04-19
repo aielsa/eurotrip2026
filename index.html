@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Amsterdam + España 2026</title>
+  <title>Elsa &amp; Iván's Euro Trip</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
@@ -1203,7 +1203,7 @@
   <div class="hero">
     <div class="hero-bg"></div>
     <span class="hero-emoji">🇳🇱 ✈️ 🇪🇸</span>
-    <h1>Amsterdam + España</h1>
+    <h1>Elsa &amp; Iván's Euro Trip</h1>
     <div class="hero-sub">14 Septiembre — 2 Octubre 2026</div>
     <div class="hero-stats">
       <div class="hero-stat">
@@ -1368,15 +1368,15 @@
       <div class="expense-totals">
         <div class="total-row grand">
           <span class="tr-label">Total</span>
-          <span class="tr-val" id="exp-total">€0.00</span>
+          <span class="tr-val" id="exp-total">$0.00</span>
         </div>
         <div class="total-row">
           <span class="tr-label">Tú<span class="tr-person" id="p1-pct">50%</span></span>
-          <span class="tr-val" id="p1-total">€0.00</span>
+          <span class="tr-val" id="p1-total">$0.00</span>
         </div>
         <div class="total-row">
           <span class="tr-label">Persona 2<span class="tr-person" id="p2-pct">50%</span></span>
-          <span class="tr-val" id="p2-total">€0.00</span>
+          <span class="tr-val" id="p2-total">$0.00</span>
         </div>
       </div>
     </div>
@@ -1463,19 +1463,23 @@ const GRADIENTS = {
 // ── DESTINATIONS ───────────────────────────────────
 const destinations = [
   {
-    id: 'amsterdam', name: 'Amsterdam', flag: '🇳🇱', tag: '3 noches',
-    dates: '15 - 17 Sept', photo: PHOTOS.amsterdam, grad: GRADIENTS.amsterdam,
-    brief: 'Ciudad de canales, museos de clase mundial y encanto bohemio. Jordaan, Prinsengracht, Nine Streets, De Pijp. Hogar de Rembrandt, Vermeer y Van Gogh. Tres dias para explorar la vida sobre el agua, los mercados flotantes y la arquitectura del Siglo de Oro holandes.',
-    highlights: ['Canales UNESCO', 'Rijksmuseum', 'Casa Ana Frank', 'Van Gogh Museum', 'A\'DAM Lookout', 'Nine Streets', 'Vondelpark', 'Zaanse Schans'],
+    id: 'amsterdam', name: 'Amsterdam', flag: '🇳🇱', tag: '4 dias · 3 noches',
+    dates: '15 - 18 Sept', photo: PHOTOS.amsterdam, grad: GRADIENTS.amsterdam,
+    brief: 'Ciudad de canales, museos de clase mundial y encanto bohemio. Plan de 4 dias en pareja: arte (Van Gogh + Moco), canales Jordaan, Red Light District, truffles en Vondelpark, NEMO y un smoking canal tour epico para cerrar. Hotel base: Jordaan (Mr. Jordaan recomendado).',
+    highlights: ['Jordaan · canales UNESCO', 'Van Gogh Museum', 'Moco Museum', 'Red Light District', 'Fabrique des Lumieres', 'Vondelpark', 'NEMO Science', 'Smoking Canal Tour'],
     days: [
-      { num: 1, date: 'Martes 15 Sept', plan: 'Aterrizar <strong>MAD ~7am</strong>. Conexion <strong>MAD → AMS</strong> (KLM ~10am, 2.5h). Llegar Amsterdam ~12:30. <strong>Check-in hotel</strong>. Primer paseo por los canales — <strong>Jordaan, Prinsengracht, Nine Streets</strong>. Perderse por las callejuelas con fachadas inclinadas. Cena en terraza sobre el canal con vista a los barcos.' },
-      { num: 2, date: 'Miercoles 16 Sept', plan: '<strong>Rijksmuseum</strong> (Rembrandt, Vermeer — reservar online) o <strong>Van Gogh Museum</strong>. Paseo por <strong>Vondelpark</strong>. Tarde: barrio <strong>De Pijp</strong> — Albert Cuyp Market (el mercado callejero mas grande de Holanda), cafes, tiendas vintage. Noche: <strong>paseo en barco por los canales al atardecer</strong> — una de las experiencias mas magicas de la ciudad.' },
-      { num: 3, date: 'Jueves 17 Sept', plan: '<strong>Casa de Ana Frank</strong> (reservar meses antes!). Jordaan profundo — galerias de arte, cafes independientes, librerias. Tarde: <strong>A\'DAM Lookout</strong> (ferry gratis + mirador panoramico con columpio sobre el vacio) o excursion a <strong>Zaanse Schans</strong> (molinos iconicos — drone gold, ~30 min tren). Ultima cena holandesa: bitterballen, stroopwafels.' }
+      { num: 1, date: 'Martes 15 Sept · Llegada & slow landing', plan: 'Aterrizar <strong>Schiphol 14:00-14:30</strong>. Tren a <strong>Amsterdam Centraal</strong> (15-20 min, €5.90). Check-in hotel (<strong>Mr. Jordaan</strong> recomendado), ducha, respirar. <strong>17:30:</strong> primer paseo por canales de Jordaan — Brouwersgracht al atardecer, Prinsengracht. <strong>19:30:</strong> cena en <strong>Winkel 43</strong> (apple pie) o <strong>Moeders</strong> (holandesa tradicional). <strong>21:30:</strong> primer coffee shop en <strong>La Tertulia</strong> (cozy, no turistico).' },
+      { num: 2, date: 'Miercoles 16 Sept · Arte + Red Light', plan: '<strong>9:00 Van Gogh Museum</strong> (reservar slot 9AM online, €25 c/u). <strong>11:30:</strong> almuerzo en <strong>The Seafood Bar</strong>. <strong>13:30: Moco Museum</strong> (Banksy, Basquiat, Warhol — al lado del Van Gogh). <strong>16:00:</strong> descanso hotel. <strong>19:00:</strong> cena en <strong>Foodhallen</strong> (mercado gourmet). <strong>21:00: Red Light District a pie</strong> — De Wallen, Oude Kerk (cero fotos a las ventanas). <strong>22:00:</strong> Casa Rosso show opcional. <strong>23:30:</strong> speakeasy <strong>Hiding in Plain Sight</strong>.' },
+      { num: 3, date: 'Jueves 17 Sept · Truffle day', plan: 'Desayuno MUY ligero + hidratacion. <strong>10:00: Smart Shop Kokopelli</strong> (Warmoesstraat 12, staff excepcional para primerizos — pedir <em>Mexicana, light experience, half dose, 5g c/u</em>). <strong>11:30: Fabrique des Lumieres</strong> (arte digital inmersivo gigante de Van Gogh/Monet/Klimt — PERFECTO mientras arranca el efecto). <strong>13:00:</strong> caminar al <strong>Vondelpark</strong>. <strong>14:00-17:00: peak en Vondelpark</strong> (spot apartado, agua, frutas, musica). <strong>17:00: Het Groot Melkhuis</strong> (comida ligera en el parque). <strong>21:00:</strong> delivery al hotel (Thuisbezorgd), dormir profundo.' },
+      { num: 4, date: 'Viernes 18 Sept · NEMO + smoking canal + farewell', plan: '<strong>9:30:</strong> desayuno en <strong>Pancakes Amsterdam</strong> (pannenkoeken legendarios). <strong>11:00: NEMO Science Museum</strong> (€21.50 c/u — la terraza del techo es GRATIS con las mejores vistas de Amsterdam). <strong>13:30: Albert Cuyp Market</strong> en De Pijp (stroopwafels calientes, haring, kibbeling, gouda al vacio). <strong>15:00:</strong> check-out, equipaje en conserjeria. <strong>15:30:</strong> comprar weed en <strong>Boerejongens</strong> (BYOC). <strong>16:00: SMOKING CANAL TOUR con Smokeboat</strong> (€25 c/u compartido o €250+ privado — reservar 2-4 sem antes). <strong>18:00: Vleminckx</strong> (patatas fritas post-boat). <strong>19:00:</strong> tren a Schiphol. <strong>Noche:</strong> vuelo a Madrid.' }
     ],
     links: [
-      { icon: '🎟', label: 'Rijksmuseum', url: 'https://www.rijksmuseum.nl/en/tickets', type: 'tickets' },
-      { icon: '🏠', label: 'Casa Ana Frank', url: 'https://www.annefrank.org/en/tickets/', type: 'tickets' },
-      { icon: '🎨', label: 'Van Gogh Museum', url: 'https://www.vangoghmuseum.nl/en/tickets', type: 'tickets' },
+      { icon: '🎨', label: 'Van Gogh Museum', url: 'https://tickets.vangoghmuseum.com/', type: 'tickets' },
+      { icon: '🖼', label: 'Moco Museum', url: 'https://mocomuseum.com/', type: 'tickets' },
+      { icon: '✨', label: 'Fabrique des Lumieres', url: 'https://www.fabrique-lumieres.com/en', type: 'tickets' },
+      { icon: '🚢', label: 'Smokeboat Canal Tour', url: 'https://smokeboat.com/', type: 'tickets' },
+      { icon: '🔬', label: 'NEMO Science', url: 'https://www.nemosciencemuseum.nl/en/plan-your-visit', type: 'tickets' },
+      { icon: '🏨', label: 'Hotel Mr. Jordaan', url: 'https://www.booking.com/hotel/nl/mr-jordaan.html', type: '' },
       { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Amsterdam+Netherlands', type: 'maps' }
     ]
   },
@@ -1485,7 +1489,7 @@ const destinations = [
     brief: 'Capital vibrante de Espana. El triangulo del arte (Prado, Reina Sofia, Thyssen), tapeo legendario en La Latina y Cava Baja, rooftops con vistas de 360 grados, el verde del Retiro y la energia de Malasana. Base para el day trip a Toledo.',
     highlights: ['Museo del Prado', 'Reina Sofia (Guernica)', 'Parque del Retiro', 'La Latina', 'Malasana', 'Rooftop Bellas Artes', 'Templo de Debod', 'Plaza Mayor'],
     days: [
-      { num: 4, date: 'Viernes 18 Sept', plan: 'Manana en Amsterdam: <strong>Bloemenmarkt</strong> (mercado de flores flotante), checkout. <strong>Vuelo AMS → MAD</strong> (~12:00, 2.5h). Llegar Madrid ~14:30. Check-in hotel. <strong>Tarde:</strong> Puerta del Sol, <strong>Plaza Mayor</strong>, tapeo epico por <strong>La Latina / Cava Baja</strong> — patatas bravas, croquetas, jamon iberico, tortilla.' },
+      { num: 4, date: 'Viernes 18 Sept (noche) → Sabado 19 Sept', plan: 'Ultimo dia en Amsterdam (smoking canal tour + Albert Cuyp). <strong>Vuelo nocturno AMS → MAD</strong> (salida ~20:00, llegada ~23:30). Taxi/uber al hotel. Dormir directo. <strong>Sabado 19 Sept:</strong> dia completo Madrid — Puerta del Sol, <strong>Plaza Mayor</strong>, tapeo epico por <strong>La Latina / Cava Baja</strong> (patatas bravas, croquetas, jamon iberico, tortilla).' },
       { num: 5, date: 'Sabado 19 Sept', plan: '<strong>Museo del Prado</strong> (Las Meninas de Velazquez, los Caprichos de Goya, El Jardin de las Delicias del Bosco — reservar online). <strong>Parque del Retiro</strong>: Palacio de Cristal (instalacion arte), lago con barcas, rosaleda. Tarde: <strong>Malasana</strong> (vintage, cafes third-wave, street art, tiendas independientes). Noche: <strong>rooftop bar Azotea del Circulo de Bellas Artes</strong> — vistas 360° de todo Madrid con el cielo encendido.' },
       { num: 7, date: 'Lunes 21 Sept', plan: '<strong>Museo Reina Sofia</strong> — el <strong>Guernica de Picasso</strong>, imprescindible. Una de las obras mas poderosas del mundo. Despues: <strong>Templo de Debod</strong> (templo egipcio autentico del s.II a.C. con vistas a la sierra al atardecer). Almuerzo. <strong>AVE Madrid → Barcelona</strong> (~2.5h, tren ~14:00). Llegar BCN ~16:30. Check-in. Paseo por el <strong>Barrio Gotico</strong> y <strong>El Born</strong>. Cena en <strong>Barceloneta</strong> frente al Mediterraneo.' }
     ],
@@ -1597,7 +1601,7 @@ const destinations = [
 const transports = [
   { emoji: '✈️', type: 'flight', route: 'SJU → MAD', detail: 'Lun 14 Sept · Iberia directo nocturno · ~8h', cost: '~$500-900 RT' },
   { emoji: '✈️', type: 'flight', route: 'MAD → AMS', detail: 'Mar 15 Sept · KLM/Iberia · ~2.5h', cost: '~€60-120' },
-  { emoji: '✈️', type: 'flight', route: 'AMS → MAD', detail: 'Vie 18 Sept · KLM/Iberia · ~2.5h', cost: '~€60-120' },
+  { emoji: '✈️', type: 'flight', route: 'AMS → MAD', detail: 'Vie 18 Sept · vuelo nocturno ~20:00 · ~2.5h', cost: '~€60-120' },
   { emoji: '🚄', type: 'train', route: 'MAD ↔ Toledo', detail: 'Dom 20 Sept · AVE ida y vuelta · 30 min c/u', cost: '~€26' },
   { emoji: '🚄', type: 'train', route: 'MAD → BCN', detail: 'Lun 21 Sept · AVE · ~2.5h', cost: '~€30-70' },
   { emoji: '✈️', type: 'flight', route: 'BCN → Granada', detail: 'Jue 24 Sept · Vueling · ~1.5h', cost: '~€40-80' },
@@ -1615,13 +1619,16 @@ const checklistData = [
     items: [
       { label: 'Vuelo SJU ↔ MAD (Iberia round trip)', sub: 'Lun 14 Sept → Vie 2 Oct', pri: 'critical', link: 'https://www.iberia.com/', linkLbl: 'Iberia.com' },
       { label: 'Alhambra — turno AM', sub: 'Vie 25 Sept · Se agotan MESES antes', pri: 'critical', link: 'https://www.alhambra-patronato.es/', linkLbl: 'Reservar ahora' },
-      { label: 'Casa de Ana Frank', sub: 'Jue 17 Sept · Solo online, se agotan rapido', pri: 'critical', link: 'https://www.annefrank.org/en/tickets/', linkLbl: 'Reservar ahora' }
+      { label: 'Van Gogh Museum — slot 9AM', sub: 'Mie 16 Sept · Solo online, reservar 2-3 meses antes', pri: 'critical', link: 'https://tickets.vangoghmuseum.com/', linkLbl: 'Reservar' },
+      { label: 'Smokeboat Canal Tour', sub: 'Vie 18 Sept · Reservar 2-4 semanas antes', pri: 'critical', link: 'https://smokeboat.com/', linkLbl: 'Smokeboat.com' }
     ]
   },
   {
     cat: 'Reservas importantes', icon: '🟡',
     items: [
-      { label: 'Rijksmuseum o Van Gogh Museum', sub: 'Mie 16 Sept', pri: 'important', link: 'https://www.rijksmuseum.nl/en/tickets', linkLbl: 'Tickets' },
+      { label: 'Moco Museum Amsterdam', sub: 'Mie 16 Sept (tarde)', pri: 'important', link: 'https://mocomuseum.com/', linkLbl: 'Tickets' },
+      { label: 'Fabrique des Lumieres', sub: 'Jue 17 Sept · 11:30 slot', pri: 'important', link: 'https://www.fabrique-lumieres.com/en', linkLbl: 'Tickets' },
+      { label: 'NEMO Science Museum', sub: 'Vie 18 Sept · 11:00', pri: 'important', link: 'https://www.nemosciencemuseum.nl/en/plan-your-visit', linkLbl: 'Tickets' },
       { label: 'Museo del Prado', sub: 'Sab 19 Sept', pri: 'important', link: 'https://www.museodelprado.es/en/visit/tickets', linkLbl: 'Tickets' },
       { label: 'Real Alcazar Sevilla', sub: 'Dom 27 Sept', pri: 'important', link: 'https://www.alcazarsevilla.org/', linkLbl: 'Tickets' },
       { label: 'Mezquita Cordoba (turno especifico)', sub: 'Mar 29 Sept · Gratis 8:30-9:30 AM', pri: 'important', link: 'https://mezquita-catedraldecordoba.es/', linkLbl: 'Info' },
@@ -1632,7 +1639,7 @@ const checklistData = [
     cat: 'Transporte interno', icon: '🚄',
     items: [
       { label: 'Vuelo MAD → AMS (conexion dia 1)', sub: 'Mar 15 Sept · KLM ~10am', pri: 'normal', link: 'https://www.klm.com/', linkLbl: 'KLM' },
-      { label: 'Vuelo AMS → MAD', sub: 'Vie 18 Sept · ~12:00', pri: 'normal', link: 'https://www.klm.com/', linkLbl: 'KLM' },
+      { label: 'Vuelo AMS → MAD (nocturno)', sub: 'Vie 18 Sept · ~20:00 · llega ~23:30', pri: 'normal', link: 'https://www.klm.com/', linkLbl: 'KLM' },
       { label: 'AVE Madrid ↔ Toledo', sub: 'Dom 20 Sept · ida y vuelta', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' },
       { label: 'AVE Madrid → Barcelona', sub: 'Lun 21 Sept · ~14:00', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' },
       { label: 'Vuelo BCN → Granada', sub: 'Jue 24 Sept · Vueling ~9am', pri: 'normal', link: 'https://www.vueling.com/', linkLbl: 'Vueling' },
@@ -2209,16 +2216,16 @@ function renderExpenses() {
 
 function updateExpenseTotals() {
   const list = getExpenses();
-  // Normalizamos todo a EUR para el total combinado
-  let totalEUR = 0;
+  // Normalizamos todo a USD para el total combinado
+  let totalUSD = 0;
   list.forEach(e => {
-    totalEUR += e.cur === 'USD' ? e.amt / EUR_TO_USD : e.amt;
+    totalUSD += e.cur === 'EUR' ? e.amt * EUR_TO_USD : e.amt;
   });
   const p1 = getSplit();
   const p2 = 100 - p1;
-  document.getElementById('exp-total').textContent = fmtMoney(totalEUR, 'EUR');
-  document.getElementById('p1-total').textContent = fmtMoney(totalEUR * p1 / 100, 'EUR');
-  document.getElementById('p2-total').textContent = fmtMoney(totalEUR * p2 / 100, 'EUR');
+  document.getElementById('exp-total').textContent = fmtMoney(totalUSD, 'USD');
+  document.getElementById('p1-total').textContent = fmtMoney(totalUSD * p1 / 100, 'USD');
+  document.getElementById('p2-total').textContent = fmtMoney(totalUSD * p2 / 100, 'USD');
 }
 
 // Enter key submits expense
