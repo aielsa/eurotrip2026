@@ -1,0 +1,2349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Amsterdam + España 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --glass: rgba(255,255,255,0.65);
+      --glass-border: rgba(255,255,255,0.6);
+      --glass-strong: rgba(255,255,255,0.82);
+      --blur: 20px;
+      --text: #1a1030;
+      --text-secondary: #5a5270;
+      --text-light: #8a84a0;
+      --accent: #7C3AED;
+      --accent2: #818CF8;
+      --accent3: #C4B5FD;
+      --accent4: #6366F1;
+      --accent5: #A78BFA;
+      --green: #10B981;
+      --orange: #F59E0B;
+      --red: #EF4444;
+      --radius: 20px;
+      --radius-sm: 14px;
+      --shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+      --shadow-lg: 0 12px 48px rgba(31, 38, 135, 0.2);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: linear-gradient(180deg, #f0ecf7 0%, #ddd6f3 15%, #c5b9e8 30%, #a78bfa 50%, #818cf8 65%, #6366f1 80%, #4f46e5 90%, #3b82f6 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: 80px;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(196, 181, 253, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 60%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 90%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .container { position: relative; z-index: 1; max-width: 480px; margin: 0 auto; }
+    @media(min-width:768px) {
+      .container { max-width: 720px; }
+      .dest-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .hero h1 { font-size: 46px; }
+      .hero { padding: 80px 32px 52px; }
+      .countdown { margin: -12px 24px 24px; }
+      .progress-wrap { margin: 0 24px 28px; }
+      .section { padding: 0 24px; margin-bottom: 28px; }
+    }
+    @media(min-width:1024px) {
+      .container { max-width: 900px; }
+      .hero h1 { font-size: 54px; }
+      .hero { padding: 90px 40px 60px; }
+      .hero-emoji { font-size: 64px; }
+      .dest-cards { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .transport-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+      .transport-item { border-radius: 0; }
+    }
+    @media(min-width:1280px) {
+      .container { max-width: 1080px; }
+      .dest-cards { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    /* GLASS CARD BASE */
+    .glass {
+      background: var(--glass);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .glass-strong {
+      background: var(--glass-strong);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    /* ── HERO ──────────────────────── */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 44px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: -12px;
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('https://images.unsplash.com/photo-1500835556837-99ac94a94552?w=1200&h=600&fit=crop&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(165deg, rgba(109,40,217,0.85) 0%, rgba(124,58,237,0.75) 30%, rgba(99,102,241,0.7) 60%, rgba(79,70,229,0.8) 100%);
+    }
+    .hero > *:not(.hero-bg) { position: relative; z-index: 1; }
+    .hero-emoji { font-size: 52px; margin-bottom: 16px; display: block; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 800;
+      color: white;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,0.9);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .hero-stat {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 16px;
+      padding: 12px 18px;
+      text-align: center;
+      color: white;
+    }
+    .hero-stat-val { font-size: 26px; font-weight: 800; line-height: 1; }
+    .hero-stat-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.85; margin-top: 2px; }
+
+    /* ── COUNTDOWN ─────────────────── */
+    .countdown {
+      margin: -12px 16px 20px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .countdown-num {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1;
+    }
+    .countdown-lbl {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+
+    /* ── SECTION ───────────────────── */
+    .section { padding: 0 16px; margin-bottom: 24px; }
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding: 0 4px;
+    }
+    .section-icon {
+      width: 36px; height: 36px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    /* ── PROGRESS ──────────────────── */
+    .progress-wrap { margin: 0 16px 24px; padding: 20px; }
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .progress-title { font-size: 15px; font-weight: 700; color: var(--text); }
+    .progress-pct {
+      font-size: 15px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .progress-track {
+      width: 100%; height: 10px;
+      background: rgba(0,0,0,0.06);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #c4b5fd, #818cf8, #6366f1, #7c3aed);
+      background-size: 300% 100%;
+      animation: shimmer 3s ease infinite;
+      border-radius: 100px;
+      transition: width 0.6s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .progress-detail { font-size: 12px; color: var(--text-light); margin-top: 8px; }
+
+    /* ── ROUTE CHIPS ───────────────── */
+    .route-scroll {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 0 12px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .route-scroll::-webkit-scrollbar { display: none; }
+    .route-chip {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--glass-strong);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 100px;
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .route-chip:hover, .route-chip:active {
+      background: white;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .route-chip span { font-size: 16px; }
+    .route-arrow { color: var(--text-light); font-size: 14px; flex-shrink: 0; align-self: center; }
+
+    /* ── DESTINATION CARDS ─────────── */
+    .dest-cards { display: flex; flex-direction: column; gap: 16px; }
+    .dest-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: var(--shadow);
+    }
+    .dest-card:active { transform: scale(0.98); }
+
+    .dest-card-hero {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+    }
+    .dest-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .dest-card:hover .dest-card-img { transform: scale(1.05); }
+    .dest-card-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 16px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: white;
+    }
+    .dest-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .dest-card-meta {
+      font-size: 12px;
+      opacity: 0.9;
+      margin-top: 2px;
+      display: flex;
+      gap: 12px;
+    }
+    .dest-card-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+    }
+    .dest-card-flag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-size: 28px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+    .dest-chevron {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      color: white;
+      font-size: 20px;
+      transition: transform 0.3s;
+      opacity: 0.7;
+    }
+    .dest-card.open .dest-chevron { transform: rotate(90deg); }
+
+    .dest-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+      background: var(--glass-strong);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+    .dest-card.open .dest-body { max-height: 5000px; }
+    .dest-body-inner { padding: 20px; }
+
+    .dest-brief {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .day-card {
+      background: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .day-card:last-of-type { margin-bottom: 0; }
+    .day-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .day-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+    }
+    .day-date-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .day-plan {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+    .day-plan strong { color: var(--text); font-weight: 600; }
+
+    .dest-highlights {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .dest-highlights-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+    .highlight-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .highlight-chip {
+      background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(99,102,241,0.08));
+      border: 1px solid rgba(99,102,241,0.12);
+      border-radius: 100px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .dest-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .dest-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 100px;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(124,58,237,0.2);
+    }
+    .dest-link:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(124,58,237,0.3); }
+    .dest-link.maps {
+      background: linear-gradient(135deg, #818cf8, #6366f1);
+      box-shadow: 0 2px 8px rgba(99,102,241,0.2);
+    }
+    .dest-link.maps:hover { box-shadow: 0 4px 12px rgba(99,102,241,0.3); }
+    .dest-link.tickets {
+      background: linear-gradient(135deg, #a78bfa, #7c3aed);
+      box-shadow: 0 2px 8px rgba(167,139,250,0.2);
+    }
+    .dest-link.tickets:hover { box-shadow: 0 4px 12px rgba(167,139,250,0.3); }
+
+    /* ── EXPENSE TRACKER ───────────── */
+    .expense-box { padding: 18px 20px; }
+    .expense-form {
+      display: grid;
+      grid-template-columns: 1fr 90px 70px;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .expense-form .exp-link-input { grid-column: 1 / -1; }
+    .exp-file-row {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .exp-file-label {
+      flex-shrink: 0;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.7);
+      border: 1px dashed rgba(124,58,237,0.35);
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #7c3aed;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .exp-file-label:hover {
+      background: rgba(124,58,237,0.08);
+      border-color: #7c3aed;
+    }
+    #exp-file { display: none; }
+    .exp-file-name {
+      flex: 1;
+      font-size: 12px;
+      color: var(--text-secondary);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-style: italic;
+    }
+    .exp-file-clear {
+      background: rgba(239,68,68,0.1);
+      color: #ef4444;
+      border: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .exp-file-clear:hover { background: rgba(239,68,68,0.2); }
+    .exp-item-attach {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(99,102,241,0.15));
+      color: #6366f1;
+      text-decoration: none;
+      font-size: 13px;
+      flex-shrink: 0;
+      transition: all 0.2s;
+      border: 1px solid rgba(124,58,237,0.2);
+    }
+    .exp-item-attach:hover {
+      background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(99,102,241,0.25));
+      transform: translateY(-1px);
+    }
+    .expense-form input, .expense-form select {
+      padding: 10px 12px;
+      border: 1px solid rgba(124,58,237,0.25);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.7);
+      font-family: inherit;
+      font-size: 13px;
+      color: var(--text);
+      outline: none;
+      transition: all 0.2s;
+      min-width: 0;
+    }
+    .expense-form input:focus, .expense-form select:focus {
+      border-color: #7c3aed;
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.15);
+      background: rgba(255,255,255,0.95);
+    }
+    .expense-form button {
+      grid-column: 1 / -1;
+      padding: 12px;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(124,58,237,0.3);
+      transition: all 0.2s;
+    }
+    .expense-form button:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(124,58,237,0.4); }
+    .expense-form button:active { transform: translateY(0); }
+    .exp-empty {
+      text-align: center;
+      padding: 20px 10px;
+      color: var(--text-light);
+      font-size: 12px;
+      font-style: italic;
+    }
+    .exp-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(124,58,237,0.08);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-item-desc {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .exp-item-amt {
+      font-size: 13px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      flex-shrink: 0;
+    }
+    .exp-item-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: rgba(124,58,237,0.1);
+      color: #7c3aed;
+      text-decoration: none;
+      font-size: 12px;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .exp-item-link:hover { background: rgba(124,58,237,0.2); transform: translateY(-1px); }
+    .exp-item-del {
+      background: rgba(239,68,68,0.1);
+      color: #ef4444;
+      border: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .exp-item-del:hover { background: rgba(239,68,68,0.2); }
+    .expense-split {
+      margin: 16px 0 12px;
+      padding: 14px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(99,102,241,0.08));
+      border-radius: 12px;
+      border: 1px solid rgba(124,58,237,0.15);
+    }
+    .split-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .split-val { color: #7c3aed; font-weight: 800; font-size: 14px; }
+    .split-presets {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .split-preset {
+      flex: 1;
+      padding: 6px 4px;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .split-preset:hover { background: rgba(255,255,255,0.9); }
+    .split-preset.active {
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 2px 8px rgba(124,58,237,0.3);
+    }
+    .split-slider {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(124,58,237,0.2);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .split-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(124,58,237,0.4);
+      border: 2px solid white;
+    }
+    .split-slider::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(124,58,237,0.4);
+      border: 2px solid white;
+    }
+    .expense-totals {
+      padding-top: 12px;
+      border-top: 2px solid rgba(124,58,237,0.12);
+    }
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      font-size: 14px;
+    }
+    .total-row.grand {
+      padding-top: 12px;
+      margin-top: 4px;
+      border-top: 1px dashed rgba(124,58,237,0.2);
+    }
+    .total-row .tr-label {
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+    .total-row.grand .tr-label {
+      color: var(--text);
+      font-weight: 800;
+      font-size: 15px;
+    }
+    .total-row .tr-val {
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .total-row.grand .tr-val {
+      font-size: 22px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #7c3aed, #818cf8, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .tr-person {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(124,58,237,0.1);
+      color: #7c3aed;
+      margin-left: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── TRANSPORT ─────────────────── */
+    .transport-list { display: flex; flex-direction: column; gap: 8px; }
+    .transport-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+    }
+    .transport-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .transport-icon.flight { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+    .transport-icon.train { background: linear-gradient(135deg, #818cf8, #6366f1); }
+    .transport-icon.car { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
+    .transport-info { flex: 1; min-width: 0; }
+    .transport-route { font-size: 14px; font-weight: 700; color: var(--text); }
+    .transport-detail { font-size: 12px; color: var(--text-secondary); }
+    .transport-cost {
+      font-size: 13px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      flex-shrink: 0;
+    }
+
+    /* ── BUDGET ────────────────────── */
+    .budget-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .budget-row:last-child { border-bottom: none; }
+    .budget-label {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .budget-val { font-size: 14px; font-weight: 700; color: var(--text); }
+    .budget-total {
+      font-size: 18px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #7c3aed, #818cf8, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ── CHECKLIST ─────────────────── */
+    .check-cat { margin-bottom: 12px; }
+    .check-cat-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      cursor: pointer;
+      border-radius: var(--radius);
+      transition: background 0.2s;
+    }
+    .check-cat-icon { font-size: 20px; }
+    .check-cat-title { font-size: 15px; font-weight: 700; flex: 1; color: var(--text); }
+    .check-cat-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: rgba(0,0,0,0.06);
+      color: var(--text-secondary);
+    }
+    .check-cat-badge.done {
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: white;
+    }
+    .check-cat-chev {
+      color: var(--text-light);
+      font-size: 18px;
+      transition: transform 0.3s;
+    }
+    .check-cat.open .check-cat-chev { transform: rotate(90deg); }
+
+    .check-items {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .check-cat.open .check-items { max-height: 2000px; }
+    .check-items-inner { padding: 0 16px 16px; }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      cursor: pointer;
+      transition: opacity 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .check-item:last-child { border-bottom: none; }
+    .check-item.checked { opacity: 0.45; }
+
+    .check-box {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      border: 2.5px solid rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+      background: white;
+    }
+    .check-item.checked .check-box {
+      background: linear-gradient(135deg, #10B981, #059669);
+      border-color: #10B981;
+      transform: scale(1.1);
+    }
+    .check-mark {
+      opacity: 0;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.25s;
+    }
+    .check-item.checked .check-mark { opacity: 1; }
+
+    .check-info { flex: 1; min-width: 0; }
+    .check-label { font-size: 14px; font-weight: 600; color: var(--text); transition: all 0.2s; }
+    .check-item.checked .check-label { text-decoration: line-through; color: var(--text-light); }
+    .check-sublabel { font-size: 12px; color: var(--text-light); margin-top: 2px; }
+    .check-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: #7c3aed;
+      text-decoration: none;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    .check-link:hover { text-decoration: underline; }
+    .check-priority {
+      font-size: 9px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-top: 3px;
+      letter-spacing: 0.5px;
+    }
+    .pri-critical { background: linear-gradient(135deg, #EF4444, #DC2626); color: white; }
+    .pri-important { background: linear-gradient(135deg, #818cf8, #6366f1); color: white; }
+    .pri-normal { background: linear-gradient(135deg, #10B981, #059669); color: white; }
+
+    /* ── PACKING ───────────────────── */
+    .pack-cat { margin-bottom: 10px; }
+    .pack-cat-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      cursor: pointer;
+      border-radius: var(--radius);
+    }
+    .pack-cat-icon { font-size: 20px; }
+    .pack-cat-title { font-size: 15px; font-weight: 700; flex: 1; color: var(--text); }
+    .pack-cat-chev {
+      color: var(--text-light);
+      font-size: 18px;
+      transition: transform 0.3s;
+    }
+    .pack-cat.open .pack-cat-chev { transform: rotate(90deg); }
+    .pack-items { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .pack-cat.open .pack-items { max-height: 800px; }
+    .pack-items-inner { padding: 0 16px 14px; }
+
+    /* ── CALENDAR ──────────────────── */
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      text-align: center;
+    }
+    .cal-header {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 0;
+    }
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      position: relative;
+      cursor: default;
+    }
+    .cal-day.empty { visibility: hidden; }
+    .cal-day-num { font-size: 13px; font-weight: 700; }
+    .cal-day-emoji { font-size: 12px; margin-top: 2px; }
+    @media(min-width:768px) {
+      .cal-day-num { font-size: 16px; }
+      .cal-day-emoji { font-size: 18px; margin-top: 4px; }
+      .cal-day { border-radius: 14px; }
+      .cal-header { font-size: 12px; }
+      .cal-grid { gap: 6px; }
+    }
+    @media(min-width:1024px) {
+      .cal-day-num { font-size: 18px; }
+      .cal-day-emoji { font-size: 22px; margin-top: 4px; }
+    }
+    .cal-day.highlight {
+      background: linear-gradient(135deg, rgba(167,139,250,0.15), rgba(129,140,248,0.15));
+      border: 1px solid rgba(124,58,237,0.1);
+    }
+    .cal-day.summit {
+      background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(79,70,229,0.2));
+      border: 1px solid rgba(99,102,241,0.15);
+    }
+    .cal-day.flight {
+      background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(109,40,217,0.2));
+      border: 1px solid rgba(124,58,237,0.15);
+    }
+    .cal-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+      justify-content: center;
+    }
+    .cal-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+    .cal-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 4px;
+    }
+
+    /* ── FOOTER ────────────────────── */
+    .footer {
+      text-align: center;
+      padding: 40px 16px 20px;
+      color: var(--text-light);
+      font-size: 12px;
+    }
+
+    /* ── TOAST ─────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.5);
+      color: var(--text);
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      z-index: 100;
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ── CONFETTI ──────────────────── */
+    @keyframes confetti-fall {
+      0% { transform: translateY(-10px) rotate(0deg) scale(1); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg) scale(0.5); opacity: 0; }
+    }
+    .confetti {
+      position: fixed;
+      top: 0;
+      z-index: 999;
+      pointer-events: none;
+      animation: confetti-fall 2.5s ease-in forwards;
+    }
+
+    /* ── EQUIPAJE TEMP BADGE ──────── */
+    .temp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      color: white;
+    }
+    .temp-cold { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+    .temp-warm { background: linear-gradient(135deg, #818cf8, #6366f1); }
+    .temp-hot { background: linear-gradient(135deg, #7c3aed, #5b21b6); }
+
+    /* ── SYNC INDICATOR ────────────── */
+    .sync-pill {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 100;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.3s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    .sync-pill .sync-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .sync-pill.connected {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #059669;
+    }
+    .sync-pill.connected .sync-dot {
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+      animation: pulseGreen 2s infinite;
+    }
+    .sync-pill.syncing {
+      background: rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(124, 58, 237, 0.35);
+      color: #7c3aed;
+    }
+    .sync-pill.syncing .sync-dot {
+      background: #7c3aed;
+      animation: pulsePurple 1s infinite;
+    }
+    .sync-pill.offline {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #ef4444;
+    }
+    .sync-pill.offline .sync-dot { background: #ef4444; }
+    @keyframes pulseGreen {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+    @keyframes pulsePurple {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    /* ── UPLOAD PROGRESS ───────────── */
+    .upload-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 16, 48, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .upload-overlay.show { display: flex; }
+    .upload-box {
+      background: white;
+      padding: 24px 32px;
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      text-align: center;
+      min-width: 260px;
+    }
+    .upload-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .upload-bar {
+      height: 8px;
+      background: rgba(124,58,237,0.15);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .upload-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #7c3aed, #6366f1);
+      transition: width 0.2s;
+      width: 0%;
+    }
+    .upload-pct {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+<!-- SYNC INDICATOR -->
+<div class="sync-pill syncing" id="sync-pill">
+  <span class="sync-dot"></span>
+  <span id="sync-text">Conectando...</span>
+</div>
+
+<!-- UPLOAD PROGRESS OVERLAY -->
+<div class="upload-overlay" id="upload-overlay">
+  <div class="upload-box">
+    <div class="upload-title" id="upload-title">Subiendo archivo...</div>
+    <div class="upload-bar"><div class="upload-bar-fill" id="upload-bar-fill"></div></div>
+    <div class="upload-pct" id="upload-pct">0%</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <span class="hero-emoji">🇳🇱 ✈️ 🇪🇸</span>
+    <h1>Amsterdam + España</h1>
+    <div class="hero-sub">14 Septiembre — 2 Octubre 2026</div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-val">9</div>
+        <div class="hero-stat-lbl">Ciudades</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">17</div>
+        <div class="hero-stat-lbl">Noches</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">19</div>
+        <div class="hero-stat-lbl">Dias</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown glass-strong">
+    <div class="countdown-num" id="cd-num">---</div>
+    <div class="countdown-lbl">dias para el viaje</div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap glass-strong">
+    <div class="progress-top">
+      <span class="progress-title">Preparativos del viaje</span>
+      <span class="progress-pct" id="prog-pct">0%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+    </div>
+    <div class="progress-detail" id="prog-detail">0 de 0 completados</div>
+  </div>
+
+  <!-- ROUTE -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#9992;&#65039;</div>
+      <div class="section-title">Ruta del viaje</div>
+    </div>
+    <div class="route-scroll">
+      <div class="route-chip" onclick="goTo('sju')"><span>🇵🇷</span> SJU</div>
+      <span class="route-arrow">&rarr;</span>
+      <div class="route-chip" onclick="goTo('amsterdam')"><span>🇳🇱</span> Amsterdam</div>
+      <span class="route-arrow">&rarr;</span>
+      <div class="route-chip" onclick="goTo('madrid')"><span>🇪🇸</span> Madrid</div>
+      <span class="route-arrow">&rarr;</span>
+      <div class="route-chip" onclick="goTo('toledo')"><span>🏰</span> Toledo</div>
+      <span class="route-arrow">&rarr;</span>
+      <div class="route-chip" onclick="goTo('barcelona')"><span>🎯</span> Barcelona</div>
+      <span class="route-arrow">&rarr;</span>
+      <div class="route-chip" onclick="goTo('granada')"><span>🌙</span> Granada</div>
+      <span class="route-arrow">&rarr;</span>
+      <div class="route-chip" onclick="goTo('ronda')"><span>&#9968;&#65039;</span> Ronda</div>
+      <span class="route-arrow">&rarr;</span>
+      <div class="route-chip" onclick="goTo('sevilla')"><span>🌺</span> Sevilla</div>
+      <span class="route-arrow">&rarr;</span>
+      <div class="route-chip" onclick="goTo('cordoba')"><span>🕌</span> Cordoba</div>
+      <span class="route-arrow">&rarr;</span>
+      <div class="route-chip" onclick="goTo('sju')"><span>🇵🇷</span> SJU</div>
+    </div>
+  </div>
+
+  <!-- CALENDAR -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#128197;</div>
+      <div class="section-title">Calendario</div>
+    </div>
+    <div class="glass-strong" style="padding:20px;">
+      <div style="text-align:center;font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px;">Septiembre - Octubre 2026</div>
+      <div class="cal-grid">
+        <div class="cal-header">Lun</div><div class="cal-header">Mar</div><div class="cal-header">Mie</div><div class="cal-header">Jue</div><div class="cal-header">Vie</div><div class="cal-header">Sab</div><div class="cal-header">Dom</div>
+        <!-- Week 1: Sept 14-20 -->
+        <div class="cal-day flight"><div class="cal-day-num">14</div><div class="cal-day-emoji">✈️</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">15</div><div class="cal-day-emoji">🇳🇱</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">16</div><div class="cal-day-emoji">🇳🇱</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">17</div><div class="cal-day-emoji">🇳🇱</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">18</div><div class="cal-day-emoji">🇪🇸</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">19</div><div class="cal-day-emoji">🇪🇸</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">20</div><div class="cal-day-emoji">🏰</div></div>
+        <!-- Week 2: Sept 21-27 -->
+        <div class="cal-day summit"><div class="cal-day-num">21</div><div class="cal-day-emoji">🚄</div></div>
+        <div class="cal-day summit"><div class="cal-day-num">22</div><div class="cal-day-emoji">🎯</div></div>
+        <div class="cal-day summit"><div class="cal-day-num">23</div><div class="cal-day-emoji">🎯</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">24</div><div class="cal-day-emoji">☀️</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">25</div><div class="cal-day-emoji">☀️</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">26</div><div class="cal-day-emoji">⛰️</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">27</div><div class="cal-day-emoji">🌺</div></div>
+        <!-- Week 3: Sept 28 - Oct 4 -->
+        <div class="cal-day highlight"><div class="cal-day-num">28</div><div class="cal-day-emoji">🌺</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">29</div><div class="cal-day-emoji">🕌</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">30</div><div class="cal-day-emoji">🇪🇸</div></div>
+        <div class="cal-day highlight"><div class="cal-day-num">1</div><div class="cal-day-emoji">🇪🇸</div></div>
+        <div class="cal-day flight"><div class="cal-day-num">2</div><div class="cal-day-emoji">✈️</div></div>
+        <div class="cal-day empty"></div><div class="cal-day empty"></div>
+      </div>
+      <div class="cal-legend">
+        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:linear-gradient(135deg,#7c3aed,#6d28d9)"></div> Vuelos</div>
+        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:linear-gradient(135deg,#a78bfa,#818cf8)"></div> Destinos</div>
+        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:linear-gradient(135deg,#6366f1,#4f46e5)"></div> AI Summit</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESTINATIONS -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#127758;</div>
+      <div class="section-title">Destinos</div>
+    </div>
+    <div class="dest-cards" id="dest-grid"></div>
+  </div>
+
+  <!-- TRANSPORT -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#128646;</div>
+      <div class="section-title">Todos los transportes</div>
+    </div>
+    <div class="glass-strong" style="padding:6px 0;" id="transport-list"></div>
+  </div>
+
+  <!-- EXPENSE TRACKER -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#128176;</div>
+      <div class="section-title">Gastos reservados</div>
+    </div>
+    <div class="glass-strong expense-box">
+      <div class="expense-form">
+        <input type="text" id="exp-desc" placeholder="Ej: Hotel Madrid 3 noches" maxlength="60">
+        <input type="number" id="exp-amount" placeholder="0.00" step="0.01" min="0">
+        <select id="exp-currency">
+          <option value="EUR">EUR €</option>
+          <option value="USD">USD $</option>
+        </select>
+        <input type="url" id="exp-link" class="exp-link-input" placeholder="Link de reserva (opcional) — ej: https://booking.com/..." maxlength="500">
+        <div class="exp-file-row">
+          <label for="exp-file" class="exp-file-label">&#128206; Adjuntar archivo</label>
+          <input type="file" id="exp-file" accept="image/*,.pdf,application/pdf" onchange="onFilePick(this)">
+          <span class="exp-file-name" id="exp-file-name">Imagen o PDF (opcional)</span>
+          <button type="button" class="exp-file-clear" id="exp-file-clear" style="display:none;" onclick="clearFile()" title="Quitar">&times;</button>
+        </div>
+        <button onclick="addExpense()">+ Agregar gasto</button>
+      </div>
+
+      <div id="expense-list"></div>
+
+      <div class="expense-split">
+        <div class="split-label"><span>División</span><span class="split-val" id="split-val">50% / 50%</span></div>
+        <div class="split-presets">
+          <button class="split-preset" data-split="50" onclick="setSplit(50)">50 / 50</button>
+          <button class="split-preset" data-split="60" onclick="setSplit(60)">60 / 40</button>
+          <button class="split-preset" data-split="70" onclick="setSplit(70)">70 / 30</button>
+          <button class="split-preset" data-split="100" onclick="setSplit(100)">100 / 0</button>
+        </div>
+        <input type="range" id="split-slider" class="split-slider" min="0" max="100" value="50" step="5" oninput="onSliderChange(this.value)">
+      </div>
+
+      <div class="expense-totals">
+        <div class="total-row grand">
+          <span class="tr-label">Total</span>
+          <span class="tr-val" id="exp-total">€0.00</span>
+        </div>
+        <div class="total-row">
+          <span class="tr-label">Tú<span class="tr-person" id="p1-pct">50%</span></span>
+          <span class="tr-val" id="p1-total">€0.00</span>
+        </div>
+        <div class="total-row">
+          <span class="tr-label">Persona 2<span class="tr-person" id="p2-pct">50%</span></span>
+          <span class="tr-val" id="p2-total">€0.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#9989;</div>
+      <div class="section-title">Preparativos</div>
+    </div>
+    <div id="checklist-box"></div>
+  </div>
+
+  <!-- EQUIPAJE -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#128092;</div>
+      <div class="section-title">Equipaje</div>
+    </div>
+    <div id="packing-box"></div>
+  </div>
+
+  <div class="footer">
+    Hecho con amor para el viaje de tus suenos<br>
+    Elsa Del Pino &bull; The AI Strategist &bull; 2026
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ── FIREBASE SDK (compat layer via CDN) ───────────────── -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+
+<script>
+// ── FIREBASE CONFIG ────────────────────────────────
+const firebaseConfig = {
+  apiKey: "AIzaSyBHrqS--NH2ro6iA__OAIXydJDrMy0Eylw",
+  authDomain: "eurotrip-2026-202a1.firebaseapp.com",
+  projectId: "eurotrip-2026-202a1",
+  storageBucket: "eurotrip-2026-202a1.firebasestorage.app",
+  messagingSenderId: "979708198117",
+  appId: "1:979708198117:web:afb15e18ece762c474a80c"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const storage = firebase.storage();
+const TRIP_ID = 'eurotrip-2026';
+const tripRef = db.collection('trips').doc(TRIP_ID);
+const expensesRef = tripRef.collection('expenses');
+
+// Habilita offline persistence (si el usuario pierde internet, sigue funcionando)
+db.enablePersistence({ synchronizeTabs: true }).catch(err => {
+  console.warn('Offline persistence off:', err.code);
+});
+
+// ── PHOTOS (locales en /photos) ────────────────────
+// Coloca 8 fotos (.jpg, .jpeg o .png) en la carpeta /photos con estos nombres exactos.
+// Si falta alguna, el gradient morado se ve como fallback automaticamente.
+const PHOTOS = {
+  amsterdam: 'photos/amsterdam.jpg',
+  madrid: 'photos/madrid.jpg',
+  toledo: 'photos/toledo.jpg',
+  barcelona: 'photos/barcelona.jpg',
+  granada: 'photos/granada.jpg',
+  ronda: 'photos/ronda.jpg',
+  sevilla: 'photos/sevilla.jpg',
+  cordoba: 'photos/cordoba.jpg'
+};
+
+const GRADIENTS = {
+  amsterdam: 'linear-gradient(135deg, #7c3aed, #a78bfa)',
+  madrid: 'linear-gradient(135deg, #6d28d9, #818cf8)',
+  toledo: 'linear-gradient(135deg, #5b21b6, #7c3aed)',
+  barcelona: 'linear-gradient(135deg, #4f46e5, #6366f1)',
+  granada: 'linear-gradient(135deg, #7c3aed, #c4b5fd)',
+  ronda: 'linear-gradient(135deg, #6366f1, #a78bfa)',
+  sevilla: 'linear-gradient(135deg, #6d28d9, #818cf8)',
+  cordoba: 'linear-gradient(135deg, #4f46e5, #7c3aed)'
+};
+
+// ── DESTINATIONS ───────────────────────────────────
+const destinations = [
+  {
+    id: 'amsterdam', name: 'Amsterdam', flag: '🇳🇱', tag: '3 noches',
+    dates: '15 - 17 Sept', photo: PHOTOS.amsterdam, grad: GRADIENTS.amsterdam,
+    brief: 'Ciudad de canales, museos de clase mundial y encanto bohemio. Jordaan, Prinsengracht, Nine Streets, De Pijp. Hogar de Rembrandt, Vermeer y Van Gogh. Tres dias para explorar la vida sobre el agua, los mercados flotantes y la arquitectura del Siglo de Oro holandes.',
+    highlights: ['Canales UNESCO', 'Rijksmuseum', 'Casa Ana Frank', 'Van Gogh Museum', 'A\'DAM Lookout', 'Nine Streets', 'Vondelpark', 'Zaanse Schans'],
+    days: [
+      { num: 1, date: 'Martes 15 Sept', plan: 'Aterrizar <strong>MAD ~7am</strong>. Conexion <strong>MAD → AMS</strong> (KLM ~10am, 2.5h). Llegar Amsterdam ~12:30. <strong>Check-in hotel</strong>. Primer paseo por los canales — <strong>Jordaan, Prinsengracht, Nine Streets</strong>. Perderse por las callejuelas con fachadas inclinadas. Cena en terraza sobre el canal con vista a los barcos.' },
+      { num: 2, date: 'Miercoles 16 Sept', plan: '<strong>Rijksmuseum</strong> (Rembrandt, Vermeer — reservar online) o <strong>Van Gogh Museum</strong>. Paseo por <strong>Vondelpark</strong>. Tarde: barrio <strong>De Pijp</strong> — Albert Cuyp Market (el mercado callejero mas grande de Holanda), cafes, tiendas vintage. Noche: <strong>paseo en barco por los canales al atardecer</strong> — una de las experiencias mas magicas de la ciudad.' },
+      { num: 3, date: 'Jueves 17 Sept', plan: '<strong>Casa de Ana Frank</strong> (reservar meses antes!). Jordaan profundo — galerias de arte, cafes independientes, librerias. Tarde: <strong>A\'DAM Lookout</strong> (ferry gratis + mirador panoramico con columpio sobre el vacio) o excursion a <strong>Zaanse Schans</strong> (molinos iconicos — drone gold, ~30 min tren). Ultima cena holandesa: bitterballen, stroopwafels.' }
+    ],
+    links: [
+      { icon: '🎟', label: 'Rijksmuseum', url: 'https://www.rijksmuseum.nl/en/tickets', type: 'tickets' },
+      { icon: '🏠', label: 'Casa Ana Frank', url: 'https://www.annefrank.org/en/tickets/', type: 'tickets' },
+      { icon: '🎨', label: 'Van Gogh Museum', url: 'https://www.vangoghmuseum.nl/en/tickets', type: 'tickets' },
+      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Amsterdam+Netherlands', type: 'maps' }
+    ]
+  },
+  {
+    id: 'madrid', name: 'Madrid', flag: '🇪🇸', tag: '3 noches',
+    dates: '18 - 21 Sept', photo: PHOTOS.madrid, grad: GRADIENTS.madrid,
+    brief: 'Capital vibrante de Espana. El triangulo del arte (Prado, Reina Sofia, Thyssen), tapeo legendario en La Latina y Cava Baja, rooftops con vistas de 360 grados, el verde del Retiro y la energia de Malasana. Base para el day trip a Toledo.',
+    highlights: ['Museo del Prado', 'Reina Sofia (Guernica)', 'Parque del Retiro', 'La Latina', 'Malasana', 'Rooftop Bellas Artes', 'Templo de Debod', 'Plaza Mayor'],
+    days: [
+      { num: 4, date: 'Viernes 18 Sept', plan: 'Manana en Amsterdam: <strong>Bloemenmarkt</strong> (mercado de flores flotante), checkout. <strong>Vuelo AMS → MAD</strong> (~12:00, 2.5h). Llegar Madrid ~14:30. Check-in hotel. <strong>Tarde:</strong> Puerta del Sol, <strong>Plaza Mayor</strong>, tapeo epico por <strong>La Latina / Cava Baja</strong> — patatas bravas, croquetas, jamon iberico, tortilla.' },
+      { num: 5, date: 'Sabado 19 Sept', plan: '<strong>Museo del Prado</strong> (Las Meninas de Velazquez, los Caprichos de Goya, El Jardin de las Delicias del Bosco — reservar online). <strong>Parque del Retiro</strong>: Palacio de Cristal (instalacion arte), lago con barcas, rosaleda. Tarde: <strong>Malasana</strong> (vintage, cafes third-wave, street art, tiendas independientes). Noche: <strong>rooftop bar Azotea del Circulo de Bellas Artes</strong> — vistas 360° de todo Madrid con el cielo encendido.' },
+      { num: 7, date: 'Lunes 21 Sept', plan: '<strong>Museo Reina Sofia</strong> — el <strong>Guernica de Picasso</strong>, imprescindible. Una de las obras mas poderosas del mundo. Despues: <strong>Templo de Debod</strong> (templo egipcio autentico del s.II a.C. con vistas a la sierra al atardecer). Almuerzo. <strong>AVE Madrid → Barcelona</strong> (~2.5h, tren ~14:00). Llegar BCN ~16:30. Check-in. Paseo por el <strong>Barrio Gotico</strong> y <strong>El Born</strong>. Cena en <strong>Barceloneta</strong> frente al Mediterraneo.' }
+    ],
+    links: [
+      { icon: '🎟', label: 'Museo del Prado', url: 'https://www.museodelprado.es/en/visit/tickets', type: 'tickets' },
+      { icon: '🖼', label: 'Reina Sofia', url: 'https://www.museoreinasofia.es/en/visit', type: 'tickets' },
+      { icon: '🚄', label: 'Renfe AVE', url: 'https://www.renfe.com/es/en', type: '' },
+      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Madrid+Spain', type: 'maps' }
+    ]
+  },
+  {
+    id: 'toledo', name: 'Toledo', flag: '🏰', tag: 'Day trip',
+    dates: '20 Sept', photo: PHOTOS.toledo, grad: GRADIENTS.toledo,
+    brief: 'La "Ciudad de las Tres Culturas" — cristiana, judia y musulmana convivieron aqui durante siglos. Patrimonio de la Humanidad completo. Ciudad medieval amurallada con el Mirador del Valle: una de las panoramicas mas impresionantes de toda Espana. Mazapan artesanal y espaderia toledana.',
+    highlights: ['Catedral Primada', 'Alcazar', 'Sinagoga del Transito', 'Mirador del Valle', 'Callejuelas medievales', 'Mazapan artesanal', 'Espaderia'],
+    days: [
+      { num: 6, date: 'Domingo 20 Sept', plan: '<strong>AVE Madrid → Toledo</strong> (30 min desde Atocha, €13). La ciudad entera es un museo abierto. <strong>Catedral Primada</strong> (gotica, impresionante), <strong>Alcazar</strong> (fortaleza con vistas), <strong>Sinagoga del Transito</strong> (arte mudejar). Callejuelas medievales empedradas, espaderia artesanal (Toledo es famosa por sus espadas desde la epoca romana). <strong>Mirador del Valle al atardecer</strong> — panoramica completa de la ciudad sobre el rio Tajo. Uno de los mejores drone shots de Espana. <strong>Mazapan artesanal</strong> de Santo Tome. Volver a Madrid PM.' }
+    ],
+    links: [
+      { icon: '🚄', label: 'AVE Madrid-Toledo', url: 'https://www.renfe.com/es/en', type: '' },
+      { icon: '📍', label: 'Mirador del Valle', url: 'https://maps.google.com/?q=Mirador+del+Valle+Toledo+Spain', type: 'maps' },
+      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Toledo+Spain', type: 'maps' }
+    ]
+  },
+  {
+    id: 'barcelona', name: 'Barcelona', flag: '🎯', tag: 'AI Summit',
+    dates: '21 - 23 Sept', photo: PHOTOS.barcelona, grad: GRADIENTS.barcelona,
+    brief: 'Epicentro del AI Summit Barcelona 2026 en el World Trade Center. 10,000+ asistentes, 200+ speakers, expo, networking de primer nivel. Ademas: el Barrio Gotico medieval, El Born bohemio y Barceloneta frente al Mediterraneo.',
+    highlights: ['AI Summit WTC', '10,000+ asistentes', '200+ speakers', 'Barrio Gotico', 'El Born', 'Barceloneta', 'Networking'],
+    days: [
+      { num: 7, date: 'Lunes 21 Sept', plan: 'Llegada en <strong>AVE desde Madrid ~16:30</strong>. Check-in hotel. Paseo por el <strong>Barrio Gotico</strong> — callejuelas medievales, la Catedral, Placa Reial. <strong>El Born</strong> — boutiques, cocktail bars, Basilica de Santa Maria del Mar. Cena en <strong>Barceloneta</strong> frente al mar: paella, fideuá, mariscos. Prep para el Summit: revisar agenda, confirmar meetings.' },
+      { num: 8, date: 'Martes 22 Sept', plan: '<strong>AI SUMMIT BARCELONA — DIA 1</strong>. World Trade Center Barcelona, frente al puerto. Keynotes principales, expo floor con demos de ultima tecnologia, workshops, networking sessions. 10,000+ asistentes de todo el mundo. Contenido: BTS, keynotes, thought leadership reels para IG/LinkedIn.' },
+      { num: 9, date: 'Miercoles 23 Sept', plan: '<strong>AI SUMMIT BARCELONA — DIA 2</strong>. Sesiones avanzadas, cerrar contactos clave, intercambio de tarjetas, follow-ups estrategicos. Ultimas demos en expo. Networking lunch y closing ceremony. Preparar para manana: vuelo temprano a Granada.' }
+    ],
+    links: [
+      { icon: '🎯', label: 'AI Summit BCN', url: 'https://barcelona.theaisummit.com/', type: '' },
+      { icon: '📍', label: 'WTC Barcelona', url: 'https://maps.google.com/?q=World+Trade+Center+Barcelona', type: 'maps' },
+      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Barcelona+Spain', type: 'maps' }
+    ]
+  },
+  {
+    id: 'granada', name: 'Granada', flag: '🌙', tag: '2 noches',
+    dates: '24 - 25 Sept', photo: PHOTOS.granada, grad: GRADIENTS.granada,
+    brief: 'La Alhambra: la joya absoluta de la arquitectura islamica en Europa. El Albaicin arabe (UNESCO), teterias de la Caldereria Nueva, el Sacromonte gitano. Y lo mejor: en Granada cada bebida incluye tapa gratis. El Mirador de San Nicolas al atardecer con la Alhambra y Sierra Nevada: LA foto del viaje.',
+    highlights: ['La Alhambra', 'Palacios Nazaries', 'Generalife', 'Albaicin UNESCO', 'Mirador San Nicolas', 'Tapas gratis', 'Sacromonte', 'Teterias arabes'],
+    days: [
+      { num: 10, date: 'Jueves 24 Sept', plan: '<strong>Vuelo BCN → Granada</strong> (Vueling, ~1.5h, salida ~9am). Llegar ~10:30. Check-in. Caminar el <strong>Albaicin</strong> a fondo — barrio arabe UNESCO: callejuelas empedradas, carmenes con jardines ocultos, <strong>teterias arabes de la Caldereria Nueva</strong> (te moruno con dulces). <strong>Mirador de San Cristobal</strong> (menos turistas). <strong>Atardecer: Mirador de San Nicolas</strong> — la Alhambra banada en luz dorada con Sierra Nevada detras. LA foto del viaje. <strong>Noche:</strong> tapas gratis recorriendo <strong>Calle Navas, Plaza Nueva, Calle Elvira</strong> — en Granada cada bebida incluye tapa!' },
+      { num: 11, date: 'Viernes 25 Sept', plan: '<strong>Manana: LA ALHAMBRA + GENERALIFE</strong> (turno AM, reservar con MUCHA antelacion). <strong>Palacios Nazaries</strong> — la joya absoluta: los arabescos imposibles, la Fuente de los Leones, el Patio de los Arrayanes reflejando el cielo. <strong>Alcazaba</strong> (fortaleza militar, vistas). <strong>Jardines del Generalife</strong> (residencia de verano, fuentes, cipreses). ~3-4h. Almuerzo. <strong>Tarde: Sacromonte</strong> (barrio gitano, cuevas habitadas, vistas unicas) o paseo tranquilo por la <strong>Carrera del Darro</strong> — la calle mas bonita de Granada con el rio Darro y la Alhambra arriba. Ultima noche: cena especial en el Albaicin.' }
+    ],
+    links: [
+      { icon: '🎟', label: 'Alhambra tickets', url: 'https://www.alhambra-patronato.es/', type: 'tickets' },
+      { icon: '📍', label: 'Mirador San Nicolas', url: 'https://maps.google.com/?q=Mirador+de+San+Nicolas+Granada', type: 'maps' },
+      { icon: '📍', label: 'Albaicin', url: 'https://maps.google.com/?q=Albaicin+Granada+Spain', type: 'maps' },
+      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Granada+Spain', type: 'maps' }
+    ]
+  },
+  {
+    id: 'ronda', name: 'Ronda', flag: '⛰️', tag: '1 noche',
+    dates: '26 Sept', photo: PHOTOS.ronda, grad: GRADIENTS.ronda,
+    brief: 'Puente Nuevo sobre una garganta de 120 metros. Uno de los paisajes mas dramaticos de toda Espana. Banos arabes mejor conservados de la Peninsula Iberica, la plaza de toros mas antigua del pais (1785), y un road trip epico por la sierra andaluza.',
+    highlights: ['Puente Nuevo (120m)', 'Tajo de Ronda', 'Banos Arabes', 'Plaza de Toros (1785)', 'Camino de los Molinos', 'Sierra andaluza', 'Pueblos blancos'],
+    days: [
+      { num: 12, date: 'Sabado 26 Sept', plan: 'Recoger <strong>carro de alquiler</strong> en Granada. <strong>Conducir Granada → Ronda</strong> (~2.5h por la A-92 y A-367). Carretera preciosa: sierras andaluzas, campos de olivos infinitos, pueblos blancos en las colinas. Opcion de parar en <strong>Antequera</strong> (Dolmen UNESCO, Pena de los Enamorados). Llegada a Ronda ~mediodia. <strong>Puente Nuevo sobre el Tajo de Ronda</strong> — garganta de 120m, uno de los paisajes mas dramaticos de Espana. DRONE OBLIGATORIO. Bajar al fondo del Tajo por el <strong>Camino de los Molinos</strong>. <strong>Banos Arabes</strong> (los mejor conservados de la Peninsula Iberica). <strong>Plaza de Toros</strong> (la mas antigua de Espana, 1785). Casco antiguo. Cena con vistas al Tajo al atardecer — magico.' }
+    ],
+    links: [
+      { icon: '🚗', label: 'Rentalcars', url: 'https://www.rentalcars.com/', type: '' },
+      { icon: '📍', label: 'Puente Nuevo', url: 'https://maps.google.com/?q=Puente+Nuevo+Ronda+Spain', type: 'maps' },
+      { icon: '📍', label: 'Banos Arabes', url: 'https://maps.google.com/?q=Banos+Arabes+Ronda', type: 'maps' },
+      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Ronda+Spain', type: 'maps' }
+    ]
+  },
+  {
+    id: 'sevilla', name: 'Sevilla + Cadiz', flag: '🌺', tag: '2 noches',
+    dates: '27 - 28 Sept', photo: PHOTOS.sevilla, grad: GRADIENTS.sevilla,
+    brief: 'Real Alcazar (palacio mudejar donde filmaron Game of Thrones). Plaza de Espana al golden hour: semicircular, ceramica pintada de cada provincia. Triana: cuna del flamenco. Opcion de day trip a Cadiz — la ciudad mas antigua de Europa occidental (~1100 a.C.), playas entre castillos y el mejor atun rojo del mundo.',
+    highlights: ['Real Alcazar (GoT)', 'Plaza de Espana', 'Catedral + Giralda', 'Triana', 'Flamenco', 'Las Setas', 'Cadiz (opcional)', 'Guadalquivir'],
+    days: [
+      { num: 13, date: 'Domingo 27 Sept', plan: '<strong>Conducir Ronda → Sevilla</strong> (~1.5h por la sierra). Llegar ~mediodia. Check-in. <strong>Real Alcazar</strong> — palacio mudejar espectacular, Game of Thrones filmo aqui los jardines de Dorne. Los azulejos, los jardines, la mezcla de estilos es unica. Paseo por <strong>Santa Cruz</strong> (callejuelas con olor a azahar, patios escondidos con fuentes). <strong>Plaza de Espana al golden hour</strong> — semicircular, ceramica pintada de cada provincia espanola, canal con barcas. Drone heaven absoluto. Cruzar el puente a <strong>Triana</strong> — cuna del flamenco, tablaos, ceramica artesanal. Cena junto al <strong>Guadalquivir</strong> viendo la Torre del Oro iluminada.' },
+      { num: 14, date: 'Lunes 28 Sept', plan: '<strong>Opcion A — Sevilla profunda:</strong> <strong>Catedral + Giralda</strong> (la catedral gotica mas grande del mundo — subir la Giralda para vistas de toda la ciudad). <strong>Metropol Parasol / Las Setas</strong> (estructura de madera mas grande del mundo, mirador moderno sobre la ciudad vieja). Alameda de Hercules. Mercado de Triana. <strong>Flamenco en tablao autentico</strong> por la noche. <strong>Opcion B — Day trip Cadiz:</strong> Tren ~1.5h (€15). La ciudad mas antigua de Europa occidental (~1100 a.C.). <strong>Playa de La Caleta</strong> (la iconica, entre dos castillos). Catedral, <strong>Torre Tavira</strong> (camara oscura del s.XVIII), callejuelas blancas. <strong>Atun rojo</strong> fresco (Cadiz es la capital mundial del atun). Atardecer en La Caleta mirando al Atlantico.' }
+    ],
+    links: [
+      { icon: '🎟', label: 'Real Alcazar', url: 'https://www.alcazarsevilla.org/', type: 'tickets' },
+      { icon: '⛪', label: 'Catedral Sevilla', url: 'https://www.catedraldesevilla.es/', type: 'tickets' },
+      { icon: '📍', label: 'Plaza de Espana', url: 'https://maps.google.com/?q=Plaza+de+Espana+Sevilla', type: 'maps' },
+      { icon: '📍', label: 'Cadiz', url: 'https://maps.google.com/?q=Cadiz+Spain', type: 'maps' },
+      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Sevilla+Spain', type: 'maps' }
+    ]
+  },
+  {
+    id: 'cordoba', name: 'Cordoba + Madrid cierre', flag: '🕌', tag: '1+2 noches',
+    dates: '29 Sept - 2 Oct', photo: PHOTOS.cordoba, grad: GRADIENTS.cordoba,
+    brief: 'La Mezquita-Catedral: 856 columnas de marmol con arcos rojos y blancos formando un bosque hipnotico. Una catedral renacentista incrustada dentro de la mezquita — surrealista. Juderia medieval, Puente Romano sobre el Guadalquivir, patios cordobeses floridos, salmorejo y flamenquin (los inventaron aqui).',
+    highlights: ['Mezquita-Catedral', '856 columnas', 'Juderia medieval', 'Puente Romano', 'Calleja de las Flores', 'Patios cordobeses', 'Salmorejo', 'Flamenquin'],
+    days: [
+      { num: 15, date: 'Martes 29 Sept', plan: 'Manana libre en Sevilla: ultimos rincones. <strong>Devolver carro</strong> en Sevilla. <strong>AVE Sevilla → Cordoba</strong> (~45 min, frecuente, ~€15-25). Llegar Cordoba ~mediodia. Check-in. <strong>MEZQUITA-CATEDRAL DE CORDOBA</strong> — El bosque de <strong>856 columnas</strong> de marmol con arcos rojos y blancos. Una de las construcciones mas asombrosas del mundo. La catedral renacentista incrustada dentro de la mezquita es surrealista. Tip: entrada gratuita 8:30-9:30 AM, pero como llegas al mediodia, turno regular (€15). <strong>Juderia</strong> (barrio judio medieval, callejuelas estrechas). <strong>Puente Romano</strong> sobre el Guadalquivir (el mismo de Game of Thrones — Volantis). <strong>Calleja de las Flores</strong> (la mas fotografiada de Espana). <strong>Patios cordobeses</strong> (si hay alguno abierto). Noche: <strong>salmorejo + flamenquin</strong> (los inventaron aqui) en taberna del centro.' },
+      { num: 16, date: 'Miercoles 30 Sept', plan: 'Manana libre en Cordoba: cafe en la plaza, ultimo paseo por la Juderia o <strong>volver a la Mezquita en horario gratuito</strong> (8:30-9:30 — vale MUCHO la pena verla dos veces, con la luz de la manana es otra experiencia). <strong>AVE Cordoba → Madrid</strong> (~1h45, tren ~12:00, llegar MAD ~13:45). Tarde libre en Madrid: <strong>Mercado de San Miguel</strong> (tapas gourmet), Gran Via (compras ultimo momento), o simplemente descansar. Noche tranquila.' },
+      { num: 17, date: 'Jueves 1 Oct', plan: '<strong>Ultimo dia completo en Madrid.</strong> Manana libre: desayuno tranquilo, paseo final por el <strong>Retiro</strong> o <strong>Malasana</strong>. Compras de ultimo momento, souvenirs. Ultimo almuerzo espanol. Tarde: descansar, preparar maletas. <strong>Cena de cierre del viaje</strong> — celebrar 17 dias increibles.' }
+    ],
+    links: [
+      { icon: '🎟', label: 'Mezquita', url: 'https://mezquita-catedraldecordoba.es/', type: 'tickets' },
+      { icon: '📍', label: 'Puente Romano', url: 'https://maps.google.com/?q=Puente+Romano+Cordoba+Spain', type: 'maps' },
+      { icon: '📍', label: 'Juderia', url: 'https://maps.google.com/?q=Juderia+Cordoba+Spain', type: 'maps' },
+      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Cordoba+Spain', type: 'maps' }
+    ]
+  }
+];
+
+// ── TRANSPORTS ─────────────────────────────────────
+const transports = [
+  { emoji: '✈️', type: 'flight', route: 'SJU → MAD', detail: 'Lun 14 Sept · Iberia directo nocturno · ~8h', cost: '~$500-900 RT' },
+  { emoji: '✈️', type: 'flight', route: 'MAD → AMS', detail: 'Mar 15 Sept · KLM/Iberia · ~2.5h', cost: '~€60-120' },
+  { emoji: '✈️', type: 'flight', route: 'AMS → MAD', detail: 'Vie 18 Sept · KLM/Iberia · ~2.5h', cost: '~€60-120' },
+  { emoji: '🚄', type: 'train', route: 'MAD ↔ Toledo', detail: 'Dom 20 Sept · AVE ida y vuelta · 30 min c/u', cost: '~€26' },
+  { emoji: '🚄', type: 'train', route: 'MAD → BCN', detail: 'Lun 21 Sept · AVE · ~2.5h', cost: '~€30-70' },
+  { emoji: '✈️', type: 'flight', route: 'BCN → Granada', detail: 'Jue 24 Sept · Vueling · ~1.5h', cost: '~€40-80' },
+  { emoji: '🚗', type: 'car', route: 'Granada → Ronda → Sevilla', detail: 'Sab 26 - Mar 29 Sept · Alquiler 4 dias', cost: '~€150-200' },
+  { emoji: '⛽', type: 'car', route: 'Gasolina Andalucia', detail: 'Granada-Ronda-Sevilla · ~500km total', cost: '~€40-60' },
+  { emoji: '🚄', type: 'train', route: 'SVQ → Cordoba', detail: 'Mar 29 Sept · AVE · ~45 min', cost: '~€15-25' },
+  { emoji: '🚄', type: 'train', route: 'Cordoba → MAD', detail: 'Mie 30 Sept · AVE · ~1h45', cost: '~€20-50' },
+  { emoji: '✈️', type: 'flight', route: 'MAD → SJU', detail: 'Vie 2 Oct · Iberia directo · ~8h', cost: '(parte del RT)' }
+];
+
+// ── CHECKLIST ──────────────────────────────────────
+const checklistData = [
+  {
+    cat: 'Reservas CRITICAS', icon: '🔴',
+    items: [
+      { label: 'Vuelo SJU ↔ MAD (Iberia round trip)', sub: 'Lun 14 Sept → Vie 2 Oct', pri: 'critical', link: 'https://www.iberia.com/', linkLbl: 'Iberia.com' },
+      { label: 'Alhambra — turno AM', sub: 'Vie 25 Sept · Se agotan MESES antes', pri: 'critical', link: 'https://www.alhambra-patronato.es/', linkLbl: 'Reservar ahora' },
+      { label: 'Casa de Ana Frank', sub: 'Jue 17 Sept · Solo online, se agotan rapido', pri: 'critical', link: 'https://www.annefrank.org/en/tickets/', linkLbl: 'Reservar ahora' }
+    ]
+  },
+  {
+    cat: 'Reservas importantes', icon: '🟡',
+    items: [
+      { label: 'Rijksmuseum o Van Gogh Museum', sub: 'Mie 16 Sept', pri: 'important', link: 'https://www.rijksmuseum.nl/en/tickets', linkLbl: 'Tickets' },
+      { label: 'Museo del Prado', sub: 'Sab 19 Sept', pri: 'important', link: 'https://www.museodelprado.es/en/visit/tickets', linkLbl: 'Tickets' },
+      { label: 'Real Alcazar Sevilla', sub: 'Dom 27 Sept', pri: 'important', link: 'https://www.alcazarsevilla.org/', linkLbl: 'Tickets' },
+      { label: 'Mezquita Cordoba (turno especifico)', sub: 'Mar 29 Sept · Gratis 8:30-9:30 AM', pri: 'important', link: 'https://mezquita-catedraldecordoba.es/', linkLbl: 'Info' },
+      { label: 'AI Summit Barcelona — registro', sub: 'Mar 22 - Mie 23 Sept', pri: 'important', link: 'https://barcelona.theaisummit.com/', linkLbl: 'Registro' }
+    ]
+  },
+  {
+    cat: 'Transporte interno', icon: '🚄',
+    items: [
+      { label: 'Vuelo MAD → AMS (conexion dia 1)', sub: 'Mar 15 Sept · KLM ~10am', pri: 'normal', link: 'https://www.klm.com/', linkLbl: 'KLM' },
+      { label: 'Vuelo AMS → MAD', sub: 'Vie 18 Sept · ~12:00', pri: 'normal', link: 'https://www.klm.com/', linkLbl: 'KLM' },
+      { label: 'AVE Madrid ↔ Toledo', sub: 'Dom 20 Sept · ida y vuelta', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' },
+      { label: 'AVE Madrid → Barcelona', sub: 'Lun 21 Sept · ~14:00', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' },
+      { label: 'Vuelo BCN → Granada', sub: 'Jue 24 Sept · Vueling ~9am', pri: 'normal', link: 'https://www.vueling.com/', linkLbl: 'Vueling' },
+      { label: 'Carro alquiler (Granada pickup → Sevilla drop)', sub: 'Sab 26 - Mar 29 · 4 dias', pri: 'normal', link: 'https://www.rentalcars.com/', linkLbl: 'Rentalcars' },
+      { label: 'AVE Sevilla → Cordoba', sub: 'Mar 29 Sept', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' },
+      { label: 'AVE Cordoba → Madrid', sub: 'Mie 30 Sept · ~12:00', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' }
+    ]
+  },
+  {
+    cat: 'Alojamiento (17 noches)', icon: '🏨',
+    items: [
+      { label: 'Hotel Amsterdam (3 noches)', sub: '15-17 Sept · Zona: Jordaan o centro', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
+      { label: 'Hotel Madrid (3 noches)', sub: '18-20 Sept · Zona: La Latina, Sol o Malasana', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
+      { label: 'Hotel Barcelona (3 noches)', sub: '21-23 Sept · Zona: Gotico, Born o cerca WTC', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
+      { label: 'Hotel Granada (2 noches)', sub: '24-25 Sept · Zona: Albaicin o Plaza Nueva', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
+      { label: 'Hotel Ronda (1 noche)', sub: '26 Sept · Pueblo pequeno, reservar pronto!', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
+      { label: 'Hotel Sevilla (2 noches)', sub: '27-28 Sept · Zona: Santa Cruz o Triana', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
+      { label: 'Hotel Cordoba (1 noche)', sub: '29 Sept · Zona: cerca Mezquita', pri: 'normal', link: 'https://www.booking.com/', linkLbl: 'Booking' },
+      { label: 'Hotel Madrid cierre (2 noches)', sub: '30 Sept - 1 Oct · cerca Atocha para el aeropuerto', pri: 'normal', link: 'https://www.booking.com/', linkLbl: 'Booking' }
+    ]
+  },
+  {
+    cat: 'Documentos & Logistica', icon: '📋',
+    items: [
+      { label: 'Pasaporte vigente (6+ meses)', sub: 'Verificar fecha de expiracion', pri: 'critical' },
+      { label: 'Seguro de viaje Europa (17 dias)', sub: 'Cobertura medica + cancelacion', pri: 'important', link: 'https://www.worldnomads.com/', linkLbl: 'World Nomads' },
+      { label: 'eSIM o plan internacional de data', sub: '17 dias, varios paises', pri: 'important', link: 'https://www.airalo.com/', linkLbl: 'Airalo eSIM' },
+      { label: 'Tarjetas de presentacion AI Strategist', sub: 'Para networking en el Summit', pri: 'important' },
+      { label: 'Google Maps offline descargado', sub: 'Zonas: Amsterdam, Madrid, Barcelona, Andalucia', pri: 'normal' },
+      { label: 'Notificar banco / tarjetas de viaje', sub: 'Activar para Europa, Sept-Oct', pri: 'normal' },
+      { label: 'Licencia de conducir vigente', sub: 'Para el carro en Andalucia', pri: 'important' },
+      { label: 'Regulaciones drone por pais', sub: 'Holanda + Espana, DJI Mini', pri: 'normal' },
+      { label: 'Copias digitales de documentos', sub: 'Pasaporte, seguro, reservas — en la nube', pri: 'normal' }
+    ]
+  }
+];
+
+const packingData = [
+  {
+    cat: 'Amsterdam (15-18°C, lluvia probable)', icon: '🌧️', temp: 'cold',
+    items: [
+      { label: 'Chaqueta impermeable ligera / windbreaker' },
+      { label: 'Sueter calido + camisetas para capas' },
+      { label: 'Zapatos comodos e impermeables (mucho adoquin + lluvia)' },
+      { label: 'Paraguas compacto' }
+    ]
+  },
+  {
+    cat: 'Madrid + Barcelona (22-28°C)', icon: '☀️', temp: 'warm',
+    items: [
+      { label: 'Ropa casual de dia (camisetas, pantalones ligeros)' },
+      { label: 'Smart casual para el AI Summit (el WTC no es formal pero profesional)' },
+      { label: 'Tarjetas de presentacion The AI Strategist' },
+      { label: 'Zapatos comodos para caminar' }
+    ]
+  },
+  {
+    cat: 'Andalucia (26-32°C, calor seco)', icon: '🔥', temp: 'hot',
+    items: [
+      { label: 'Ropa ligera: lino, algodon transpirable' },
+      { label: 'Protector solar SPF50 + sombrero / gorra' },
+      { label: 'Gafas de sol' },
+      { label: 'Zapatos comodos para caminar (MUCHO adoquin en Ronda, Granada, Cordoba, Sevilla)' },
+      { label: 'Botella de agua reutilizable' }
+    ]
+  },
+  {
+    cat: 'Tech & Contenido', icon: '📱', temp: null,
+    items: [
+      { label: 'DJI Mini drone + baterias extra (Part 107 ✓)' },
+      { label: 'Camara principal + lentes' },
+      { label: 'Adaptador europeo Tipo C/F (sirve Holanda y Espana)' },
+      { label: 'Cargador portatil / power bank grande' },
+      { label: 'Tarjetas SD extra' },
+      { label: 'Tripode / mini tripod para timelapses' },
+      { label: 'Cables y cargadores de todo' }
+    ]
+  },
+  {
+    cat: 'Esenciales', icon: '💼', temp: null,
+    items: [
+      { label: 'Pasaporte + copias' },
+      { label: 'Tarjetas de credito/debito (notificar banco)' },
+      { label: 'Efectivo en euros (para mercados, propinas)' },
+      { label: 'Medicinas personales + kit basico' },
+      { label: 'Candado para maleta' },
+      { label: 'Bolsa plegable extra para compras' }
+    ]
+  }
+];
+
+// ── RENDER ─────────────────────────────────────────
+
+function renderDest() {
+  document.getElementById('dest-grid').innerHTML = destinations.map(d => `
+    <div class="dest-card" id="dest-${d.id}" onclick="toggleCard(this, event)">
+      <div class="dest-card-hero">
+        <img class="dest-card-img" src="${d.photo}" alt="${d.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='${d.grad}'">
+        <div class="dest-card-flag">${d.flag}</div>
+        <div class="dest-card-tag">${d.tag}</div>
+        <div class="dest-card-overlay">
+          <div class="dest-card-name">${d.name}</div>
+          <div class="dest-card-meta"><span>&#128197; ${d.dates}</span></div>
+        </div>
+        <div class="dest-chevron">&#8250;</div>
+      </div>
+      <div class="dest-body">
+        <div class="dest-body-inner">
+          <div class="dest-brief">${d.brief}</div>
+          ${d.days.map(day => `
+            <div class="day-card">
+              <div class="day-head">
+                <div class="day-num" style="background:${d.grad}">D${day.num}</div>
+                <div class="day-date-text">${day.date}</div>
+              </div>
+              <div class="day-plan">${day.plan}</div>
+            </div>
+          `).join('')}
+          <div class="dest-highlights">
+            <div class="dest-highlights-title">Highlights</div>
+            <div class="highlight-chips">
+              ${d.highlights.map(h => `<span class="highlight-chip">${h}</span>`).join('')}
+            </div>
+          </div>
+          <div class="dest-links">
+            ${d.links.map(l => `
+              <a class="dest-link ${l.type}" href="${l.url}" target="_blank" rel="noopener">
+                ${l.icon} ${l.label}
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderTransport() {
+  document.getElementById('transport-list').innerHTML = transports.map(t => `
+    <div class="transport-item">
+      <div class="transport-icon ${t.type}">${t.emoji}</div>
+      <div class="transport-info">
+        <div class="transport-route">${t.route}</div>
+        <div class="transport-detail">${t.detail}</div>
+      </div>
+      <div class="transport-cost">${t.cost}</div>
+    </div>
+  `).join('');
+}
+
+function renderChecklist(containerId, data, stateKey) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const saved = state[stateKey] || {};
+  el.innerHTML = data.map((cat, ci) => {
+    const checked = cat.items.filter((_,ii) => saved[`${ci}-${ii}`]).length;
+    const all = cat.items.length;
+    const done = checked === all;
+    return `
+      <div class="check-cat glass-strong" onclick="toggleCat(this, event)">
+        <div class="check-cat-head">
+          <span class="check-cat-icon">${cat.icon}</span>
+          <span class="check-cat-title">${cat.cat}</span>
+          <span class="check-cat-badge ${done?'done':''}">${checked}/${all}</span>
+          <span class="check-cat-chev">&#8250;</span>
+        </div>
+        <div class="check-items">
+          <div class="check-items-inner">
+            ${cat.items.map((item, ii) => {
+              const ic = saved[`${ci}-${ii}`];
+              return `
+                <div class="check-item ${ic?'checked':''}" onclick="toggleCheck(event,'${stateKey}',${ci},${ii})">
+                  <div class="check-box"><span class="check-mark">&#10003;</span></div>
+                  <div class="check-info">
+                    <div class="check-label">${item.label}</div>
+                    ${item.sub?`<div class="check-sublabel">${item.sub}</div>`:''}
+                    ${item.link?`<a class="check-link" href="${item.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">&#128279; ${item.linkLbl||'Link'}</a>`:''}
+                  </div>
+                  ${item.pri?`<span class="check-priority pri-${item.pri}">${item.pri==='critical'?'URGENTE':item.pri==='important'?'PRONTO':'OK'}</span>`:''}
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderPacking(containerId, data, stateKey) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  const saved = state[stateKey] || {};
+  el.innerHTML = data.map((cat, ci) => {
+    const checked = cat.items.filter((_,ii) => saved[`${ci}-${ii}`]).length;
+    const all = cat.items.length;
+    return `
+      <div class="pack-cat glass-strong" onclick="toggleCat(this, event)">
+        <div class="pack-cat-head">
+          <span class="pack-cat-icon">${cat.icon}</span>
+          <span class="pack-cat-title">${cat.cat}</span>
+          ${cat.temp?`<span class="temp-badge temp-${cat.temp}">${cat.temp==='cold'?'15-18°C':cat.temp==='warm'?'22-28°C':'26-32°C'}</span>`:''}
+          <span class="check-cat-badge ${checked===all?'done':''}">${checked}/${all}</span>
+          <span class="pack-cat-chev">&#8250;</span>
+        </div>
+        <div class="pack-items">
+          <div class="pack-items-inner">
+            ${cat.items.map((item, ii) => {
+              const ic = saved[`${ci}-${ii}`];
+              return `
+                <div class="check-item ${ic?'checked':''}" onclick="toggleCheck(event,'${stateKey}',${ci},${ii})">
+                  <div class="check-box"><span class="check-mark">&#10003;</span></div>
+                  <div class="check-info">
+                    <div class="check-label">${item.label}</div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ── INTERACTIONS ───────────────────────────────────
+
+function toggleCard(card, e) {
+  if (e.target.closest('a')) return;
+  card.classList.toggle('open');
+}
+function toggleCat(cat, e) {
+  if (e.target.closest('.check-item')) return;
+  cat.classList.toggle('open');
+}
+function toggleCheck(e, stateKey, ci, ii) {
+  e.stopPropagation();
+  if (e.target.closest('a')) return;
+  if (!state.ready) { showToast('Aun conectando...'); return; }
+  const key = `${ci}-${ii}`;
+  const currentMap = state[stateKey] || {};
+  const newVal = !currentMap[key];
+  // UI optimista (el listener confirmara)
+  currentMap[key] = newVal;
+  state[stateKey] = currentMap;
+  const item = e.currentTarget;
+  item.classList.toggle('checked', newVal);
+  const cat = item.closest('.check-cat, .pack-cat');
+  const items = cat.querySelectorAll('.check-item');
+  const checked = cat.querySelectorAll('.check-item.checked').length;
+  const badge = cat.querySelector('.check-cat-badge');
+  badge.textContent = `${checked}/${items.length}`;
+  badge.classList.toggle('done', checked === items.length);
+  updateProgress();
+  if (newVal && checked === items.length) { showToast('Categoria completada! &#127881;'); confetti(); }
+  // Escribe al Firestore (solo el campo especifico para evitar conflictos)
+  const fieldPath = `${stateKey}.${key}`;
+  tripRef.set({ [stateKey]: { [key]: newVal } }, { merge: true }).catch(err => console.error(err));
+}
+function goTo(id) {
+  const el = document.getElementById('dest-' + id);
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  el.style.boxShadow = '0 0 0 3px rgba(255,107,107,0.6), ' + 'var(--shadow-lg)';
+  setTimeout(() => { el.style.boxShadow = 'var(--shadow)'; }, 2000);
+  if (!el.classList.contains('open')) el.classList.add('open');
+}
+function updateProgress() {
+  const stateKeys = ['checklist', 'packing'];
+  const datas = [checklistData, packingData];
+  let total = 0, done = 0;
+  stateKeys.forEach((key, pi) => {
+    const s = state[key] || {};
+    datas[pi].forEach((c, ci) => c.items.forEach((_, ii) => { total++; if (s[`${ci}-${ii}`]) done++; }));
+  });
+  const pct = total ? Math.round((done/total)*100) : 0;
+  const pctEl = document.getElementById('prog-pct');
+  const fillEl = document.getElementById('prog-fill');
+  const detEl = document.getElementById('prog-detail');
+  if (pctEl) pctEl.textContent = pct + '%';
+  if (fillEl) fillEl.style.width = pct + '%';
+  if (detEl) detEl.textContent = `${done} de ${total} completados`;
+  if (pct === 100) { showToast('TODO listo para el viaje! &#127881;&#9992;&#65039;'); confetti(); }
+}
+function updateCountdown() {
+  const d = Math.ceil((new Date('2026-09-14') - new Date()) / 864e5);
+  document.getElementById('cd-num').textContent = d > 0 ? d : '0';
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.innerHTML = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+function confetti() {
+  const colors = ['#7c3aed','#818cf8','#a78bfa','#c4b5fd','#6366f1','#4f46e5','#ddd6fe'];
+  for (let i = 0; i < 40; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random()*100+'vw';
+    c.style.background = colors[~~(Math.random()*colors.length)];
+    c.style.animationDelay = Math.random()*0.6+'s';
+    const s = Math.random()*8+4;
+    c.style.width = s+'px'; c.style.height = s+'px';
+    c.style.borderRadius = Math.random()>0.5?'50%':'2px';
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 3100);
+  }
+}
+
+// ── STATE (hidratado por Firestore listeners) ─────
+const EUR_TO_USD = 1.08; // conversion aprox Apr 2026
+
+const state = {
+  expenses: [],   // [{ fbId, desc, amt, cur, link, att?, createdAt }]
+  splitPct: 50,
+  checklist: {},  // { "ci-ii": true }
+  packing: {},    // { "ci-ii": true }
+  ready: false
+};
+
+function setSyncStatus(status, text) {
+  const pill = document.getElementById('sync-pill');
+  const t = document.getElementById('sync-text');
+  pill.className = 'sync-pill ' + status;
+  t.textContent = text;
+}
+window.addEventListener('online',  () => setSyncStatus('connected', 'Sincronizado'));
+window.addEventListener('offline', () => setSyncStatus('offline', 'Sin conexion'));
+
+// Accesores (compatibles con las firmas anteriores)
+function getExpenses() { return state.expenses; }
+function getSplit() { return state.splitPct; }
+
+// ── ATTACHMENT HANDLING ────────────────────────────
+let pendingFile = null;       // File raw seleccionado
+let pendingBlob = null;        // Blob procesado listo para subir
+let pendingMeta = { name: '', type: '' };
+
+function onFilePick(input) {
+  const file = input.files && input.files[0];
+  if (!file) return;
+  const maxBytes = 15 * 1024 * 1024; // 15MB hard cap (ya en Firebase Storage)
+  if (file.size > maxBytes) {
+    showToast('Archivo muy grande (max 15MB)');
+    input.value = '';
+    return;
+  }
+  document.getElementById('exp-file-name').textContent = 'Procesando...';
+  document.getElementById('exp-file-clear').style.display = 'inline-flex';
+  processFile(file).then(result => {
+    pendingFile = file;
+    pendingBlob = result.blob;
+    pendingMeta = { name: result.name, type: result.type };
+    document.getElementById('exp-file-name').textContent = result.name + ' (' + fmtSize(result.blob.size) + ')';
+  }).catch(err => {
+    console.error(err);
+    showToast('Error leyendo archivo');
+    clearFile();
+  });
+}
+
+function clearFile() {
+  pendingFile = null;
+  pendingBlob = null;
+  pendingMeta = { name: '', type: '' };
+  const f = document.getElementById('exp-file');
+  if (f) f.value = '';
+  document.getElementById('exp-file-name').textContent = 'Imagen o PDF (opcional)';
+  document.getElementById('exp-file-clear').style.display = 'none';
+}
+
+function fmtSize(bytes) {
+  if (bytes < 1024) return bytes + 'B';
+  if (bytes < 1024 * 1024) return (bytes/1024).toFixed(0) + 'KB';
+  return (bytes/1024/1024).toFixed(1) + 'MB';
+}
+
+// Lee + comprime (si es imagen) y devuelve { blob, name, type }
+function processFile(file) {
+  return new Promise((resolve, reject) => {
+    const isImage = file.type.startsWith('image/');
+    if (!isImage) {
+      // PDF u otro: tal cual
+      resolve({ blob: file, name: file.name, type: file.type || 'application/pdf' });
+      return;
+    }
+    // Imagen: comprimir con canvas (max 1600px lado largo, JPEG 75%)
+    const fr = new FileReader();
+    fr.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const MAX = 1600;
+        let w = img.width, h = img.height;
+        if (w > MAX || h > MAX) {
+          if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
+          else { w = Math.round(w * MAX / h); h = MAX; }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, w, h);
+        canvas.toBlob(blob => {
+          const baseName = file.name.replace(/\.[^.]+$/, '');
+          resolve({ blob, name: baseName + '.jpg', type: 'image/jpeg' });
+        }, 'image/jpeg', 0.75);
+      };
+      img.onerror = reject;
+      img.src = fr.result;
+    };
+    fr.onerror = reject;
+    fr.readAsDataURL(file);
+  });
+}
+
+// Sube el blob a Firebase Storage → devuelve { path, url, name, type }
+function uploadToStorage(expId, blob, meta) {
+  return new Promise((resolve, reject) => {
+    const path = `trips/${TRIP_ID}/attachments/${expId}_${Date.now()}_${meta.name}`;
+    const ref = storage.ref(path);
+    const task = ref.put(blob, { contentType: meta.type });
+    showUploadOverlay('Subiendo ' + meta.name);
+    task.on('state_changed',
+      snap => {
+        const pct = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
+        setUploadProgress(pct);
+      },
+      err => { hideUploadOverlay(); reject(err); },
+      async () => {
+        const url = await ref.getDownloadURL();
+        hideUploadOverlay();
+        resolve({ path, url, name: meta.name, type: meta.type });
+      }
+    );
+  });
+}
+
+function showUploadOverlay(title) {
+  document.getElementById('upload-title').textContent = title || 'Subiendo archivo...';
+  setUploadProgress(0);
+  document.getElementById('upload-overlay').classList.add('show');
+}
+function setUploadProgress(pct) {
+  document.getElementById('upload-bar-fill').style.width = pct + '%';
+  document.getElementById('upload-pct').textContent = pct + '%';
+}
+function hideUploadOverlay() {
+  document.getElementById('upload-overlay').classList.remove('show');
+}
+
+async function addExpense() {
+  if (!state.ready) { showToast('Aun conectando... espera'); return; }
+  const desc = document.getElementById('exp-desc').value.trim();
+  const amt = parseFloat(document.getElementById('exp-amount').value);
+  const cur = document.getElementById('exp-currency').value;
+  let link = document.getElementById('exp-link').value.trim();
+  if (!desc) { showToast('Agrega una descripcion'); return; }
+  if (!amt || amt <= 0) { showToast('Ingresa un monto valido'); return; }
+  if (link && !/^https?:\/\//i.test(link)) link = 'https://' + link;
+
+  // Crea el doc en Firestore primero (sin adjunto) para tener un ID
+  const payload = {
+    desc,
+    amt: Math.round(amt * 100) / 100,
+    cur,
+    link,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  };
+  try {
+    const docRef = await expensesRef.add(payload);
+    // Si hay archivo, lo sube y actualiza el doc
+    if (pendingBlob) {
+      try {
+        const att = await uploadToStorage(docRef.id, pendingBlob, pendingMeta);
+        await docRef.update({ att });
+      } catch(e) {
+        console.error('Upload failed:', e);
+        showToast('No se pudo subir el archivo');
+      }
+    }
+  } catch(e) {
+    console.error('Firestore write failed:', e);
+    showToast('Error guardando. Revisa tu conexion.');
+    return;
+  }
+
+  document.getElementById('exp-desc').value = '';
+  document.getElementById('exp-amount').value = '';
+  document.getElementById('exp-link').value = '';
+  clearFile();
+  showToast('Gasto agregado &#128178;');
+}
+
+async function deleteExpense(fbId) {
+  if (!fbId) return;
+  try {
+    const exp = state.expenses.find(e => e.fbId === fbId);
+    if (exp && exp.att && exp.att.path) {
+      // Borra adjunto de Storage (best-effort)
+      try { await storage.ref(exp.att.path).delete(); } catch(e) {}
+    }
+    await expensesRef.doc(fbId).delete();
+  } catch(e) {
+    console.error(e);
+    showToast('Error eliminando');
+  }
+}
+
+function openAttachment(fbId) {
+  const exp = state.expenses.find(e => e.fbId === fbId);
+  if (!exp || !exp.att || !exp.att.url) return;
+  window.open(exp.att.url, '_blank', 'noopener');
+}
+
+function setSplit(v) {
+  document.getElementById('split-slider').value = v;
+  onSliderChange(v);
+}
+
+let splitWriteTimer = null;
+function onSliderChange(v) {
+  const p1 = parseInt(v, 10);
+  state.splitPct = p1;
+  updateSplitUI(p1);
+  updateExpenseTotals();
+  // debounce writes al arrastrar el slider
+  clearTimeout(splitWriteTimer);
+  splitWriteTimer = setTimeout(() => {
+    tripRef.set({ splitPct: p1 }, { merge: true }).catch(e => console.error(e));
+  }, 300);
+}
+
+function updateSplitUI(p1) {
+  const p2 = 100 - p1;
+  document.getElementById('split-val').textContent = `${p1}% / ${p2}%`;
+  document.getElementById('p1-pct').textContent = p1 + '%';
+  document.getElementById('p2-pct').textContent = p2 + '%';
+  document.querySelectorAll('.split-preset').forEach(btn => {
+    btn.classList.toggle('active', parseInt(btn.dataset.split, 10) === p1);
+  });
+}
+
+function fmtMoney(amount, currency) {
+  const sym = currency === 'USD' ? '$' : '€';
+  return sym + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function renderExpenses() {
+  const list = getExpenses();
+  const el = document.getElementById('expense-list');
+  if (!el) return;
+  if (list.length === 0) {
+    el.innerHTML = '<div class="exp-empty">No hay gastos todavia. Agrega el primero arriba.</div>';
+  } else {
+    el.innerHTML = list.map(e => {
+      const isPDF = e.att && (e.att.type === 'application/pdf' || /\.pdf$/i.test(e.att.name || ''));
+      const attIcon = isPDF ? '&#128196;' : '&#128247;'; // 📄 or 📷
+      const safeDesc = (e.desc || '').replace(/</g, '&lt;');
+      const safeLink = (e.link || '').replace(/"/g, '&quot;');
+      const safeAttName = (e.att && e.att.name || '').replace(/"/g, '&quot;');
+      return `
+      <div class="exp-item">
+        <div class="exp-item-desc">${safeDesc}</div>
+        <div class="exp-item-amt">${fmtMoney(e.amt, e.cur)}</div>
+        ${e.att ? `<button class="exp-item-attach" onclick="openAttachment('${e.fbId}')" title="Ver ${safeAttName}">${attIcon}</button>` : ''}
+        ${e.link ? `<a class="exp-item-link" href="${safeLink}" target="_blank" rel="noopener" title="Abrir reserva">&#128279;</a>` : ''}
+        <button class="exp-item-del" onclick="deleteExpense('${e.fbId}')" title="Eliminar">&times;</button>
+      </div>
+      `;
+    }).join('');
+  }
+  updateExpenseTotals();
+}
+
+function updateExpenseTotals() {
+  const list = getExpenses();
+  // Normalizamos todo a EUR para el total combinado
+  let totalEUR = 0;
+  list.forEach(e => {
+    totalEUR += e.cur === 'USD' ? e.amt / EUR_TO_USD : e.amt;
+  });
+  const p1 = getSplit();
+  const p2 = 100 - p1;
+  document.getElementById('exp-total').textContent = fmtMoney(totalEUR, 'EUR');
+  document.getElementById('p1-total').textContent = fmtMoney(totalEUR * p1 / 100, 'EUR');
+  document.getElementById('p2-total').textContent = fmtMoney(totalEUR * p2 / 100, 'EUR');
+}
+
+// Enter key submits expense
+document.addEventListener('DOMContentLoaded', () => {
+  ['exp-desc', 'exp-amount', 'exp-link'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('keypress', e => { if (e.key === 'Enter') addExpense(); });
+  });
+});
+
+// ── INIT (render estatico + listeners Firestore) ───
+renderDest();
+renderTransport();
+updateCountdown();
+setInterval(updateCountdown, 60000);
+
+// Renderiza con el state vacio inicial (placeholder) hasta que Firestore responda
+renderChecklist('checklist-box', checklistData, 'checklist');
+renderPacking('packing-box', packingData, 'packing');
+renderExpenses();
+updateSplitUI(state.splitPct);
+updateProgress();
+
+// ── MIGRACION ONE-SHOT de localStorage a Firestore ─
+// Si es la primera vez que se conecta Firebase y hay data local, la subimos.
+async function migrateFromLocalStorageIfNeeded() {
+  const MIG_KEY = 'fb-migrated-v1';
+  if (localStorage.getItem(MIG_KEY)) return; // ya migrado
+  const snap = await tripRef.get();
+  const existing = snap.exists ? (snap.data() || {}) : null;
+
+  const localSplit = parseInt(localStorage.getItem('split-viaje2026') || 'NaN', 10);
+  const localChecklist = JSON.parse(localStorage.getItem('cl-viaje2') || '{}');
+  const localPacking = JSON.parse(localStorage.getItem('pk-viaje2') || '{}');
+  const localExpenses = JSON.parse(localStorage.getItem('expenses-viaje2026') || '[]');
+
+  const hasLocalData = !isNaN(localSplit) ||
+    Object.keys(localChecklist).length ||
+    Object.keys(localPacking).length ||
+    localExpenses.length;
+
+  if (!hasLocalData) {
+    localStorage.setItem(MIG_KEY, '1');
+    return;
+  }
+
+  // Si Firestore ya tiene data, no pisamos — solo marcamos migrado
+  if (existing && (existing.splitPct !== undefined || Object.keys(existing.checklist||{}).length || Object.keys(existing.packing||{}).length)) {
+    localStorage.setItem(MIG_KEY, '1');
+    return;
+  }
+
+  // Migramos trip doc
+  const mergeDoc = {};
+  if (!isNaN(localSplit)) mergeDoc.splitPct = localSplit;
+  if (Object.keys(localChecklist).length) mergeDoc.checklist = localChecklist;
+  if (Object.keys(localPacking).length) mergeDoc.packing = localPacking;
+  if (Object.keys(mergeDoc).length) await tripRef.set(mergeDoc, { merge: true });
+
+  // Migramos gastos (sin adjuntos, ya que eran dataURLs locales)
+  for (const e of localExpenses) {
+    const payload = {
+      desc: e.desc || '(sin descripcion)',
+      amt: e.amt || 0,
+      cur: e.cur || 'EUR',
+      link: e.link || '',
+      createdAt: firebase.firestore.Timestamp.fromMillis(e.id || Date.now())
+    };
+    try { await expensesRef.add(payload); } catch(err) { console.error(err); }
+  }
+
+  localStorage.setItem(MIG_KEY, '1');
+  showToast('Datos migrados a la nube &#9729;&#65039;');
+}
+
+// ── LISTENERS EN TIEMPO REAL ───────────────────────
+let firstTripLoad = true;
+let firstExpLoad = true;
+
+tripRef.onSnapshot({ includeMetadataChanges: true }, doc => {
+  const fromCache = doc.metadata.fromCache;
+  const data = doc.data() || {};
+  state.splitPct = (typeof data.splitPct === 'number') ? data.splitPct : 50;
+  state.checklist = data.checklist || {};
+  state.packing = data.packing || {};
+
+  // Re-render (solo si ya estamos listos, para no tocar antes de que los otros renders corran)
+  const slider = document.getElementById('split-slider');
+  if (slider) slider.value = state.splitPct;
+  updateSplitUI(state.splitPct);
+  renderChecklist('checklist-box', checklistData, 'checklist');
+  renderPacking('packing-box', packingData, 'packing');
+  updateProgress();
+
+  if (firstTripLoad) {
+    firstTripLoad = true && false; // once
+    state.ready = true;
+    setSyncStatus(fromCache ? 'offline' : 'connected', fromCache ? 'Sin conexion' : 'Sincronizado');
+    // Intentar migracion una sola vez despues del primer load
+    migrateFromLocalStorageIfNeeded().catch(console.error);
+  } else {
+    setSyncStatus(fromCache ? 'offline' : 'connected', fromCache ? 'Sin conexion' : 'Sincronizado');
+  }
+}, err => {
+  console.error('Trip listener error:', err);
+  setSyncStatus('offline', 'Error conexion');
+});
+
+expensesRef.orderBy('createdAt', 'asc').onSnapshot(snap => {
+  state.expenses = snap.docs.map(d => {
+    const data = d.data();
+    return {
+      fbId: d.id,
+      desc: data.desc,
+      amt: data.amt,
+      cur: data.cur,
+      link: data.link || '',
+      att: data.att || null,
+      createdAt: data.createdAt
+    };
+  });
+  renderExpenses();
+}, err => {
+  console.error('Expenses listener error:', err);
+});
+</script>
+</body>
+</html>
