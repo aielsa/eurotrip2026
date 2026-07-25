@@ -1469,9 +1469,9 @@ const destinations = [
     highlights: ['Jordaan · canales UNESCO', 'Van Gogh Museum', 'Moco Museum', 'Red Light District', 'Fabrique des Lumieres', 'Vondelpark', 'NEMO Science', 'Smoking Canal Tour'],
     days: [
       { num: 1, date: 'Martes 15 Sept · Llegada & slow landing', plan: 'Aterrizar <strong>Schiphol 14:00-14:30</strong>. Tren a <strong>Amsterdam Centraal</strong> (15-20 min, €5.90). Check-in hotel (<strong>Mr. Jordaan</strong> recomendado), ducha, respirar. <strong>17:30:</strong> primer paseo por canales de Jordaan — Brouwersgracht al atardecer, Prinsengracht. <strong>19:30:</strong> cena en <strong>Winkel 43</strong> (apple pie) o <strong>Moeders</strong> (holandesa tradicional). <strong>21:30:</strong> primer coffee shop en <strong>La Tertulia</strong> (cozy, no turistico).' },
-      { num: 2, date: 'Miercoles 16 Sept · Arte + Red Light', plan: '<strong>9:00 Van Gogh Museum</strong> (reservar slot 9AM online, €25 c/u). <strong>11:30:</strong> almuerzo en <strong>The Seafood Bar</strong>. <strong>13:30: Moco Museum</strong> (Banksy, Basquiat, Warhol — al lado del Van Gogh). <strong>16:00:</strong> descanso hotel. <strong>19:00:</strong> cena en <strong>Foodhallen</strong> (mercado gourmet). <strong>21:00: Red Light District a pie</strong> — De Wallen, Oude Kerk (cero fotos a las ventanas). <strong>22:00:</strong> Casa Rosso show opcional. <strong>23:30:</strong> speakeasy <strong>Hiding in Plain Sight</strong>.' },
-      { num: 3, date: 'Jueves 17 Sept · Truffle day', plan: 'Desayuno MUY ligero + hidratacion. <strong>10:00: Smart Shop Kokopelli</strong> (Warmoesstraat 12, staff excepcional para primerizos — pedir <em>Mexicana, light experience, half dose, 5g c/u</em>). <strong>11:30: Fabrique des Lumieres</strong> (arte digital inmersivo gigante de Van Gogh/Monet/Klimt — PERFECTO mientras arranca el efecto). <strong>13:00:</strong> caminar al <strong>Vondelpark</strong>. <strong>14:00-17:00: peak en Vondelpark</strong> (spot apartado, agua, frutas, musica). <strong>17:00: Het Groot Melkhuis</strong> (comida ligera en el parque). <strong>21:00:</strong> delivery al hotel (Thuisbezorgd), dormir profundo.' },
-      { num: 4, date: 'Viernes 18 Sept · NEMO + smoking canal + farewell', plan: '<strong>9:30:</strong> desayuno en <strong>Pancakes Amsterdam</strong> (pannenkoeken legendarios). <strong>11:00: NEMO Science Museum</strong> (€21.50 c/u — la terraza del techo es GRATIS con las mejores vistas de Amsterdam). <strong>13:30: Albert Cuyp Market</strong> en De Pijp (stroopwafels calientes, haring, kibbeling, gouda al vacio). <strong>15:00:</strong> check-out, equipaje en conserjeria. <strong>15:30:</strong> comprar weed en <strong>Boerejongens</strong> (BYOC). <strong>16:00: SMOKING CANAL TOUR con Smokeboat</strong> (€25 c/u compartido o €250+ privado — reservar 2-4 sem antes). <strong>18:00: Vleminckx</strong> (patatas fritas post-boat). <strong>19:00:</strong> tren a Schiphol. <strong>Noche:</strong> vuelo a Madrid.' }
+      { num: 2, date: 'Miercoles 16 Sept · Arte + Red Light', plan: '<strong>9:00 Van Gogh Museum</strong> (reservar slot 9AM online, €25 c/u). <strong>11:30:</strong> almuerzo en <strong>The Seafood Bar</strong>. <strong>14:00: RIJKSMUSEUM</strong> (reservado, 2:00 PM) — el museo insignia de Holanda: <strong>La Ronda de Noche</strong> de Rembrandt, <strong>La Lechera</strong> de Vermeer. ~2h. <strong>Moco Museum</strong> (Banksy, Basquiat — al lado, opcional si da tiempo). <strong>16:30:</strong> descanso hotel. <strong>19:00:</strong> cena en <strong>Foodhallen</strong> (mercado gourmet). <strong>21:00: Red Light District a pie</strong> — De Wallen, Oude Kerk (cero fotos a las ventanas). <strong>22:00:</strong> Casa Rosso show opcional. <strong>23:30:</strong> speakeasy <strong>Hiding in Plain Sight</strong>.' },
+      { num: 3, date: 'Jueves 17 Sept', plan: '<strong>10:30: NEMO Science Museum</strong> (reservado, ticket x2 · Oosterdok) — museo de ciencia interactivo; la <strong>terraza del techo</strong> tiene las mejores vistas de Amsterdam (gratis, cafe con vista). ~2h. <strong>Resto del dia abierto</strong> (por coordinar con Ivan). Ideas sueltas: <strong>Fabrique des Lumieres</strong> (arte digital inmersivo de Van Gogh/Monet/Klimt), un <strong>canal cruise</strong>, el <strong>Vondelpark</strong>, o los barrios <strong>De Pijp</strong> / <strong>Jordaan</strong>.' },
+      { num: 4, date: 'Viernes 18 Sept · smoking canal + farewell', plan: '<strong>9:30:</strong> desayuno en <strong>Pancakes Amsterdam</strong> (pannenkoeken legendarios). <strong>11:00:</strong> ultima manana relajada por los canales de <strong>Jordaan</strong> o alguna galeria. <strong>13:30: Albert Cuyp Market</strong> en De Pijp (stroopwafels calientes, haring, kibbeling, gouda al vacio). <strong>15:00:</strong> check-out, equipaje en conserjeria. <strong>15:30:</strong> comprar weed en <strong>Boerejongens</strong> (BYOC). <strong>16:00: SMOKING CANAL TOUR con Smokeboat</strong> (€25 c/u compartido o €250+ privado — reservar 2-4 sem antes). <strong>18:00: Vleminckx</strong> (patatas fritas post-boat). <strong>19:00:</strong> tren a Schiphol. <strong>Noche:</strong> vuelo a Madrid.' }
     ],
     links: [
       { icon: '🎨', label: 'Van Gogh Museum', url: 'https://tickets.vangoghmuseum.com/', type: 'tickets' },
@@ -1516,13 +1516,14 @@ const destinations = [
   },
   {
     id: 'barcelona', name: 'Barcelona', flag: '🎯', tag: 'AI Summit',
-    dates: '21 - 23 Sept', photo: PHOTOS.barcelona, grad: GRADIENTS.barcelona,
+    dates: '21 - 24 Sept', photo: PHOTOS.barcelona, grad: GRADIENTS.barcelona,
     brief: 'Epicentro del AI Summit Barcelona 2026 en el World Trade Center. 10,000+ asistentes, 200+ speakers, expo, networking de primer nivel. Ademas: el Barrio Gotico medieval, El Born bohemio y Barceloneta frente al Mediterraneo.',
     highlights: ['AI Summit WTC', '10,000+ asistentes', '200+ speakers', 'Barrio Gotico', 'El Born', 'Barceloneta', 'Networking'],
     days: [
-      { num: 7, date: 'Lunes 21 Sept', plan: 'Llegada en <strong>AVE desde Madrid ~16:30</strong>. Check-in en el <strong>Niu Barcelona Hotel</strong> (Rambla del Raval 8). Paseo por el <strong>Barrio Gotico</strong> — callejuelas medievales, la Catedral, Placa Reial. <strong>El Born</strong> — boutiques, cocktail bars, Basilica de Santa Maria del Mar. Cena en <strong>Barceloneta</strong> frente al mar: paella, fideuá, mariscos. Prep para el Summit: revisar agenda, confirmar meetings.' },
+      { num: 7, date: 'Lunes 21 Sept', plan: 'Llegada en <strong>AVE desde Madrid ~16:30</strong>. Check-in hotel. Paseo por el <strong>Barrio Gotico</strong> — callejuelas medievales, la Catedral, Placa Reial. <strong>El Born</strong> — boutiques, cocktail bars, Basilica de Santa Maria del Mar. Cena en <strong>Barceloneta</strong> frente al mar: paella, fideuá, mariscos. Prep para el Summit: revisar agenda, confirmar meetings.' },
       { num: 8, date: 'Martes 22 Sept', plan: '<strong>AI SUMMIT BARCELONA — DIA 1</strong>. World Trade Center Barcelona, frente al puerto. Keynotes principales, expo floor con demos de ultima tecnologia, workshops, networking sessions. 10,000+ asistentes de todo el mundo. Contenido: BTS, keynotes, thought leadership reels para IG/LinkedIn.' },
-      { num: 9, date: 'Miercoles 23 Sept', plan: '<strong>AI SUMMIT BARCELONA — DIA 2</strong>. Sesiones avanzadas, cerrar contactos clave, intercambio de tarjetas, follow-ups estrategicos. Ultimas demos en expo. Networking lunch y closing ceremony. Manana libre en BCN; <strong>vuelo a Granada por la tarde (17:15)</strong> antes de ir al aeropuerto.' }
+      { num: 9, date: 'Miercoles 23 Sept', plan: '<strong>AI SUMMIT BARCELONA — DIA 2</strong>. Sesiones avanzadas, cerrar contactos clave, intercambio de tarjetas, follow-ups estrategicos. Ultimas demos en expo. Networking lunch y closing ceremony. Preparar para manana: Sagrada Familia por la manana antes de volar a Granada por la tarde.' },
+      { num: 10, date: 'Jueves 24 Sept (manana)', plan: '<strong>MANANA EN BARCELONA — SAGRADA FAMILIA</strong> (reservar slot temprano ~9-10am, se agota). La obra maestra inacabada de Gaudi: las torres, la luz por los vitrales, la fachada de la Natividad. ~1.5h. Opcion si da tiempo: <strong>Park Guell</strong> o un ultimo paseo por <strong>Passeig de Gracia</strong> (Casa Batllo, La Pedrera por fuera). Almuerzo. Al aeropuerto (BCN, ~30-40 min en metro/taxi). <strong>Vuelo BCN → Granada 17:15 → 18:55</strong> (Vueling directo, confirmado · BF5L8V).' }
     ],
     links: [
       { icon: '🎯', label: 'AI Summit BCN', url: 'https://barcelona.theaisummit.com/', type: '' },
@@ -1531,13 +1532,15 @@ const destinations = [
     ]
   },
   {
-    id: 'granada', name: 'Granada', flag: '🌙', tag: '2 noches',
-    dates: '24 - 25 Sept', photo: PHOTOS.granada, grad: GRADIENTS.granada,
+    id: 'granada', name: 'Granada', flag: '🌙', tag: '4 noches',
+    dates: '24 - 27 Sept', photo: PHOTOS.granada, grad: GRADIENTS.granada,
     brief: 'La Alhambra: la joya absoluta de la arquitectura islamica en Europa. El Albaicin arabe (UNESCO), teterias de la Caldereria Nueva, el Sacromonte gitano. Y lo mejor: en Granada cada bebida incluye tapa gratis. El Mirador de San Nicolas al atardecer con la Alhambra y Sierra Nevada: LA foto del viaje.',
     highlights: ['La Alhambra', 'Palacios Nazaries', 'Generalife', 'Albaicin UNESCO', 'Mirador San Nicolas', 'Tapas gratis', 'Sacromonte', 'Teterias arabes'],
     days: [
-      { num: 10, date: 'Jueves 24 Sept · Llegada a Granada', plan: '<strong>Vuelo BCN → Granada</strong> (Vueling, directo ~1h40, <strong>sale 17:15 · llega 18:55</strong>). Cod. reserva <strong>BF5L8V</strong> ✓ confirmado. Taxi o bus al centro (~20-40 min). <strong>Check-in en el Airbnb</strong> ✓ reservado. Soltar maletas y salir directo a cenar: <strong>noche de tapas gratis</strong> por <strong>Calle Navas, Plaza Nueva y Calle Elvira</strong> — en Granada cada bebida incluye tapa! Primer paseo nocturno por <strong>Plaza Nueva</strong> y la <strong>Carrera del Darro</strong> iluminada.' },
-      { num: 11, date: 'Viernes 25 Sept · Alhambra + Albaicin', plan: '<strong>Manana: LA ALHAMBRA + GENERALIFE</strong> (turno AM, reservar con MUCHA antelacion). <strong>Palacios Nazaries</strong> — la joya absoluta: los arabescos imposibles, la Fuente de los Leones, el Patio de los Arrayanes reflejando el cielo. <strong>Alcazaba</strong> (fortaleza militar, vistas). <strong>Jardines del Generalife</strong> (residencia de verano, fuentes, cipreses). ~3-4h. Almuerzo. <strong>Tarde: el Albaicin a fondo</strong> — barrio arabe UNESCO: callejuelas empedradas, carmenes con jardines ocultos, <strong>teterias de la Caldereria Nueva</strong> (te moruno con dulces). <strong>Atardecer: Mirador de San Nicolas</strong> — la Alhambra banada en luz dorada con Sierra Nevada detras. LA foto del viaje. Opcion: <strong>Sacromonte</strong> (cuevas gitanas) o paseo por la <strong>Carrera del Darro</strong>. Ultima noche: cena especial en el Albaicin.' }
+      { num: 10, date: 'Jueves 24 Sept (tarde/noche)', plan: '<strong>Manana en Barcelona</strong> (Sagrada Familia). <strong>Vuelo BCN → Granada 17:15 → 18:55</strong> (Vueling directo). Check-in en el Airbnb del Albaicin. <strong>Noche:</strong> primera probada de Granada — tapas gratis recorriendo <strong>Calle Navas, Plaza Nueva, Calle Elvira</strong> (en Granada cada bebida incluye tapa!). Si llegas con energia, sube al <strong>Mirador de San Nicolas</strong> para tu primera vista de la Alhambra iluminada de noche.' },
+      { num: 11, date: 'Viernes 25 Sept', plan: '<strong>Manana: LA ALHAMBRA + GENERALIFE</strong> (turno AM, reservar con MUCHA antelacion). <strong>Palacios Nazaries</strong> — la joya absoluta: los arabescos imposibles, la Fuente de los Leones, el Patio de los Arrayanes reflejando el cielo. <strong>Alcazaba</strong> (fortaleza militar, vistas). <strong>Jardines del Generalife</strong> (residencia de verano, fuentes, cipreses). ~3-4h. Almuerzo. <strong>Tarde: Albaicin a fondo</strong> (barrio arabe UNESCO, callejuelas empedradas, <strong>teterias de la Caldereria Nueva</strong>) y la <strong>Carrera del Darro</strong> — la calle mas bonita de Granada. <strong>Atardecer: Mirador de San Nicolas</strong> — la Alhambra en luz dorada con Sierra Nevada detras. LA foto del viaje. Cena en el Albaicin.' },
+      { num: 12, date: 'Sabado 26 Sept', plan: '<strong>Dia completo en Granada.</strong> Manana: <strong>Capilla Real</strong> (tumbas de los Reyes Catolicos) y la <strong>Catedral</strong>. <strong>Carrera del Darro</strong> — la calle mas bonita de Granada. Almuerzo de tapas. Tarde: <strong>Sacromonte</strong> (barrio gitano, cuevas) o un <strong>hammam arabe</strong> (Banos de Al Andalus). <strong>Noche: flamenco en cueva del Sacromonte</strong> (zambra autentica) — experiencia unica.' },
+      { num: 13, date: 'Domingo 27 Sept', plan: '<strong>Domingo en Granada.</strong> Opcion relax: barrio <strong>Realejo</strong> (antigua juderia, street art de El Nino de las Pinturas), carmenes con jardines, ultimas tapas por <strong>Calle Navas</strong>. Opcion excursion (~1h): <strong>las Alpujarras</strong> — pueblos blancos colgados de la montana (Pampaneira, Bubion, Capileira), jamon de Trevelez; o <strong>Sierra Nevada</strong>. Atardecer final: <strong>Mirador de San Miguel Alto</strong> (aun mejor que San Nicolas, menos gente). Ultima noche en Granada — el Airbnb es hasta el 28.' }
     ],
     links: [
       { icon: '🎟', label: 'Alhambra tickets', url: 'https://www.alhambra-patronato.es/', type: 'tickets' },
@@ -1548,46 +1551,43 @@ const destinations = [
   },
   {
     id: 'ronda', name: 'Ronda', flag: '⛰️', tag: '1 noche',
-    dates: '26 Sept', photo: PHOTOS.ronda, grad: GRADIENTS.ronda,
-    brief: 'En ruta: el Caminito del Rey, la pasarela colgada a 100m sobre el desfiladero de los Gaitanes — uno de los senderos mas espectaculares del mundo. Y Ronda: el Puente Nuevo sobre una garganta de 120 metros, uno de los paisajes mas dramaticos de toda Espana. Banos arabes mejor conservados de la Peninsula Iberica, la plaza de toros mas antigua del pais (1785) y un road trip epico por la sierra andaluza.',
-    highlights: ['Caminito del Rey', 'Puente Nuevo (120m)', 'Tajo de Ronda', 'Banos Arabes', 'Plaza de Toros (1785)', 'Sierra andaluza', 'Pueblos blancos'],
+    dates: '28 Sept', photo: PHOTOS.ronda, grad: GRADIENTS.ronda,
+    brief: 'Puente Nuevo sobre una garganta de 120 metros. Uno de los paisajes mas dramaticos de toda Espana. Banos arabes mejor conservados de la Peninsula Iberica, la plaza de toros mas antigua del pais (1785), y un road trip epico por la sierra andaluza.',
+    highlights: ['Puente Nuevo (120m)', 'Tajo de Ronda', 'Banos Arabes', 'Plaza de Toros (1785)', 'Camino de los Molinos', 'Sierra andaluza', 'Pueblos blancos'],
     days: [
-      { num: 12, date: 'Sabado 26 Sept · Caminito del Rey + Ronda', plan: 'Recoger <strong>carro de alquiler</strong> en Granada TEMPRANO. <strong>Conducir Granada → El Chorro / Ardales</strong> (~1h45 por la A-92). <strong>CAMINITO DEL REY</strong> — la pasarela colgada a 100m sobre el desfiladero de los Gaitanes. Uno de los senderos mas espectaculares del mundo: ~3-4h, recorrido lineal de 7.7km (entrada con HORA reservada, agotan semanas antes). DRONE/GoPro heaven absoluto. Despues <strong>conducir a Ronda</strong> (~50 min). Llegada a Ronda PM. <strong>Puente Nuevo sobre el Tajo de Ronda</strong> — garganta de 120m, uno de los paisajes mas dramaticos de Espana. DRONE OBLIGATORIO. <strong>Banos Arabes</strong> (los mejor conservados de la Peninsula Iberica). <strong>Plaza de Toros</strong> (la mas antigua de Espana, 1785). Casco antiguo. Cena con vistas al Tajo al atardecer — magico.' }
+      { num: 14, date: 'Lunes 28 Sept', plan: 'Check-out del Airbnb de Granada. Recoger <strong>carro de alquiler</strong> y <strong>conducir Granada → Ronda</strong> (~2h por la A-92/A-367) — sierras andaluzas, olivos infinitos, pueblos blancos. Opcion de parar en <strong>Antequera</strong>. Llegada a Ronda ~mediodia. <strong>DIA COMPLETO EN RONDA:</strong> <strong>Puente Nuevo sobre el Tajo</strong> — garganta de 120m, uno de los paisajes mas dramaticos de Espana (drone obligatorio). Bajar al fondo por el <strong>Camino de los Molinos</strong>. <strong>Banos Arabes</strong> (los mejor conservados de la Peninsula), <strong>Plaza de Toros</strong> (la mas antigua de Espana, 1785), casco antiguo. Cena con vistas al Tajo al atardecer. Noche en Ronda.' }
     ],
     links: [
-      { icon: '🥾', label: 'Caminito del Rey tickets', url: 'https://www.caminitodelrey.info/en/', type: 'tickets' },
       { icon: '🚗', label: 'Rentalcars', url: 'https://www.rentalcars.com/', type: '' },
-      { icon: '📍', label: 'Caminito del Rey', url: 'https://maps.google.com/?q=Caminito+del+Rey+Spain', type: 'maps' },
       { icon: '📍', label: 'Puente Nuevo', url: 'https://maps.google.com/?q=Puente+Nuevo+Ronda+Spain', type: 'maps' },
       { icon: '📍', label: 'Banos Arabes', url: 'https://maps.google.com/?q=Banos+Arabes+Ronda', type: 'maps' },
       { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Ronda+Spain', type: 'maps' }
     ]
   },
   {
-    id: 'sevilla', name: 'Sevilla', flag: '🌺', tag: '2 noches',
-    dates: '27 - 28 Sept', photo: PHOTOS.sevilla, grad: GRADIENTS.sevilla,
-    brief: 'Real Alcazar (palacio mudejar donde filmaron Game of Thrones). Plaza de Espana al golden hour: semicircular, ceramica pintada de cada provincia. La Catedral gotica mas grande del mundo y la Giralda. Triana: cuna del flamenco. El Barrio de Santa Cruz con olor a azahar y la energia de la ciudad a orillas del Guadalquivir.',
-    highlights: ['Real Alcazar (GoT)', 'Plaza de Espana', 'Catedral + Giralda', 'Triana', 'Flamenco', 'Las Setas', 'Barrio Santa Cruz', 'Guadalquivir'],
+    id: 'sevilla', name: 'Sevilla + Cadiz', flag: '🌺', tag: '2 noches',
+    dates: '29 - 30 Sept', photo: PHOTOS.sevilla, grad: GRADIENTS.sevilla,
+    brief: 'Real Alcazar (palacio mudejar donde filmaron Game of Thrones). Plaza de Espana al golden hour: semicircular, ceramica pintada de cada provincia. Triana: cuna del flamenco. Opcion de day trip a Cadiz — la ciudad mas antigua de Europa occidental (~1100 a.C.), playas entre castillos y el mejor atun rojo del mundo.',
+    highlights: ['Real Alcazar (GoT)', 'Plaza de Espana', 'Catedral + Giralda', 'Triana', 'Flamenco', 'Las Setas', 'Cadiz (opcional)', 'Guadalquivir'],
     days: [
-      { num: 13, date: 'Domingo 27 Sept', plan: '<strong>Conducir Ronda → Sevilla</strong> (~1.5h por la sierra). Llegar ~mediodia. Check-in. <strong>Real Alcazar</strong> — palacio mudejar espectacular, Game of Thrones filmo aqui los jardines de Dorne. Los azulejos, los jardines, la mezcla de estilos es unica. Paseo por <strong>Santa Cruz</strong> (callejuelas con olor a azahar, patios escondidos con fuentes). <strong>Plaza de Espana al golden hour</strong> — semicircular, ceramica pintada de cada provincia espanola, canal con barcas. Drone heaven absoluto. Cruzar el puente a <strong>Triana</strong> — cuna del flamenco, tablaos, ceramica artesanal. Cena junto al <strong>Guadalquivir</strong> viendo la Torre del Oro iluminada.' },
-      { num: 14, date: 'Lunes 28 Sept', plan: '<strong>Sevilla a fondo.</strong> <strong>Catedral + Giralda</strong> (la catedral gotica mas grande del mundo — subir la Giralda para vistas de toda la ciudad). <strong>Metropol Parasol / Las Setas</strong> (estructura de madera mas grande del mundo, mirador moderno sobre la ciudad vieja). Paseo por la <strong>Alameda de Hercules</strong> y el <strong>Mercado de Triana</strong>. Tiempo libre por el <strong>Barrio de Santa Cruz</strong> (patios escondidos, callejuelas con azahar). <strong>Atardecer junto al Guadalquivir</strong> viendo la Torre del Oro iluminada. <strong>Flamenco en tablao autentico</strong> por la noche — el cierre perfecto de Andalucia.' }
+      { num: 15, date: 'Martes 29 Sept', plan: '<strong>Manana: Ronda → CAMINITO DEL REY</strong> (~1h, reservar <strong>turno de manana</strong> — abre los martes). La pasarela colgante mas espectacular de Espana, clavada en el <strong>Desfiladero de los Gaitanes</strong>, 100m sobre el rio. Recorrido ~2.5-3h, sentido unico, cupo limitado. Drone/GoPro heaven. Despues: <strong>Caminito → Sevilla</strong> (~2h). Llegar a media tarde, check-in. <strong>Plaza de Espana al golden hour</strong> — semicircular, ceramica de cada provincia, canal con barcas. Cruzar a <strong>Triana</strong> (cuna del flamenco). Cena junto al <strong>Guadalquivir</strong> con la Torre del Oro iluminada.' },
+      { num: 16, date: 'Miercoles 30 Sept', plan: '<strong>Sevilla a fondo.</strong> <strong>Real Alcazar</strong> — palacio mudejar espectacular (los jardines de Dorne en Game of Thrones), reservar online. <strong>Catedral + Giralda</strong> (la gotica mas grande del mundo, subir la Giralda). Barrio de <strong>Santa Cruz</strong> (olor a azahar). <strong>Metropol Parasol / Las Setas</strong>. Mercado de Triana. <strong>Flamenco en tablao autentico</strong> por la noche. <em>Opcion si sobra energia: day trip a Cadiz en tren ~1.5h.</em>' }
     ],
     links: [
       { icon: '🎟', label: 'Real Alcazar', url: 'https://www.alcazarsevilla.org/', type: 'tickets' },
       { icon: '⛪', label: 'Catedral Sevilla', url: 'https://www.catedraldesevilla.es/', type: 'tickets' },
       { icon: '📍', label: 'Plaza de Espana', url: 'https://maps.google.com/?q=Plaza+de+Espana+Sevilla', type: 'maps' },
+      { icon: '📍', label: 'Cadiz', url: 'https://maps.google.com/?q=Cadiz+Spain', type: 'maps' },
       { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Sevilla+Spain', type: 'maps' }
     ]
   },
   {
-    id: 'cordoba', name: 'Cordoba + Madrid cierre', flag: '🕌', tag: '1+2 noches',
-    dates: '29 Sept - 2 Oct', photo: PHOTOS.cordoba, grad: GRADIENTS.cordoba,
+    id: 'cordoba', name: 'Cordoba + Madrid cierre', flag: '🕌', tag: 'parada + 1 noche',
+    dates: '1 - 2 Oct', photo: PHOTOS.cordoba, grad: GRADIENTS.cordoba,
     brief: 'La Mezquita-Catedral: 856 columnas de marmol con arcos rojos y blancos formando un bosque hipnotico. Una catedral renacentista incrustada dentro de la mezquita — surrealista. Juderia medieval, Puente Romano sobre el Guadalquivir, patios cordobeses floridos, salmorejo y flamenquin (los inventaron aqui).',
     highlights: ['Mezquita-Catedral', '856 columnas', 'Juderia medieval', 'Puente Romano', 'Calleja de las Flores', 'Patios cordobeses', 'Salmorejo', 'Flamenquin'],
     days: [
-      { num: 15, date: 'Martes 29 Sept', plan: 'Manana libre en Sevilla: ultimos rincones. <strong>Devolver carro</strong> en Sevilla. <strong>AVE Sevilla → Cordoba</strong> (~45 min, frecuente, ~€15-25). Llegar Cordoba ~mediodia. Check-in. <strong>MEZQUITA-CATEDRAL DE CORDOBA</strong> — El bosque de <strong>856 columnas</strong> de marmol con arcos rojos y blancos. Una de las construcciones mas asombrosas del mundo. La catedral renacentista incrustada dentro de la mezquita es surrealista. Tip: entrada gratuita 8:30-9:30 AM, pero como llegas al mediodia, turno regular (€15). <strong>Juderia</strong> (barrio judio medieval, callejuelas estrechas). <strong>Puente Romano</strong> sobre el Guadalquivir (el mismo de Game of Thrones — Volantis). <strong>Calleja de las Flores</strong> (la mas fotografiada de Espana). <strong>Patios cordobeses</strong> (si hay alguno abierto). Noche: <strong>salmorejo + flamenquin</strong> (los inventaron aqui) en taberna del centro.' },
-      { num: 16, date: 'Miercoles 30 Sept', plan: 'Manana libre en Cordoba: cafe en la plaza, ultimo paseo por la Juderia o <strong>volver a la Mezquita en horario gratuito</strong> (8:30-9:30 — vale MUCHO la pena verla dos veces, con la luz de la manana es otra experiencia). <strong>AVE Cordoba → Madrid</strong> (~1h45, tren ~12:00, llegar MAD ~13:45). Tarde libre en Madrid: <strong>Mercado de San Miguel</strong> (tapas gourmet), Gran Via (compras ultimo momento), o simplemente descansar. Noche tranquila.' },
-      { num: 17, date: 'Jueves 1 Oct', plan: '<strong>Ultimo dia completo en Madrid.</strong> Manana libre: desayuno tranquilo, paseo final por el <strong>Retiro</strong> o <strong>Malasana</strong>. Compras de ultimo momento, souvenirs. Ultimo almuerzo espanol. Tarde: descansar, preparar maletas. <strong>Cena de cierre del viaje</strong> — celebrar 17 dias increibles.' }
+      { num: 17, date: 'Jueves 1 Oct', plan: 'Manana en Sevilla: ultimos rincones, <strong>devolver el carro</strong>. <strong>AVE Sevilla → Cordoba</strong> (~45 min). <strong>PARADA EN CORDOBA</strong> (~3-4h, maletas en consigna): la <strong>MEZQUITA-CATEDRAL</strong> — el bosque de <strong>856 columnas</strong> de marmol con arcos rojos y blancos, con una catedral renacentista incrustada dentro. Surreal. <strong>Juderia</strong>, <strong>Puente Romano</strong>, <strong>Calleja de las Flores</strong>. Almuerzo: salmorejo + flamenquin. <strong>AVE Cordoba → Madrid</strong> (~1h45, llegar por la tarde). Ultima noche en Madrid: <strong>Mercado de San Miguel</strong>, <strong>cena de cierre del viaje</strong> — celebrar 17 dias increibles. <em>(Ya viste Madrid a fondo al inicio; el cierre es Cordoba + relax antes del vuelo.)</em>' }
     ],
     links: [
       { icon: '🎟', label: 'Mezquita', url: 'https://mezquita-catedraldecordoba.es/', type: 'tickets' },
@@ -1605,11 +1605,11 @@ const transports = [
   { emoji: '✈️', type: 'flight', route: 'AMS → MAD', detail: 'Vie 18 Sept · vuelo nocturno ~20:00 · ~2.5h', cost: '~€60-120' },
   { emoji: '🚄', type: 'train', route: 'MAD ↔ Toledo', detail: 'Dom 20 Sept · AVE ida y vuelta · 30 min c/u', cost: '~€26' },
   { emoji: '🚄', type: 'train', route: 'MAD → BCN', detail: 'Lun 21 Sept · AVE · ~2.5h', cost: '~€30-70' },
-  { emoji: '✈️', type: 'flight', route: 'BCN → Granada', detail: 'Jue 24 Sept · Vueling 17:15-18:55 directo · BF5L8V ✓', cost: '€185.98 (2 pax)' },
-  { emoji: '🚗', type: 'car', route: 'Granada → Ronda → Sevilla', detail: 'Sab 26 - Mar 29 Sept · Alquiler 4 dias', cost: '~€150-200' },
+  { emoji: '✈️', type: 'flight', route: 'BCN → Granada', detail: 'Jue 24 Sept · Vueling 17:15 → 18:55 · directo', cost: 'confirmado' },
+  { emoji: '🚗', type: 'car', route: 'Granada → Ronda → Caminito → Sevilla', detail: 'Lun 28 Sep - Jue 1 Oct · Alquiler 4 dias', cost: '~€150-200' },
   { emoji: '⛽', type: 'car', route: 'Gasolina Andalucia', detail: 'Granada-Ronda-Sevilla · ~500km total', cost: '~€40-60' },
-  { emoji: '🚄', type: 'train', route: 'SVQ → Cordoba', detail: 'Mar 29 Sept · AVE · ~45 min', cost: '~€15-25' },
-  { emoji: '🚄', type: 'train', route: 'Cordoba → MAD', detail: 'Mie 30 Sept · AVE · ~1h45', cost: '~€20-50' },
+  { emoji: '🚄', type: 'train', route: 'SVQ → Cordoba', detail: 'Jue 1 Oct · AVE · parada ~45 min', cost: '~€15-25' },
+  { emoji: '🚄', type: 'train', route: 'Cordoba → MAD', detail: 'Jue 1 Oct · AVE · ~1h45', cost: '~€20-50' },
   { emoji: '✈️', type: 'flight', route: 'MAD → SJU', detail: 'Vie 2 Oct · Iberia directo · ~8h', cost: '(parte del RT)' }
 ];
 
@@ -1620,6 +1620,9 @@ const checklistData = [
     items: [
       { label: 'Vuelo SJU ↔ MAD (Iberia round trip)', sub: 'Lun 14 Sept → Vie 2 Oct', pri: 'critical', link: 'https://www.iberia.com/', linkLbl: 'Iberia.com' },
       { label: 'Alhambra — turno AM', sub: 'Vie 25 Sept · Se agotan MESES antes', pri: 'critical', link: 'https://www.alhambra-patronato.es/', linkLbl: 'Reservar ahora' },
+      { label: 'Rijksmuseum — 14:00-15:00', sub: 'Mie 16 Sept · confirmado (x2) · orden 27435348', pri: 'critical', link: 'https://www.rijksmuseum.nl/en/visit/tickets', linkLbl: 'Rijksmuseum' },
+      { label: 'Caminito del Rey — turno AM', sub: 'Mar 29 Sept · Cupo limitado, se agota meses antes', pri: 'critical', link: 'https://www.caminitodelrey.info/', linkLbl: 'Reservar ahora' },
+      { label: 'Sagrada Familia — slot AM', sub: 'Jue 24 Sept · ~9-10am antes del vuelo · se agota', pri: 'critical', link: 'https://sagradafamilia.org/en/tickets', linkLbl: 'Reservar ahora' },
       { label: 'Van Gogh Museum — slot 9AM', sub: 'Mie 16 Sept · Solo online, reservar 2-3 meses antes', pri: 'critical', link: 'https://tickets.vangoghmuseum.com/', linkLbl: 'Reservar' },
       { label: 'Smokeboat Canal Tour', sub: 'Vie 18 Sept · Reservar 2-4 semanas antes', pri: 'critical', link: 'https://smokeboat.com/', linkLbl: 'Smokeboat.com' }
     ]
@@ -1628,12 +1631,11 @@ const checklistData = [
     cat: 'Reservas importantes', icon: '🟡',
     items: [
       { label: 'Moco Museum Amsterdam', sub: 'Mie 16 Sept (tarde)', pri: 'important', link: 'https://mocomuseum.com/', linkLbl: 'Tickets' },
-      { label: 'Fabrique des Lumieres', sub: 'Jue 17 Sept · 11:30 slot', pri: 'important', link: 'https://www.fabrique-lumieres.com/en', linkLbl: 'Tickets' },
-      { label: 'NEMO Science Museum', sub: 'Vie 18 Sept · 11:00', pri: 'important', link: 'https://www.nemosciencemuseum.nl/en/plan-your-visit', linkLbl: 'Tickets' },
+      { label: 'Fabrique des Lumieres', sub: 'Jue 17 Sept · opcional, reservar slot', pri: 'important', link: 'https://www.fabrique-lumieres.com/en', linkLbl: 'Tickets' },
+      { label: 'NEMO Science Museum — 10:30', sub: 'Jue 17 Sept · confirmado (x2)', pri: 'important', link: 'https://www.nemosciencemuseum.nl/en/plan-your-visit', linkLbl: 'Tickets' },
       { label: 'Museo del Prado', sub: 'Sab 19 Sept', pri: 'important', link: 'https://www.museodelprado.es/en/visit/tickets', linkLbl: 'Tickets' },
-      { label: 'Caminito del Rey — entrada con hora', sub: 'Sab 26 Sept · Se agotan SEMANAS antes', pri: 'important', link: 'https://www.caminitodelrey.info/en/', linkLbl: 'Tickets' },
-      { label: 'Real Alcazar Sevilla', sub: 'Dom 27 Sept', pri: 'important', link: 'https://www.alcazarsevilla.org/', linkLbl: 'Tickets' },
-      { label: 'Mezquita Cordoba (turno especifico)', sub: 'Mar 29 Sept · Gratis 8:30-9:30 AM', pri: 'important', link: 'https://mezquita-catedraldecordoba.es/', linkLbl: 'Info' },
+      { label: 'Real Alcazar Sevilla', sub: 'Mie 30 Sept', pri: 'important', link: 'https://www.alcazarsevilla.org/', linkLbl: 'Tickets' },
+      { label: 'Mezquita Cordoba (parada)', sub: 'Jue 1 Oct · turno regular €15', pri: 'important', link: 'https://mezquita-catedraldecordoba.es/', linkLbl: 'Info' },
       { label: 'AI Summit Barcelona — registro', sub: 'Mar 22 - Mie 23 Sept', pri: 'important', link: 'https://barcelona.theaisummit.com/', linkLbl: 'Registro' }
     ]
   },
@@ -1644,10 +1646,10 @@ const checklistData = [
       { label: 'Vuelo AMS → MAD (nocturno)', sub: 'Vie 18 Sept · ~20:00 · llega ~23:30', pri: 'normal', link: 'https://www.klm.com/', linkLbl: 'KLM' },
       { label: 'AVE Madrid ↔ Toledo', sub: 'Dom 20 Sept · ida y vuelta', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' },
       { label: 'AVE Madrid → Barcelona', sub: 'Lun 21 Sept · ~14:00', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' },
-      { label: 'Vuelo BCN → Granada ✓ RESERVADO', sub: 'Jue 24 Sept · Vueling 17:15-18:55 · Cod. BF5L8V · €185.98 (2 pax)', pri: 'normal', link: 'https://www.vueling.com/', linkLbl: 'Vueling check-in' },
-      { label: 'Carro alquiler (Granada pickup → Sevilla drop)', sub: 'Sab 26 - Mar 29 · 4 dias', pri: 'normal', link: 'https://www.rentalcars.com/', linkLbl: 'Rentalcars' },
-      { label: 'AVE Sevilla → Cordoba', sub: 'Mar 29 Sept', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' },
-      { label: 'AVE Cordoba → Madrid', sub: 'Mie 30 Sept · ~12:00', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' }
+      { label: 'Vuelo BCN → Granada', sub: 'Jue 24 Sept · Vueling 17:15-18:55 · confirmado BF5L8V', pri: 'normal', link: 'https://www.vueling.com/', linkLbl: 'Vueling' },
+      { label: 'Carro alquiler (Granada pickup → Sevilla drop)', sub: 'Lun 28 Sep - Jue 1 Oct · 4 dias', pri: 'normal', link: 'https://www.rentalcars.com/', linkLbl: 'Rentalcars' },
+      { label: 'AVE Sevilla → Cordoba', sub: 'Jue 1 Oct', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' },
+      { label: 'AVE Cordoba → Madrid', sub: 'Jue 1 Oct', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' }
     ]
   },
   {
@@ -1655,12 +1657,11 @@ const checklistData = [
     items: [
       { label: 'Hotel Amsterdam (3 noches)', sub: '15-17 Sept · Zona: Jordaan o centro', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
       { label: 'Hotel Madrid (3 noches)', sub: '18-20 Sept · Zona: La Latina, Sol o Malasana', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
-      { label: 'Niu Barcelona Hotel ✓ RESERVADO', sub: '21-24 Sept · Rambla del Raval 8 · 3 noches · Booking #15920204369785792567', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
-      { label: 'Airbnb Granada ✓ RESERVADO', sub: '24-25 Sept · 2 noches', pri: 'important', link: 'https://www.airbnb.com/', linkLbl: 'Airbnb' },
-      { label: 'Hotel Ronda (1 noche)', sub: '26 Sept · Pueblo pequeno, reservar pronto!', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
-      { label: 'Hotel Sevilla (2 noches)', sub: '27-28 Sept · Zona: Santa Cruz o Triana', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
-      { label: 'Hotel Cordoba (1 noche)', sub: '29 Sept · Zona: cerca Mezquita', pri: 'normal', link: 'https://www.booking.com/', linkLbl: 'Booking' },
-      { label: 'Hotel Madrid cierre (2 noches)', sub: '30 Sept - 1 Oct · cerca Atocha para el aeropuerto', pri: 'normal', link: 'https://www.booking.com/', linkLbl: 'Booking' }
+      { label: 'Hotel Barcelona (3 noches)', sub: '21-23 Sept · Zona: Gotico, Born o cerca WTC', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
+      { label: 'Airbnb Granada (4 noches)', sub: '24-27 Sept · reservado (hasta el 28)', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
+      { label: 'Hotel Ronda (1 noche)', sub: '28 Sept · Pueblo pequeno, reservar pronto!', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
+      { label: 'Hotel Sevilla (2 noches)', sub: '29-30 Sept · Zona: Santa Cruz o Triana', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
+      { label: 'Hotel Madrid cierre (1 noche)', sub: '1 Oct · cerca Atocha para el aeropuerto', pri: 'normal', link: 'https://www.booking.com/', linkLbl: 'Booking' }
     ]
   },
   {
@@ -1910,8 +1911,8 @@ function goTo(id) {
   if (!el.classList.contains('open')) el.classList.add('open');
 }
 function updateProgress() {
-  const stateKeys = ['checklist'];
-  const datas = [checklistData];
+  const stateKeys = ['checklist', 'packing'];
+  const datas = [checklistData, packingData];
   let total = 0, done = 0;
   stateKeys.forEach((key, pi) => {
     const s = state[key] || {};
@@ -2335,6 +2336,16 @@ tripRef.onSnapshot({ includeMetadataChanges: true }, doc => {
   console.error('Trip listener error:', err);
   setSyncStatus('offline', 'Error conexion');
 });
+
+// Fallback: si Firebase no conecta en 4s (ej. abriendo el archivo local o internet lento),
+// desbloquea la UI igual para que el checklist y la barra de progreso funcionen.
+setTimeout(() => {
+  if (!state.ready) {
+    state.ready = true;
+    updateProgress();
+    setSyncStatus('offline', 'Modo local (sin sync)');
+  }
+}, 4000);
 
 expensesRef.orderBy('createdAt', 'asc').onSnapshot(snap => {
   state.expenses = snap.docs.map(d => {
