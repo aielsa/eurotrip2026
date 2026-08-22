@@ -593,33 +593,38 @@ const reservas = [
     w:'Vie 25 sept', est:'ok', c:54.27, pagado:true,
     n:'🔴 Guarda la hora exacta del turno de Palacios Nazaríes. Es la única entrada del viaje con hora fija de verdad: si llegas tarde no te dejan entrar y no hay reembolso.',
     l:'https://www.alhambra-patronato.es/', ll:'Alhambra' },
-  { id:'t-hammam', b:'Granada · 24 al 28 sept', ic:'💧', t:'Hammam Baños de Al Ándalus',
-    w:'Sáb 26 sept · tarde', est:'idea', ce:'~€40 c/u',
-    n:'Pide reserva previa si lo decides.', l:'https://granada.hammamalandalus.com/', ll:'Info' },
   { id:'t-flamenco-grx', b:'Granada · 24 al 28 sept', ic:'💃', t:'Flamenco en cueva del Sacromonte',
     w:'Sáb 26 sept · noche', est:'idea', ce:'~€30 c/u',
     n:'Zambra auténtica. Se reserva el mismo día sin problema.' },
-  { id:'t-alpujarras', b:'Granada · 24 al 28 sept', ic:'⛰️', t:'Excursión a las Alpujarras',
-    w:'Dom 27 sept', est:'idea', ce:'sin costo fijo',
-    n:'Pampaneira, Bubión, Capileira. Solo si adelantas el coche o tomas bus.' },
 
   { id:'car', b:'Ronda · 28 al 29 sept', ic:'🚗', t:'Carro de alquiler · Granada a Sevilla',
-    w:'Lun 28 sept al jue 1 oct · 4 días', est:'todo', urg:true, ce:'~€150 a €200 más recargo one way',
-    n:'Pickup en Granada, drop en Sevilla. El recargo one way sube mucho si se compra tarde.',
-    l:'https://www.rentalcars.com/', ll:'Rentalcars' },
+    w:'Lun 28 sept a mar 29 sept · 2 días', est:'ok',
+    h:'Recogida lun 28 · 9:30 AM en Granada\nDevolución mar 29 · 4:30 PM en Sevilla',
+    n:'Guarda aquí el localizador, la oficina exacta de recogida y de devolución, y el costo con "editar datos". ⚠️ Llega a la oficina de Granada 15 min antes: el papeleo y la revisión del coche se comen media hora larga.' },
+  { id:'a-barranco', b:'Ronda · 28 al 29 sept', ic:'🧗‍♀️', t:'Barranquismo DENTRO del Tajo de Ronda',
+    w:'Lun 28 sept · tarde', est:'todo', ce:'€48 c/u, ~€96 los dos',
+    n:'🔥 ESTO ES LO QUE BUSCABAS: descenso por el río Guadalevín por dentro del Tajo, con rápel por cuerda, toboganes naturales y saltos a pozas. 3 horas. Operador: Horizon Naturaleza y Aventura. Punto de encuentro en los BAÑOS ÁRABES, o sea en el pueblo, sin desviarte. INCLUYE guía certificado, seguro, casco, arnés, cuerda, neopreno, bolsas estancas, botiquín y REPORTAJE FOTOGRÁFICO, que te resuelve el contenido sin arriesgar tu cámara. 🔴 EL PROBLEMA: grupo mínimo de 4 personas y ustedes son 2. Escríbeles YA para confirmar que hay salida ese día y que opera a finales de septiembre, que eso no lo dice la web. ⚠️ Piden nivel físico y técnico medio-alto, no es un paseo. Mínimo 18 años. 🎒 Tienes que llevar: bañador, ZAPATOS DE AGUA (escarpines), agua, toalla y ropa seca para cambiarte. Los escarpines no están en tu lista de equipaje. 💡 Si sale, SUSTITUYE al Camino de los Molinos: bajas el Tajo por dentro y mojada, que es mejor.',
+    l:'https://www.horizonaventura.com/barranco-tajo-de-ronda/', ll:'Horizon Aventura' },
+  { id:'a-mina', b:'Ronda · 28 al 29 sept', ic:'🪜', t:'Mina de Agua · Casa del Rey Moro',
+    w:'Lun 28 sept', est:'idea', ce:'~€10 c/u',
+    n:'La versión suave de bajar al río: una escalera del siglo XIV excavada en la pared del Tajo, 231 escalones tallados en la roca que bajan 60 metros hasta el Guadalevín. La hicieron los musulmanes para abastecer de agua a la ciudad durante los asedios. Escalones húmedos y resbalosos, la subida cansa. ⚠️ La Casa del Rey Moro ha tenido cierres por conservación: confirma que esté abierta antes de contar con ella.' },
+  { id:'r-torcal', b:'Ronda · 28 al 29 sept', ic:'🏔️', t:'El Torcal de Antequera · solo si te sobra el día',
+    w:'Lun 28 sept · desvío de la mañana', est:'idea',
+    n:'⚖️ MI RECOMENDACIÓN ES QUE LO SUELTES. Es un campo de roca caliza y no hay nada más: ni pueblo, ni monumento, ni sitio donde sentarse. En 30 min ya viste lo que hay y te quedan 1.5h de caminar entre lo mismo, sin sombra, con maletas en el carro. Te come 4h del día que llegas a Ronda, y ese mismo día tienes el Tajo, que es mejor naturaleza y no cuesta desvío. 🥾 SI AUN ASÍ QUIERES IR, hazlo corto: ruta VERDE de 45 min más el mirador de Las Ventanillas, no la amarilla. Llegas 10:00, sales 11:30, estás en Ronda a la 1:00. Eso es 2.5h de desvío en vez de 4. ⚠️ Parking chico que se llena y cortan la subida; cero sombra a 1,200 m.' },
   { id:'h-ron', b:'Ronda · 28 al 29 sept', ic:'🏨', t:'Apartamento Balcones del Tajo',
     w:'Lun 28 al mar 29 sept · 1 noche', est:'ok', conf:'Conf. 6961.974.953 · PIN 9457', c:169, pagado:true,
     h:'Check in lun 28 · 13:30 a 21:30\nCheck out mar 29 · 05:00 a 11:30',
     n:'12 Calle Rosario. Les avisaste que llegas entre 13:00 y 14:00. Cancelación gratis hasta el 20 de sept.',
     l:'https://www.booking.com/', ll:'Booking' },
-  { id:'t-banos-ron', b:'Ronda · 28 al 29 sept', ic:'♨️', t:'Baños Árabes de Ronda',
-    w:'Lun 28 sept · tarde', est:'idea', ce:'€4.50 c/u',
-    n:'Los mejor conservados de la Península. Entrada barata y sin reserva.' },
 
-  { id:'t-caminito', b:'Sevilla · 29 sept al 1 oct', ic:'🥾', t:'Caminito del Rey · turno AM',
-    w:'Mar 29 sept', est:'todo', urg:true, ce:'€10 c/u',
-    n:'Cupo limitado y sentido único, se agota meses antes. De 2.5 a 3h camino a Sevilla.',
-    l:'https://www.caminitodelrey.info/', ll:'Reservar ya' },
+  { id:'t-caminito', b:'Sevilla · 29 sept al 1 oct', ic:'🥾', t:'Caminito del Rey',
+    w:'Mar 29 sept', est:'idea', ce:'€10 a €15 c/u',
+    n:'❌ SIN DISPONIBILIDAD para el 29 ni para casi todo septiembre, ni en el oficial ni en GetYourGuide. Lo dejo aquí en gris por si liberan cupo: revisa el link de vez en cuando y en la web oficial sueltan ~50 entradas en taquilla del acceso norte el mismo día, con cola desde las 7:00. Si apareciera algo de MAÑANA, se vuelve a activar y se cae la ruta de pueblos blancos. Si es de tarde, no lo cojas: te destroza la llegada a Sevilla.',
+    l:'https://www.getyourguide.com/caminito-del-rey-l89646/caminito-del-rey-giris-bileti-t425999/', ll:'Entrada sin guía' },
+  { id:'r-pueblos', b:'Sevilla · 29 sept al 1 oct', ic:'🏘️', t:'Setenil de las Bodegas · camino a Sevilla',
+    w:'Mar 29 sept · mañana', est:'ok',
+    h:'Mar 29 sept · Ronda 9:30 → Setenil 9:50 a 13:30 → Sevilla 15:30 → carro a las 16:30',
+    n:'🚗 Única parada del día, y a 20 min de Ronda. Calles enteras metidas debajo de un techo de roca natural: las Cuevas del Sol y las Cuevas de la Sombra. Cero entradas y cero reservas. ⏱️ Camina de 9:50 a 12:00 (con el mirador del Carmen y la torre son 1.5h, el resto es callejear sin prisa), ALMUERZA AHÍ de 12:00 a 13:30, que es tierra de embutidos y carne a la brasa, y sal a las 13:30. Setenil → Sevilla son unas 2h, llegas a las 15:30. 💡 Como devuelves el carro a las 16:30, aprovecha para acercarte con las maletas EN CARRO hasta donde puedas del alojamiento, descarga, y después vas a devolver sin peso encima. Santa Cruz es calle estrecha: avisa al alojamiento que llegas en coche a descargar. ✅ Soltar Arcos de la Frontera fue buena decisión: te da casi 2h más de Sevilla y llegas con luz y con las oficinas de alquiler abiertas.' },
   { id:'h-svq', b:'Sevilla · 29 sept al 1 oct', ic:'🏨', t:'nüa cicerone · 2 noches',
     w:'Mar 29 sept al jue 1 oct · 2 noches', est:'ok', conf:'Conf. 6374.060.574 · PIN 8313', c:318, pagado:true,
     h:'Check in mar 29 · 14:00 a 23:00\nCheck out jue 1 oct · 07:00 a 12:00',
@@ -627,7 +632,7 @@ const reservas = [
     l:'https://www.booking.com/', ll:'Booking' },
   { id:'t-alcazar', b:'Sevilla · 29 sept al 1 oct', ic:'🏰', t:'Real Alcázar de Sevilla',
     w:'Mié 30 sept', est:'todo', ce:'€15.50 c/u',
-    n:'Los jardines de Dorne. Se reserva online y se llena en temporada.',
+    n:'🕐 CÓGELO A LAS 9:30, primera hora del miércoles 30: está vacío y la luz de los jardines es la buena. Se reserva online y se llena en temporada, así que compra con antelación. Los jardines de Dorne de Game of Thrones.',
     l:'https://www.alcazarsevilla.org/', ll:'Tickets' },
   { id:'t-giralda', b:'Sevilla · 29 sept al 1 oct', ic:'⛪', t:'Catedral y Giralda',
     w:'Mié 30 sept', est:'idea', ce:'€12 c/u', l:'https://www.catedraldesevilla.es/', ll:'Info' },
@@ -639,13 +644,15 @@ const reservas = [
 
   { id:'tr-svq-cor', b:'Córdoba y cierre · 1 al 2 oct', ic:'🚄', t:'AVE Sevilla → Córdoba',
     w:'Jue 1 oct · mañana', est:'todo', ce:'~€15 a €25',
-    n:'45 min. Devolver el carro en Sevilla antes de tomarlo.', l:'https://www.renfe.com/es/en', ll:'Renfe' },
+    n:'⏰ COGE EL DE LAS 9:00 o 9:30, no más tarde. La mañana de Sevilla ya la tuviste completa el miércoles, y salir temprano es lo que hace que Córdoba quepa sin correr. 45 min. Sale de Santa Justa, y como el carro ya lo devolviste el martes, vas en taxi.', l:'https://www.renfe.com/es/en', ll:'Renfe' },
   { id:'t-mezquita', b:'Córdoba y cierre · 1 al 2 oct', ic:'🕌', t:'Mezquita Catedral de Córdoba',
     w:'Jue 1 oct · mediodía', est:'todo', ce:'€15 c/u',
-    n:'Las 856 columnas. Gratis de 8:30 a 9:30 AM, pero llegas al mediodía.',
+    n:'🕌 Las 856 columnas. Es lo más impresionante de España y NO hay nada parecido en ningún lado. Reserva online el turno de la mañana. 💡 Como tú ya fuiste, la guía eres tú: eso vale más que cualquier audioguía para él. ⚠️ La entrada gratuita es de 8:30 a 9:30 de lunes a sábado, pero llegando a las 10:45 no la alcanzas: compra la normal y no pierdas tiempo.',
     l:'https://mezquita-catedraldecordoba.es/', ll:'Tickets' },
   { id:'tr-cor-mad', b:'Córdoba y cierre · 1 al 2 oct', ic:'🚄', t:'AVE Córdoba → Madrid',
-    w:'Jue 1 oct · tarde', est:'todo', ce:'~€20 a €50', l:'https://www.renfe.com/es/en', ll:'Renfe' },
+    w:'Jue 1 oct · media tarde', est:'todo', ce:'~€20 a €50',
+    n:'Cógelo sobre las 16:00 y llegas a Madrid ~17:45, con tiempo de check in en Atocha19 y salir a cenar sin prisa.',
+    l:'https://www.renfe.com/es/en', ll:'Renfe' },
   { id:'h-mad2', b:'Córdoba y cierre · 1 al 2 oct', ic:'🏨', t:'Atocha19 Apartment Madrid',
     w:'Jue 1 al vie 2 oct · 1 noche', est:'ok', conf:'Conf. 6284.097.511 · PIN 1150', c:179, pagado:true,
     h:'Check in jue 1 oct · 15:00 a 22:00\nCheck out vie 2 oct · 06:00 a 12:00',
@@ -706,14 +713,14 @@ const destinations = [
     ]},
 
   { id:'granada', name:'Granada', flag:'🌙', tag:'4 noches', dates:'24 al 28 Sept',
-    photo:PHOTOS.granada, grad:GRAD.granada, res:['h-grx','t-alhambra','t-hammam','t-flamenco-grx','t-alpujarras'],
+    photo:PHOTOS.granada, grad:GRAD.granada, res:['h-grx','t-alhambra','t-flamenco-grx'],
     brief:'La Alhambra: la joya absoluta de la arquitectura islámica en Europa. El Albaicín árabe (UNESCO), teterías de la Calderería Nueva, el Sacromonte gitano. Y en Granada cada bebida incluye tapa gratis.',
     highlights:['La Alhambra','Palacios Nazaríes','Generalife','Albaicín UNESCO','Mirador San Nicolás','Tapas gratis','Sacromonte','Teterías árabes'],
     days:[
       { num:10, date:'Jueves 24 Sept (tarde y noche)', plan:'<strong>Vuelo BCN → Granada 17:15 a 18:55</strong>. Check in en el Airbnb del Albaicín. <strong>Noche:</strong> primera probada de Granada, tapas gratis por <strong>Calle Navas, Plaza Nueva y Calle Elvira</strong>. Si llegas con energía, sube al <strong>Mirador de San Nicolás</strong> para tu primera vista de la Alhambra iluminada.' },
       { num:11, date:'Viernes 25 Sept', plan:'<strong>Mañana: LA ALHAMBRA Y GENERALIFE</strong> (turno AM). <strong>Palacios Nazaríes</strong>: los arabescos imposibles, la Fuente de los Leones, el Patio de los Arrayanes reflejando el cielo. <strong>Alcazaba</strong>. <strong>Jardines del Generalife</strong>. ~3 a 4h. Almuerzo. <strong>Tarde: Albaicín a fondo</strong> y la <strong>Carrera del Darro</strong>, la calle más bonita de Granada. <strong>Atardecer: Mirador de San Nicolás</strong>, la Alhambra en luz dorada con Sierra Nevada detrás. LA foto del viaje.' },
-      { num:12, date:'Sábado 26 Sept', plan:'Mañana: <strong>Capilla Real</strong> (tumbas de los Reyes Católicos) y la <strong>Catedral</strong>. Almuerzo de tapas. Tarde: <strong>Sacromonte</strong> (barrio gitano, cuevas) o un <strong>hammam árabe</strong>. <strong>Noche: flamenco en cueva del Sacromonte</strong>, zambra auténtica.' },
-      { num:13, date:'Domingo 27 Sept', plan:'Opción relax: barrio <strong>Realejo</strong> (antigua judería, street art de El Niño de las Pinturas), cármenes con jardines, últimas tapas por <strong>Calle Navas</strong>. Opción excursión: <strong>las Alpujarras</strong> (Pampaneira, Bubión, Capileira) o <strong>Sierra Nevada</strong>. Atardecer final: <strong>Mirador de San Miguel Alto</strong>, mejor que San Nicolás y con menos gente.' }
+      { num:12, date:'Sábado 26 Sept', plan:'Mañana: <strong>Capilla Real</strong> (tumbas de los Reyes Católicos) y la <strong>Catedral</strong>. Almuerzo de tapas. Tarde: <strong>Sacromonte</strong>, el barrio gitano de las cuevas, y la <strong>Carrera del Darro</strong>, la calle más bonita de Granada. <strong>Noche: flamenco en cueva del Sacromonte</strong>, zambra auténtica.' },
+      { num:13, date:'Domingo 27 Sept', plan:'Opción relax: barrio <strong>Realejo</strong> (antigua judería, street art de El Niño de las Pinturas), cármenes con jardines, últimas tapas por <strong>Calle Navas</strong>. Atardecer final: <strong>Mirador de San Miguel Alto</strong>, mejor que San Nicolás y con menos gente.' }
     ],
     links:[
       {icon:'🎟',label:'Alhambra',url:'https://www.alhambra-patronato.es/',type:'tickets'},
@@ -722,11 +729,11 @@ const destinations = [
     ]},
 
   { id:'ronda', name:'Ronda', flag:'⛰️', tag:'1 noche', dates:'28 Sept',
-    photo:PHOTOS.ronda, grad:GRAD.ronda, res:['car','h-ron','t-banos-ron'],
-    brief:'Puente Nuevo sobre una garganta de 120 metros, uno de los paisajes más dramáticos de toda España. Baños árabes mejor conservados de la Península, la plaza de toros más antigua del país (1785) y un road trip épico por la sierra andaluza.',
-    highlights:['Puente Nuevo · 120m','Tajo de Ronda','Baños Árabes','Plaza de Toros 1785','Camino de los Molinos','Sierra andaluza','Pueblos blancos'],
+    photo:PHOTOS.ronda, grad:GRAD.ronda, res:['car','h-ron'],
+    brief:'Puente Nuevo sobre una garganta de 120 metros, uno de los paisajes más dramáticos de toda España. La plaza de toros más antigua del país (1785) y un road trip épico por la sierra andaluza para llegar.',
+    highlights:['Puente Nuevo · 120m','Tajo de Ronda','Plaza de Toros 1785','Camino de los Molinos','Mirador de Aldehuela','Sierra andaluza','Pueblos blancos'],
     days:[
-      { num:14, date:'Lunes 28 Sept', plan:'Check out del Airbnb de Granada. Recoger <strong>carro de alquiler</strong> y <strong>conducir Granada → Ronda</strong> (~2h por la A-92 y A-367): sierras andaluzas, olivos infinitos, pueblos blancos. Opción de parar en <strong>Antequera</strong>. Llegada ~mediodía y check in a partir de las 13:30. <strong>Puente Nuevo sobre el Tajo</strong>, garganta de 120m, drone obligatorio. Bajar al fondo por el <strong>Camino de los Molinos</strong>. <strong>Baños Árabes</strong>, <strong>Plaza de Toros</strong>, casco antiguo. Cena con vistas al Tajo al atardecer.' }
+      { num:14, date:'Lunes 28 Sept', plan:'Check out del Airbnb de Granada. Recoger <strong>carro de alquiler</strong> y <strong>conducir Granada → Ronda</strong> (~2h por la A-92 y A-367): sierras andaluzas, olivos infinitos, pueblos blancos. Check out del Airbnb y a la oficina de alquiler. <strong>9:30: recoges el carro</strong> (llega 9:15, el papeleo tarda). <strong>Directo a Ronda</strong>, ~2h por la A-92 y A-367: sierras andaluzas, olivos infinitos y pueblos blancos por la ventana. <strong>Llegas sobre las 11:45.</strong> Come algo, y a partir de las <strong>13:30 haces check in</strong> en el apartamento. Tienes el pueblo entero desde el mediodía hasta la noche. <strong>Puente Nuevo sobre el Tajo</strong>, garganta de 120m. <strong>BAJA AL FONDO por el Camino de los Molinos</strong>: es la caminata de naturaleza del día, con la subida de vuelta dura de verdad, y desde abajo el puente se ve en toda su escala. Drone obligatorio. <strong>Plaza de Toros</strong>, la más antigua de España, y el casco antiguo. <strong>Si cuadra el barranquismo</strong> (3h, encuentro en los Baños Árabes), va aquí por la tarde y sustituye la bajada a pie. <strong>Vuelve al Puente Nuevo al atardecer</strong>: con luz de tarde es otra cosa distinta a como lo viste al mediodía. Cena con vistas al Tajo.' }
     ],
     links:[
       {icon:'🚗',label:'Rentalcars',url:'https://www.rentalcars.com/',type:''},
@@ -735,15 +742,16 @@ const destinations = [
 
   { id:'sevilla', name:'Sevilla', flag:'🌺', tag:'2 noches', dates:'29 Sept al 1 Oct',
     photo:PHOTOS.sevilla, grad:GRAD.sevilla, res:['t-caminito','h-svq','t-alcazar','t-giralda','t-flamenco-svq','t-cadiz'],
-    brief:'Real Alcázar, el palacio mudéjar donde filmaron Game of Thrones. Plaza de España al golden hour: semicircular, con cerámica pintada de cada provincia. Triana, cuna del flamenco. Y en el camino, el Caminito del Rey.',
-    highlights:['Real Alcázar · GoT','Plaza de España','Catedral y Giralda','Triana','Flamenco','Las Setas','Cádiz opcional','Guadalquivir'],
+    brief:'Real Alcázar, el palacio mudéjar donde filmaron Game of Thrones. Plaza de España al golden hour: semicircular, con cerámica pintada de cada provincia. Triana, cuna del flamenco. Y en el camino desde Ronda, Setenil de las Bodegas y sus calles bajo la roca.',
+    highlights:['Setenil de las Bodegas','Real Alcázar · GoT','Plaza de España','Catedral y Giralda','Santa Cruz','Triana','Flamenco','Las Setas'],
     days:[
-      { num:15, date:'Martes 29 Sept', plan:'<strong>Mañana: Ronda → CAMINITO DEL REY</strong> (~1h, turno de mañana). La pasarela colgante más espectacular de España, clavada en el <strong>Desfiladero de los Gaitanes</strong>, 100m sobre el río. Recorrido de 2.5 a 3h, sentido único, cupo limitado. Después: <strong>Caminito → Sevilla</strong> (~2h). Llegar a media tarde, check in a partir de las 14:00. <strong>Plaza de España al golden hour</strong>. Cruzar a <strong>Triana</strong>. Cena junto al <strong>Guadalquivir</strong> con la Torre del Oro iluminada.' },
-      { num:16, date:'Miércoles 30 Sept', plan:'<strong>Real Alcázar</strong>, palacio mudéjar espectacular (los jardines de Dorne). <strong>Catedral y Giralda</strong>, la gótica más grande del mundo. Barrio de <strong>Santa Cruz</strong> con olor a azahar. <strong>Metropol Parasol</strong> o Las Setas. Mercado de Triana. <strong>Flamenco en tablao auténtico</strong> por la noche. <em>Alternativa: day trip a Cádiz en tren, ~1.5h. Escoge una, no caben las dos.</em>' }
+      { num:15, date:'Martes 29 Sept · Setenil y llegada a Sevilla', plan:'Check out de Ronda, que va hasta las 11:30. <strong>9:30: RONDA → SETENIL DE LAS BODEGAS</strong>, 20 min. Calles construidas debajo de un saliente de roca: las <strong>Cuevas del Sol</strong> y las <strong>Cuevas de la Sombra</strong>. Es el sitio más raro y más fotogénico del viaje. <strong>12:00: almuerzo ahí mismo</strong>, debajo de la roca, tierra de embutidos y carne a la brasa. <strong>13:30: SETENIL → SEVILLA</strong> (~2h). <strong>15:30: llegada.</strong> Acércate con las maletas en carro hasta donde puedas, descarga y haz check in. <strong>16:30: devuelves el carro</strong> ya sin peso. <strong>Tarde sin reloj:</strong> asiéntate y camina el <strong>barrio de Santa Cruz</strong>, con olor a azahar y patios escondidos. <strong>19:30: PLAZA DE ESPAÑA al golden hour</strong>, semicircular, con la cerámica de cada provincia y el canal con barcas. Cruzar a <strong>Triana</strong>, cuna del flamenco. Cena junto al <strong>Guadalquivir</strong> con la Torre del Oro iluminada.' },
+      { num:16, date:'Miércoles 30 Sept · Sevilla a fondo', plan:'<strong>9:30: REAL ALCÁZAR</strong> a primera hora, que es cuando está vacío y la luz en los jardines es la buena. Palacio mudéjar espectacular, los jardines de Dorne en Game of Thrones. ~2h. <strong>12:00: CATEDRAL Y GIRALDA</strong>, la gótica más grande del mundo. Se sube la Giralda por rampas, no por escaleras. <strong>Almuerzo</strong> en Santa Cruz. <strong>Tarde: METROPOL PARASOL</strong> o Las Setas, el mirador de madera sobre la ciudad vieja, y el <strong>Mercado de Triana</strong>. <strong>Noche: FLAMENCO en tablao auténtico</strong>, que es el cierre de Andalucía. <em>Este día ya no compite con nada: al soltar Arcos, el Alcázar se movió aquí y te sobra tiempo.</em>' },
     ],
     links:[
-      {icon:'🥾',label:'Caminito del Rey',url:'https://www.caminitodelrey.info/',type:'tickets'},
       {icon:'🎟',label:'Real Alcázar',url:'https://www.alcazarsevilla.org/',type:'tickets'},
+      {icon:'⛪',label:'Catedral',url:'https://www.catedraldesevilla.es/',type:'tickets'},
+      {icon:'📍',label:'Setenil',url:'https://maps.google.com/?q=Setenil+de+las+Bodegas+Spain',type:'maps'},
       {icon:'📍',label:'Plaza de España',url:'https://maps.google.com/?q=Plaza+de+Espana+Sevilla',type:'maps'}
     ]},
 
@@ -752,7 +760,7 @@ const destinations = [
     brief:'La Mezquita Catedral: 856 columnas de mármol con arcos rojos y blancos formando un bosque hipnótico, con una catedral renacentista incrustada dentro. Judería medieval, Puente Romano, patios cordobeses, salmorejo y flamenquín.',
     highlights:['Mezquita Catedral','856 columnas','Judería medieval','Puente Romano','Calleja de las Flores','Patios cordobeses','Salmorejo','Flamenquín'],
     days:[
-      { num:17, date:'Jueves 1 Oct', plan:'Mañana en Sevilla: últimos rincones y <strong>devolver el carro</strong>. <strong>AVE Sevilla → Córdoba</strong> (~45 min). <strong>PARADA EN CÓRDOBA</strong> de 3 a 4h con maletas en consigna: la <strong>MEZQUITA CATEDRAL</strong>, el bosque de <strong>856 columnas</strong>. <strong>Judería</strong>, <strong>Puente Romano</strong>, <strong>Calleja de las Flores</strong>. Almuerzo: salmorejo y flamenquín. <strong>AVE Córdoba → Madrid</strong> (~1h45). Última noche en <strong>Atocha19</strong>: <strong>Mercado de San Miguel</strong> y cena de cierre.' },
+      { num:17, date:'Jueves 1 Oct · Córdoba de paso y cierre en Madrid', plan:'<strong>Desayuno y a Santa Justa. AVE de las 9:00 o 9:30 a CÓRDOBA</strong> (45 min). Córdoba está EN la ruta a Madrid, no es un desvío: el AVE para ahí igual. <strong>10:45: deja las maletas en la CONSIGNA de la estación</strong> (confírmala antes) y taxi o 20 min a pie al centro. <strong>11:30 a 13:00: LA MEZQUITA CATEDRAL</strong>, el bosque de <strong>856 columnas</strong> de mármol con arcos rojos y blancos, y una catedral renacentista incrustada dentro. Reserva el turno online. <strong>13:00 a 14:00: PUENTE ROMANO</strong> sobre el Guadalquivir y la <strong>Judería</strong>. Si sobra, la <strong>Calleja de las Flores</strong>. <strong>14:00: almuerzo</strong>, salmorejo y flamenquín, que los inventaron aquí. <strong>15:30: de vuelta a la estación</strong> por las maletas. <strong>16:00: AVE a MADRID</strong> (~1h45). <strong>17:45: llegada</strong>, check in en <strong>Atocha19</strong>. <strong>Noche: Mercado de San Miguel y CENA DE CIERRE DEL VIAJE.</strong> ⚠️ No intentes ver Córdoba entera: Mezquita y Puente Romano, y ya.' },
       { num:18, date:'Viernes 2 Oct · vuelta', plan:'Check out de Atocha19 entre 6:00 y 12:00. Atocha está a 5 min, así que te queda la mañana libre. <strong>Vuelo MAD → SJU 16:15</strong>, Iberia directo, 8h35. <strong>Llegas a San Juan a las 18:50</strong> esa misma noche.' }
     ],
     links:[
