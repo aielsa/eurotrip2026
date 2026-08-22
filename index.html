@@ -1,1420 +1,469 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Eurotrip 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --glass: rgba(255,255,255,0.65);
-      --glass-border: rgba(255,255,255,0.6);
-      --glass-strong: rgba(255,255,255,0.82);
-      --blur: 20px;
-      --text: #1a1030;
-      --text-secondary: #5a5270;
-      --text-light: #8a84a0;
-      --accent: #7C3AED;
-      --accent2: #818CF8;
-      --accent3: #C4B5FD;
-      --accent4: #6366F1;
-      --accent5: #A78BFA;
-      --green: #10B981;
-      --orange: #F59E0B;
-      --red: #EF4444;
-      --radius: 20px;
-      --radius-sm: 14px;
-      --shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-      --shadow-lg: 0 12px 48px rgba(31, 38, 135, 0.2);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: linear-gradient(180deg, #f0ecf7 0%, #ddd6f3 15%, #c5b9e8 30%, #a78bfa 50%, #818cf8 65%, #6366f1 80%, #4f46e5 90%, #3b82f6 100%);
-      background-attachment: fixed;
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      overflow-x: hidden;
-      padding-bottom: 80px;
-    }
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background:
-        radial-gradient(ellipse at 30% 20%, rgba(196, 181, 253, 0.4) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 60%, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 90%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .container { position: relative; z-index: 1; max-width: 480px; margin: 0 auto; }
-    @media(min-width:768px) {
-      .container { max-width: 720px; }
-      .dest-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-      .hero h1 { font-size: 46px; }
-      .hero { padding: 80px 32px 52px; }
-      .countdown { margin: -12px 24px 24px; }
-      .progress-wrap { margin: 0 24px 28px; }
-      .section { padding: 0 24px; margin-bottom: 28px; }
-    }
-    @media(min-width:1024px) {
-      .container { max-width: 900px; }
-      .hero h1 { font-size: 54px; }
-      .hero { padding: 90px 40px 60px; }
-      .hero-emoji { font-size: 64px; }
-      .dest-cards { grid-template-columns: 1fr 1fr; gap: 20px; }
-      .transport-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-      .transport-item { border-radius: 0; }
-    }
-    @media(min-width:1280px) {
-      .container { max-width: 1080px; }
-      .dest-cards { grid-template-columns: 1fr 1fr 1fr; }
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#6d28d9">
+<title>Eurotrip 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════ TOKENS ═══════════════ */
+:root{
+  --pu-900:#4c1d95; --pu-700:#6d28d9; --pu-600:#7c3aed; --pu-500:#8b5cf6;
+  --pu-300:#c4b5fd; --pu-100:#ede9fe; --pu-50:#f5f3ff;
 
-    /* GLASS CARD BASE */
-    .glass {
-      background: var(--glass);
-      backdrop-filter: blur(var(--blur));
-      -webkit-backdrop-filter: blur(var(--blur));
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .glass-strong {
-      background: var(--glass-strong);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255,255,255,0.5);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
+  --ok:#059669;    --ok-bg:#d1fae5;   --ok-br:#6ee7b7;
+  --todo:#d97706;  --todo-bg:#fef3c7; --todo-br:#fcd34d;
+  --urg:#dc2626;   --urg-bg:#fee2e2;  --urg-br:#fca5a5;
+  --idea:#64748b;  --idea-bg:#f1f5f9; --idea-br:#cbd5e1;
 
-    /* ── HERO ──────────────────────── */
-    .hero {
-      text-align: center;
-      padding: 80px 24px 44px;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: -12px;
-    }
-    .hero-bg {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url('https://images.unsplash.com/photo-1500835556837-99ac94a94552?w=1200&h=600&fit=crop&q=80');
-      background-size: cover;
-      background-position: center;
-      z-index: 0;
-    }
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(165deg, rgba(109,40,217,0.85) 0%, rgba(124,58,237,0.75) 30%, rgba(99,102,241,0.7) 60%, rgba(79,70,229,0.8) 100%);
-    }
-    .hero > *:not(.hero-bg) { position: relative; z-index: 1; }
-    .hero-emoji { font-size: 52px; margin-bottom: 16px; display: block; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 38px;
-      font-weight: 800;
-      color: white;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
-      line-height: 1.1;
-      margin-bottom: 8px;
-    }
-    .hero-sub {
-      color: rgba(255,255,255,0.9);
-      font-size: 15px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-    }
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 24px;
-    }
-    .hero-stat {
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 16px;
-      padding: 12px 18px;
-      text-align: center;
-      color: white;
-    }
-    .hero-stat-val { font-size: 26px; font-weight: 800; line-height: 1; }
-    .hero-stat-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.85; margin-top: 2px; }
+  --ink:#0f172a; --ink-2:#475569; --ink-3:#94a3b8;
+  --line:#e2e8f0; --line-2:#f1f5f9;
+  --card:#ffffff; --bg:#f6f5fb;
 
-    /* ── COUNTDOWN ─────────────────── */
-    .countdown {
-      margin: -12px 16px 20px;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-    .countdown-num {
-      font-size: 48px;
-      font-weight: 900;
-      color: var(--text);
-      line-height: 1;
-    }
-    .countdown-lbl {
-      font-size: 13px;
-      color: var(--text-secondary);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-top: 4px;
-    }
+  --r-lg:22px; --r:16px;
+  --sh:0 1px 2px rgba(15,23,42,.05), 0 4px 16px rgba(76,29,149,.06);
+  --sh-lg:0 8px 40px rgba(76,29,149,.14);
+  --pad:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg); color:var(--ink);
+  -webkit-font-smoothing:antialiased; overflow-x:hidden; padding-bottom:60px;
+}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select{font-family:inherit}
+.wrap{max-width:720px;margin:0 auto;padding:0 var(--pad)}
 
-    /* ── SECTION ───────────────────── */
-    .section { padding: 0 16px; margin-bottom: 24px; }
-    .section-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-      padding: 0 4px;
-    }
-    .section-icon {
-      width: 36px; height: 36px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-    }
-    .section-title {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--text);
-    }
+/* ═══════════════ SYNC ═══════════════ */
+.sync-pill{
+  position:fixed; top:calc(env(safe-area-inset-top,0px) + 10px); right:12px; z-index:200;
+  display:flex; align-items:center; gap:6px; padding:5px 11px; border-radius:100px;
+  background:rgba(255,255,255,.9); backdrop-filter:blur(14px);
+  font-size:10px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  box-shadow:0 2px 12px rgba(0,0,0,.14); transition:.3s;
+}
+.sync-dot{width:6px;height:6px;border-radius:50%;background:var(--ink-3)}
+.sync-pill.connected{color:var(--ok)} .sync-pill.connected .sync-dot{background:var(--ok)}
+.sync-pill.syncing{color:var(--todo)} .sync-pill.syncing .sync-dot{background:var(--todo);animation:pulse 1.2s infinite}
+.sync-pill.offline{color:var(--ink-3)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-    /* ── PROGRESS ──────────────────── */
-    .progress-wrap { margin: 0 16px 24px; padding: 20px; }
-    .progress-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .progress-title { font-size: 15px; font-weight: 700; color: var(--text); }
-    .progress-pct {
-      font-size: 15px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #7c3aed, #6366f1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .progress-track {
-      width: 100%; height: 10px;
-      background: rgba(0,0,0,0.06);
-      border-radius: 100px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #c4b5fd, #818cf8, #6366f1, #7c3aed);
-      background-size: 300% 100%;
-      animation: shimmer 3s ease infinite;
-      border-radius: 100px;
-      transition: width 0.6s cubic-bezier(0.34,1.56,0.64,1);
-    }
-    @keyframes shimmer {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .progress-detail { font-size: 12px; color: var(--text-light); margin-top: 8px; }
+/* ═══════════════ HERO ═══════════════ */
+.hero{
+  position:relative; padding:74px 0 30px; text-align:center; overflow:hidden;
+  background:linear-gradient(160deg,#5b21b6 0%,#7c3aed 45%,#8b5cf6 100%); color:#fff;
+}
+.hero::after{
+  content:''; position:absolute; left:0; right:0; bottom:-1px; height:36px;
+  background:var(--bg); border-radius:34px 34px 0 0;
+}
+.hero-flags{font-size:32px;letter-spacing:5px;margin-bottom:12px;opacity:.95}
+.hero h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(38px,10vw,58px);line-height:.98;letter-spacing:-.02em}
+.hero-dates{margin-top:9px;font-size:13px;font-weight:600;letter-spacing:.04em;opacity:.88;text-transform:uppercase}
+.hero-stats{position:relative;z-index:2;display:flex;justify-content:center;gap:8px;margin:22px auto 0;max-width:400px;padding:0 16px}
+.hstat{flex:1;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.24);border-radius:var(--r);padding:11px 4px;backdrop-filter:blur(8px)}
+.hstat b{display:block;font-size:24px;font-weight:900;line-height:1}
+.hstat span{display:block;font-size:9px;font-weight:700;letter-spacing:.1em;opacity:.85;margin-top:3px;text-transform:uppercase}
 
-    /* ── ROUTE CHIPS ───────────────── */
-    .route-scroll {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 4px 0 12px;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-    .route-scroll::-webkit-scrollbar { display: none; }
-    .route-chip {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--glass-strong);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-border);
-      border-radius: 100px;
-      padding: 8px 14px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    .route-chip:hover, .route-chip:active {
-      background: white;
-      transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    .route-chip span { font-size: 16px; }
-    .route-arrow { color: var(--text-light); font-size: 14px; flex-shrink: 0; align-self: center; }
+/* ═══════════════ ALERTA ═══════════════ */
+.alert{
+  margin-top:-14px;position:relative;z-index:5;background:var(--urg-bg);
+  border:1.5px solid var(--urg-br);border-radius:var(--r);padding:14px 16px;box-shadow:var(--sh);
+}
+.alert-t{font-size:12px;font-weight:900;color:var(--urg);letter-spacing:.04em}
+.alert-b{font-size:13px;color:#7f1d1d;margin-top:6px;line-height:1.55}
+.alert-b b{font-weight:800}
 
-    /* ── DESTINATION CARDS ─────────── */
-    .dest-cards { display: flex; flex-direction: column; gap: 16px; }
-    .dest-card {
-      border-radius: var(--radius);
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: var(--shadow);
-    }
-    .dest-card:active { transform: scale(0.98); }
+/* ═══════════════ PANEL ═══════════════ */
+.panel{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--sh);padding:18px;margin-top:14px}
+.panel-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
+.panel-title{font-size:11px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+.panel-cd{font-size:13px;font-weight:800;color:var(--pu-700)}
+.tally{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tally-btn{border:1.5px solid var(--line);border-radius:var(--r);padding:12px 6px;text-align:center;transition:.18s;background:#fff}
+.tally-btn:active{transform:scale(.96)}
+.tally-btn b{display:block;font-size:26px;font-weight:900;line-height:1}
+.tally-btn span{display:block;font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:4px;color:var(--ink-2)}
+.tally-btn.k-ok b{color:var(--ok)}     .tally-btn.k-ok.on{background:var(--ok-bg);border-color:var(--ok-br)}
+.tally-btn.k-todo b{color:var(--todo)} .tally-btn.k-todo.on{background:var(--todo-bg);border-color:var(--todo-br)}
+.tally-btn.k-idea b{color:var(--idea)} .tally-btn.k-idea.on{background:var(--idea-bg);border-color:var(--idea-br)}
+.bars{margin-top:16px;display:flex;flex-direction:column;gap:12px}
+.bar-lbl{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;font-weight:700;margin-bottom:6px}
+.bar-lbl span{color:var(--ink-2)}
+.bar-lbl b{font-size:13px;font-weight:900;color:var(--pu-700)}
+.bar-tr{height:7px;background:var(--line-2);border-radius:100px;overflow:hidden}
+.bar-fl{height:100%;border-radius:100px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+.bar-fl.g{background:linear-gradient(90deg,var(--ok),#34d399)}
+.bar-fl.p{background:linear-gradient(90deg,var(--pu-600),var(--pu-300))}
+.money{margin-top:15px;padding-top:14px;border-top:1px solid var(--line-2);display:flex;justify-content:space-between;align-items:baseline}
+.money span{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.money b{font-size:20px;font-weight:900}
 
-    .dest-card-hero {
-      position: relative;
-      height: 180px;
-      overflow: hidden;
-    }
-    .dest-card-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
-    }
-    .dest-card:hover .dest-card-img { transform: scale(1.05); }
-    .dest-card-overlay {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 16px;
-      background: linear-gradient(transparent, rgba(0,0,0,0.7));
-      color: white;
-    }
-    .dest-card-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-    .dest-card-meta {
-      font-size: 12px;
-      opacity: 0.9;
-      margin-top: 2px;
-      display: flex;
-      gap: 12px;
-    }
-    .dest-card-tag {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(255,255,255,0.25);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 100px;
-      padding: 4px 12px;
-      font-size: 11px;
-      font-weight: 700;
-      color: white;
-    }
-    .dest-card-flag {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      font-size: 28px;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-    }
-    .dest-chevron {
-      position: absolute;
-      bottom: 16px;
-      right: 16px;
-      color: white;
-      font-size: 20px;
-      transition: transform 0.3s;
-      opacity: 0.7;
-    }
-    .dest-card.open .dest-chevron { transform: rotate(90deg); }
+/* ═══════════════ SECCIÓN ═══════════════ */
+.section{margin-top:30px}
+.sec-head{display:flex;align-items:center;gap:10px;margin-bottom:13px;padding:0 2px}
+.sec-icon{width:32px;height:32px;border-radius:10px;background:var(--pu-100);display:grid;place-items:center;font-size:16px;flex-shrink:0}
+.sec-title{font-size:19px;font-weight:900;letter-spacing:-.02em}
+.sec-sub{font-size:11.5px;color:var(--ink-3);font-weight:600;margin-left:auto;text-align:right}
 
-    .dest-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
-      background: var(--glass-strong);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-    }
-    .dest-card.open .dest-body { max-height: 5000px; }
-    .dest-body-inner { padding: 20px; }
+/* ═══════════════ FILTROS ═══════════════ */
+.filters{display:flex;gap:7px;overflow-x:auto;padding:2px 2px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.fchip{flex-shrink:0;padding:7px 13px;border-radius:100px;background:#fff;border:1.5px solid var(--line);font-size:12px;font-weight:800;color:var(--ink-2);transition:.16s;white-space:nowrap}
+.fchip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.fchip:active{transform:scale(.94)}
 
-    .dest-brief {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-bottom: 16px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
+/* ═══════════════ RESERVAS ═══════════════ */
+.rblock{margin-bottom:18px}
+.rblock-h{display:flex;align-items:center;gap:8px;margin:0 2px 8px;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.rblock-h .ln{flex:1;height:1px;background:var(--line)}
+.rblock-h .cnt{font-size:10px;padding:2px 7px;border-radius:100px;background:var(--line-2);color:var(--ink-2);letter-spacing:.03em}
+.res{
+  background:var(--card);border-radius:var(--r);box-shadow:var(--sh);padding:13px 14px;margin-bottom:8px;
+  display:flex;gap:11px;align-items:flex-start;border-left:3px solid var(--line);transition:.2s;
+}
+.res.s-ok{border-left-color:var(--ok)}
+.res.s-todo{border-left-color:var(--todo)}
+.res.s-todo.urg{border-left-color:var(--urg);background:linear-gradient(90deg,#fffafa,#fff 40%)}
+.res.s-idea{border-left-color:var(--idea-br);opacity:.84}
+.res-ic{font-size:19px;line-height:1.2;width:24px;text-align:center;flex-shrink:0}
+.res-main{flex:1;min-width:0}
+.res-t{font-size:14.5px;font-weight:800;line-height:1.3;letter-spacing:-.01em}
+.res-when{font-size:12px;color:var(--ink-2);font-weight:600;margin-top:3px}
+.res-conf{font-size:11px;color:var(--ok);font-weight:700;margin-top:5px;font-variant-numeric:tabular-nums;word-break:break-all}
+.res-hora{
+  display:flex;align-items:flex-start;gap:6px;margin-top:7px;padding:6px 10px;border-radius:9px;
+  background:#ecfdf5;border:1px solid var(--ok-br);color:#065f46;
+  font-size:12.5px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.4;
+}
+.res-nohora{
+  display:flex;align-items:center;gap:6px;margin-top:7px;padding:6px 10px;border-radius:9px;
+  background:var(--todo-bg);border:1px dashed var(--todo-br);color:#92400e;
+  font-size:11.5px;font-weight:800;
+}
+.res-note{font-size:11.5px;color:var(--ink-3);margin-top:4px;line-height:1.45}
+.res-warn{font-size:11.5px;color:var(--urg);font-weight:800;margin-top:5px}
+.res-acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.res-btn{font-size:11px;font-weight:800;padding:5px 10px;border-radius:8px;background:var(--line-2);color:var(--ink-2);text-decoration:none;transition:.15s}
+.res-btn:active{transform:scale(.94)}
+.res-btn.go{background:var(--pu-100);color:var(--pu-700)}
+.res-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
+.res-cost{font-size:12.5px;font-weight:900;font-variant-numeric:tabular-nums;white-space:nowrap}
+.res.s-ok .res-cost{color:var(--ok)}
+.res.s-todo .res-cost,.res.s-idea .res-cost{color:var(--ink-3);font-weight:700;font-size:11px}
+.badge{font-size:9.5px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:100px;white-space:nowrap;border:1.5px solid transparent;transition:.16s}
+.badge:active{transform:scale(.9)}
+.b-ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok-br)}
+.b-todo{background:var(--todo-bg);color:var(--todo);border-color:var(--todo-br)}
+.b-idea{background:var(--idea-bg);color:var(--idea);border-color:var(--idea-br)}
+.b-urg{background:var(--urg-bg);color:var(--urg);border-color:var(--urg-br)}
+.res-edit{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);gap:7px;flex-direction:column}
+.res.editing .res-edit{display:flex}
+.res-edit input{width:100%;padding:8px 10px;border:1.5px solid var(--line);border-radius:9px;font-size:12.5px;font-weight:600;background:#fcfcfd}
+.res-edit input:focus{outline:none;border-color:var(--pu-500);background:#fff}
+.res-edit-row{display:flex;gap:7px}
+.res-save{background:var(--pu-700);color:#fff;font-size:12px;font-weight:800;padding:8px 16px;border-radius:9px;flex-shrink:0}
 
-    .day-card {
-      background: rgba(255,255,255,0.5);
-      border: 1px solid rgba(255,255,255,0.4);
-      border-radius: var(--radius-sm);
-      padding: 16px;
-      margin-bottom: 12px;
-    }
-    .day-card:last-of-type { margin-bottom: 0; }
-    .day-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-    .day-num {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 800;
-      color: white;
-      flex-shrink: 0;
-    }
-    .day-date-text {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .day-plan {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.65;
-    }
-    .day-plan strong { color: var(--text); font-weight: 600; }
+/* ═══════════════ ITINERARIO ═══════════════ */
+.itin{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--sh);padding:16px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.cal-dow{font-size:9px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);text-align:center;padding-bottom:4px}
+.day{aspect-ratio:1/1.1;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-weight:800;background:var(--line-2);color:var(--ink-3);font-size:12.5px;transition:.16s;padding:2px}
+.day.on{color:#fff}
+.day em{font-style:normal;font-size:7px;font-weight:800;opacity:.92;line-height:1.05;letter-spacing:-.02em;white-space:nowrap;max-width:100%;overflow:hidden}
+.c-ams{background:#6366f1} .c-mad{background:#7c3aed}
+.c-bcn{background:#4f46e5} .c-grx{background:#8b5cf6} .c-ron{background:#6d28d9}
+.c-svq{background:#9333ea} .c-cor{background:#7e22ce} .c-fly{background:#334155}
+.cal-key{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px;padding-top:12px;border-top:1px solid var(--line-2)}
+.kk{display:flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;color:var(--ink-2)}
+.kk i{width:9px;height:9px;border-radius:3px;display:block}
+.route{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:14px;padding-top:13px;border-top:1px solid var(--line-2)}
+.rt{font-size:11.5px;font-weight:800;padding:5px 10px;border-radius:100px;background:var(--pu-50);color:var(--pu-700);border:1px solid var(--pu-100)}
+.rt-ar{color:var(--ink-3);font-size:11px;font-weight:700}
 
-    .dest-highlights {
-      margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(0,0,0,0.06);
-    }
-    .dest-highlights-title {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-weight: 700;
-      color: var(--text-light);
-      margin-bottom: 10px;
-    }
-    .highlight-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .highlight-chip {
-      background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(99,102,241,0.08));
-      border: 1px solid rgba(99,102,241,0.12);
-      border-radius: 100px;
-      padding: 5px 12px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text);
-    }
+/* ═══════════════ DESTINOS ═══════════════ */
+.dests{display:flex;flex-direction:column;gap:11px}
+.dcard{background:var(--card);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);transition:.25s}
+.dcard.open{box-shadow:var(--sh-lg)}
+.dhero{position:relative;height:180px;overflow:hidden;background:var(--pu-600)}
+.dimg{width:100%;height:100%;object-fit:cover;transition:.5s}
+.dcard.open .dimg{transform:scale(1.05)}
+.dhero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,6,26,.94) 0%,rgba(10,6,26,.78) 34%,rgba(10,6,26,.3) 62%,rgba(10,6,26,.04) 100%)}
+.dflag{position:absolute;top:11px;left:12px;font-size:22px;z-index:2;filter:drop-shadow(0 2px 5px rgba(0,0,0,.4))}
+.dtag{position:absolute;top:13px;right:12px;z-index:2;font-size:9.5px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border-radius:100px;background:rgba(255,255,255,.94);color:var(--pu-700)}
+.dover{position:absolute;left:14px;right:52px;bottom:11px;z-index:2;color:#fff}
+.dname{font-family:'Playfair Display',serif;font-size:25px;font-weight:700;line-height:1.05;text-shadow:0 2px 12px rgba(6,3,18,.75)}
+.dmeta{margin-top:5px;font-size:11.5px;font-weight:700;opacity:.94;text-shadow:0 1px 8px rgba(6,3,18,.7)}
+.dstatus{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.dpill{font-size:9px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:100px;backdrop-filter:blur(6px)}
+.dpill.a{background:rgba(5,150,105,.92);color:#fff}
+.dpill.b{background:rgba(217,119,6,.94);color:#fff}
+.dpill.c{background:rgba(255,255,255,.28);color:#fff}
+.dchev{position:absolute;bottom:11px;right:13px;z-index:3;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.94);color:var(--pu-700);display:grid;place-items:center;font-size:17px;font-weight:900;transform:rotate(90deg);transition:.3s}
+.dcard.open .dchev{transform:rotate(-90deg)}
+.dbody{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
+.dcard.open .dbody{max-height:5000px}
+.dbody-in{padding:16px}
+.dbrief{font-size:13px;line-height:1.6;color:var(--ink-2);margin-bottom:14px}
+.dday{background:var(--pu-50);border-radius:var(--r);padding:12px 13px;margin-bottom:8px}
+.dday-h{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+.dday-n{width:32px;height:24px;border-radius:7px;display:grid;place-items:center;flex-shrink:0;font-size:10.5px;font-weight:900;color:#fff}
+.dday-d{font-size:11.5px;font-weight:800}
+.dday-p{font-size:12.5px;line-height:1.65;color:var(--ink-2)}
+.dday-p strong{color:var(--ink);font-weight:800}
+.dhl{margin-top:13px}
+.dhl-t{font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:11px;font-weight:700;padding:5px 10px;border-radius:100px;background:var(--line-2);color:var(--ink-2)}
+.dlinks{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}
+.dlink{font-size:11.5px;font-weight:800;padding:7px 11px;border-radius:9px;background:var(--line-2);color:var(--ink-2);text-decoration:none}
+.dlink.tickets{background:var(--pu-100);color:var(--pu-700)}
+.dlink.maps{background:#dbeafe;color:#1d4ed8}
 
-    .dest-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-    .dest-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: linear-gradient(135deg, #7c3aed, #6366f1);
-      color: white;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 7px 14px;
-      border-radius: 100px;
-      transition: all 0.2s;
-      box-shadow: 0 2px 8px rgba(124,58,237,0.2);
-    }
-    .dest-link:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(124,58,237,0.3); }
-    .dest-link.maps {
-      background: linear-gradient(135deg, #818cf8, #6366f1);
-      box-shadow: 0 2px 8px rgba(99,102,241,0.2);
-    }
-    .dest-link.maps:hover { box-shadow: 0 4px 12px rgba(99,102,241,0.3); }
-    .dest-link.tickets {
-      background: linear-gradient(135deg, #a78bfa, #7c3aed);
-      box-shadow: 0 2px 8px rgba(167,139,250,0.2);
-    }
-    .dest-link.tickets:hover { box-shadow: 0 4px 12px rgba(167,139,250,0.3); }
+/* ═══════════════ GASTOS ═══════════════ */
+.card{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--sh);padding:16px}
+.exp-form{display:flex;flex-direction:column;gap:8px}
+.exp-form input,.exp-form select{padding:11px 12px;border:1.5px solid var(--line);border-radius:11px;font-size:13.5px;font-weight:600;background:#fcfcfd}
+.exp-form input:focus,.exp-form select:focus{outline:none;border-color:var(--pu-500);background:#fff}
+.exp-row{display:flex;gap:8px}
+.exp-row input{flex:1;min-width:0}
+.exp-row select{width:92px;flex-shrink:0}
+.exp-file-wrap{display:flex;align-items:center;gap:9px;padding:10px 12px;border:1.5px dashed var(--line);border-radius:11px;position:relative;background:#fcfcfd}
+.exp-file-wrap input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.exp-file-name{font-size:12px;color:var(--ink-3);font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.exp-file-clear{font-size:17px;color:var(--ink-3);padding:0 4px;z-index:2}
+.exp-add{background:linear-gradient(135deg,var(--pu-700),var(--pu-500));color:#fff;padding:12px;border-radius:11px;font-size:14px;font-weight:800}
+.exp-add:active{transform:scale(.98)}
+.exp-empty{text-align:center;padding:22px 12px;color:var(--ink-3);font-size:12.5px;font-weight:600}
+.exp-item{display:flex;align-items:center;gap:9px;padding:11px 2px;border-bottom:1px solid var(--line-2)}
+.exp-item:last-child{border-bottom:none}
+.exp-item-desc{flex:1;font-size:13px;font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.exp-item-amt{font-size:13.5px;font-weight:900;font-variant-numeric:tabular-nums}
+.exp-item-attach,.exp-item-link{font-size:15px;opacity:.65;text-decoration:none;padding:2px 4px}
+.exp-item-del{font-size:19px;color:var(--ink-3);padding:0 4px;line-height:1}
+.split{margin-top:16px;padding-top:15px;border-top:1px solid var(--line-2)}
+.split-label{display:flex;justify-content:space-between;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.split-val{color:var(--pu-700)}
+.split-presets{display:flex;gap:6px;margin:10px 0}
+.split-preset{flex:1;padding:7px;border-radius:9px;background:var(--line-2);font-size:11.5px;font-weight:800;color:var(--ink-2)}
+.split-preset.active{background:var(--pu-700);color:#fff}
+.split-slider{width:100%;accent-color:var(--pu-600);margin:4px 0 12px}
+.tot-row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line-2)}
+.tot-row:last-child{border-bottom:none}
+.tr-label{font-size:12.5px;font-weight:700;color:var(--ink-2);display:flex;align-items:center;gap:6px}
+.tr-person{font-size:9.5px;font-weight:900;padding:2px 6px;border-radius:100px;background:var(--pu-100);color:var(--pu-700)}
+.tr-val{font-size:14px;font-weight:900;font-variant-numeric:tabular-nums}
+.tot-row.big .tr-label{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.tot-row.big .tr-val{font-size:22px;color:var(--pu-700)}
 
-    /* ── EXPENSE TRACKER ───────────── */
-    .expense-box { padding: 18px 20px; }
-    .expense-form {
-      display: grid;
-      grid-template-columns: 1fr 90px 70px;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    .expense-form .exp-link-input { grid-column: 1 / -1; }
-    .exp-file-row {
-      grid-column: 1 / -1;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .exp-file-label {
-      flex-shrink: 0;
-      padding: 10px 14px;
-      background: rgba(255,255,255,0.7);
-      border: 1px dashed rgba(124,58,237,0.35);
-      border-radius: 10px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #7c3aed;
-      cursor: pointer;
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
-    .exp-file-label:hover {
-      background: rgba(124,58,237,0.08);
-      border-color: #7c3aed;
-    }
-    #exp-file { display: none; }
-    .exp-file-name {
-      flex: 1;
-      font-size: 12px;
-      color: var(--text-secondary);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      font-style: italic;
-    }
-    .exp-file-clear {
-      background: rgba(239,68,68,0.1);
-      color: #ef4444;
-      border: none;
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 1;
-      flex-shrink: 0;
-    }
-    .exp-file-clear:hover { background: rgba(239,68,68,0.2); }
-    .exp-item-attach {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-      background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(99,102,241,0.15));
-      color: #6366f1;
-      text-decoration: none;
-      font-size: 13px;
-      flex-shrink: 0;
-      transition: all 0.2s;
-      border: 1px solid rgba(124,58,237,0.2);
-    }
-    .exp-item-attach:hover {
-      background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(99,102,241,0.25));
-      transform: translateY(-1px);
-    }
-    .expense-form input, .expense-form select {
-      padding: 10px 12px;
-      border: 1px solid rgba(124,58,237,0.25);
-      border-radius: 10px;
-      background: rgba(255,255,255,0.7);
-      font-family: inherit;
-      font-size: 13px;
-      color: var(--text);
-      outline: none;
-      transition: all 0.2s;
-      min-width: 0;
-    }
-    .expense-form input:focus, .expense-form select:focus {
-      border-color: #7c3aed;
-      box-shadow: 0 0 0 3px rgba(124,58,237,0.15);
-      background: rgba(255,255,255,0.95);
-    }
-    .expense-form button {
-      grid-column: 1 / -1;
-      padding: 12px;
-      background: linear-gradient(135deg, #7c3aed, #6366f1);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-family: inherit;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(124,58,237,0.3);
-      transition: all 0.2s;
-    }
-    .expense-form button:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(124,58,237,0.4); }
-    .expense-form button:active { transform: translateY(0); }
-    .exp-empty {
-      text-align: center;
-      padding: 20px 10px;
-      color: var(--text-light);
-      font-size: 12px;
-      font-style: italic;
-    }
-    .exp-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(124,58,237,0.08);
-    }
-    .exp-item:last-child { border-bottom: none; }
-    .exp-item-desc {
-      flex: 1;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .exp-item-amt {
-      font-size: 13px;
-      font-weight: 700;
-      background: linear-gradient(135deg, #7c3aed, #6366f1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      flex-shrink: 0;
-    }
-    .exp-item-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-      background: rgba(124,58,237,0.1);
-      color: #7c3aed;
-      text-decoration: none;
-      font-size: 12px;
-      flex-shrink: 0;
-      transition: all 0.2s;
-    }
-    .exp-item-link:hover { background: rgba(124,58,237,0.2); transform: translateY(-1px); }
-    .exp-item-del {
-      background: rgba(239,68,68,0.1);
-      color: #ef4444;
-      border: none;
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 1;
-      flex-shrink: 0;
-      transition: all 0.2s;
-    }
-    .exp-item-del:hover { background: rgba(239,68,68,0.2); }
-    .expense-split {
-      margin: 16px 0 12px;
-      padding: 14px;
-      background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(99,102,241,0.08));
-      border-radius: 12px;
-      border: 1px solid rgba(124,58,237,0.15);
-    }
-    .split-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .split-val { color: #7c3aed; font-weight: 800; font-size: 14px; }
-    .split-presets {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-    .split-preset {
-      flex: 1;
-      padding: 6px 4px;
-      background: rgba(255,255,255,0.6);
-      border: 1px solid rgba(124,58,237,0.2);
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .split-preset:hover { background: rgba(255,255,255,0.9); }
-    .split-preset.active {
-      background: linear-gradient(135deg, #7c3aed, #6366f1);
-      color: white;
-      border-color: transparent;
-      box-shadow: 0 2px 8px rgba(124,58,237,0.3);
-    }
-    .split-slider {
-      width: 100%;
-      height: 6px;
-      border-radius: 3px;
-      background: rgba(124,58,237,0.2);
-      outline: none;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-    .split-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #7c3aed, #6366f1);
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(124,58,237,0.4);
-      border: 2px solid white;
-    }
-    .split-slider::-moz-range-thumb {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #7c3aed, #6366f1);
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(124,58,237,0.4);
-      border: 2px solid white;
-    }
-    .expense-totals {
-      padding-top: 12px;
-      border-top: 2px solid rgba(124,58,237,0.12);
-    }
-    .total-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 0;
-      font-size: 14px;
-    }
-    .total-row.grand {
-      padding-top: 12px;
-      margin-top: 4px;
-      border-top: 1px dashed rgba(124,58,237,0.2);
-    }
-    .total-row .tr-label {
-      color: var(--text-secondary);
-      font-weight: 600;
-    }
-    .total-row.grand .tr-label {
-      color: var(--text);
-      font-weight: 800;
-      font-size: 15px;
-    }
-    .total-row .tr-val {
-      font-weight: 800;
-      font-size: 15px;
-      color: var(--text);
-    }
-    .total-row.grand .tr-val {
-      font-size: 22px;
-      font-weight: 900;
-      background: linear-gradient(135deg, #7c3aed, #818cf8, #6366f1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .tr-person {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
-      background: rgba(124,58,237,0.1);
-      color: #7c3aed;
-      margin-left: 6px;
-      letter-spacing: 0.5px;
-    }
+/* ═══════════════ CHECKLIST ═══════════════ */
+.ccat{background:var(--card);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:8px;overflow:hidden}
+.ccat-h{display:flex;align-items:center;gap:10px;padding:14px 15px}
+.ccat-ic{font-size:17px}
+.ccat-t{flex:1;font-size:13.5px;font-weight:800;letter-spacing:-.01em}
+.ccat-b{font-size:10.5px;font-weight:900;padding:3px 9px;border-radius:100px;background:var(--line-2);color:var(--ink-2);font-variant-numeric:tabular-nums}
+.ccat-b.done{background:var(--ok-bg);color:var(--ok)}
+.ccat-cv{font-size:17px;color:var(--ink-3);transform:rotate(90deg);transition:.3s;font-weight:900}
+.ccat.open .ccat-cv{transform:rotate(-90deg)}
+.citems{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.ccat.open .citems{max-height:1800px}
+.citems-in{padding:0 15px 12px}
+.citem{display:flex;align-items:flex-start;gap:11px;padding:10px 0;border-top:1px solid var(--line-2)}
+.cbox{width:20px;height:20px;border-radius:6px;border:2px solid var(--line);flex-shrink:0;margin-top:1px;display:grid;place-items:center;transition:.18s}
+.cmark{color:#fff;font-size:11px;font-weight:900;opacity:0;transform:scale(.4);transition:.18s}
+.citem.checked .cbox{background:var(--ok);border-color:var(--ok)}
+.citem.checked .cmark{opacity:1;transform:scale(1)}
+.citem.checked .clabel{text-decoration:line-through;color:var(--ink-3)}
+.cinfo{flex:1;min-width:0}
+.clabel{font-size:13px;font-weight:600;line-height:1.4}
+.csub{font-size:11.5px;color:var(--ink-3);margin-top:2px}
+.clink{font-size:11px;font-weight:800;color:var(--pu-700);text-decoration:none;display:inline-block;margin-top:4px}
+.temp-b{font-size:9.5px;font-weight:900;padding:3px 8px;border-radius:100px}
+.t-cold{background:#dbeafe;color:#1d4ed8} .t-warm{background:#fed7aa;color:#c2410c} .t-hot{background:var(--urg-bg);color:var(--urg)}
 
-    /* ── TRANSPORT ─────────────────── */
-    .transport-list { display: flex; flex-direction: column; gap: 8px; }
-    .transport-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 16px;
-    }
-    .transport-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-    .transport-icon.flight { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
-    .transport-icon.train { background: linear-gradient(135deg, #818cf8, #6366f1); }
-    .transport-icon.car { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
-    .transport-info { flex: 1; min-width: 0; }
-    .transport-route { font-size: 14px; font-weight: 700; color: var(--text); }
-    .transport-detail { font-size: 12px; color: var(--text-secondary); }
-    .transport-cost {
-      font-size: 13px;
-      font-weight: 700;
-      background: linear-gradient(135deg, #7c3aed, #6366f1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      flex-shrink: 0;
-    }
+/* ═══════════════ MISC ═══════════════ */
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,90px);z-index:300;background:var(--ink);color:#fff;padding:12px 20px;border-radius:100px;font-size:13px;font-weight:700;box-shadow:0 8px 30px rgba(0,0,0,.3);transition:.35s;white-space:nowrap}
+.toast.show{transform:translate(-50%,0)}
+.confetti{position:fixed;top:-14px;z-index:400;pointer-events:none;animation:fall 3s linear forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:0}}
+.upload-overlay{position:fixed;inset:0;z-index:500;background:rgba(15,23,42,.6);backdrop-filter:blur(6px);display:none;place-items:center;padding:24px}
+.upload-overlay.show{display:grid}
+.upload-box{background:#fff;border-radius:var(--r-lg);padding:24px;width:100%;max-width:320px;text-align:center}
+.upload-title{font-size:14px;font-weight:800;margin-bottom:14px}
+.upload-bar{height:7px;background:var(--line-2);border-radius:100px;overflow:hidden}
+.upload-bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--pu-700),var(--pu-300));transition:width .2s}
+.upload-pct{font-size:12px;font-weight:800;color:var(--pu-700);margin-top:9px}
+.foot{text-align:center;padding:34px 16px 12px;font-size:11px;color:var(--ink-3);font-weight:600;line-height:1.75}
 
-    /* ── BUDGET ────────────────────── */
-    .budget-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-    .budget-row:last-child { border-bottom: none; }
-    .budget-label {
-      font-size: 14px;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .budget-val { font-size: 14px; font-weight: 700; color: var(--text); }
-    .budget-total {
-      font-size: 18px;
-      font-weight: 900;
-      background: linear-gradient(135deg, #7c3aed, #818cf8, #6366f1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* ── CHECKLIST ─────────────────── */
-    .check-cat { margin-bottom: 12px; }
-    .check-cat-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 16px;
-      cursor: pointer;
-      border-radius: var(--radius);
-      transition: background 0.2s;
-    }
-    .check-cat-icon { font-size: 20px; }
-    .check-cat-title { font-size: 15px; font-weight: 700; flex: 1; color: var(--text); }
-    .check-cat-badge {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 100px;
-      background: rgba(0,0,0,0.06);
-      color: var(--text-secondary);
-    }
-    .check-cat-badge.done {
-      background: linear-gradient(135deg, #10B981, #059669);
-      color: white;
-    }
-    .check-cat-chev {
-      color: var(--text-light);
-      font-size: 18px;
-      transition: transform 0.3s;
-    }
-    .check-cat.open .check-cat-chev { transform: rotate(90deg); }
-
-    .check-items {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
-    }
-    .check-cat.open .check-items { max-height: 2000px; }
-    .check-items-inner { padding: 0 16px 16px; }
-
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-      cursor: pointer;
-      transition: opacity 0.2s;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .check-item:last-child { border-bottom: none; }
-    .check-item.checked { opacity: 0.45; }
-
-    .check-box {
-      width: 24px;
-      height: 24px;
-      border-radius: 8px;
-      border: 2.5px solid rgba(0,0,0,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-      transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
-      background: white;
-    }
-    .check-item.checked .check-box {
-      background: linear-gradient(135deg, #10B981, #059669);
-      border-color: #10B981;
-      transform: scale(1.1);
-    }
-    .check-mark {
-      opacity: 0;
-      color: white;
-      font-size: 14px;
-      font-weight: 700;
-      transition: all 0.25s;
-    }
-    .check-item.checked .check-mark { opacity: 1; }
-
-    .check-info { flex: 1; min-width: 0; }
-    .check-label { font-size: 14px; font-weight: 600; color: var(--text); transition: all 0.2s; }
-    .check-item.checked .check-label { text-decoration: line-through; color: var(--text-light); }
-    .check-sublabel { font-size: 12px; color: var(--text-light); margin-top: 2px; }
-    .check-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 12px;
-      color: #7c3aed;
-      text-decoration: none;
-      margin-top: 4px;
-      font-weight: 600;
-    }
-    .check-link:hover { text-decoration: underline; }
-    .check-priority {
-      font-size: 9px;
-      font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 6px;
-      flex-shrink: 0;
-      margin-top: 3px;
-      letter-spacing: 0.5px;
-    }
-    .pri-critical { background: linear-gradient(135deg, #EF4444, #DC2626); color: white; }
-    .pri-important { background: linear-gradient(135deg, #818cf8, #6366f1); color: white; }
-    .pri-normal { background: linear-gradient(135deg, #10B981, #059669); color: white; }
-
-    /* ── PACKING ───────────────────── */
-    .pack-cat { margin-bottom: 10px; }
-    .pack-cat-head {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 16px;
-      cursor: pointer;
-      border-radius: var(--radius);
-    }
-    .pack-cat-icon { font-size: 20px; }
-    .pack-cat-title { font-size: 15px; font-weight: 700; flex: 1; color: var(--text); }
-    .pack-cat-chev {
-      color: var(--text-light);
-      font-size: 18px;
-      transition: transform 0.3s;
-    }
-    .pack-cat.open .pack-cat-chev { transform: rotate(90deg); }
-    .pack-items { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1); }
-    .pack-cat.open .pack-items { max-height: 800px; }
-    .pack-items-inner { padding: 0 16px 14px; }
-
-    /* ── CALENDAR ──────────────────── */
-    .cal-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 4px;
-      text-align: center;
-    }
-    .cal-header {
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--text-light);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 6px 0;
-    }
-    .cal-day {
-      aspect-ratio: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text);
-      position: relative;
-      cursor: default;
-    }
-    .cal-day.empty { visibility: hidden; }
-    .cal-day-num { font-size: 13px; font-weight: 700; }
-    .cal-day-emoji { font-size: 12px; margin-top: 2px; }
-    @media(min-width:768px) {
-      .cal-day-num { font-size: 16px; }
-      .cal-day-emoji { font-size: 18px; margin-top: 4px; }
-      .cal-day { border-radius: 14px; }
-      .cal-header { font-size: 12px; }
-      .cal-grid { gap: 6px; }
-    }
-    @media(min-width:1024px) {
-      .cal-day-num { font-size: 18px; }
-      .cal-day-emoji { font-size: 22px; margin-top: 4px; }
-    }
-    .cal-day.highlight {
-      background: linear-gradient(135deg, rgba(167,139,250,0.15), rgba(129,140,248,0.15));
-      border: 1px solid rgba(124,58,237,0.1);
-    }
-    .cal-day.summit {
-      background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(79,70,229,0.2));
-      border: 1px solid rgba(99,102,241,0.15);
-    }
-    .cal-day.flight {
-      background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(109,40,217,0.2));
-      border: 1px solid rgba(124,58,237,0.15);
-    }
-    .cal-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-      justify-content: center;
-    }
-    .cal-legend-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 11px;
-      color: var(--text-secondary);
-    }
-    .cal-legend-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 4px;
-    }
-
-    /* ── FOOTER ────────────────────── */
-    .footer {
-      text-align: center;
-      padding: 40px 16px 20px;
-      color: var(--text-light);
-      font-size: 12px;
-    }
-
-    /* ── TOAST ─────────────────────── */
-    .toast {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.5);
-      color: var(--text);
-      padding: 14px 28px;
-      border-radius: 100px;
-      font-size: 14px;
-      font-weight: 600;
-      box-shadow: var(--shadow-lg);
-      z-index: 100;
-      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
-    }
-    .toast.show { transform: translateX(-50%) translateY(0); }
-
-    /* ── CONFETTI ──────────────────── */
-    @keyframes confetti-fall {
-      0% { transform: translateY(-10px) rotate(0deg) scale(1); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(720deg) scale(0.5); opacity: 0; }
-    }
-    .confetti {
-      position: fixed;
-      top: 0;
-      z-index: 999;
-      pointer-events: none;
-      animation: confetti-fall 2.5s ease-in forwards;
-    }
-
-    /* ── EQUIPAJE TEMP BADGE ──────── */
-    .temp-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 6px;
-      color: white;
-    }
-    .temp-cold { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-    .temp-warm { background: linear-gradient(135deg, #818cf8, #6366f1); }
-    .temp-hot { background: linear-gradient(135deg, #7c3aed, #5b21b6); }
-
-    /* ── SYNC INDICATOR ────────────── */
-    .sync-pill {
-      position: fixed;
-      top: 14px;
-      right: 14px;
-      z-index: 100;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 100px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: all 0.3s;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    }
-    .sync-pill .sync-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-    }
-    .sync-pill.connected {
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      color: #059669;
-    }
-    .sync-pill.connected .sync-dot {
-      background: #10B981;
-      box-shadow: 0 0 8px #10B981;
-      animation: pulseGreen 2s infinite;
-    }
-    .sync-pill.syncing {
-      background: rgba(124, 58, 237, 0.15);
-      border: 1px solid rgba(124, 58, 237, 0.35);
-      color: #7c3aed;
-    }
-    .sync-pill.syncing .sync-dot {
-      background: #7c3aed;
-      animation: pulsePurple 1s infinite;
-    }
-    .sync-pill.offline {
-      background: rgba(239, 68, 68, 0.15);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      color: #ef4444;
-    }
-    .sync-pill.offline .sync-dot { background: #ef4444; }
-    @keyframes pulseGreen {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.2); }
-    }
-    @keyframes pulsePurple {
-      0%, 100% { opacity: 0.5; }
-      50% { opacity: 1; }
-    }
-
-    /* ── UPLOAD PROGRESS ───────────── */
-    .upload-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(26, 16, 48, 0.6);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-    }
-    .upload-overlay.show { display: flex; }
-    .upload-box {
-      background: white;
-      padding: 24px 32px;
-      border-radius: 18px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      text-align: center;
-      min-width: 260px;
-    }
-    .upload-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 12px;
-    }
-    .upload-bar {
-      height: 8px;
-      background: rgba(124,58,237,0.15);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 8px;
-    }
-    .upload-bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #7c3aed, #6366f1);
-      transition: width 0.2s;
-      width: 0%;
-    }
-    .upload-pct {
-      font-size: 12px;
-      color: var(--text-secondary);
-      font-weight: 700;
-    }
-  </style>
+@media(min-width:640px){
+  :root{--pad:24px}
+  .dests{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+  .dcard.open{grid-column:1/-1}
+}
+</style>
 </head>
 <body>
 
-<!-- SYNC INDICATOR -->
 <div class="sync-pill syncing" id="sync-pill">
-  <span class="sync-dot"></span>
-  <span id="sync-text">Conectando...</span>
+  <span class="sync-dot"></span><span id="sync-text">Conectando</span>
 </div>
 
-<!-- UPLOAD PROGRESS OVERLAY -->
 <div class="upload-overlay" id="upload-overlay">
   <div class="upload-box">
-    <div class="upload-title" id="upload-title">Subiendo archivo...</div>
+    <div class="upload-title" id="upload-title">Subiendo archivo</div>
     <div class="upload-bar"><div class="upload-bar-fill" id="upload-bar-fill"></div></div>
     <div class="upload-pct" id="upload-pct">0%</div>
   </div>
 </div>
 
-<div class="container">
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-bg"></div>
-    <span class="hero-emoji">🇳🇱 ✈️ 🇪🇸</span>
-    <h1>Eurotrip 2026</h1>
-    <div class="hero-sub">14 Septiembre — 2 Octubre 2026</div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-val">9</div>
-        <div class="hero-stat-lbl">Ciudades</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-val">17</div>
-        <div class="hero-stat-lbl">Noches</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-val">19</div>
-        <div class="hero-stat-lbl">Dias</div>
-      </div>
-    </div>
+<div class="hero">
+  <div class="hero-flags">🇳🇱 ✈️ 🇪🇸</div>
+  <h1>Eurotrip 2026</h1>
+  <div class="hero-dates">14 Sept &middot; 2 Oct 2026</div>
+  <div class="hero-stats">
+    <div class="hstat"><b id="hs-days">--</b><span>días para salir</span></div>
+    <div class="hstat"><b>7</b><span>ciudades</span></div>
+    <div class="hstat"><b>18</b><span>noches</span></div>
   </div>
+</div>
 
-  <!-- COUNTDOWN -->
-  <div class="countdown glass-strong">
-    <div class="countdown-num" id="cd-num">---</div>
-    <div class="countdown-lbl">dias para el viaje</div>
-  </div>
+<div class="wrap">
 
-  <!-- PROGRESS -->
-  <div class="progress-wrap glass-strong">
-    <div class="progress-top">
-      <span class="progress-title">Preparativos del viaje</span>
-      <span class="progress-pct" id="prog-pct">0%</span>
-    </div>
-    <div class="progress-track">
-      <div class="progress-fill" id="prog-fill" style="width:0%"></div>
-    </div>
-    <div class="progress-detail" id="prog-detail">0 de 0 completados</div>
-  </div>
+  <div id="alert-slot"></div>
 
-  <!-- ROUTE -->
-  <div class="section">
-    <div class="section-head">
-      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#9992;&#65039;</div>
-      <div class="section-title">Ruta del viaje</div>
+  <div class="panel">
+    <div class="panel-head">
+      <div class="panel-title">Estado de las reservas</div>
+      <div class="panel-cd" id="panel-cd"></div>
     </div>
-    <div class="route-scroll">
-      <div class="route-chip" onclick="goTo('sju')"><span>🇵🇷</span> SJU</div>
-      <span class="route-arrow">&rarr;</span>
-      <div class="route-chip" onclick="goTo('amsterdam')"><span>🇳🇱</span> Amsterdam</div>
-      <span class="route-arrow">&rarr;</span>
-      <div class="route-chip" onclick="goTo('madrid')"><span>🇪🇸</span> Madrid</div>
-      <span class="route-arrow">&rarr;</span>
-      <div class="route-chip" onclick="goTo('toledo')"><span>🏰</span> Toledo</div>
-      <span class="route-arrow">&rarr;</span>
-      <div class="route-chip" onclick="goTo('barcelona')"><span>🎯</span> Barcelona</div>
-      <span class="route-arrow">&rarr;</span>
-      <div class="route-chip" onclick="goTo('granada')"><span>🌙</span> Granada</div>
-      <span class="route-arrow">&rarr;</span>
-      <div class="route-chip" onclick="goTo('ronda')"><span>&#9968;&#65039;</span> Ronda</div>
-      <span class="route-arrow">&rarr;</span>
-      <div class="route-chip" onclick="goTo('sevilla')"><span>🌺</span> Sevilla</div>
-      <span class="route-arrow">&rarr;</span>
-      <div class="route-chip" onclick="goTo('cordoba')"><span>🕌</span> Cordoba</div>
-      <span class="route-arrow">&rarr;</span>
-      <div class="route-chip" onclick="goTo('sju')"><span>🇵🇷</span> SJU</div>
+    <div class="tally">
+      <button class="tally-btn k-ok"   id="t-ok"   onclick="setFilter('ok')"><b id="n-ok">0</b><span>Confirmado</span></button>
+      <button class="tally-btn k-todo" id="t-todo" onclick="setFilter('todo')"><b id="n-todo">0</b><span>Por comprar</span></button>
+      <button class="tally-btn k-idea" id="t-idea" onclick="setFilter('idea')"><b id="n-idea">0</b><span>Opción</span></button>
     </div>
-  </div>
-
-  <!-- CALENDAR -->
-  <div class="section">
-    <div class="section-head">
-      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#128197;</div>
-      <div class="section-title">Calendario</div>
-    </div>
-    <div class="glass-strong" style="padding:20px;">
-      <div style="text-align:center;font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px;">Septiembre - Octubre 2026</div>
-      <div class="cal-grid">
-        <div class="cal-header">Lun</div><div class="cal-header">Mar</div><div class="cal-header">Mie</div><div class="cal-header">Jue</div><div class="cal-header">Vie</div><div class="cal-header">Sab</div><div class="cal-header">Dom</div>
-        <!-- Week 1: Sept 14-20 -->
-        <div class="cal-day flight"><div class="cal-day-num">14</div><div class="cal-day-emoji">✈️</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">15</div><div class="cal-day-emoji">🇳🇱</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">16</div><div class="cal-day-emoji">🇳🇱</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">17</div><div class="cal-day-emoji">🇳🇱</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">18</div><div class="cal-day-emoji">🇪🇸</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">19</div><div class="cal-day-emoji">🇪🇸</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">20</div><div class="cal-day-emoji">🏰</div></div>
-        <!-- Week 2: Sept 21-27 -->
-        <div class="cal-day summit"><div class="cal-day-num">21</div><div class="cal-day-emoji">🚄</div></div>
-        <div class="cal-day summit"><div class="cal-day-num">22</div><div class="cal-day-emoji">🎯</div></div>
-        <div class="cal-day summit"><div class="cal-day-num">23</div><div class="cal-day-emoji">🎯</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">24</div><div class="cal-day-emoji">☀️</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">25</div><div class="cal-day-emoji">☀️</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">26</div><div class="cal-day-emoji">⛰️</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">27</div><div class="cal-day-emoji">🌺</div></div>
-        <!-- Week 3: Sept 28 - Oct 4 -->
-        <div class="cal-day highlight"><div class="cal-day-num">28</div><div class="cal-day-emoji">🌺</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">29</div><div class="cal-day-emoji">🕌</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">30</div><div class="cal-day-emoji">🇪🇸</div></div>
-        <div class="cal-day highlight"><div class="cal-day-num">1</div><div class="cal-day-emoji">🇪🇸</div></div>
-        <div class="cal-day flight"><div class="cal-day-num">2</div><div class="cal-day-emoji">✈️</div></div>
-        <div class="cal-day empty"></div><div class="cal-day empty"></div>
+    <div class="bars">
+      <div>
+        <div class="bar-lbl"><span>Reservas cerradas</span><b id="pb-res">0%</b></div>
+        <div class="bar-tr"><div class="bar-fl g" id="pf-res" style="width:0"></div></div>
       </div>
-      <div class="cal-legend">
-        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:linear-gradient(135deg,#7c3aed,#6d28d9)"></div> Vuelos</div>
-        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:linear-gradient(135deg,#a78bfa,#818cf8)"></div> Destinos</div>
-        <div class="cal-legend-item"><div class="cal-legend-dot" style="background:linear-gradient(135deg,#6366f1,#4f46e5)"></div> AI Summit</div>
+      <div>
+        <div class="bar-lbl"><span>Alistamiento: documentos y equipaje</span><b id="pb-prep">0%</b></div>
+        <div class="bar-tr"><div class="bar-fl p" id="pf-prep" style="width:0"></div></div>
       </div>
     </div>
+    <div class="money">
+      <span>Gastado y registrado</span>
+      <b id="m-locked">$0</b>
+    </div>
   </div>
 
-  <!-- DESTINATIONS -->
-  <div class="section">
-    <div class="section-head">
-      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#127758;</div>
-      <div class="section-title">Destinos</div>
+  <div class="section" id="sec-reservas">
+    <div class="sec-head">
+      <div class="sec-icon">🎟️</div>
+      <div class="sec-title">Reservas</div>
+      <div class="sec-sub" id="res-sub"></div>
     </div>
-    <div class="dest-cards" id="dest-grid"></div>
+    <div class="filters" id="filters"></div>
+    <div id="res-list"></div>
   </div>
 
-  <!-- TRANSPORT -->
   <div class="section">
-    <div class="section-head">
-      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#128646;</div>
-      <div class="section-title">Todos los transportes</div>
+    <div class="sec-head">
+      <div class="sec-icon">🗓️</div>
+      <div class="sec-title">Itinerario</div>
+      <div class="sec-sub">19 días</div>
     </div>
-    <div class="glass-strong" style="padding:6px 0;" id="transport-list"></div>
+    <div class="itin">
+      <div class="cal" id="cal"></div>
+      <div class="cal-key" id="cal-key"></div>
+      <div class="route" id="route"></div>
+    </div>
   </div>
 
-  <!-- EXPENSE TRACKER -->
   <div class="section">
-    <div class="section-head">
-      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#128176;</div>
-      <div class="section-title">Gastos reservados</div>
+    <div class="sec-head">
+      <div class="sec-icon">🌍</div>
+      <div class="sec-title">Destinos</div>
+      <div class="sec-sub">toca para abrir</div>
     </div>
-    <div class="glass-strong expense-box">
-      <div class="expense-form">
-        <input type="text" id="exp-desc" placeholder="Ej: Hotel Madrid 3 noches" maxlength="60">
-        <input type="number" id="exp-amount" placeholder="0.00" step="0.01" min="0">
-        <select id="exp-currency">
-          <option value="EUR">EUR €</option>
-          <option value="USD">USD $</option>
-        </select>
-        <input type="url" id="exp-link" class="exp-link-input" placeholder="Link de reserva (opcional) — ej: https://booking.com/..." maxlength="500">
-        <div class="exp-file-row">
-          <label for="exp-file" class="exp-file-label">&#128206; Adjuntar archivo</label>
+    <div class="dests" id="dest-grid"></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head">
+      <div class="sec-icon">💰</div>
+      <div class="sec-title">Gastos</div>
+      <div class="sec-sub">con recibo y split</div>
+    </div>
+    <div class="card">
+      <div class="exp-form">
+        <input type="text" id="exp-desc" placeholder="Ej: Hotel Ronda 1 noche" maxlength="60">
+        <div class="exp-row">
+          <input type="number" id="exp-amount" placeholder="0.00" step="0.01" min="0">
+          <select id="exp-currency"><option value="EUR">EUR €</option><option value="USD">USD $</option></select>
+        </div>
+        <input type="url" id="exp-link" placeholder="Link de la reserva (opcional)" maxlength="500">
+        <div class="exp-file-wrap">
+          <span style="font-size:15px">📎</span>
           <input type="file" id="exp-file" accept="image/*,.pdf,application/pdf" onchange="onFilePick(this)">
           <span class="exp-file-name" id="exp-file-name">Imagen o PDF (opcional)</span>
-          <button type="button" class="exp-file-clear" id="exp-file-clear" style="display:none;" onclick="clearFile()" title="Quitar">&times;</button>
+          <button type="button" class="exp-file-clear" id="exp-file-clear" style="display:none" onclick="clearFile()">&times;</button>
         </div>
-        <button onclick="addExpense()">+ Agregar gasto</button>
+        <button class="exp-add" onclick="addExpense()">Agregar gasto</button>
       </div>
-
-      <div id="expense-list"></div>
-
-      <div class="expense-split">
+      <div id="expense-list" style="margin-top:14px"></div>
+      <div class="split">
         <div class="split-label"><span>División</span><span class="split-val" id="split-val">50% / 50%</span></div>
         <div class="split-presets">
-          <button class="split-preset" data-split="50" onclick="setSplit(50)">50 / 50</button>
-          <button class="split-preset" data-split="60" onclick="setSplit(60)">60 / 40</button>
-          <button class="split-preset" data-split="70" onclick="setSplit(70)">70 / 30</button>
-          <button class="split-preset" data-split="100" onclick="setSplit(100)">100 / 0</button>
+          <button class="split-preset" data-split="100" onclick="setSplit(100)">100/0</button>
+          <button class="split-preset" data-split="70" onclick="setSplit(70)">70/30</button>
+          <button class="split-preset active" data-split="50" onclick="setSplit(50)">50/50</button>
+          <button class="split-preset" data-split="30" onclick="setSplit(30)">30/70</button>
         </div>
         <input type="range" id="split-slider" class="split-slider" min="0" max="100" value="50" step="5" oninput="onSliderChange(this.value)">
-      </div>
-
-      <div class="expense-totals">
-        <div class="total-row grand">
-          <span class="tr-label">Total</span>
-          <span class="tr-val" id="exp-total">$0.00</span>
-        </div>
-        <div class="total-row">
-          <span class="tr-label">Tú<span class="tr-person" id="p1-pct">50%</span></span>
-          <span class="tr-val" id="p1-total">$0.00</span>
-        </div>
-        <div class="total-row">
-          <span class="tr-label">Persona 2<span class="tr-person" id="p2-pct">50%</span></span>
-          <span class="tr-val" id="p2-total">$0.00</span>
-        </div>
+        <div class="tot-row big"><span class="tr-label">Total registrado</span><span class="tr-val" id="exp-total">$0.00</span></div>
+        <div class="tot-row"><span class="tr-label">Tú<span class="tr-person" id="p1-pct">50%</span></span><span class="tr-val" id="p1-total">$0.00</span></div>
+        <div class="tot-row"><span class="tr-label">Persona 2<span class="tr-person" id="p2-pct">50%</span></span><span class="tr-val" id="p2-total">$0.00</span></div>
       </div>
     </div>
   </div>
 
-  <!-- CHECKLIST -->
   <div class="section">
-    <div class="section-head">
-      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#9989;</div>
-      <div class="section-title">Preparativos</div>
+    <div class="sec-head">
+      <div class="sec-icon">📋</div>
+      <div class="sec-title">Documentos y logística</div>
     </div>
-    <div id="checklist-box"></div>
+    <div id="docs-box"></div>
   </div>
 
-  <!-- EQUIPAJE -->
   <div class="section">
-    <div class="section-head">
-      <div class="section-icon" style="background:rgba(0,0,0,0.05);">&#128092;</div>
-      <div class="section-title">Equipaje</div>
+    <div class="sec-head">
+      <div class="sec-icon">🧳</div>
+      <div class="sec-title">Equipaje</div>
     </div>
     <div id="packing-box"></div>
   </div>
 
-  <div class="footer">
-    Hecho con amor para el viaje de tus suenos<br>
-    Elsa Del Pino &bull; The AI Strategist &bull; 2026
+  <div class="foot">
+    Toca el badge de una reserva para cambiar su estado.<br>
+    Toca "editar datos" para guardar el localizador y el costo real.
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
-<!-- ── FIREBASE SDK (compat layer via CDN) ───────────────── -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
 
 <script>
-// ── FIREBASE CONFIG ────────────────────────────────
+/* ══════════════ FIREBASE ══════════════ */
 const firebaseConfig = {
   apiKey: "AIzaSyBHrqS--NH2ro6iA__OAIXydJDrMy0Eylw",
   authDomain: "eurotrip-2026-202a1.firebaseapp.com",
@@ -1429,941 +478,913 @@ const storage = firebase.storage();
 const TRIP_ID = 'eurotrip-2026';
 const tripRef = db.collection('trips').doc(TRIP_ID);
 const expensesRef = tripRef.collection('expenses');
+db.enablePersistence({ synchronizeTabs: true }).catch(e => console.warn('persistence off:', e.code));
 
-// Habilita offline persistence (si el usuario pierde internet, sigue funcionando)
-db.enablePersistence({ synchronizeTabs: true }).catch(err => {
-  console.warn('Offline persistence off:', err.code);
-});
-
-// ── PHOTOS (locales en /photos) ────────────────────
-// Coloca 8 fotos (.jpg, .jpeg o .png) en la carpeta /photos con estos nombres exactos.
-// Si falta alguna, el gradient morado se ve como fallback automaticamente.
 const PHOTOS = {
-  amsterdam: 'photos/amsterdam.jpg',
-  madrid: 'photos/madrid.jpg',
-  toledo: 'photos/toledo.jpg',
-  barcelona: 'photos/barcelona.jpg',
-  granada: 'photos/granada.jpg',
-  ronda: 'photos/ronda.jpg',
-  sevilla: 'photos/sevilla.jpg',
-  cordoba: 'photos/cordoba.jpg'
+  amsterdam:'photos/amsterdam.jpg', madrid:'photos/madrid.jpg',
+  barcelona:'photos/barcelona.jpg', granada:'photos/granada.jpg', ronda:'photos/ronda.jpg',
+  sevilla:'photos/sevilla.jpg', cordoba:'photos/cordoba.jpg'
+};
+const GRAD = {
+  amsterdam:'linear-gradient(135deg,#6366f1,#a78bfa)', madrid:'linear-gradient(135deg,#6d28d9,#818cf8)',
+  barcelona:'linear-gradient(135deg,#4f46e5,#6366f1)',
+  granada:'linear-gradient(135deg,#7c3aed,#c4b5fd)',   ronda:'linear-gradient(135deg,#6d28d9,#a78bfa)',
+  sevilla:'linear-gradient(135deg,#9333ea,#818cf8)',   cordoba:'linear-gradient(135deg,#7e22ce,#7c3aed)'
 };
 
-const GRADIENTS = {
-  amsterdam: 'linear-gradient(135deg, #7c3aed, #a78bfa)',
-  madrid: 'linear-gradient(135deg, #6d28d9, #818cf8)',
-  toledo: 'linear-gradient(135deg, #5b21b6, #7c3aed)',
-  barcelona: 'linear-gradient(135deg, #4f46e5, #6366f1)',
-  granada: 'linear-gradient(135deg, #7c3aed, #c4b5fd)',
-  ronda: 'linear-gradient(135deg, #6366f1, #a78bfa)',
-  sevilla: 'linear-gradient(135deg, #6d28d9, #818cf8)',
-  cordoba: 'linear-gradient(135deg, #4f46e5, #7c3aed)'
-};
+/* ══════════════════════════════════════════════════════════════
+   RESERVAS
+   est: 'ok' confirmado · 'todo' por comprar · 'idea' opción
+   Lo que arranca en 'ok' fue verificado contra un PDF o
+   localizador real que está en esta carpeta.
+   ══════════════════════════════════════════════════════════════ */
+const reservas = [
+  { id:'f-sju-mad', b:'Vuelos transatlánticos', ic:'✈️', t:'SJU ↔ MAD · Iberia round trip',
+    w:'Lun 14 sept ida · vie 2 oct vuelta', est:'ok',
+    h:'IDA lun 14 sept · sale SJU 17:15 → llega MAD mar 15 a las 07:30\nVUELTA vie 2 oct · sale MAD 16:15 → llega SJU 18:50',
+    n:'Directo los dos tramos, 8h15 y 8h35. Estos son los horarios NUEVOS que aceptaste después del cambio de Iberia. Posible localizador IBICHC, verifícalo.',
+    l:'https://www.iberia.com/pr/gestion-de-reservas/', ll:'Mi reserva' },
 
-// ── DESTINATIONS ───────────────────────────────────
+  { id:'f-mad-ams', b:'Ámsterdam · 15 al 18 sept', ic:'✈️', t:'MAD ↔ AMS · ida y vuelta',
+    w:'Mar 15 sept ida · vie 18 sept vuelta ~20:00', est:'ok', c:709.88, pagado:true,
+    n:'Registrado como €657.30. Cubre los dos tramos de Ámsterdam.',
+    l:'https://www.klm.com/', ll:'KLM' },
+  { id:'h-ams', b:'Ámsterdam · 15 al 18 sept', ic:'🏨', t:'Alojamiento Ámsterdam · 3 noches',
+    w:'15 al 18 sept', est:'ok', c:630, pagado:true,
+    n:'Guarda aquí el nombre, la dirección y el localizador con "editar datos".',
+    l:'https://www.booking.com/', ll:'Booking' },
+  { id:'t-rijks', b:'Ámsterdam · 15 al 18 sept', ic:'🖼️', t:'Rijksmuseum · 14:00 a 15:00',
+    w:'Mié 16 sept', est:'ok', conf:'Orden 27435348 · 2 tickets', c:54, pagado:true,
+    h:'Entrada mié 16 sept · 14:00 a 15:00',
+    n:'La Ronda de Noche de Rembrandt y La Lechera de Vermeer. ~2h.',
+    l:'https://www.rijksmuseum.nl/en/visit/tickets', ll:'Rijksmuseum' },
+  { id:'t-cruise', b:'Ámsterdam · 15 al 18 sept', ic:'🛶', t:'Spectacular Evening Cruise · Pure Boats',
+    w:'Mar 15 sept · el día que llegan', est:'ok',
+    h:'Mar 15 sept · 21:30 a 23:00 (90 min)',
+    conf:'Booking #372186792 · barco Pure Spirit · 2 adultos', c:133.21, pagado:true,
+    n:'📍 Encuentro en Keizersgracht 92H, 1015CV: el muelle de madera del lado del canal, junto al Keizersgracht 106. Ahí mismo termina. Llegar 5 min antes. Incluye 3 bebidas y queso holandés, así que cena antes y ligero. 🎫 Guarda los tickets en el wallet del teléfono. Para cambios: +31 20 215 7420. En el estado de cuenta sale como FH* Pure Boats.',
+    l:'https://pureboats.com/cruises/small-group-tours/evening-canal-cruise/', ll:'Pure Boats' },
+  { id:'t-moco', b:'Ámsterdam · 15 al 18 sept', ic:'🎭', t:'Moco Museum · 11:30',
+    w:'Mié 16 sept', est:'ok',
+    h:'Entrada mié 16 sept · 11:30',
+    n:'Banksy y Basquiat. Está en el Museumplein, a dos pasos del Rijksmuseum de las 14:00, así que encadenan sin moverse de sitio. Agrega el costo a Gastos cuando puedas.',
+    l:'https://mocomuseum.com/', ll:'Moco' },
+  { id:'t-nemo', b:'Ámsterdam · 15 al 18 sept', ic:'🔬', t:'NEMO Science Museum · 10:30',
+    w:'Jue 17 sept', est:'ok', conf:'2 tickets confirmados', c:54, pagado:true,
+    h:'Entrada jue 17 sept · 10:30',
+    n:'La terraza del techo tiene la mejor vista de Ámsterdam y es gratis.',
+    l:'https://www.nemosciencemuseum.nl/en/plan-your-visit', ll:'NEMO' },
+  { id:'n-redlight', b:'Ámsterdam · 15 al 18 sept', ic:'🔴', t:'Red Light District a pie',
+    w:'Mié 16 sept · noche', est:'ok',
+    h:'Mié 16 sept · desde las 21:00',
+    n:'De Wallen y la Oude Kerk. No se reserva ni se paga. 🔴 Cero fotos a las ventanas, es la única regla y la hacen cumplir.' },
+  { id:'n-church', b:'Ámsterdam · 15 al 18 sept', ic:'🕺', t:'Club Church',
+    w:'Una de las dos noches, mié 16 o jue 17', est:'todo',
+    n:'Cada noche tiene una fiesta distinta con su propio dress code y su propia política de entrada. Mira el calendario ANTES de decidir qué noche van, porque aquí la noche escoge la fiesta y no al revés.',
+    l:'https://www.clubchurch.nl/', ll:'Calendario' },
+  { id:'n-showboat', b:'Ámsterdam · 15 al 18 sept', ic:'🎭', t:'Showboat',
+    w:'La otra noche, mié 16 o jue 17', est:'todo',
+    n:'No tengo verificado el horario, el precio ni si pide entrada por adelantado. Confírmalo antes de contar con él para esa noche.' },
+  { id:'f-ams-mad', b:'Ámsterdam · 15 al 18 sept', ic:'✈️', t:'AMS → MAD · nocturno',
+    w:'Vie 18 sept ~20:00, llega ~23:30', est:'ok',
+    n:'Va incluido en el tiquete de €657.30 de arriba.', l:'https://www.klm.com/', ll:'KLM' },
+
+  { id:'h-mad1', b:'Madrid · 18 al 21 sept', ic:'🏨', t:'Alojamiento Madrid · 3 noches',
+    w:'18 al 21 sept', est:'ok', c:560, pagado:true,
+    n:'Airbnb. Este es el del inicio, no el del cierre: "Estadia Madrid Final" es Atocha19, la noche del 1 de oct.',
+    l:'https://www.airbnb.com/', ll:'Airbnb' },
+  { id:'t-prado', b:'Madrid · 18 al 21 sept', ic:'🎟️', t:'Museo del Prado',
+    w:'Sáb 19 sept', est:'todo', ce:'€15 c/u',
+    n:'Las Meninas, los Caprichos, El Jardín de las Delicias.',
+    l:'https://www.museodelprado.es/en/visit/tickets', ll:'Tickets' },
+  { id:'t-reina', b:'Madrid · 18 al 21 sept', ic:'🖼️', t:'Museo Reina Sofía',
+    w:'Lun 21 sept · mañana', est:'idea', ce:'€12 c/u',
+    n:'El Guernica. Entra gratis de 19:00 a 21:00, pero esa tarde ya vas camino a Barcelona.',
+    l:'https://www.museoreinasofia.es/en/visit', ll:'Info' },
+  { id:'tr-mad-bcn', b:'Madrid · 18 al 21 sept', ic:'🚄', t:'AVE Madrid → Barcelona',
+    w:'Lun 21 sept ~14:00, llega ~16:30', est:'ok',
+    n:'Guarda el localizador y la hora exacta de salida con "editar datos".',
+    l:'https://www.renfe.com/es/en', ll:'Renfe' },
+
+  { id:'h-bcn', b:'Barcelona · 21 al 24 sept', ic:'🏨', t:'Niu Barcelona Hotel · 3 noches',
+    w:'Lun 21 al jue 24 sept', est:'ok', conf:'Booking 15920204369785792567', c:539.48, pagado:true,
+    n:'8 Rambla del Raval, 08001. Pagado completo el 20 de junio.',
+    l:'https://www.booking.com/', ll:'Booking' },
+  { id:'e-summit', b:'Barcelona · 21 al 24 sept', ic:'🎯', t:'AI Summit Barcelona · registro',
+    w:'Mar 22 y mié 23 sept', est:'ok', c:378, pagado:true,
+    n:'Registrado como €350. Es el motivo del viaje.',
+    l:'https://barcelona.theaisummit.com/', ll:'AI Summit' },
+  { id:'e-merce', b:'Barcelona · 21 al 24 sept', ic:'🎉', t:'La Mercè · fiesta mayor de Barcelona',
+    w:'Jue 24 sept · todo el día', est:'ok',
+    h:'Jue 24 sept · desde la mañana',
+    n:'El 24 es el día de la Mercè, la patrona, y es festivo local. La ciudad se llena de castellers, gegants, correfoc y conciertos gratis en la calle. No se compra nada, se sale a caminar. 🔴 Revisa el programa oficial unos días antes para saber dónde caen los castellers, que es lo que hay que ver.',
+    l:'https://www.barcelona.cat/lamerce/', ll:'Programa' },
+  { id:'f-bcn-grx', b:'Barcelona · 21 al 24 sept', ic:'✈️', t:'BCN → Granada · Vueling directo',
+    w:'Jue 24 sept', est:'ok', conf:'Localizador BF5L8V', c:225, pagado:true,
+    h:'Jue 24 sept · sale BCN 17:15 → llega GRX 18:55',
+    n:'Directo, sin escalas. 🔴 Ese día es la Mercè y es festivo local: hay cortes de calles y el tráfico se complica. Sal para el aeropuerto con bastante más tiempo del normal.',
+    l:'https://www.vueling.com/', ll:'Vueling' },
+
+  { id:'h-grx', b:'Granada · 24 al 28 sept', ic:'🏠', t:'Airbnb Albaicín · 4 noches',
+    w:'Jue 24 al lun 28 sept', est:'ok', c:529, pagado:true,
+    n:'Guarda aquí la dirección y el localizador con "editar datos".',
+    l:'https://www.airbnb.com/', ll:'Airbnb' },
+  { id:'t-alhambra', b:'Granada · 24 al 28 sept', ic:'🕌', t:'Alhambra y Generalife · turno AM',
+    w:'Vie 25 sept', est:'ok', c:54.27, pagado:true,
+    n:'🔴 Guarda la hora exacta del turno de Palacios Nazaríes. Es la única entrada del viaje con hora fija de verdad: si llegas tarde no te dejan entrar y no hay reembolso.',
+    l:'https://www.alhambra-patronato.es/', ll:'Alhambra' },
+  { id:'t-hammam', b:'Granada · 24 al 28 sept', ic:'💧', t:'Hammam Baños de Al Ándalus',
+    w:'Sáb 26 sept · tarde', est:'idea', ce:'~€40 c/u',
+    n:'Pide reserva previa si lo decides.', l:'https://granada.hammamalandalus.com/', ll:'Info' },
+  { id:'t-flamenco-grx', b:'Granada · 24 al 28 sept', ic:'💃', t:'Flamenco en cueva del Sacromonte',
+    w:'Sáb 26 sept · noche', est:'idea', ce:'~€30 c/u',
+    n:'Zambra auténtica. Se reserva el mismo día sin problema.' },
+  { id:'t-alpujarras', b:'Granada · 24 al 28 sept', ic:'⛰️', t:'Excursión a las Alpujarras',
+    w:'Dom 27 sept', est:'idea', ce:'sin costo fijo',
+    n:'Pampaneira, Bubión, Capileira. Solo si adelantas el coche o tomas bus.' },
+
+  { id:'car', b:'Ronda · 28 al 29 sept', ic:'🚗', t:'Carro de alquiler · Granada a Sevilla',
+    w:'Lun 28 sept al jue 1 oct · 4 días', est:'todo', urg:true, ce:'~€150 a €200 más recargo one way',
+    n:'Pickup en Granada, drop en Sevilla. El recargo one way sube mucho si se compra tarde.',
+    l:'https://www.rentalcars.com/', ll:'Rentalcars' },
+  { id:'h-ron', b:'Ronda · 28 al 29 sept', ic:'🏨', t:'Apartamento Balcones del Tajo',
+    w:'Lun 28 al mar 29 sept · 1 noche', est:'ok', conf:'Conf. 6961.974.953 · PIN 9457', c:169, pagado:true,
+    h:'Check in lun 28 · 13:30 a 21:30\nCheck out mar 29 · 05:00 a 11:30',
+    n:'12 Calle Rosario. Les avisaste que llegas entre 13:00 y 14:00. Cancelación gratis hasta el 20 de sept.',
+    l:'https://www.booking.com/', ll:'Booking' },
+  { id:'t-banos-ron', b:'Ronda · 28 al 29 sept', ic:'♨️', t:'Baños Árabes de Ronda',
+    w:'Lun 28 sept · tarde', est:'idea', ce:'€4.50 c/u',
+    n:'Los mejor conservados de la Península. Entrada barata y sin reserva.' },
+
+  { id:'t-caminito', b:'Sevilla · 29 sept al 1 oct', ic:'🥾', t:'Caminito del Rey · turno AM',
+    w:'Mar 29 sept', est:'todo', urg:true, ce:'€10 c/u',
+    n:'Cupo limitado y sentido único, se agota meses antes. De 2.5 a 3h camino a Sevilla.',
+    l:'https://www.caminitodelrey.info/', ll:'Reservar ya' },
+  { id:'h-svq', b:'Sevilla · 29 sept al 1 oct', ic:'🏨', t:'nüa cicerone · 2 noches',
+    w:'Mar 29 sept al jue 1 oct · 2 noches', est:'ok', conf:'Conf. 6374.060.574 · PIN 8313', c:318, pagado:true,
+    h:'Check in mar 29 · 14:00 a 23:00\nCheck out jue 1 oct · 07:00 a 12:00',
+    n:'Calle Mesón del Moro 10, Old Town. NO REEMBOLSABLE y ya te lo cobraron. Estas fechas no se mueven.',
+    l:'https://www.booking.com/', ll:'Booking' },
+  { id:'t-alcazar', b:'Sevilla · 29 sept al 1 oct', ic:'🏰', t:'Real Alcázar de Sevilla',
+    w:'Mié 30 sept', est:'todo', ce:'€15.50 c/u',
+    n:'Los jardines de Dorne. Se reserva online y se llena en temporada.',
+    l:'https://www.alcazarsevilla.org/', ll:'Tickets' },
+  { id:'t-giralda', b:'Sevilla · 29 sept al 1 oct', ic:'⛪', t:'Catedral y Giralda',
+    w:'Mié 30 sept', est:'idea', ce:'€12 c/u', l:'https://www.catedraldesevilla.es/', ll:'Info' },
+  { id:'t-flamenco-svq', b:'Sevilla · 29 sept al 1 oct', ic:'💃', t:'Flamenco en tablao',
+    w:'Mié 30 sept · noche', est:'idea', ce:'~€25 a €40 c/u' },
+  { id:'t-cadiz', b:'Sevilla · 29 sept al 1 oct', ic:'🏖️', t:'Day trip a Cádiz',
+    w:'Mié 30 sept', est:'idea', ce:'~€15 tren',
+    n:'Compite con Sevilla a fondo. Escoge una y suelta la otra, no caben las dos.' },
+
+  { id:'tr-svq-cor', b:'Córdoba y cierre · 1 al 2 oct', ic:'🚄', t:'AVE Sevilla → Córdoba',
+    w:'Jue 1 oct · mañana', est:'todo', ce:'~€15 a €25',
+    n:'45 min. Devolver el carro en Sevilla antes de tomarlo.', l:'https://www.renfe.com/es/en', ll:'Renfe' },
+  { id:'t-mezquita', b:'Córdoba y cierre · 1 al 2 oct', ic:'🕌', t:'Mezquita Catedral de Córdoba',
+    w:'Jue 1 oct · mediodía', est:'todo', ce:'€15 c/u',
+    n:'Las 856 columnas. Gratis de 8:30 a 9:30 AM, pero llegas al mediodía.',
+    l:'https://mezquita-catedraldecordoba.es/', ll:'Tickets' },
+  { id:'tr-cor-mad', b:'Córdoba y cierre · 1 al 2 oct', ic:'🚄', t:'AVE Córdoba → Madrid',
+    w:'Jue 1 oct · tarde', est:'todo', ce:'~€20 a €50', l:'https://www.renfe.com/es/en', ll:'Renfe' },
+  { id:'h-mad2', b:'Córdoba y cierre · 1 al 2 oct', ic:'🏨', t:'Atocha19 Apartment Madrid',
+    w:'Jue 1 al vie 2 oct · 1 noche', est:'ok', conf:'Conf. 6284.097.511 · PIN 1150', c:179, pagado:true,
+    h:'Check in jue 1 oct · 15:00 a 22:00\nCheck out vie 2 oct · 06:00 a 12:00',
+    n:'Atocha 19, 28012. Recargo de €25 si llegas después de las 23:00, así que avísales tu hora. Tu vuelo sale a las 16:15, te sobra la mañana.',
+    l:'https://www.booking.com/', ll:'Booking' }
+];
+
+/* ══════════════ DESTINOS ══════════════ */
 const destinations = [
-  {
-    id: 'amsterdam', name: 'Amsterdam', flag: '🇳🇱', tag: '4 dias · 3 noches',
-    dates: '15 - 18 Sept', photo: PHOTOS.amsterdam, grad: GRADIENTS.amsterdam,
-    brief: 'Ciudad de canales, museos de clase mundial y encanto bohemio. Plan de 4 dias en pareja: arte (Van Gogh + Moco), canales Jordaan, Red Light District, truffles en Vondelpark, NEMO y un smoking canal tour epico para cerrar. Hotel base: Jordaan (Mr. Jordaan recomendado).',
-    highlights: ['Jordaan · canales UNESCO', 'Van Gogh Museum', 'Moco Museum', 'Red Light District', 'Fabrique des Lumieres', 'Vondelpark', 'NEMO Science', 'Smoking Canal Tour'],
-    days: [
-      { num: 1, date: 'Martes 15 Sept · Llegada & slow landing', plan: 'Aterrizar <strong>Schiphol 14:00-14:30</strong>. Tren a <strong>Amsterdam Centraal</strong> (15-20 min, €5.90). Check-in hotel (<strong>Mr. Jordaan</strong> recomendado), ducha, respirar. <strong>17:30:</strong> primer paseo por canales de Jordaan — Brouwersgracht al atardecer, Prinsengracht. <strong>19:30:</strong> cena en <strong>Winkel 43</strong> (apple pie) o <strong>Moeders</strong> (holandesa tradicional). <strong>21:30:</strong> primer coffee shop en <strong>La Tertulia</strong> (cozy, no turistico).' },
-      { num: 2, date: 'Miercoles 16 Sept · Arte + Red Light', plan: '<strong>9:00 Van Gogh Museum</strong> (reservar slot 9AM online, €25 c/u). <strong>11:30:</strong> almuerzo en <strong>The Seafood Bar</strong>. <strong>14:00: RIJKSMUSEUM</strong> (reservado, 2:00 PM) — el museo insignia de Holanda: <strong>La Ronda de Noche</strong> de Rembrandt, <strong>La Lechera</strong> de Vermeer. ~2h. <strong>Moco Museum</strong> (Banksy, Basquiat — al lado, opcional si da tiempo). <strong>16:30:</strong> descanso hotel. <strong>19:00:</strong> cena en <strong>Foodhallen</strong> (mercado gourmet). <strong>21:00: Red Light District a pie</strong> — De Wallen, Oude Kerk (cero fotos a las ventanas). <strong>22:00:</strong> Casa Rosso show opcional. <strong>23:30:</strong> speakeasy <strong>Hiding in Plain Sight</strong>.' },
-      { num: 3, date: 'Jueves 17 Sept', plan: '<strong>10:30: NEMO Science Museum</strong> (reservado, ticket x2 · Oosterdok) — museo de ciencia interactivo; la <strong>terraza del techo</strong> tiene las mejores vistas de Amsterdam (gratis, cafe con vista). ~2h. <strong>Resto del dia abierto</strong> (por coordinar con Ivan). Ideas sueltas: <strong>Fabrique des Lumieres</strong> (arte digital inmersivo de Van Gogh/Monet/Klimt), un <strong>canal cruise</strong>, el <strong>Vondelpark</strong>, o los barrios <strong>De Pijp</strong> / <strong>Jordaan</strong>.' },
-      { num: 4, date: 'Viernes 18 Sept · smoking canal + farewell', plan: '<strong>9:30:</strong> desayuno en <strong>Pancakes Amsterdam</strong> (pannenkoeken legendarios). <strong>11:00:</strong> ultima manana relajada por los canales de <strong>Jordaan</strong> o alguna galeria. <strong>13:30: Albert Cuyp Market</strong> en De Pijp (stroopwafels calientes, haring, kibbeling, gouda al vacio). <strong>15:00:</strong> check-out, equipaje en conserjeria. <strong>15:30:</strong> comprar weed en <strong>Boerejongens</strong> (BYOC). <strong>16:00: SMOKING CANAL TOUR con Smokeboat</strong> (€25 c/u compartido o €250+ privado — reservar 2-4 sem antes). <strong>18:00: Vleminckx</strong> (patatas fritas post-boat). <strong>19:00:</strong> tren a Schiphol. <strong>Noche:</strong> vuelo a Madrid.' }
+  { id:'amsterdam', name:'Ámsterdam', flag:'🇳🇱', tag:'3 noches', dates:'15 al 18 Sept',
+    photo:PHOTOS.amsterdam, grad:GRAD.amsterdam,
+    res:['f-mad-ams','h-ams','t-cruise','t-moco','t-rijks','n-redlight','n-church','n-showboat','t-nemo','f-ams-mad'],
+    brief:'Ciudad de canales, museos de clase mundial y encanto bohemio. Arranca con un canal cruise al atardecer el mismo día que llegas, y de ahí: arte en el Museumplein, el Jordaan, el Red Light District y dos noches de salida.',
+    highlights:['Jordaan · canales UNESCO','Evening Canal Cruise','Rijksmuseum','Moco Museum','Red Light District','Vida nocturna','NEMO Science','Albert Cuyp Market'],
+    days:[
+      { num:1, date:'Martes 15 Sept · llegada y canal cruise', plan:'Aterrizar en <strong>Schiphol</strong> (hora por confirmar). Tren a <strong>Amsterdam Centraal</strong>, 15 a 20 min, €5.90. Check in, ducha, y <strong>dormir un rato</strong>, que vienes de vuelo nocturno y la noche termina a las 11. <strong>Atardecer:</strong> paseo suave por los canales del Jordaan, Brouwersgracht y Prinsengracht. <strong>19:00: cena ligera</strong> en <strong>Winkel 43</strong> (apple pie) o <strong>Moeders</strong>. Ligera de verdad, que el barco trae 3 bebidas y queso. <strong>21:25: estar en el muelle</strong> de <strong>Keizersgracht 92H</strong>, el de madera junto al 106. <strong>21:30 a 23:00: SPECTACULAR EVENING CRUISE</strong> en el barco Pure Spirit. Termina en el mismo muelle, y de ahí al hotel a caer.' },
+      { num:2, date:'Miércoles 16 Sept · día de museos y Red Light', plan:'<strong>Mañana suelta</strong> hasta las 11. Opciones sin reserva: <strong>Nine Streets</strong>, el <strong>Bloemenmarkt</strong>, o dormir tarde y desayunar con calma. <strong>11:30: MOCO MUSEUM</strong> (reservado): Banksy y Basquiat, ~1 a 1.5h. <strong>13:00:</strong> almuerzo en <strong>The Seafood Bar</strong>, que queda en Van Baerlestraat a un par de cuadras. <strong>14:00 RIJKSMUSEUM</strong> (reservado, entrada de 14:00 a 15:00): <strong>La Ronda de Noche</strong> de Rembrandt y <strong>La Lechera</strong> de Vermeer. ~2h. Los dos museos están en el <strong>Museumplein</strong>, así que no te mueves de sitio en todo el mediodía. <strong>16:30:</strong> descanso en el hotel, que la noche es larga. <strong>19:00:</strong> cena en <strong>Foodhallen</strong>. <strong>21:00: RED LIGHT DISTRICT a pie</strong>, De Wallen y la Oude Kerk. Cero fotos a las ventanas. <strong>Ya de noche: CLUB (Church o Showboat)</strong>, el que escojan para esta noche. El otro queda para mañana. De Wallen al centro se camina, así que encadena solo.' },
+      { num:3, date:'Jueves 17 Sept', plan:'<strong>10:30 NEMO Science Museum</strong> (reservado, x2 · Oosterdok). La <strong>terraza del techo</strong> tiene las mejores vistas de Ámsterdam y es gratis. ~2h. <strong>Resto del día abierto</strong>, por coordinar con Iván. Ideas: un <strong>canal cruise</strong>, el <strong>Vondelpark</strong>, o los barrios <strong>De Pijp</strong> y <strong>Jordaan</strong>. <strong>Noche: EL OTRO CLUB</strong>, el que no hicieron ayer. ⚠️ Ojo con la hora de acostarse: mañana viernes es check out, Albert Cuyp, el Smokeboat de las 16:00 y vuelo nocturno a Madrid.' },
+      { num:4, date:'Viernes 18 Sept · despedida', plan:'<strong>9:30:</strong> desayuno en <strong>Pancakes Amsterdam</strong>. <strong>11:00:</strong> última mañana relajada por el <strong>Jordaan</strong> o alguna galería. <strong>13:30: Albert Cuyp Market</strong> en De Pijp (stroopwafels calientes, haring, gouda al vacío). <strong>15:00:</strong> check out y equipaje en conserjería. <strong>Tarde libre:</strong> ya no hay boat tour este día, así que aquí cabe lo que se quedó pendiente de la semana, o simplemente café y descanso antes del aeropuerto. <strong>18:00: Vleminckx</strong> (las mejores patatas fritas de la ciudad). <strong>19:00:</strong> tren a Schiphol. <strong>~20:00:</strong> vuelo a Madrid, llegas ~23:30.' }
     ],
-    links: [
-      { icon: '🎨', label: 'Van Gogh Museum', url: 'https://tickets.vangoghmuseum.com/', type: 'tickets' },
-      { icon: '🖼', label: 'Moco Museum', url: 'https://mocomuseum.com/', type: 'tickets' },
-      { icon: '✨', label: 'Fabrique des Lumieres', url: 'https://www.fabrique-lumieres.com/en', type: 'tickets' },
-      { icon: '🚢', label: 'Smokeboat Canal Tour', url: 'https://smokeboat.com/', type: 'tickets' },
-      { icon: '🔬', label: 'NEMO Science', url: 'https://www.nemosciencemuseum.nl/en/plan-your-visit', type: 'tickets' },
-      { icon: '🏨', label: 'Hotel Mr. Jordaan', url: 'https://www.booking.com/hotel/nl/mr-jordaan.html', type: '' },
-      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Amsterdam+Netherlands', type: 'maps' }
-    ]
-  },
-  {
-    id: 'madrid', name: 'Madrid', flag: '🇪🇸', tag: '3 noches',
-    dates: '18 - 21 Sept', photo: PHOTOS.madrid, grad: GRADIENTS.madrid,
-    brief: 'Capital vibrante de Espana. El triangulo del arte (Prado, Reina Sofia, Thyssen), tapeo legendario en La Latina y Cava Baja, rooftops con vistas de 360 grados, el verde del Retiro y la energia de Malasana. Base para el day trip a Toledo.',
-    highlights: ['Museo del Prado', 'Reina Sofia (Guernica)', 'Parque del Retiro', 'La Latina', 'Malasana', 'Rooftop Bellas Artes', 'Templo de Debod', 'Plaza Mayor'],
-    days: [
-      { num: 4, date: 'Viernes 18 Sept (noche) → Sabado 19 Sept', plan: 'Ultimo dia en Amsterdam (smoking canal tour + Albert Cuyp). <strong>Vuelo nocturno AMS → MAD</strong> (salida ~20:00, llegada ~23:30). Taxi/uber al hotel. Dormir directo. <strong>Sabado 19 Sept:</strong> dia completo Madrid — Puerta del Sol, <strong>Plaza Mayor</strong>, tapeo epico por <strong>La Latina / Cava Baja</strong> (patatas bravas, croquetas, jamon iberico, tortilla).' },
-      { num: 5, date: 'Sabado 19 Sept', plan: '<strong>Museo del Prado</strong> (Las Meninas de Velazquez, los Caprichos de Goya, El Jardin de las Delicias del Bosco — reservar online). <strong>Parque del Retiro</strong>: Palacio de Cristal (instalacion arte), lago con barcas, rosaleda. Tarde: <strong>Malasana</strong> (vintage, cafes third-wave, street art, tiendas independientes). Noche: <strong>rooftop bar Azotea del Circulo de Bellas Artes</strong> — vistas 360° de todo Madrid con el cielo encendido.' },
-      { num: 7, date: 'Lunes 21 Sept', plan: '<strong>Museo Reina Sofia</strong> — el <strong>Guernica de Picasso</strong>, imprescindible. Una de las obras mas poderosas del mundo. Despues: <strong>Templo de Debod</strong> (templo egipcio autentico del s.II a.C. con vistas a la sierra al atardecer). Almuerzo. <strong>AVE Madrid → Barcelona</strong> (~2.5h, tren ~14:00). Llegar BCN ~16:30. Check-in. Paseo por el <strong>Barrio Gotico</strong> y <strong>El Born</strong>. Cena en <strong>Barceloneta</strong> frente al Mediterraneo.' }
+    links:[
+      {icon:'🖼',label:'Rijksmuseum',url:'https://www.rijksmuseum.nl/en/visit/tickets',type:'tickets'},
+      {icon:'🎭',label:'Moco Museum',url:'https://mocomuseum.com/',type:'tickets'},
+      {icon:'🛶',label:'Pure Boats',url:'https://pureboats.com/cruises/small-group-tours/evening-canal-cruise/',type:'tickets'},
+      {icon:'📍',label:'Maps',url:'https://maps.google.com/?q=Amsterdam+Netherlands',type:'maps'}
+    ]},
+
+  { id:'madrid', name:'Madrid', flag:'🇪🇸', tag:'3 noches', dates:'18 al 21 Sept',
+    photo:PHOTOS.madrid, grad:GRAD.madrid, res:['h-mad1','t-prado','t-reina','tr-mad-bcn'],
+    brief:'Tres noches completas de Madrid, sin salir de la ciudad. El triángulo del arte, el Rastro del domingo con su vermut, tapeo en La Latina y Cava Baja, rooftops de 360 grados, el verde del Retiro, el Palacio Real y el atardecer del Templo de Debod.',
+    highlights:['Museo del Prado','Reina Sofía · Guernica','El Rastro · domingos','Vermut en Cava Baja','Parque del Retiro','Palacio Real','Templo de Debod','Malasaña'],
+    days:[
+      { num:4, date:'Viernes 18 Sept (noche)', plan:'<strong>Vuelo nocturno AMS → MAD</strong> (salida ~20:00, llegada ~23:30). Taxi al hotel. Dormir directo.' },
+      { num:5, date:'Sábado 19 Sept', plan:'<strong>Museo del Prado</strong> (Las Meninas de Velázquez, los Caprichos de Goya, El Jardín de las Delicias del Bosco). <strong>Parque del Retiro</strong>: Palacio de Cristal, lago con barcas, rosaleda. Tarde: <strong>Malasaña</strong> (vintage, cafés third wave, street art). Tapeo por <strong>La Latina y Cava Baja</strong>. Noche: <strong>Azotea del Círculo de Bellas Artes</strong>, vistas 360° de todo Madrid.' },
+      { num:6, date:'Domingo 20 Sept · el domingo madrileño', plan:'<strong>9:30: EL RASTRO.</strong> El mercado de pulgas más grande de España abre <strong>solo los domingos, de 9:00 a 15:00</strong>, en <strong>La Latina</strong> por la Ribera de Curtidores. Antigüedades, ropa, vinilos, cachivaches y gente. <strong>13:00: el vermut de domingo</strong>, que es la tradición local de verdad, por las tabernas de <strong>Cava Baja</strong> y la <strong>Plaza de la Cebada</strong>. <strong>Tarde: Palacio Real</strong> (el palacio real más grande de Europa occidental) y la <strong>Catedral de la Almudena</strong> al lado. <strong>Atardecer: TEMPLO DE DEBOD</strong>, un templo egipcio auténtico del s.II a.C. regalado a España, con la sierra de fondo. Es el mejor atardecer de Madrid y es gratis. <strong>Noche:</strong> <strong>Malasaña</strong> o el rooftop de la <strong>Azotea del Círculo de Bellas Artes</strong>, el que no hayan hecho el sábado.' },
+      { num:7, date:'Lunes 21 Sept · salida a Barcelona', plan:'<strong>10:00: Museo Reina Sofía</strong>, el <strong>Guernica de Picasso</strong>. Queda a cinco minutos a pie de <strong>Atocha</strong>, así que sales del museo y caminas directo al tren. Verifica el horario del día, que varía. Almuerzo cerca. <strong>AVE Madrid → Barcelona</strong> (~2.5h, tren ~14:00). Llegar BCN ~16:30. Check in. Paseo por el <strong>Barrio Gótico</strong> y <strong>El Born</strong>. Cena en <strong>Barceloneta</strong>.' }
     ],
-    links: [
-      { icon: '🎟', label: 'Museo del Prado', url: 'https://www.museodelprado.es/en/visit/tickets', type: 'tickets' },
-      { icon: '🖼', label: 'Reina Sofia', url: 'https://www.museoreinasofia.es/en/visit', type: 'tickets' },
-      { icon: '🚄', label: 'Renfe AVE', url: 'https://www.renfe.com/es/en', type: '' },
-      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Madrid+Spain', type: 'maps' }
-    ]
-  },
-  {
-    id: 'toledo', name: 'Toledo', flag: '🏰', tag: 'Day trip',
-    dates: '20 Sept', photo: PHOTOS.toledo, grad: GRADIENTS.toledo,
-    brief: 'La "Ciudad de las Tres Culturas" — cristiana, judia y musulmana convivieron aqui durante siglos. Patrimonio de la Humanidad completo. Ciudad medieval amurallada con el Mirador del Valle: una de las panoramicas mas impresionantes de toda Espana. Mazapan artesanal y espaderia toledana.',
-    highlights: ['Catedral Primada', 'Alcazar', 'Sinagoga del Transito', 'Mirador del Valle', 'Callejuelas medievales', 'Mazapan artesanal', 'Espaderia'],
-    days: [
-      { num: 6, date: 'Domingo 20 Sept', plan: '<strong>AVE Madrid → Toledo</strong> (30 min desde Atocha, €13). La ciudad entera es un museo abierto. <strong>Catedral Primada</strong> (gotica, impresionante), <strong>Alcazar</strong> (fortaleza con vistas), <strong>Sinagoga del Transito</strong> (arte mudejar). Callejuelas medievales empedradas, espaderia artesanal (Toledo es famosa por sus espadas desde la epoca romana). <strong>Mirador del Valle al atardecer</strong> — panoramica completa de la ciudad sobre el rio Tajo. Uno de los mejores drone shots de Espana. <strong>Mazapan artesanal</strong> de Santo Tome. Volver a Madrid PM.' }
+    links:[
+      {icon:'🎟',label:'Prado',url:'https://www.museodelprado.es/en/visit/tickets',type:'tickets'},
+      {icon:'🖼',label:'Reina Sofía',url:'https://www.museoreinasofia.es/en/visit',type:'tickets'},
+      {icon:'📍',label:'Maps',url:'https://maps.google.com/?q=Madrid+Spain',type:'maps'}
+    ]},
+
+  { id:'barcelona', name:'Barcelona', flag:'🎯', tag:'AI Summit', dates:'21 al 24 Sept',
+    photo:PHOTOS.barcelona, grad:GRAD.barcelona, res:['h-bcn','e-summit','e-merce','f-bcn-grx'],
+    brief:'Epicentro del AI Summit Barcelona 2026 en el World Trade Center: más de 10,000 asistentes y 200 speakers. Además el Barrio Gótico medieval, El Born bohemio y Barceloneta frente al Mediterráneo.',
+    highlights:['AI Summit WTC','10,000+ asistentes','200+ speakers','La Mercè','Barrio Gótico','El Born','Barceloneta','Networking'],
+    days:[
+      { num:7, date:'Lunes 21 Sept', plan:'Llegada en <strong>AVE desde Madrid ~16:30</strong>. Check in. Paseo por el <strong>Barrio Gótico</strong>, la Catedral, Plaça Reial. <strong>El Born</strong>: boutiques, cocktail bars, Basílica de Santa María del Mar. Cena en <strong>Barceloneta</strong>. Prep del Summit: revisar agenda, confirmar meetings.' },
+      { num:8, date:'Martes 22 Sept · Summit día 1', plan:'<strong>AI SUMMIT BARCELONA</strong>. World Trade Center, frente al puerto. Keynotes principales, expo floor, workshops, networking. Contenido: BTS, keynotes y thought leadership reels para IG y LinkedIn.' },
+      { num:9, date:'Miércoles 23 Sept · Summit día 2', plan:'Sesiones avanzadas, cerrar contactos clave, intercambio de tarjetas, follow ups estratégicos. Últimas demos en expo. Networking lunch y closing ceremony. Mañana es la Mercè y vuelas por la tarde, así que deja la maleta lista esta noche.' },
+      { num:10, date:'Jueves 24 Sept · La Mercè y salida', plan:'<strong>LA MERCÈ</strong>, la fiesta mayor de Barcelona, y te tocó justo el día grande. Es festivo local: la ciudad entera sale a la calle con <strong>castellers</strong> (las torres humanas, en Plaça Sant Jaume), <strong>gegants</strong>, <strong>correfoc</strong> y conciertos gratis. Todo al aire libre y sin entrada. Es mejor contenido que cualquier museo y no lo puedes planificar otro día. <strong>Revisa el programa oficial</strong> unos días antes para ubicar los castellers, que es lo que hay que ver. <strong>Almuerzo temprano y al aeropuerto con tiempo de sobra</strong>: con el festivo hay cortes de calles y el tráfico se pone feo. <strong>Vuelo BCN → Granada 17:15 a 18:55</strong>, confirmado BF5L8V.' }
     ],
-    links: [
-      { icon: '🚄', label: 'AVE Madrid-Toledo', url: 'https://www.renfe.com/es/en', type: '' },
-      { icon: '📍', label: 'Mirador del Valle', url: 'https://maps.google.com/?q=Mirador+del+Valle+Toledo+Spain', type: 'maps' },
-      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Toledo+Spain', type: 'maps' }
-    ]
-  },
-  {
-    id: 'barcelona', name: 'Barcelona', flag: '🎯', tag: 'AI Summit',
-    dates: '21 - 24 Sept', photo: PHOTOS.barcelona, grad: GRADIENTS.barcelona,
-    brief: 'Epicentro del AI Summit Barcelona 2026 en el World Trade Center. 10,000+ asistentes, 200+ speakers, expo, networking de primer nivel. Ademas: el Barrio Gotico medieval, El Born bohemio y Barceloneta frente al Mediterraneo.',
-    highlights: ['AI Summit WTC', '10,000+ asistentes', '200+ speakers', 'Barrio Gotico', 'El Born', 'Barceloneta', 'Networking'],
-    days: [
-      { num: 7, date: 'Lunes 21 Sept', plan: 'Llegada en <strong>AVE desde Madrid ~16:30</strong>. Check-in hotel. Paseo por el <strong>Barrio Gotico</strong> — callejuelas medievales, la Catedral, Placa Reial. <strong>El Born</strong> — boutiques, cocktail bars, Basilica de Santa Maria del Mar. Cena en <strong>Barceloneta</strong> frente al mar: paella, fideuá, mariscos. Prep para el Summit: revisar agenda, confirmar meetings.' },
-      { num: 8, date: 'Martes 22 Sept', plan: '<strong>AI SUMMIT BARCELONA — DIA 1</strong>. World Trade Center Barcelona, frente al puerto. Keynotes principales, expo floor con demos de ultima tecnologia, workshops, networking sessions. 10,000+ asistentes de todo el mundo. Contenido: BTS, keynotes, thought leadership reels para IG/LinkedIn.' },
-      { num: 9, date: 'Miercoles 23 Sept', plan: '<strong>AI SUMMIT BARCELONA — DIA 2</strong>. Sesiones avanzadas, cerrar contactos clave, intercambio de tarjetas, follow-ups estrategicos. Ultimas demos en expo. Networking lunch y closing ceremony. Preparar para manana: Sagrada Familia por la manana antes de volar a Granada por la tarde.' },
-      { num: 10, date: 'Jueves 24 Sept (manana)', plan: '<strong>MANANA EN BARCELONA — SAGRADA FAMILIA</strong> (reservar slot temprano ~9-10am, se agota). La obra maestra inacabada de Gaudi: las torres, la luz por los vitrales, la fachada de la Natividad. ~1.5h. Opcion si da tiempo: <strong>Park Guell</strong> o un ultimo paseo por <strong>Passeig de Gracia</strong> (Casa Batllo, La Pedrera por fuera). Almuerzo. Al aeropuerto (BCN, ~30-40 min en metro/taxi). <strong>Vuelo BCN → Granada 17:15 → 18:55</strong> (Vueling directo, confirmado · BF5L8V).' }
+    links:[
+      {icon:'🎯',label:'AI Summit',url:'https://barcelona.theaisummit.com/',type:''},
+      {icon:'🎉',label:'La Mercè',url:'https://www.barcelona.cat/lamerce/',type:'tickets'},
+      {icon:'📍',label:'WTC Barcelona',url:'https://maps.google.com/?q=World+Trade+Center+Barcelona',type:'maps'}
+    ]},
+
+  { id:'granada', name:'Granada', flag:'🌙', tag:'4 noches', dates:'24 al 28 Sept',
+    photo:PHOTOS.granada, grad:GRAD.granada, res:['h-grx','t-alhambra','t-hammam','t-flamenco-grx','t-alpujarras'],
+    brief:'La Alhambra: la joya absoluta de la arquitectura islámica en Europa. El Albaicín árabe (UNESCO), teterías de la Calderería Nueva, el Sacromonte gitano. Y en Granada cada bebida incluye tapa gratis.',
+    highlights:['La Alhambra','Palacios Nazaríes','Generalife','Albaicín UNESCO','Mirador San Nicolás','Tapas gratis','Sacromonte','Teterías árabes'],
+    days:[
+      { num:10, date:'Jueves 24 Sept (tarde y noche)', plan:'<strong>Vuelo BCN → Granada 17:15 a 18:55</strong>. Check in en el Airbnb del Albaicín. <strong>Noche:</strong> primera probada de Granada, tapas gratis por <strong>Calle Navas, Plaza Nueva y Calle Elvira</strong>. Si llegas con energía, sube al <strong>Mirador de San Nicolás</strong> para tu primera vista de la Alhambra iluminada.' },
+      { num:11, date:'Viernes 25 Sept', plan:'<strong>Mañana: LA ALHAMBRA Y GENERALIFE</strong> (turno AM). <strong>Palacios Nazaríes</strong>: los arabescos imposibles, la Fuente de los Leones, el Patio de los Arrayanes reflejando el cielo. <strong>Alcazaba</strong>. <strong>Jardines del Generalife</strong>. ~3 a 4h. Almuerzo. <strong>Tarde: Albaicín a fondo</strong> y la <strong>Carrera del Darro</strong>, la calle más bonita de Granada. <strong>Atardecer: Mirador de San Nicolás</strong>, la Alhambra en luz dorada con Sierra Nevada detrás. LA foto del viaje.' },
+      { num:12, date:'Sábado 26 Sept', plan:'Mañana: <strong>Capilla Real</strong> (tumbas de los Reyes Católicos) y la <strong>Catedral</strong>. Almuerzo de tapas. Tarde: <strong>Sacromonte</strong> (barrio gitano, cuevas) o un <strong>hammam árabe</strong>. <strong>Noche: flamenco en cueva del Sacromonte</strong>, zambra auténtica.' },
+      { num:13, date:'Domingo 27 Sept', plan:'Opción relax: barrio <strong>Realejo</strong> (antigua judería, street art de El Niño de las Pinturas), cármenes con jardines, últimas tapas por <strong>Calle Navas</strong>. Opción excursión: <strong>las Alpujarras</strong> (Pampaneira, Bubión, Capileira) o <strong>Sierra Nevada</strong>. Atardecer final: <strong>Mirador de San Miguel Alto</strong>, mejor que San Nicolás y con menos gente.' }
     ],
-    links: [
-      { icon: '🎯', label: 'AI Summit BCN', url: 'https://barcelona.theaisummit.com/', type: '' },
-      { icon: '📍', label: 'WTC Barcelona', url: 'https://maps.google.com/?q=World+Trade+Center+Barcelona', type: 'maps' },
-      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Barcelona+Spain', type: 'maps' }
-    ]
-  },
-  {
-    id: 'granada', name: 'Granada', flag: '🌙', tag: '4 noches',
-    dates: '24 - 27 Sept', photo: PHOTOS.granada, grad: GRADIENTS.granada,
-    brief: 'La Alhambra: la joya absoluta de la arquitectura islamica en Europa. El Albaicin arabe (UNESCO), teterias de la Caldereria Nueva, el Sacromonte gitano. Y lo mejor: en Granada cada bebida incluye tapa gratis. El Mirador de San Nicolas al atardecer con la Alhambra y Sierra Nevada: LA foto del viaje.',
-    highlights: ['La Alhambra', 'Palacios Nazaries', 'Generalife', 'Albaicin UNESCO', 'Mirador San Nicolas', 'Tapas gratis', 'Sacromonte', 'Teterias arabes'],
-    days: [
-      { num: 10, date: 'Jueves 24 Sept (tarde/noche)', plan: '<strong>Manana en Barcelona</strong> (Sagrada Familia). <strong>Vuelo BCN → Granada 17:15 → 18:55</strong> (Vueling directo). Check-in en el Airbnb del Albaicin. <strong>Noche:</strong> primera probada de Granada — tapas gratis recorriendo <strong>Calle Navas, Plaza Nueva, Calle Elvira</strong> (en Granada cada bebida incluye tapa!). Si llegas con energia, sube al <strong>Mirador de San Nicolas</strong> para tu primera vista de la Alhambra iluminada de noche.' },
-      { num: 11, date: 'Viernes 25 Sept', plan: '<strong>Manana: LA ALHAMBRA + GENERALIFE</strong> (turno AM, reservar con MUCHA antelacion). <strong>Palacios Nazaries</strong> — la joya absoluta: los arabescos imposibles, la Fuente de los Leones, el Patio de los Arrayanes reflejando el cielo. <strong>Alcazaba</strong> (fortaleza militar, vistas). <strong>Jardines del Generalife</strong> (residencia de verano, fuentes, cipreses). ~3-4h. Almuerzo. <strong>Tarde: Albaicin a fondo</strong> (barrio arabe UNESCO, callejuelas empedradas, <strong>teterias de la Caldereria Nueva</strong>) y la <strong>Carrera del Darro</strong> — la calle mas bonita de Granada. <strong>Atardecer: Mirador de San Nicolas</strong> — la Alhambra en luz dorada con Sierra Nevada detras. LA foto del viaje. Cena en el Albaicin.' },
-      { num: 12, date: 'Sabado 26 Sept', plan: '<strong>Dia completo en Granada.</strong> Manana: <strong>Capilla Real</strong> (tumbas de los Reyes Catolicos) y la <strong>Catedral</strong>. <strong>Carrera del Darro</strong> — la calle mas bonita de Granada. Almuerzo de tapas. Tarde: <strong>Sacromonte</strong> (barrio gitano, cuevas) o un <strong>hammam arabe</strong> (Banos de Al Andalus). <strong>Noche: flamenco en cueva del Sacromonte</strong> (zambra autentica) — experiencia unica.' },
-      { num: 13, date: 'Domingo 27 Sept', plan: '<strong>Domingo en Granada.</strong> Opcion relax: barrio <strong>Realejo</strong> (antigua juderia, street art de El Nino de las Pinturas), carmenes con jardines, ultimas tapas por <strong>Calle Navas</strong>. Opcion excursion (~1h): <strong>las Alpujarras</strong> — pueblos blancos colgados de la montana (Pampaneira, Bubion, Capileira), jamon de Trevelez; o <strong>Sierra Nevada</strong>. Atardecer final: <strong>Mirador de San Miguel Alto</strong> (aun mejor que San Nicolas, menos gente). Ultima noche en Granada — el Airbnb es hasta el 28.' }
+    links:[
+      {icon:'🎟',label:'Alhambra',url:'https://www.alhambra-patronato.es/',type:'tickets'},
+      {icon:'📍',label:'Mirador San Nicolás',url:'https://maps.google.com/?q=Mirador+de+San+Nicolas+Granada',type:'maps'},
+      {icon:'📍',label:'Albaicín',url:'https://maps.google.com/?q=Albaicin+Granada+Spain',type:'maps'}
+    ]},
+
+  { id:'ronda', name:'Ronda', flag:'⛰️', tag:'1 noche', dates:'28 Sept',
+    photo:PHOTOS.ronda, grad:GRAD.ronda, res:['car','h-ron','t-banos-ron'],
+    brief:'Puente Nuevo sobre una garganta de 120 metros, uno de los paisajes más dramáticos de toda España. Baños árabes mejor conservados de la Península, la plaza de toros más antigua del país (1785) y un road trip épico por la sierra andaluza.',
+    highlights:['Puente Nuevo · 120m','Tajo de Ronda','Baños Árabes','Plaza de Toros 1785','Camino de los Molinos','Sierra andaluza','Pueblos blancos'],
+    days:[
+      { num:14, date:'Lunes 28 Sept', plan:'Check out del Airbnb de Granada. Recoger <strong>carro de alquiler</strong> y <strong>conducir Granada → Ronda</strong> (~2h por la A-92 y A-367): sierras andaluzas, olivos infinitos, pueblos blancos. Opción de parar en <strong>Antequera</strong>. Llegada ~mediodía y check in a partir de las 13:30. <strong>Puente Nuevo sobre el Tajo</strong>, garganta de 120m, drone obligatorio. Bajar al fondo por el <strong>Camino de los Molinos</strong>. <strong>Baños Árabes</strong>, <strong>Plaza de Toros</strong>, casco antiguo. Cena con vistas al Tajo al atardecer.' }
     ],
-    links: [
-      { icon: '🎟', label: 'Alhambra tickets', url: 'https://www.alhambra-patronato.es/', type: 'tickets' },
-      { icon: '📍', label: 'Mirador San Nicolas', url: 'https://maps.google.com/?q=Mirador+de+San+Nicolas+Granada', type: 'maps' },
-      { icon: '📍', label: 'Albaicin', url: 'https://maps.google.com/?q=Albaicin+Granada+Spain', type: 'maps' },
-      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Granada+Spain', type: 'maps' }
-    ]
-  },
-  {
-    id: 'ronda', name: 'Ronda', flag: '⛰️', tag: '1 noche',
-    dates: '28 Sept', photo: PHOTOS.ronda, grad: GRADIENTS.ronda,
-    brief: 'Puente Nuevo sobre una garganta de 120 metros. Uno de los paisajes mas dramaticos de toda Espana. Banos arabes mejor conservados de la Peninsula Iberica, la plaza de toros mas antigua del pais (1785), y un road trip epico por la sierra andaluza.',
-    highlights: ['Puente Nuevo (120m)', 'Tajo de Ronda', 'Banos Arabes', 'Plaza de Toros (1785)', 'Camino de los Molinos', 'Sierra andaluza', 'Pueblos blancos'],
-    days: [
-      { num: 14, date: 'Lunes 28 Sept', plan: 'Check-out del Airbnb de Granada. Recoger <strong>carro de alquiler</strong> y <strong>conducir Granada → Ronda</strong> (~2h por la A-92/A-367) — sierras andaluzas, olivos infinitos, pueblos blancos. Opcion de parar en <strong>Antequera</strong>. Llegada a Ronda ~mediodia. <strong>DIA COMPLETO EN RONDA:</strong> <strong>Puente Nuevo sobre el Tajo</strong> — garganta de 120m, uno de los paisajes mas dramaticos de Espana (drone obligatorio). Bajar al fondo por el <strong>Camino de los Molinos</strong>. <strong>Banos Arabes</strong> (los mejor conservados de la Peninsula), <strong>Plaza de Toros</strong> (la mas antigua de Espana, 1785), casco antiguo. Cena con vistas al Tajo al atardecer. Noche en Ronda.' }
+    links:[
+      {icon:'🚗',label:'Rentalcars',url:'https://www.rentalcars.com/',type:''},
+      {icon:'📍',label:'Puente Nuevo',url:'https://maps.google.com/?q=Puente+Nuevo+Ronda+Spain',type:'maps'}
+    ]},
+
+  { id:'sevilla', name:'Sevilla', flag:'🌺', tag:'2 noches', dates:'29 Sept al 1 Oct',
+    photo:PHOTOS.sevilla, grad:GRAD.sevilla, res:['t-caminito','h-svq','t-alcazar','t-giralda','t-flamenco-svq','t-cadiz'],
+    brief:'Real Alcázar, el palacio mudéjar donde filmaron Game of Thrones. Plaza de España al golden hour: semicircular, con cerámica pintada de cada provincia. Triana, cuna del flamenco. Y en el camino, el Caminito del Rey.',
+    highlights:['Real Alcázar · GoT','Plaza de España','Catedral y Giralda','Triana','Flamenco','Las Setas','Cádiz opcional','Guadalquivir'],
+    days:[
+      { num:15, date:'Martes 29 Sept', plan:'<strong>Mañana: Ronda → CAMINITO DEL REY</strong> (~1h, turno de mañana). La pasarela colgante más espectacular de España, clavada en el <strong>Desfiladero de los Gaitanes</strong>, 100m sobre el río. Recorrido de 2.5 a 3h, sentido único, cupo limitado. Después: <strong>Caminito → Sevilla</strong> (~2h). Llegar a media tarde, check in a partir de las 14:00. <strong>Plaza de España al golden hour</strong>. Cruzar a <strong>Triana</strong>. Cena junto al <strong>Guadalquivir</strong> con la Torre del Oro iluminada.' },
+      { num:16, date:'Miércoles 30 Sept', plan:'<strong>Real Alcázar</strong>, palacio mudéjar espectacular (los jardines de Dorne). <strong>Catedral y Giralda</strong>, la gótica más grande del mundo. Barrio de <strong>Santa Cruz</strong> con olor a azahar. <strong>Metropol Parasol</strong> o Las Setas. Mercado de Triana. <strong>Flamenco en tablao auténtico</strong> por la noche. <em>Alternativa: day trip a Cádiz en tren, ~1.5h. Escoge una, no caben las dos.</em>' }
     ],
-    links: [
-      { icon: '🚗', label: 'Rentalcars', url: 'https://www.rentalcars.com/', type: '' },
-      { icon: '📍', label: 'Puente Nuevo', url: 'https://maps.google.com/?q=Puente+Nuevo+Ronda+Spain', type: 'maps' },
-      { icon: '📍', label: 'Banos Arabes', url: 'https://maps.google.com/?q=Banos+Arabes+Ronda', type: 'maps' },
-      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Ronda+Spain', type: 'maps' }
-    ]
-  },
-  {
-    id: 'sevilla', name: 'Sevilla + Cadiz', flag: '🌺', tag: '2 noches',
-    dates: '29 - 30 Sept', photo: PHOTOS.sevilla, grad: GRADIENTS.sevilla,
-    brief: 'Real Alcazar (palacio mudejar donde filmaron Game of Thrones). Plaza de Espana al golden hour: semicircular, ceramica pintada de cada provincia. Triana: cuna del flamenco. Opcion de day trip a Cadiz — la ciudad mas antigua de Europa occidental (~1100 a.C.), playas entre castillos y el mejor atun rojo del mundo.',
-    highlights: ['Real Alcazar (GoT)', 'Plaza de Espana', 'Catedral + Giralda', 'Triana', 'Flamenco', 'Las Setas', 'Cadiz (opcional)', 'Guadalquivir'],
-    days: [
-      { num: 15, date: 'Martes 29 Sept', plan: '<strong>Manana: Ronda → CAMINITO DEL REY</strong> (~1h, reservar <strong>turno de manana</strong> — abre los martes). La pasarela colgante mas espectacular de Espana, clavada en el <strong>Desfiladero de los Gaitanes</strong>, 100m sobre el rio. Recorrido ~2.5-3h, sentido unico, cupo limitado. Drone/GoPro heaven. Despues: <strong>Caminito → Sevilla</strong> (~2h). Llegar a media tarde, check-in. <strong>Plaza de Espana al golden hour</strong> — semicircular, ceramica de cada provincia, canal con barcas. Cruzar a <strong>Triana</strong> (cuna del flamenco). Cena junto al <strong>Guadalquivir</strong> con la Torre del Oro iluminada.' },
-      { num: 16, date: 'Miercoles 30 Sept', plan: '<strong>Sevilla a fondo.</strong> <strong>Real Alcazar</strong> — palacio mudejar espectacular (los jardines de Dorne en Game of Thrones), reservar online. <strong>Catedral + Giralda</strong> (la gotica mas grande del mundo, subir la Giralda). Barrio de <strong>Santa Cruz</strong> (olor a azahar). <strong>Metropol Parasol / Las Setas</strong>. Mercado de Triana. <strong>Flamenco en tablao autentico</strong> por la noche. <em>Opcion si sobra energia: day trip a Cadiz en tren ~1.5h.</em>' }
+    links:[
+      {icon:'🥾',label:'Caminito del Rey',url:'https://www.caminitodelrey.info/',type:'tickets'},
+      {icon:'🎟',label:'Real Alcázar',url:'https://www.alcazarsevilla.org/',type:'tickets'},
+      {icon:'📍',label:'Plaza de España',url:'https://maps.google.com/?q=Plaza+de+Espana+Sevilla',type:'maps'}
+    ]},
+
+  { id:'cordoba', name:'Córdoba y cierre', flag:'🕌', tag:'parada y 1 noche', dates:'1 al 2 Oct',
+    photo:PHOTOS.cordoba, grad:GRAD.cordoba, res:['tr-svq-cor','t-mezquita','tr-cor-mad','h-mad2'],
+    brief:'La Mezquita Catedral: 856 columnas de mármol con arcos rojos y blancos formando un bosque hipnótico, con una catedral renacentista incrustada dentro. Judería medieval, Puente Romano, patios cordobeses, salmorejo y flamenquín.',
+    highlights:['Mezquita Catedral','856 columnas','Judería medieval','Puente Romano','Calleja de las Flores','Patios cordobeses','Salmorejo','Flamenquín'],
+    days:[
+      { num:17, date:'Jueves 1 Oct', plan:'Mañana en Sevilla: últimos rincones y <strong>devolver el carro</strong>. <strong>AVE Sevilla → Córdoba</strong> (~45 min). <strong>PARADA EN CÓRDOBA</strong> de 3 a 4h con maletas en consigna: la <strong>MEZQUITA CATEDRAL</strong>, el bosque de <strong>856 columnas</strong>. <strong>Judería</strong>, <strong>Puente Romano</strong>, <strong>Calleja de las Flores</strong>. Almuerzo: salmorejo y flamenquín. <strong>AVE Córdoba → Madrid</strong> (~1h45). Última noche en <strong>Atocha19</strong>: <strong>Mercado de San Miguel</strong> y cena de cierre.' },
+      { num:18, date:'Viernes 2 Oct · vuelta', plan:'Check out de Atocha19 entre 6:00 y 12:00. Atocha está a 5 min, así que te queda la mañana libre. <strong>Vuelo MAD → SJU 16:15</strong>, Iberia directo, 8h35. <strong>Llegas a San Juan a las 18:50</strong> esa misma noche.' }
     ],
-    links: [
-      { icon: '🎟', label: 'Real Alcazar', url: 'https://www.alcazarsevilla.org/', type: 'tickets' },
-      { icon: '⛪', label: 'Catedral Sevilla', url: 'https://www.catedraldesevilla.es/', type: 'tickets' },
-      { icon: '📍', label: 'Plaza de Espana', url: 'https://maps.google.com/?q=Plaza+de+Espana+Sevilla', type: 'maps' },
-      { icon: '📍', label: 'Cadiz', url: 'https://maps.google.com/?q=Cadiz+Spain', type: 'maps' },
-      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Sevilla+Spain', type: 'maps' }
-    ]
-  },
-  {
-    id: 'cordoba', name: 'Cordoba + Madrid cierre', flag: '🕌', tag: 'parada + 1 noche',
-    dates: '1 - 2 Oct', photo: PHOTOS.cordoba, grad: GRADIENTS.cordoba,
-    brief: 'La Mezquita-Catedral: 856 columnas de marmol con arcos rojos y blancos formando un bosque hipnotico. Una catedral renacentista incrustada dentro de la mezquita — surrealista. Juderia medieval, Puente Romano sobre el Guadalquivir, patios cordobeses floridos, salmorejo y flamenquin (los inventaron aqui).',
-    highlights: ['Mezquita-Catedral', '856 columnas', 'Juderia medieval', 'Puente Romano', 'Calleja de las Flores', 'Patios cordobeses', 'Salmorejo', 'Flamenquin'],
-    days: [
-      { num: 17, date: 'Jueves 1 Oct', plan: 'Manana en Sevilla: ultimos rincones, <strong>devolver el carro</strong>. <strong>AVE Sevilla → Cordoba</strong> (~45 min). <strong>PARADA EN CORDOBA</strong> (~3-4h, maletas en consigna): la <strong>MEZQUITA-CATEDRAL</strong> — el bosque de <strong>856 columnas</strong> de marmol con arcos rojos y blancos, con una catedral renacentista incrustada dentro. Surreal. <strong>Juderia</strong>, <strong>Puente Romano</strong>, <strong>Calleja de las Flores</strong>. Almuerzo: salmorejo + flamenquin. <strong>AVE Cordoba → Madrid</strong> (~1h45, llegar por la tarde). Ultima noche en Madrid: <strong>Mercado de San Miguel</strong>, <strong>cena de cierre del viaje</strong> — celebrar 17 dias increibles. <em>(Ya viste Madrid a fondo al inicio; el cierre es Cordoba + relax antes del vuelo.)</em>' }
-    ],
-    links: [
-      { icon: '🎟', label: 'Mezquita', url: 'https://mezquita-catedraldecordoba.es/', type: 'tickets' },
-      { icon: '📍', label: 'Puente Romano', url: 'https://maps.google.com/?q=Puente+Romano+Cordoba+Spain', type: 'maps' },
-      { icon: '📍', label: 'Juderia', url: 'https://maps.google.com/?q=Juderia+Cordoba+Spain', type: 'maps' },
-      { icon: '📍', label: 'Google Maps', url: 'https://maps.google.com/?q=Cordoba+Spain', type: 'maps' }
-    ]
-  }
+    links:[
+      {icon:'🎟',label:'Mezquita',url:'https://mezquita-catedraldecordoba.es/',type:'tickets'},
+      {icon:'📍',label:'Puente Romano',url:'https://maps.google.com/?q=Puente+Romano+Cordoba+Spain',type:'maps'}
+    ]}
 ];
 
-// ── TRANSPORTS ─────────────────────────────────────
-const transports = [
-  { emoji: '✈️', type: 'flight', route: 'SJU → MAD', detail: 'Lun 14 Sept · Iberia directo nocturno · ~8h', cost: '~$500-900 RT' },
-  { emoji: '✈️', type: 'flight', route: 'MAD → AMS', detail: 'Mar 15 Sept · KLM/Iberia · ~2.5h', cost: '~€60-120' },
-  { emoji: '✈️', type: 'flight', route: 'AMS → MAD', detail: 'Vie 18 Sept · vuelo nocturno ~20:00 · ~2.5h', cost: '~€60-120' },
-  { emoji: '🚄', type: 'train', route: 'MAD ↔ Toledo', detail: 'Dom 20 Sept · AVE ida y vuelta · 30 min c/u', cost: '~€26' },
-  { emoji: '🚄', type: 'train', route: 'MAD → BCN', detail: 'Lun 21 Sept · AVE · ~2.5h', cost: '~€30-70' },
-  { emoji: '✈️', type: 'flight', route: 'BCN → Granada', detail: 'Jue 24 Sept · Vueling 17:15 → 18:55 · directo', cost: 'confirmado' },
-  { emoji: '🚗', type: 'car', route: 'Granada → Ronda → Caminito → Sevilla', detail: 'Lun 28 Sep - Jue 1 Oct · Alquiler 4 dias', cost: '~€150-200' },
-  { emoji: '⛽', type: 'car', route: 'Gasolina Andalucia', detail: 'Granada-Ronda-Sevilla · ~500km total', cost: '~€40-60' },
-  { emoji: '🚄', type: 'train', route: 'SVQ → Cordoba', detail: 'Jue 1 Oct · AVE · parada ~45 min', cost: '~€15-25' },
-  { emoji: '🚄', type: 'train', route: 'Cordoba → MAD', detail: 'Jue 1 Oct · AVE · ~1h45', cost: '~€20-50' },
-  { emoji: '✈️', type: 'flight', route: 'MAD → SJU', detail: 'Vie 2 Oct · Iberia directo · ~8h', cost: '(parte del RT)' }
+/* ══════════════ CALENDARIO ══════════════ */
+const dias = [
+  {d:14,c:'fly',lb:'vuelo',dow:1},{d:15,c:'ams',lb:'AMS',dow:2},{d:16,c:'ams',lb:'AMS',dow:3},
+  {d:17,c:'ams',lb:'AMS',dow:4},{d:18,c:'mad',lb:'MAD',dow:5},{d:19,c:'mad',lb:'MAD',dow:6},
+  {d:20,c:'mad',lb:'Rastro',dow:0},{d:21,c:'bcn',lb:'BCN',dow:1},{d:22,c:'bcn',lb:'Summit',dow:2},
+  {d:23,c:'bcn',lb:'Summit',dow:3},{d:24,c:'grx',lb:'GRX',dow:4},{d:25,c:'grx',lb:'Alhambra',dow:5},
+  {d:26,c:'grx',lb:'GRX',dow:6},{d:27,c:'grx',lb:'GRX',dow:0},{d:28,c:'ron',lb:'Ronda',dow:1},
+  {d:29,c:'svq',lb:'Caminito',dow:2},{d:30,c:'svq',lb:'SVQ',dow:3},{d:1,c:'cor',lb:'Córdoba',dow:4},
+  {d:2,c:'fly',lb:'vuelta',dow:5}
 ];
+const calKey = [
+  {c:'fly',n:'Vuelo'},{c:'ams',n:'Ámsterdam'},{c:'mad',n:'Madrid'},
+  {c:'bcn',n:'Barcelona'},{c:'grx',n:'Granada'},{c:'ron',n:'Ronda'},{c:'svq',n:'Sevilla'},{c:'cor',n:'Córdoba'}
+];
+const rutaChips = ['🇵🇷 SJU','🇳🇱 Ámsterdam','🇪🇸 Madrid','🎯 Barcelona','🌙 Granada','⛰️ Ronda','🌺 Sevilla','🕌 Córdoba','🇪🇸 Madrid','🇵🇷 SJU'];
 
-// ── CHECKLIST ──────────────────────────────────────
-const checklistData = [
-  {
-    cat: 'Reservas CRITICAS', icon: '🔴',
-    items: [
-      { label: 'Vuelo SJU ↔ MAD (Iberia round trip)', sub: 'Lun 14 Sept → Vie 2 Oct', pri: 'critical', link: 'https://www.iberia.com/', linkLbl: 'Iberia.com' },
-      { label: 'Alhambra — turno AM', sub: 'Vie 25 Sept · Se agotan MESES antes', pri: 'critical', link: 'https://www.alhambra-patronato.es/', linkLbl: 'Reservar ahora' },
-      { label: 'Rijksmuseum — 14:00-15:00', sub: 'Mie 16 Sept · confirmado (x2) · orden 27435348', pri: 'critical', link: 'https://www.rijksmuseum.nl/en/visit/tickets', linkLbl: 'Rijksmuseum' },
-      { label: 'Caminito del Rey — turno AM', sub: 'Mar 29 Sept · Cupo limitado, se agota meses antes', pri: 'critical', link: 'https://www.caminitodelrey.info/', linkLbl: 'Reservar ahora' },
-      { label: 'Sagrada Familia — slot AM', sub: 'Jue 24 Sept · ~9-10am antes del vuelo · se agota', pri: 'critical', link: 'https://sagradafamilia.org/en/tickets', linkLbl: 'Reservar ahora' },
-      { label: 'Van Gogh Museum — slot 9AM', sub: 'Mie 16 Sept · Solo online, reservar 2-3 meses antes', pri: 'critical', link: 'https://tickets.vangoghmuseum.com/', linkLbl: 'Reservar' },
-      { label: 'Smokeboat Canal Tour', sub: 'Vie 18 Sept · Reservar 2-4 semanas antes', pri: 'critical', link: 'https://smokeboat.com/', linkLbl: 'Smokeboat.com' }
-    ]
-  },
-  {
-    cat: 'Reservas importantes', icon: '🟡',
-    items: [
-      { label: 'Moco Museum Amsterdam', sub: 'Mie 16 Sept (tarde)', pri: 'important', link: 'https://mocomuseum.com/', linkLbl: 'Tickets' },
-      { label: 'Fabrique des Lumieres', sub: 'Jue 17 Sept · opcional, reservar slot', pri: 'important', link: 'https://www.fabrique-lumieres.com/en', linkLbl: 'Tickets' },
-      { label: 'NEMO Science Museum — 10:30', sub: 'Jue 17 Sept · confirmado (x2)', pri: 'important', link: 'https://www.nemosciencemuseum.nl/en/plan-your-visit', linkLbl: 'Tickets' },
-      { label: 'Museo del Prado', sub: 'Sab 19 Sept', pri: 'important', link: 'https://www.museodelprado.es/en/visit/tickets', linkLbl: 'Tickets' },
-      { label: 'Real Alcazar Sevilla', sub: 'Mie 30 Sept', pri: 'important', link: 'https://www.alcazarsevilla.org/', linkLbl: 'Tickets' },
-      { label: 'Mezquita Cordoba (parada)', sub: 'Jue 1 Oct · turno regular €15', pri: 'important', link: 'https://mezquita-catedraldecordoba.es/', linkLbl: 'Info' },
-      { label: 'AI Summit Barcelona — registro', sub: 'Mar 22 - Mie 23 Sept', pri: 'important', link: 'https://barcelona.theaisummit.com/', linkLbl: 'Registro' }
-    ]
-  },
-  {
-    cat: 'Transporte interno', icon: '🚄',
-    items: [
-      { label: 'Vuelo MAD → AMS (conexion dia 1)', sub: 'Mar 15 Sept · KLM ~10am', pri: 'normal', link: 'https://www.klm.com/', linkLbl: 'KLM' },
-      { label: 'Vuelo AMS → MAD (nocturno)', sub: 'Vie 18 Sept · ~20:00 · llega ~23:30', pri: 'normal', link: 'https://www.klm.com/', linkLbl: 'KLM' },
-      { label: 'AVE Madrid ↔ Toledo', sub: 'Dom 20 Sept · ida y vuelta', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' },
-      { label: 'AVE Madrid → Barcelona', sub: 'Lun 21 Sept · ~14:00', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' },
-      { label: 'Vuelo BCN → Granada', sub: 'Jue 24 Sept · Vueling 17:15-18:55 · confirmado BF5L8V', pri: 'normal', link: 'https://www.vueling.com/', linkLbl: 'Vueling' },
-      { label: 'Carro alquiler (Granada pickup → Sevilla drop)', sub: 'Lun 28 Sep - Jue 1 Oct · 4 dias', pri: 'normal', link: 'https://www.rentalcars.com/', linkLbl: 'Rentalcars' },
-      { label: 'AVE Sevilla → Cordoba', sub: 'Jue 1 Oct', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' },
-      { label: 'AVE Cordoba → Madrid', sub: 'Jue 1 Oct', pri: 'normal', link: 'https://www.renfe.com/es/en', linkLbl: 'Renfe' }
-    ]
-  },
-  {
-    cat: 'Alojamiento (17 noches)', icon: '🏨',
-    items: [
-      { label: 'Hotel Amsterdam (3 noches)', sub: '15-17 Sept · Zona: Jordaan o centro', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
-      { label: 'Hotel Madrid (3 noches)', sub: '18-20 Sept · Zona: La Latina, Sol o Malasana', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
-      { label: 'Hotel Barcelona (3 noches)', sub: '21-23 Sept · Zona: Gotico, Born o cerca WTC', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
-      { label: 'Airbnb Granada (4 noches)', sub: '24-27 Sept · reservado (hasta el 28)', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
-      { label: 'Hotel Ronda (1 noche)', sub: '28 Sept · Pueblo pequeno, reservar pronto!', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
-      { label: 'Hotel Sevilla (2 noches)', sub: '29-30 Sept · Zona: Santa Cruz o Triana', pri: 'important', link: 'https://www.booking.com/', linkLbl: 'Booking' },
-      { label: 'Hotel Madrid cierre (1 noche)', sub: '1 Oct · cerca Atocha para el aeropuerto', pri: 'normal', link: 'https://www.booking.com/', linkLbl: 'Booking' }
-    ]
-  },
-  {
-    cat: 'Documentos & Logistica', icon: '📋',
-    items: [
-      { label: 'Pasaporte vigente (6+ meses)', sub: 'Verificar fecha de expiracion', pri: 'critical' },
-      { label: 'Seguro de viaje Europa (17 dias)', sub: 'Cobertura medica + cancelacion', pri: 'important', link: 'https://www.worldnomads.com/', linkLbl: 'World Nomads' },
-      { label: 'eSIM o plan internacional de data', sub: '17 dias, varios paises', pri: 'important', link: 'https://www.airalo.com/', linkLbl: 'Airalo eSIM' },
-      { label: 'Tarjetas de presentacion AI Strategist', sub: 'Para networking en el Summit', pri: 'important' },
-      { label: 'Google Maps offline descargado', sub: 'Zonas: Amsterdam, Madrid, Barcelona, Andalucia', pri: 'normal' },
-      { label: 'Notificar banco / tarjetas de viaje', sub: 'Activar para Europa, Sept-Oct', pri: 'normal' },
-      { label: 'Licencia de conducir vigente', sub: 'Para el carro en Andalucia', pri: 'important' },
-      { label: 'Regulaciones drone por pais', sub: 'Holanda + Espana, DJI Mini', pri: 'normal' },
-      { label: 'Copias digitales de documentos', sub: 'Pasaporte, seguro, reservas — en la nube', pri: 'normal' }
-    ]
-  }
+/* ══════════════ DOCUMENTOS ══════════════ */
+const docsData = [
+  { cat:'Documentos', icon:'📄', items:[
+    {id:'d-pasaporte', pre:true, label:'Pasaporte vigente con 6+ meses', sub:'Verificar fecha de expiración'},
+    {id:'d-licencia', pre:true, label:'Licencia de conducir vigente', sub:'Para el carro en Andalucía'},
+    {id:'d-copias', pre:true, label:'Copias digitales en la nube', sub:'Pasaporte, seguro y todas las reservas'},
+    {id:'d-seguro', label:'Seguro de viaje Europa · 18 días', sub:'Cobertura médica y cancelación', link:'https://www.worldnomads.com/', linkLbl:'World Nomads'}
+  ]},
+  { cat:'Conectividad y dinero', icon:'📱', items:[
+    {id:'d-esim', label:'eSIM o plan internacional de data', sub:'18 días, dos países', link:'https://www.airalo.com/', linkLbl:'Airalo'},
+    {id:'d-banco', label:'Notificar al banco y tarjetas', sub:'Activar para Europa, sept y oct'},
+    {id:'d-euros', label:'Efectivo en euros', sub:'Mercados, propinas, taxis pequeños'},
+    {id:'d-maps', pre:true, label:'Google Maps offline descargado', sub:'Ámsterdam, Madrid, Barcelona, Andalucía'}
+  ]},
+  { cat:'Trabajo y contenido', icon:'💼', items:[
+    {id:'d-tarjetas', label:'Tarjetas de presentación The AI Strategist', sub:'Para networking en el AI Summit'},
+    {id:'d-agenda', label:'Agenda del Summit revisada', sub:'Sesiones marcadas y meetings confirmados'},
+    {id:'d-drone', pre:true, label:'Regulaciones de drone por país', sub:'Holanda y España, DJI Mini'},
+    {id:'d-ooo', label:'Fuera de oficina y delegación', sub:'Qué corre sin ti del 14 sept al 2 oct'}
+  ]}
 ];
 
 const packingData = [
-  {
-    cat: 'Amsterdam (15-18°C, lluvia probable)', icon: '🌧️', temp: 'cold',
-    items: [
-      { label: 'Chaqueta impermeable ligera / windbreaker' },
-      { label: 'Sueter calido + camisetas para capas' },
-      { label: 'Zapatos comodos e impermeables (mucho adoquin + lluvia)' },
-      { label: 'Paraguas compacto' }
-    ]
-  },
-  {
-    cat: 'Madrid + Barcelona (22-28°C)', icon: '☀️', temp: 'warm',
-    items: [
-      { label: 'Ropa casual de dia (camisetas, pantalones ligeros)' },
-      { label: 'Smart casual para el AI Summit (el WTC no es formal pero profesional)' },
-      { label: 'Tarjetas de presentacion The AI Strategist' },
-      { label: 'Zapatos comodos para caminar' }
-    ]
-  },
-  {
-    cat: 'Andalucia (26-32°C, calor seco)', icon: '🔥', temp: 'hot',
-    items: [
-      { label: 'Ropa ligera: lino, algodon transpirable' },
-      { label: 'Protector solar SPF50 + sombrero / gorra' },
-      { label: 'Gafas de sol' },
-      { label: 'Zapatos comodos para caminar (MUCHO adoquin en Ronda, Granada, Cordoba, Sevilla)' },
-      { label: 'Botella de agua reutilizable' }
-    ]
-  },
-  {
-    cat: 'Tech & Contenido', icon: '📱', temp: null,
-    items: [
-      { label: 'DJI Mini drone + baterias extra (Part 107 ✓)' },
-      { label: 'Camara principal + lentes' },
-      { label: 'Adaptador europeo Tipo C/F (sirve Holanda y Espana)' },
-      { label: 'Cargador portatil / power bank grande' },
-      { label: 'Tarjetas SD extra' },
-      { label: 'Tripode / mini tripod para timelapses' },
-      { label: 'Cables y cargadores de todo' }
-    ]
-  },
-  {
-    cat: 'Esenciales', icon: '💼', temp: null,
-    items: [
-      { label: 'Pasaporte + copias' },
-      { label: 'Tarjetas de credito/debito (notificar banco)' },
-      { label: 'Efectivo en euros (para mercados, propinas)' },
-      { label: 'Medicinas personales + kit basico' },
-      { label: 'Candado para maleta' },
-      { label: 'Bolsa plegable extra para compras' }
-    ]
-  }
+  { cat:'Ámsterdam · 15 a 18°C, lluvia probable', icon:'🌧️', temp:'cold', items:[
+    {label:'Chaqueta impermeable ligera o windbreaker'},{label:'Suéter cálido y camisetas para capas'},
+    {label:'Zapatos cómodos e impermeables'},{label:'Paraguas compacto'}
+  ]},
+  { cat:'Madrid y Barcelona · 22 a 28°C', icon:'☀️', temp:'warm', items:[
+    {label:'Ropa casual de día'},{label:'Smart casual para el AI Summit'},
+    {label:'Tarjetas de presentación'},{label:'Zapatos cómodos para caminar'}
+  ]},
+  { cat:'Andalucía · 26 a 32°C, calor seco', icon:'🔥', temp:'hot', items:[
+    {label:'Ropa ligera: lino, algodón transpirable'},{label:'Protector solar SPF50 y sombrero'},
+    {label:'Gafas de sol'},{label:'Zapatos cómodos, mucho adoquín'},{label:'Botella de agua reutilizable'}
+  ]},
+  { cat:'Tech y contenido', icon:'📸', temp:null, items:[
+    {label:'DJI Mini y baterías extra (Part 107 ✓)'},{label:'Cámara principal y lentes'},
+    {label:'Adaptador europeo Tipo C/F'},{label:'Power bank grande'},
+    {label:'Tarjetas SD extra'},{label:'Mini trípode para timelapses'},{label:'Cables y cargadores'}
+  ]},
+  { cat:'Esenciales', icon:'🧴', temp:null, items:[
+    {label:'Medicinas personales y kit básico'},{label:'Candado para maleta'},
+    {label:'Bolsa plegable para compras'},{label:'Adaptador de corriente de repuesto'}
+  ]}
 ];
 
-// ── RENDER ─────────────────────────────────────────
-
-function renderDest() {
-  document.getElementById('dest-grid').innerHTML = destinations.map(d => `
-    <div class="dest-card" id="dest-${d.id}" onclick="toggleCard(this, event)">
-      <div class="dest-card-hero">
-        <img class="dest-card-img" src="${d.photo}" alt="${d.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='${d.grad}'">
-        <div class="dest-card-flag">${d.flag}</div>
-        <div class="dest-card-tag">${d.tag}</div>
-        <div class="dest-card-overlay">
-          <div class="dest-card-name">${d.name}</div>
-          <div class="dest-card-meta"><span>&#128197; ${d.dates}</span></div>
-        </div>
-        <div class="dest-chevron">&#8250;</div>
-      </div>
-      <div class="dest-body">
-        <div class="dest-body-inner">
-          <div class="dest-brief">${d.brief}</div>
-          ${d.days.map(day => `
-            <div class="day-card">
-              <div class="day-head">
-                <div class="day-num" style="background:${d.grad}">D${day.num}</div>
-                <div class="day-date-text">${day.date}</div>
-              </div>
-              <div class="day-plan">${day.plan}</div>
-            </div>
-          `).join('')}
-          <div class="dest-highlights">
-            <div class="dest-highlights-title">Highlights</div>
-            <div class="highlight-chips">
-              ${d.highlights.map(h => `<span class="highlight-chip">${h}</span>`).join('')}
-            </div>
-          </div>
-          <div class="dest-links">
-            ${d.links.map(l => `
-              <a class="dest-link ${l.type}" href="${l.url}" target="_blank" rel="noopener">
-                ${l.icon} ${l.label}
-              </a>
-            `).join('')}
-          </div>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-
-function renderTransport() {
-  document.getElementById('transport-list').innerHTML = transports.map(t => `
-    <div class="transport-item">
-      <div class="transport-icon ${t.type}">${t.emoji}</div>
-      <div class="transport-info">
-        <div class="transport-route">${t.route}</div>
-        <div class="transport-detail">${t.detail}</div>
-      </div>
-      <div class="transport-cost">${t.cost}</div>
-    </div>
-  `).join('');
-}
-
-function renderChecklist(containerId, data, stateKey) {
-  const el = document.getElementById(containerId);
-  if (!el) return;
-  const saved = state[stateKey] || {};
-  el.innerHTML = data.map((cat, ci) => {
-    const checked = cat.items.filter((_,ii) => saved[`${ci}-${ii}`]).length;
-    const all = cat.items.length;
-    const done = checked === all;
-    return `
-      <div class="check-cat glass-strong" onclick="toggleCat(this, event)">
-        <div class="check-cat-head">
-          <span class="check-cat-icon">${cat.icon}</span>
-          <span class="check-cat-title">${cat.cat}</span>
-          <span class="check-cat-badge ${done?'done':''}">${checked}/${all}</span>
-          <span class="check-cat-chev">&#8250;</span>
-        </div>
-        <div class="check-items">
-          <div class="check-items-inner">
-            ${cat.items.map((item, ii) => {
-              const ic = saved[`${ci}-${ii}`];
-              return `
-                <div class="check-item ${ic?'checked':''}" onclick="toggleCheck(event,'${stateKey}',${ci},${ii})">
-                  <div class="check-box"><span class="check-mark">&#10003;</span></div>
-                  <div class="check-info">
-                    <div class="check-label">${item.label}</div>
-                    ${item.sub?`<div class="check-sublabel">${item.sub}</div>`:''}
-                    ${item.link?`<a class="check-link" href="${item.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">&#128279; ${item.linkLbl||'Link'}</a>`:''}
-                  </div>
-                  ${item.pri?`<span class="check-priority pri-${item.pri}">${item.pri==='critical'?'URGENTE':item.pri==='important'?'PRONTO':'OK'}</span>`:''}
-                </div>
-              `;
-            }).join('')}
-          </div>
-        </div>
-      </div>
-    `;
-  }).join('');
-}
-
-function renderPacking(containerId, data, stateKey) {
-  const el = document.getElementById(containerId);
-  if (!el) return;
-  const saved = state[stateKey] || {};
-  el.innerHTML = data.map((cat, ci) => {
-    const checked = cat.items.filter((_,ii) => saved[`${ci}-${ii}`]).length;
-    const all = cat.items.length;
-    return `
-      <div class="pack-cat glass-strong" onclick="toggleCat(this, event)">
-        <div class="pack-cat-head">
-          <span class="pack-cat-icon">${cat.icon}</span>
-          <span class="pack-cat-title">${cat.cat}</span>
-          ${cat.temp?`<span class="temp-badge temp-${cat.temp}">${cat.temp==='cold'?'15-18°C':cat.temp==='warm'?'22-28°C':'26-32°C'}</span>`:''}
-          <span class="check-cat-badge ${checked===all?'done':''}">${checked}/${all}</span>
-          <span class="pack-cat-chev">&#8250;</span>
-        </div>
-        <div class="pack-items">
-          <div class="pack-items-inner">
-            ${cat.items.map((item, ii) => {
-              const ic = saved[`${ci}-${ii}`];
-              return `
-                <div class="check-item ${ic?'checked':''}" onclick="toggleCheck(event,'${stateKey}',${ci},${ii})">
-                  <div class="check-box"><span class="check-mark">&#10003;</span></div>
-                  <div class="check-info">
-                    <div class="check-label">${item.label}</div>
-                  </div>
-                </div>
-              `;
-            }).join('')}
-          </div>
-        </div>
-      </div>
-    `;
-  }).join('');
-}
-
-// ── INTERACTIONS ───────────────────────────────────
-
-function toggleCard(card, e) {
-  if (e.target.closest('a')) return;
-  card.classList.toggle('open');
-}
-function toggleCat(cat, e) {
-  if (e.target.closest('.check-item')) return;
-  cat.classList.toggle('open');
-}
-function toggleCheck(e, stateKey, ci, ii) {
-  e.stopPropagation();
-  if (e.target.closest('a')) return;
-  if (!state.ready) { showToast('Aun conectando...'); return; }
-  const key = `${ci}-${ii}`;
-  const currentMap = state[stateKey] || {};
-  const newVal = !currentMap[key];
-  // UI optimista (el listener confirmara)
-  currentMap[key] = newVal;
-  state[stateKey] = currentMap;
-  const item = e.currentTarget;
-  item.classList.toggle('checked', newVal);
-  const cat = item.closest('.check-cat, .pack-cat');
-  const items = cat.querySelectorAll('.check-item');
-  const checked = cat.querySelectorAll('.check-item.checked').length;
-  const badge = cat.querySelector('.check-cat-badge');
-  badge.textContent = `${checked}/${items.length}`;
-  badge.classList.toggle('done', checked === items.length);
-  updateProgress();
-  if (newVal && checked === items.length) { showToast('Categoria completada! &#127881;'); confetti(); }
-  // Escribe al Firestore (solo el campo especifico para evitar conflictos)
-  const fieldPath = `${stateKey}.${key}`;
-  tripRef.set({ [stateKey]: { [key]: newVal } }, { merge: true }).catch(err => console.error(err));
-}
-function goTo(id) {
-  const el = document.getElementById('dest-' + id);
-  if (!el) return;
-  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  el.style.boxShadow = '0 0 0 3px rgba(255,107,107,0.6), ' + 'var(--shadow-lg)';
-  setTimeout(() => { el.style.boxShadow = 'var(--shadow)'; }, 2000);
-  if (!el.classList.contains('open')) el.classList.add('open');
-}
-function updateProgress() {
-  const stateKeys = ['checklist', 'packing'];
-  const datas = [checklistData, packingData];
-  let total = 0, done = 0;
-  stateKeys.forEach((key, pi) => {
-    const s = state[key] || {};
-    datas[pi].forEach((c, ci) => c.items.forEach((_, ii) => { total++; if (s[`${ci}-${ii}`]) done++; }));
-  });
-  const pct = total ? Math.round((done/total)*100) : 0;
-  const pctEl = document.getElementById('prog-pct');
-  const fillEl = document.getElementById('prog-fill');
-  const detEl = document.getElementById('prog-detail');
-  if (pctEl) pctEl.textContent = pct + '%';
-  if (fillEl) fillEl.style.width = pct + '%';
-  if (detEl) detEl.textContent = `${done} de ${total} completados`;
-  if (pct === 100) { showToast('TODO listo para el viaje! &#127881;&#9992;&#65039;'); confetti(); }
-}
-function updateCountdown() {
-  const d = Math.ceil((new Date('2026-09-14') - new Date()) / 864e5);
-  document.getElementById('cd-num').textContent = d > 0 ? d : '0';
-}
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.innerHTML = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
-}
-function confetti() {
-  const colors = ['#7c3aed','#818cf8','#a78bfa','#c4b5fd','#6366f1','#4f46e5','#ddd6fe'];
-  for (let i = 0; i < 40; i++) {
-    const c = document.createElement('div');
-    c.className = 'confetti';
-    c.style.left = Math.random()*100+'vw';
-    c.style.background = colors[~~(Math.random()*colors.length)];
-    c.style.animationDelay = Math.random()*0.6+'s';
-    const s = Math.random()*8+4;
-    c.style.width = s+'px'; c.style.height = s+'px';
-    c.style.borderRadius = Math.random()>0.5?'50%':'2px';
-    document.body.appendChild(c);
-    setTimeout(() => c.remove(), 3100);
-  }
-}
-
-// ── STATE (hidratado por Firestore listeners) ─────
-const EUR_TO_USD = 1.08; // conversion aprox Apr 2026
+/* ══════════════ ESTADO ══════════════ */
+const EUR_USD = 1.08;
+const LS = { res:'res-v3', meta:'resmeta-v3', docs:'docs-v3', pack:'pk-viaje2' };
+function lsGet(k){ try{ return JSON.parse(localStorage.getItem(k)||'{}'); }catch(e){ return {}; } }
+function lsSet(k,o){ try{ localStorage.setItem(k,JSON.stringify(o)); }catch(e){} }
 
 const state = {
-  expenses: [],   // [{ fbId, desc, amt, cur, link, att?, createdAt }]
-  splitPct: 50,
-  checklist: {},  // { "ci-ii": true }
-  packing: {},    // { "ci-ii": true }
-  ready: false
+  reservas: lsGet(LS.res),
+  reservasMeta: lsGet(LS.meta),
+  docs: lsGet(LS.docs),
+  packing: lsGet(LS.pack),
+  expenses: [], splitPct: 50, fbConnected: false
 };
+let filtro = 'all';
 
-function setSyncStatus(status, text) {
-  const pill = document.getElementById('sync-pill');
-  const t = document.getElementById('sync-text');
-  pill.className = 'sync-pill ' + status;
-  t.textContent = text;
+function estadoDe(r){ return state.reservas[r.id] || r.est; }
+function metaDe(r){ return state.reservasMeta[r.id] || {}; }
+function confDe(r){ const m = metaDe(r); return (m.conf !== undefined && m.conf !== '') ? m.conf : (r.conf || ''); }
+function costoDe(r){
+  const m = metaDe(r);
+  const v = (m.costo !== undefined && m.costo !== '') ? parseFloat(m.costo) : r.c;
+  return (v && !isNaN(v)) ? v : 0;
 }
-window.addEventListener('online',  () => setSyncStatus('connected', 'Sincronizado'));
-window.addEventListener('offline', () => setSyncStatus('offline', 'Sin conexion'));
+function notaDe(r){ const m = metaDe(r); return (m.nota !== undefined && m.nota !== '') ? m.nota : (r.n || ''); }
+function horaDe(r){ const m = metaDe(r); return (m.hora !== undefined && m.hora !== '') ? m.hora : (r.h || ''); }
+function faltaHora(r){ return estadoDe(r) === 'ok' && !horaDe(r); }
 
-// Accesores (compatibles con las firmas anteriores)
-function getExpenses() { return state.expenses; }
-function getSplit() { return state.splitPct; }
+const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function money(n,c){ const s = c==='USD'?'$':'€'; return s + Number(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
+function diasRestantes(){ return Math.ceil((new Date('2026-09-14T00:00:00') - new Date())/864e5); }
 
-// ── ATTACHMENT HANDLING ────────────────────────────
-let pendingFile = null;       // File raw seleccionado
-let pendingBlob = null;        // Blob procesado listo para subir
-let pendingMeta = { name: '', type: '' };
-
-function onFilePick(input) {
-  const file = input.files && input.files[0];
-  if (!file) return;
-  const maxBytes = 15 * 1024 * 1024; // 15MB hard cap (ya en Firebase Storage)
-  if (file.size > maxBytes) {
-    showToast('Archivo muy grande (max 15MB)');
-    input.value = '';
+/* ══════════════ RESERVAS ══════════════ */
+const FILTROS = [
+  {k:'all', n:'Todo'}, {k:'urg', n:'🔴 Urgente'}, {k:'sinhora', n:'🕐 Sin hora'},
+  {k:'todo', n:'⏳ Por comprar'}, {k:'ok', n:'✅ Confirmado'}, {k:'idea', n:'💭 Opción'}
+];
+function setFilter(k){
+  filtro = (filtro === k) ? 'all' : k;
+  renderFiltros(); renderReservas(); syncTallyUI();
+  document.getElementById('sec-reservas').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function renderFiltros(){
+  document.getElementById('filters').innerHTML = FILTROS.map(f =>
+    '<button class="fchip ' + (filtro===f.k?'on':'') + '" onclick="setFilter(\'' + f.k + '\')">' + f.n + '</button>'
+  ).join('');
+}
+function pasaFiltro(r){
+  const e = estadoDe(r);
+  if (filtro === 'all') return true;
+  if (filtro === 'urg') return !!r.urg && e === 'todo';
+  if (filtro === 'sinhora') return faltaHora(r);
+  return e === filtro;
+}
+function renderReservas(){
+  const bloques = [];
+  reservas.forEach(r => {
+    if (!pasaFiltro(r)) return;
+    let b = bloques.find(x => x.n === r.b);
+    if (!b) { b = {n:r.b, items:[]}; bloques.push(b); }
+    b.items.push(r);
+  });
+  const el = document.getElementById('res-list');
+  if (!bloques.length){
+    el.innerHTML = '<div class="exp-empty">Nada en este filtro. Toca el chip otra vez para ver todo.</div>';
     return;
   }
+  el.innerHTML = bloques.map(b => {
+    const okN = b.items.filter(r => estadoDe(r)==='ok').length;
+    return '<div class="rblock"><div class="rblock-h"><span>' + esc(b.n) +
+      '</span><span class="ln"></span><span class="cnt">' + okN + '/' + b.items.length + '</span></div>' +
+      b.items.map(resHTML).join('') + '</div>';
+  }).join('');
+}
+function resHTML(r){
+  const e = estadoDe(r);
+  const urgente = !!r.urg && e === 'todo';
+  const conf = confDe(r), nota = notaDe(r), costo = costoDe(r), m = metaDe(r);
+  const hora = horaDe(r);
+  const badgeCls = e==='ok' ? 'b-ok' : e==='idea' ? 'b-idea' : (urgente ? 'b-urg' : 'b-todo');
+  const badgeTxt = e==='ok' ? '✓ Listo' : e==='idea' ? 'Opción' : (urgente ? 'Urgente' : 'Falta');
+  const costoTxt = e==='ok'
+    ? (costo > 0 ? money(costo,'USD') + (r.pagado ? ' pagado' : '') : '')
+    : (r.ce ? esc(r.ce) : '');
+  // Los inputs muestran SOLO lo que Elsa escribió. El dato base va de placeholder,
+  // así darle Guardar no congela un default y las mejoras del archivo siguen entrando.
+  const vConf  = m.conf  || '';
+  const vCosto = m.costo || '';
+  const vNota  = m.nota  || '';
+  const vHora  = m.hora  || '';
+  const ph = function(base, alt){ return base ? String(base).replace(/\n/g,' · ').slice(0,70) : alt; };
+  const horaHTML = e !== 'ok' ? ''
+    : hora ? '<div class="res-hora"><span>🕐</span><span>' + esc(hora).replace(/\n/g,'<br>') + '</span></div>'
+           : '<div class="res-nohora"><span>🕐</span><span>Falta la hora. Ponla en "editar datos".</span></div>';
+  return '<div class="res s-' + e + (urgente?' urg':'') + '" id="r-' + r.id + '">' +
+    '<div class="res-ic">' + r.ic + '</div>' +
+    '<div class="res-main">' +
+      '<div class="res-t">' + esc(r.t) + '</div>' +
+      '<div class="res-when">' + esc(r.w) + '</div>' +
+      horaHTML +
+      (e==='ok' && conf ? '<div class="res-conf">🔖 ' + esc(conf) + '</div>' : '') +
+      (urgente ? '<div class="res-warn">⚠️ Faltan ' + diasRestantes() + ' días y sigue sin comprarse</div>' : '') +
+      (nota ? '<div class="res-note">' + esc(nota) + '</div>' : '') +
+      '<div class="res-acts">' +
+        (r.l ? '<a class="res-btn go" href="' + esc(r.l) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">' + esc(r.ll||'Abrir') + ' ↗</a>' : '') +
+        '<button class="res-btn" onclick="toggleEdit(\'' + r.id + '\')">Editar datos</button>' +
+      '</div>' +
+      '<div class="res-edit">' +
+        '<input type="text" id="ed-hora-' + r.id + '" placeholder="' + esc(ph(r.h, 'Hora. Ej: check in 15:00')) + '" value="' + esc(vHora) + '">' +
+        '<input type="text" id="ed-conf-' + r.id + '" placeholder="' + esc(ph(r.conf, 'Confirmación o localizador')) + '" value="' + esc(vConf) + '">' +
+        '<div class="res-edit-row">' +
+          '<input type="number" step="0.01" id="ed-costo-' + r.id + '" placeholder="' + esc(ph(r.c, 'Costo real en USD')) + '" value="' + esc(vCosto) + '">' +
+          '<button class="res-save" onclick="saveMeta(\'' + r.id + '\')">Guardar</button>' +
+        '</div>' +
+        '<input type="text" id="ed-nota-' + r.id + '" placeholder="' + esc(ph(r.n, 'Nota: dirección, PIN, detalles')) + '" value="' + esc(vNota) + '">' +
+      '</div>' +
+    '</div>' +
+    '<div class="res-right">' +
+      '<button class="badge ' + badgeCls + '" onclick="cicloEstado(\'' + r.id + '\')">' + badgeTxt + '</button>' +
+      (costoTxt ? '<div class="res-cost">' + costoTxt + '</div>' : '') +
+    '</div></div>';
+}
+function toggleEdit(id){
+  const el = document.getElementById('r-'+id);
+  if (el) el.classList.toggle('editing');
+}
+function saveMeta(id){
+  const hora  = document.getElementById('ed-hora-'+id).value.trim();
+  const conf  = document.getElementById('ed-conf-'+id).value.trim();
+  const costo = document.getElementById('ed-costo-'+id).value.trim();
+  const nota  = document.getElementById('ed-nota-'+id).value.trim();
+  state.reservasMeta[id] = { hora:hora, conf:conf, costo:costo, nota:nota };
+  lsSet(LS.meta, state.reservasMeta);
+  tripRef.set({ reservasMeta: { [id]: { hora:hora, conf:conf, costo:costo, nota:nota } } }, { merge:true }).catch(console.error);
+  renderReservas(); renderDest(); updateTotals();
+  showToast('Guardado 🔖');
+}
+function cicloEstado(id){
+  const r = reservas.find(x => x.id === id);
+  if (!r) return;
+  const orden = ['todo','ok','idea'];
+  const nuevo = orden[(orden.indexOf(estadoDe(r)) + 1) % 3];
+  state.reservas[id] = nuevo;
+  lsSet(LS.res, state.reservas);
+  tripRef.set({ reservas: { [id]: nuevo } }, { merge:true }).catch(console.error);
+  renderReservas(); renderDest(); updateTotals(); renderAlert();
+  if (nuevo === 'ok'){
+    showToast('Confirmado ✓');
+    if (reservas.filter(x => estadoDe(x)!=='idea').every(x => estadoDe(x)==='ok')) confetti();
+  }
+}
+
+/* ══════════════ TOTALES ══════════════ */
+function updateTotals(){
+  const activas = reservas.filter(r => estadoDe(r) !== 'idea');
+  const nOk   = reservas.filter(r => estadoDe(r)==='ok').length;
+  const nTodo = reservas.filter(r => estadoDe(r)==='todo').length;
+  const nIdea = reservas.filter(r => estadoDe(r)==='idea').length;
+  document.getElementById('n-ok').textContent = nOk;
+  document.getElementById('n-todo').textContent = nTodo;
+  document.getElementById('n-idea').textContent = nIdea;
+
+  const pctRes = activas.length ? Math.round(nOk/activas.length*100) : 0;
+  document.getElementById('pb-res').textContent = pctRes + '%';
+  document.getElementById('pf-res').style.width = pctRes + '%';
+
+  let dTot=0, dDone=0;
+  docsData.forEach(c => c.items.forEach(i => { dTot++; if (state.docs[i.id]) dDone++; }));
+  packingData.forEach((c,ci) => c.items.forEach((_,ii) => { dTot++; if (state.packing[ci+'-'+ii]) dDone++; }));
+  const pctPrep = dTot ? Math.round(dDone/dTot*100) : 0;
+  document.getElementById('pb-prep').textContent = pctPrep + '%';
+  document.getElementById('pf-prep').style.width = pctPrep + '%';
+
+  const urgN = reservas.filter(r => r.urg && estadoDe(r)==='todo').length;
+  const shN  = reservas.filter(faltaHora).length;
+  document.getElementById('res-sub').innerHTML =
+    (urgN ? '<b style="color:var(--urg)">' + urgN + ' urgentes</b>' : nTodo + ' por comprar') +
+    (shN ? '<br><b style="color:var(--todo)">' + shN + ' sin hora</b>' : '');
+
+  const d = diasRestantes();
+  document.getElementById('hs-days').textContent = d > 0 ? d : '0';
+  document.getElementById('panel-cd').textContent = d > 0 ? ('faltan ' + d + ' días') : '¡es hoy!';
+  syncTallyUI();
+}
+function syncTallyUI(){
+  ['ok','todo','idea'].forEach(k => {
+    const b = document.getElementById('t-'+k);
+    if (b) b.classList.toggle('on', filtro === k);
+  });
+}
+
+/* ══════════════ ALERTA ══════════════ */
+function renderAlert(){
+  const urg = reservas.filter(r => r.urg && estadoDe(r)==='todo');
+  const slot = document.getElementById('alert-slot');
+  if (!urg.length){ slot.innerHTML = ''; return; }
+  const nombres = urg.map(function(r){ return esc(r.t.split('·')[0].trim()); });
+  const top = nombres.slice(0,4).join(', ');
+  const resto = nombres.length > 4 ? (' y ' + (nombres.length-4) + ' más') : '';
+  slot.innerHTML =
+    '<div class="alert"><div class="alert-t">🔴 ' + urg.length + ' reservas críticas sin comprar</div>' +
+    '<div class="alert-b">Faltan <b>' + diasRestantes() + ' días</b> para salir. Se agotan o suben de precio: <b>' +
+    top + resto + '</b>. Toca <b>Urgente</b> abajo para verlas todas.</div></div>';
+}
+
+/* ══════════════ DESTINOS ══════════════ */
+function renderDest(){
+  document.getElementById('dest-grid').innerHTML = destinations.map(d => {
+    const rs  = (d.res||[]).map(id => reservas.find(r => r.id===id)).filter(Boolean);
+    const act = rs.filter(r => estadoDe(r)!=='idea');
+    const ok  = act.filter(r => estadoDe(r)==='ok').length;
+    const urg = rs.filter(r => r.urg && estadoDe(r)==='todo').length;
+    const dorm = rs.find(r => r.ic==='🏨' || r.ic==='🏠');
+    const dormOk = dorm && estadoDe(dorm)==='ok';
+    return '<div class="dcard" id="dest-' + d.id + '" onclick="toggleCard(this,event)">' +
+      '<div class="dhero">' +
+        '<img class="dimg" src="' + d.photo + '" alt="' + esc(d.name) + '" loading="lazy" ' +
+        'onerror="this.style.display=\'none\';this.parentElement.style.background=\'' + d.grad + '\'">' +
+        '<div class="dflag">' + d.flag + '</div>' +
+        '<div class="dtag">' + esc(d.tag) + '</div>' +
+        '<div class="dover">' +
+          '<div class="dname">' + esc(d.name) + '</div>' +
+          '<div class="dmeta">📅 ' + esc(d.dates) + '</div>' +
+          '<div class="dstatus">' +
+            (dorm ? '<span class="dpill ' + (dormOk?'a':'b') + '">' + (dormOk?'🛏 Alojamiento ✓':'🛏 Sin alojamiento') + '</span>' : '') +
+            (act.length ? '<span class="dpill ' + (ok===act.length?'a':'c') + '">' + ok + '/' + act.length + ' reservado</span>' : '') +
+            (urg ? '<span class="dpill b">' + urg + ' urgente' + (urg>1?'s':'') + '</span>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="dchev">›</div>' +
+      '</div>' +
+      '<div class="dbody"><div class="dbody-in">' +
+        '<div class="dbrief">' + esc(d.brief) + '</div>' +
+        d.days.map(day =>
+          '<div class="dday"><div class="dday-h">' +
+          '<div class="dday-n" style="background:' + d.grad + '">D' + day.num + '</div>' +
+          '<div class="dday-d">' + esc(day.date) + '</div></div>' +
+          '<div class="dday-p">' + day.plan + '</div></div>').join('') +
+        '<div class="dhl"><div class="dhl-t">Highlights</div><div class="chips">' +
+          d.highlights.map(h => '<span class="chip">' + esc(h) + '</span>').join('') +
+        '</div></div>' +
+        '<div class="dlinks">' +
+          d.links.map(l => '<a class="dlink ' + l.type + '" href="' + esc(l.url) + '" target="_blank" rel="noopener">' + l.icon + ' ' + esc(l.label) + '</a>').join('') +
+        '</div>' +
+      '</div></div></div>';
+  }).join('');
+}
+function toggleCard(card,e){ if (e.target.closest('a')) return; card.classList.toggle('open'); }
+
+/* ══════════════ CALENDARIO ══════════════ */
+function renderCal(){
+  const dows = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  let html = dows.map(x => '<div class="cal-dow">' + x + '</div>').join('');
+  for (let i = 0; i < dias[0].dow; i++) html += '<div></div>';
+  html += dias.map(x => '<div class="day on c-' + x.c + '"><span>' + x.d + '</span><em>' + esc(x.lb) + '</em></div>').join('');
+  document.getElementById('cal').innerHTML = html;
+  document.getElementById('cal-key').innerHTML = calKey.map(k => '<div class="kk"><i class="c-' + k.c + '"></i>' + k.n + '</div>').join('');
+  document.getElementById('route').innerHTML = rutaChips.map((c,i) =>
+    '<span class="rt">' + c + '</span>' + (i<rutaChips.length-1 ? '<span class="rt-ar">→</span>' : '')).join('');
+}
+
+/* ══════════════ DOCS Y EQUIPAJE ══════════════ */
+function renderDocs(){
+  document.getElementById('docs-box').innerHTML = docsData.map(cat => {
+    const done = cat.items.filter(i => state.docs[i.id]).length;
+    return '<div class="ccat" onclick="toggleCat(this,event)"><div class="ccat-h">' +
+      '<span class="ccat-ic">' + cat.icon + '</span>' +
+      '<span class="ccat-t">' + esc(cat.cat) + '</span>' +
+      '<span class="ccat-b ' + (done===cat.items.length?'done':'') + '">' + done + '/' + cat.items.length + '</span>' +
+      '<span class="ccat-cv">›</span></div>' +
+      '<div class="citems"><div class="citems-in">' +
+      cat.items.map(i =>
+        '<div class="citem ' + (state.docs[i.id]?'checked':'') + '" onclick="toggleDoc(event,\'' + i.id + '\')">' +
+        '<div class="cbox"><span class="cmark">✓</span></div><div class="cinfo">' +
+        '<div class="clabel">' + esc(i.label) + '</div>' +
+        (i.sub ? '<div class="csub">' + esc(i.sub) + '</div>' : '') +
+        (i.link ? '<a class="clink" href="' + esc(i.link) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">🔗 ' + esc(i.linkLbl||'Link') + '</a>' : '') +
+        '</div></div>').join('') +
+      '</div></div></div>';
+  }).join('');
+}
+function renderPacking(){
+  document.getElementById('packing-box').innerHTML = packingData.map((cat,ci) => {
+    const done = cat.items.filter((_,ii) => state.packing[ci+'-'+ii]).length;
+    const tlbl = cat.temp==='cold'?'15-18°':cat.temp==='warm'?'22-28°':'26-32°';
+    return '<div class="ccat" onclick="toggleCat(this,event)"><div class="ccat-h">' +
+      '<span class="ccat-ic">' + cat.icon + '</span>' +
+      '<span class="ccat-t">' + esc(cat.cat) + '</span>' +
+      (cat.temp ? '<span class="temp-b t-' + cat.temp + '">' + tlbl + '</span>' : '') +
+      '<span class="ccat-b ' + (done===cat.items.length?'done':'') + '">' + done + '/' + cat.items.length + '</span>' +
+      '<span class="ccat-cv">›</span></div>' +
+      '<div class="citems"><div class="citems-in">' +
+      cat.items.map((i,ii) =>
+        '<div class="citem ' + (state.packing[ci+'-'+ii]?'checked':'') + '" onclick="togglePack(event,' + ci + ',' + ii + ')">' +
+        '<div class="cbox"><span class="cmark">✓</span></div>' +
+        '<div class="cinfo"><div class="clabel">' + esc(i.label) + '</div></div></div>').join('') +
+      '</div></div></div>';
+  }).join('');
+}
+function toggleCat(cat,e){ if (e.target.closest('.citem')) return; cat.classList.toggle('open'); }
+function bumpBadge(item){
+  const cat = item.closest('.ccat');
+  const all = cat.querySelectorAll('.citem').length;
+  const on  = cat.querySelectorAll('.citem.checked').length;
+  const b = cat.querySelector('.ccat-b');
+  b.textContent = on + '/' + all;
+  b.classList.toggle('done', on===all);
+  return on===all;
+}
+function toggleDoc(e,id){
+  e.stopPropagation();
+  if (e.target.closest('a')) return;
+  const v = !state.docs[id];
+  if (v) state.docs[id] = true; else delete state.docs[id];
+  lsSet(LS.docs, state.docs);
+  e.currentTarget.classList.toggle('checked', v);
+  const full = bumpBadge(e.currentTarget);
+  updateTotals();
+  tripRef.set({ docs: { [id]: v } }, { merge:true }).catch(console.error);
+  if (v && full) { showToast('Categoría completa 🎉'); confetti(); }
+}
+function togglePack(e,ci,ii){
+  e.stopPropagation();
+  const k = ci+'-'+ii;
+  const v = !state.packing[k];
+  state.packing[k] = v;
+  lsSet(LS.pack, state.packing);
+  e.currentTarget.classList.toggle('checked', v);
+  const full = bumpBadge(e.currentTarget);
+  updateTotals();
+  tripRef.set({ packing: { [k]: v } }, { merge:true }).catch(console.error);
+  if (v && full) { showToast('Categoría completa 🎉'); confetti(); }
+}
+
+/* ══════════════ TOAST ══════════════ */
+function showToast(m){
+  const t = document.getElementById('toast');
+  t.innerHTML = m; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2400);
+}
+function confetti(){
+  const cs = ['#7c3aed','#818cf8','#a78bfa','#c4b5fd','#6366f1','#10b981','#ddd6fe'];
+  for (let i=0;i<38;i++){
+    const c = document.createElement('div');
+    c.className='confetti';
+    c.style.left = Math.random()*100+'vw';
+    c.style.background = cs[~~(Math.random()*cs.length)];
+    c.style.animationDelay = Math.random()*.6+'s';
+    const s = Math.random()*8+4;
+    c.style.width=s+'px'; c.style.height=s+'px';
+    c.style.borderRadius = Math.random()>.5?'50%':'2px';
+    document.body.appendChild(c);
+    setTimeout(function(){ c.remove(); },3100);
+  }
+}
+function setSyncStatus(s,t){
+  document.getElementById('sync-pill').className = 'sync-pill ' + s;
+  document.getElementById('sync-text').textContent = t;
+}
+window.addEventListener('online',  function(){ setSyncStatus('connected','Sincronizado'); });
+window.addEventListener('offline', function(){ setSyncStatus('offline','Sin conexión'); });
+
+/* ══════════════ GASTOS ══════════════ */
+let pendingBlob = null, pendingMeta = {name:'',type:''};
+function onFilePick(input){
+  const f = input.files && input.files[0];
+  if (!f) return;
+  if (f.size > 15*1024*1024){ showToast('Archivo muy grande, máx 15MB'); input.value=''; return; }
   document.getElementById('exp-file-name').textContent = 'Procesando...';
-  document.getElementById('exp-file-clear').style.display = 'inline-flex';
-  processFile(file).then(result => {
-    pendingFile = file;
-    pendingBlob = result.blob;
-    pendingMeta = { name: result.name, type: result.type };
-    document.getElementById('exp-file-name').textContent = result.name + ' (' + fmtSize(result.blob.size) + ')';
-  }).catch(err => {
-    console.error(err);
-    showToast('Error leyendo archivo');
-    clearFile();
-  });
+  document.getElementById('exp-file-clear').style.display='inline-flex';
+  processFile(f).then(function(r){
+    pendingBlob = r.blob; pendingMeta = {name:r.name, type:r.type};
+    document.getElementById('exp-file-name').textContent = r.name + ' (' + fmtSize(r.blob.size) + ')';
+  }).catch(function(err){ console.error(err); showToast('Error leyendo archivo'); clearFile(); });
 }
-
-function clearFile() {
-  pendingFile = null;
-  pendingBlob = null;
-  pendingMeta = { name: '', type: '' };
-  const f = document.getElementById('exp-file');
-  if (f) f.value = '';
-  document.getElementById('exp-file-name').textContent = 'Imagen o PDF (opcional)';
-  document.getElementById('exp-file-clear').style.display = 'none';
+function clearFile(){
+  pendingBlob = null; pendingMeta = {name:'',type:''};
+  const f = document.getElementById('exp-file'); if (f) f.value='';
+  document.getElementById('exp-file-name').textContent='Imagen o PDF (opcional)';
+  document.getElementById('exp-file-clear').style.display='none';
 }
-
-function fmtSize(bytes) {
-  if (bytes < 1024) return bytes + 'B';
-  if (bytes < 1024 * 1024) return (bytes/1024).toFixed(0) + 'KB';
-  return (bytes/1024/1024).toFixed(1) + 'MB';
-}
-
-// Lee + comprime (si es imagen) y devuelve { blob, name, type }
-function processFile(file) {
-  return new Promise((resolve, reject) => {
-    const isImage = file.type.startsWith('image/');
-    if (!isImage) {
-      // PDF u otro: tal cual
-      resolve({ blob: file, name: file.name, type: file.type || 'application/pdf' });
-      return;
-    }
-    // Imagen: comprimir con canvas (max 1600px lado largo, JPEG 75%)
+function fmtSize(b){ return b<1024 ? b+'B' : b<1048576 ? (b/1024).toFixed(0)+'KB' : (b/1048576).toFixed(1)+'MB'; }
+function processFile(file){
+  return new Promise(function(res,rej){
+    if (!file.type.startsWith('image/')){ res({blob:file,name:file.name,type:file.type||'application/pdf'}); return; }
     const fr = new FileReader();
-    fr.onload = () => {
+    fr.onload = function(){
       const img = new Image();
-      img.onload = () => {
-        const MAX = 1600;
-        let w = img.width, h = img.height;
-        if (w > MAX || h > MAX) {
-          if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
-          else { w = Math.round(w * MAX / h); h = MAX; }
-        }
-        const canvas = document.createElement('canvas');
-        canvas.width = w; canvas.height = h;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0, w, h);
-        canvas.toBlob(blob => {
-          const baseName = file.name.replace(/\.[^.]+$/, '');
-          resolve({ blob, name: baseName + '.jpg', type: 'image/jpeg' });
-        }, 'image/jpeg', 0.75);
+      img.onload = function(){
+        const MAX=1600; let w=img.width,h=img.height;
+        if (w>MAX||h>MAX){ if(w>h){h=Math.round(h*MAX/w);w=MAX;} else {w=Math.round(w*MAX/h);h=MAX;} }
+        const cv = document.createElement('canvas'); cv.width=w; cv.height=h;
+        cv.getContext('2d').drawImage(img,0,0,w,h);
+        cv.toBlob(function(b){ res({blob:b,name:file.name.replace(/\.[^.]+$/,'')+'.jpg',type:'image/jpeg'}); },'image/jpeg',.75);
       };
-      img.onerror = reject;
-      img.src = fr.result;
+      img.onerror = rej; img.src = fr.result;
     };
-    fr.onerror = reject;
-    fr.readAsDataURL(file);
+    fr.onerror = rej; fr.readAsDataURL(file);
   });
 }
-
-// Sube el blob a Firebase Storage → devuelve { path, url, name, type }
-function uploadToStorage(expId, blob, meta) {
-  return new Promise((resolve, reject) => {
-    const path = `trips/${TRIP_ID}/attachments/${expId}_${Date.now()}_${meta.name}`;
+function uploadToStorage(id,blob,meta){
+  return new Promise(function(res,rej){
+    const path = 'trips/' + TRIP_ID + '/attachments/' + id + '_' + Date.now() + '_' + meta.name;
     const ref = storage.ref(path);
-    const task = ref.put(blob, { contentType: meta.type });
-    showUploadOverlay('Subiendo ' + meta.name);
+    const task = ref.put(blob,{contentType:meta.type});
+    showUpload('Subiendo ' + meta.name);
     task.on('state_changed',
-      snap => {
-        const pct = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
-        setUploadProgress(pct);
-      },
-      err => { hideUploadOverlay(); reject(err); },
-      async () => {
-        const url = await ref.getDownloadURL();
-        hideUploadOverlay();
-        resolve({ path, url, name: meta.name, type: meta.type });
-      }
+      function(s){ setUpload(Math.round(s.bytesTransferred/s.totalBytes*100)); },
+      function(e){ hideUpload(); rej(e); },
+      function(){ ref.getDownloadURL().then(function(url){ hideUpload(); res({path:path,url:url,name:meta.name,type:meta.type}); }); }
     );
   });
 }
+function showUpload(t){ document.getElementById('upload-title').textContent=t; setUpload(0); document.getElementById('upload-overlay').classList.add('show'); }
+function setUpload(p){ document.getElementById('upload-bar-fill').style.width=p+'%'; document.getElementById('upload-pct').textContent=p+'%'; }
+function hideUpload(){ document.getElementById('upload-overlay').classList.remove('show'); }
 
-function showUploadOverlay(title) {
-  document.getElementById('upload-title').textContent = title || 'Subiendo archivo...';
-  setUploadProgress(0);
-  document.getElementById('upload-overlay').classList.add('show');
-}
-function setUploadProgress(pct) {
-  document.getElementById('upload-bar-fill').style.width = pct + '%';
-  document.getElementById('upload-pct').textContent = pct + '%';
-}
-function hideUploadOverlay() {
-  document.getElementById('upload-overlay').classList.remove('show');
-}
-
-async function addExpense() {
-  if (!state.ready) { showToast('Aun conectando... espera'); return; }
+async function addExpense(){
+  if (!state.fbConnected){ showToast('Aún conectando, espera unos segundos'); return; }
   const desc = document.getElementById('exp-desc').value.trim();
-  const amt = parseFloat(document.getElementById('exp-amount').value);
-  const cur = document.getElementById('exp-currency').value;
-  let link = document.getElementById('exp-link').value.trim();
-  if (!desc) { showToast('Agrega una descripcion'); return; }
-  if (!amt || amt <= 0) { showToast('Ingresa un monto valido'); return; }
-  if (link && !/^https?:\/\//i.test(link)) link = 'https://' + link;
-
-  // Crea el doc en Firestore primero (sin adjunto) para tener un ID
-  const payload = {
-    desc,
-    amt: Math.round(amt * 100) / 100,
-    cur,
-    link,
-    createdAt: firebase.firestore.FieldValue.serverTimestamp()
-  };
+  const amt  = parseFloat(document.getElementById('exp-amount').value);
+  const cur  = document.getElementById('exp-currency').value;
+  let link   = document.getElementById('exp-link').value.trim();
+  if (!desc){ showToast('Agrega una descripción'); return; }
+  if (!amt || amt<=0){ showToast('Ingresa un monto válido'); return; }
+  if (link && !/^https?:\/\//i.test(link)) link = 'https://'+link;
   try {
-    const docRef = await expensesRef.add(payload);
-    // Si hay archivo, lo sube y actualiza el doc
-    if (pendingBlob) {
-      try {
-        const att = await uploadToStorage(docRef.id, pendingBlob, pendingMeta);
-        await docRef.update({ att });
-      } catch(e) {
-        console.error('Upload failed:', e);
-        showToast('No se pudo subir el archivo');
-      }
+    const doc = await expensesRef.add({
+      desc: desc, amt: Math.round(amt*100)/100, cur: cur, link: link,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    if (pendingBlob){
+      try { const att = await uploadToStorage(doc.id, pendingBlob, pendingMeta); await doc.update({att:att}); }
+      catch(e){ console.error(e); showToast('No se pudo subir el archivo'); }
     }
-  } catch(e) {
-    console.error('Firestore write failed:', e);
-    showToast('Error guardando. Revisa tu conexion.');
-    return;
-  }
-
-  document.getElementById('exp-desc').value = '';
-  document.getElementById('exp-amount').value = '';
-  document.getElementById('exp-link').value = '';
-  clearFile();
-  showToast('Gasto agregado &#128178;');
+  } catch(e){ console.error(e); showToast('Error guardando, revisa tu conexión'); return; }
+  document.getElementById('exp-desc').value='';
+  document.getElementById('exp-amount').value='';
+  document.getElementById('exp-link').value='';
+  clearFile(); showToast('Gasto agregado 💸');
 }
-
-async function deleteExpense(fbId) {
-  if (!fbId) return;
+async function deleteExpense(id){
+  if (!id) return;
   try {
-    const exp = state.expenses.find(e => e.fbId === fbId);
-    if (exp && exp.att && exp.att.path) {
-      // Borra adjunto de Storage (best-effort)
-      try { await storage.ref(exp.att.path).delete(); } catch(e) {}
-    }
-    await expensesRef.doc(fbId).delete();
-  } catch(e) {
-    console.error(e);
-    showToast('Error eliminando');
-  }
+    const e = state.expenses.find(function(x){ return x.fbId===id; });
+    if (e && e.att && e.att.path){ try{ await storage.ref(e.att.path).delete(); }catch(_){} }
+    await expensesRef.doc(id).delete();
+  } catch(err){ console.error(err); showToast('Error eliminando'); }
 }
-
-function openAttachment(fbId) {
-  const exp = state.expenses.find(e => e.fbId === fbId);
-  if (!exp || !exp.att || !exp.att.url) return;
-  window.open(exp.att.url, '_blank', 'noopener');
+function openAttachment(id){
+  const e = state.expenses.find(function(x){ return x.fbId===id; });
+  if (e && e.att && e.att.url) window.open(e.att.url,'_blank','noopener');
 }
-
-function setSplit(v) {
-  document.getElementById('split-slider').value = v;
-  onSliderChange(v);
+function setSplit(v){ document.getElementById('split-slider').value = v; onSliderChange(v); }
+let splitTimer = null;
+function onSliderChange(v){
+  const p1 = parseInt(v,10);
+  state.splitPct = p1; updateSplitUI(p1); updateExpTotals();
+  clearTimeout(splitTimer);
+  splitTimer = setTimeout(function(){ tripRef.set({splitPct:p1},{merge:true}).catch(console.error); }, 300);
 }
-
-let splitWriteTimer = null;
-function onSliderChange(v) {
-  const p1 = parseInt(v, 10);
-  state.splitPct = p1;
-  updateSplitUI(p1);
-  updateExpenseTotals();
-  // debounce writes al arrastrar el slider
-  clearTimeout(splitWriteTimer);
-  splitWriteTimer = setTimeout(() => {
-    tripRef.set({ splitPct: p1 }, { merge: true }).catch(e => console.error(e));
-  }, 300);
-}
-
-function updateSplitUI(p1) {
-  const p2 = 100 - p1;
-  document.getElementById('split-val').textContent = `${p1}% / ${p2}%`;
-  document.getElementById('p1-pct').textContent = p1 + '%';
-  document.getElementById('p2-pct').textContent = p2 + '%';
-  document.querySelectorAll('.split-preset').forEach(btn => {
-    btn.classList.toggle('active', parseInt(btn.dataset.split, 10) === p1);
+function updateSplitUI(p1){
+  document.getElementById('split-val').textContent = p1 + '% / ' + (100-p1) + '%';
+  document.getElementById('p1-pct').textContent = p1+'%';
+  document.getElementById('p2-pct').textContent = (100-p1)+'%';
+  document.querySelectorAll('.split-preset').forEach(function(b){
+    b.classList.toggle('active', parseInt(b.dataset.split,10)===p1);
   });
 }
-
-function fmtMoney(amount, currency) {
-  const sym = currency === 'USD' ? '$' : '€';
-  return sym + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
-function renderExpenses() {
-  const list = getExpenses();
+function renderExpenses(){
   const el = document.getElementById('expense-list');
-  if (!el) return;
-  if (list.length === 0) {
-    el.innerHTML = '<div class="exp-empty">No hay gastos todavia. Agrega el primero arriba.</div>';
+  if (!state.expenses.length){
+    el.innerHTML = '<div class="exp-empty">Sin gastos registrados todavía.</div>';
   } else {
-    el.innerHTML = list.map(e => {
-      const isPDF = e.att && (e.att.type === 'application/pdf' || /\.pdf$/i.test(e.att.name || ''));
-      const attIcon = isPDF ? '&#128196;' : '&#128247;'; // 📄 or 📷
-      const safeDesc = (e.desc || '').replace(/</g, '&lt;');
-      const safeLink = (e.link || '').replace(/"/g, '&quot;');
-      const safeAttName = (e.att && e.att.name || '').replace(/"/g, '&quot;');
-      return `
-      <div class="exp-item">
-        <div class="exp-item-desc">${safeDesc}</div>
-        <div class="exp-item-amt">${fmtMoney(e.amt, e.cur)}</div>
-        ${e.att ? `<button class="exp-item-attach" onclick="openAttachment('${e.fbId}')" title="Ver ${safeAttName}">${attIcon}</button>` : ''}
-        ${e.link ? `<a class="exp-item-link" href="${safeLink}" target="_blank" rel="noopener" title="Abrir reserva">&#128279;</a>` : ''}
-        <button class="exp-item-del" onclick="deleteExpense('${e.fbId}')" title="Eliminar">&times;</button>
-      </div>
-      `;
+    el.innerHTML = state.expenses.map(function(e){
+      const pdf = e.att && (e.att.type==='application/pdf' || /\.pdf$/i.test(e.att.name||''));
+      return '<div class="exp-item">' +
+        '<div class="exp-item-desc">' + esc(e.desc) + '</div>' +
+        '<div class="exp-item-amt">' + money(e.amt,e.cur) + '</div>' +
+        (e.att ? '<button class="exp-item-attach" onclick="openAttachment(\'' + e.fbId + '\')">' + (pdf?'📄':'📷') + '</button>' : '') +
+        (e.link ? '<a class="exp-item-link" href="' + esc(e.link) + '" target="_blank" rel="noopener">🔗</a>' : '') +
+        '<button class="exp-item-del" onclick="deleteExpense(\'' + e.fbId + '\')">&times;</button>' +
+      '</div>';
     }).join('');
   }
-  updateExpenseTotals();
+  updateExpTotals();
 }
-
-function updateExpenseTotals() {
-  const list = getExpenses();
-  // Normalizamos todo a USD para el total combinado
-  let totalUSD = 0;
-  list.forEach(e => {
-    totalUSD += e.cur === 'EUR' ? e.amt * EUR_TO_USD : e.amt;
-  });
-  const p1 = getSplit();
-  const p2 = 100 - p1;
-  document.getElementById('exp-total').textContent = fmtMoney(totalUSD, 'USD');
-  document.getElementById('p1-total').textContent = fmtMoney(totalUSD * p1 / 100, 'USD');
-  document.getElementById('p2-total').textContent = fmtMoney(totalUSD * p2 / 100, 'USD');
+function updateExpTotals(){
+  const t = state.expenses.reduce(function(s,e){ return s + (e.cur==='EUR' ? e.amt*EUR_USD : e.amt); }, 0);
+  const p1 = state.splitPct;
+  document.getElementById('exp-total').textContent = money(t,'USD');
+  document.getElementById('p1-total').textContent = money(t*p1/100,'USD');
+  document.getElementById('p2-total').textContent = money(t*(100-p1)/100,'USD');
+  // Un solo número de dinero en toda la app: el del tracker de gastos.
+  document.getElementById('m-locked').textContent = money(t,'USD');
 }
-
-// Enter key submits expense
-document.addEventListener('DOMContentLoaded', () => {
-  ['exp-desc', 'exp-amount', 'exp-link'].forEach(id => {
+document.addEventListener('DOMContentLoaded', function(){
+  ['exp-desc','exp-amount','exp-link'].forEach(function(id){
     const el = document.getElementById(id);
-    if (el) el.addEventListener('keypress', e => { if (e.key === 'Enter') addExpense(); });
+    if (el) el.addEventListener('keypress', function(e){ if (e.key==='Enter') addExpense(); });
   });
 });
 
-// ── INIT (render estatico + listeners Firestore) ───
+/* ══════════════ INIT ══════════════ */
+renderFiltros();
+renderReservas();
 renderDest();
-renderTransport();
-updateCountdown();
-setInterval(updateCountdown, 60000);
-
-// Renderiza con el state vacio inicial (placeholder) hasta que Firestore responda
-renderChecklist('checklist-box', checklistData, 'checklist');
-renderPacking('packing-box', packingData, 'packing');
+renderCal();
+renderDocs();
+renderPacking();
 renderExpenses();
 updateSplitUI(state.splitPct);
-updateProgress();
+updateTotals();
+renderAlert();
+setInterval(function(){ updateTotals(); renderAlert(); }, 60000);
 
-// ── MIGRACION ONE-SHOT de localStorage a Firestore ─
-// Si es la primera vez que se conecta Firebase y hay data local, la subimos.
-async function migrateFromLocalStorageIfNeeded() {
-  const MIG_KEY = 'fb-migrated-v1';
-  if (localStorage.getItem(MIG_KEY)) return; // ya migrado
-  const snap = await tripRef.get();
-  const existing = snap.exists ? (snap.data() || {}) : null;
-
-  const localSplit = parseInt(localStorage.getItem('split-viaje2026') || 'NaN', 10);
-  const localChecklist = JSON.parse(localStorage.getItem('cl-viaje2') || '{}');
-  const localPacking = JSON.parse(localStorage.getItem('pk-viaje2') || '{}');
-  const localExpenses = JSON.parse(localStorage.getItem('expenses-viaje2026') || '[]');
-
-  const hasLocalData = !isNaN(localSplit) ||
-    Object.keys(localChecklist).length ||
-    Object.keys(localPacking).length ||
-    localExpenses.length;
-
-  if (!hasLocalData) {
-    localStorage.setItem(MIG_KEY, '1');
-    return;
-  }
-
-  // Si Firestore ya tiene data, no pisamos — solo marcamos migrado
-  if (existing && (existing.splitPct !== undefined || Object.keys(existing.checklist||{}).length || Object.keys(existing.packing||{}).length)) {
-    localStorage.setItem(MIG_KEY, '1');
-    return;
-  }
-
-  // Migramos trip doc
-  const mergeDoc = {};
-  if (!isNaN(localSplit)) mergeDoc.splitPct = localSplit;
-  if (Object.keys(localChecklist).length) mergeDoc.checklist = localChecklist;
-  if (Object.keys(localPacking).length) mergeDoc.packing = localPacking;
-  if (Object.keys(mergeDoc).length) await tripRef.set(mergeDoc, { merge: true });
-
-  // Migramos gastos (sin adjuntos, ya que eran dataURLs locales)
-  for (const e of localExpenses) {
-    const payload = {
-      desc: e.desc || '(sin descripcion)',
-      amt: e.amt || 0,
-      cur: e.cur || 'EUR',
-      link: e.link || '',
-      createdAt: firebase.firestore.Timestamp.fromMillis(e.id || Date.now())
-    };
-    try { await expensesRef.add(payload); } catch(err) { console.error(err); }
-  }
-
-  localStorage.setItem(MIG_KEY, '1');
-  showToast('Datos migrados a la nube &#9729;&#65039;');
+/* ══════════════ SYNC ══════════════ */
+let docsMigrados = false;
+function migrarDocs(){
+  if (docsMigrados) return;
+  docsMigrados = true;
+  const seed = {};
+  docsData.forEach(function(c){ c.items.forEach(function(i){ if (i.pre && !state.docs[i.id]) seed[i.id] = true; }); });
+  Object.assign(state.docs, seed);
+  lsSet(LS.docs, state.docs);
+  tripRef.set({ docs: seed, docsInit: true }, { merge:true }).catch(console.error);
+  renderDocs(); updateTotals();
 }
+let firstLoad = true;
+tripRef.onSnapshot({includeMetadataChanges:true}, function(doc){
+  const cache = doc.metadata.fromCache;
+  const d = doc.data() || {};
+  state.splitPct = typeof d.splitPct === 'number' ? d.splitPct : 50;
+  state.reservas     = Object.assign({}, state.reservas,     d.reservas||{});
+  state.reservasMeta = Object.assign({}, state.reservasMeta, d.reservasMeta||{});
+  state.docs         = Object.assign({}, state.docs,         d.docs||{});
+  state.packing      = Object.assign({}, state.packing,      d.packing||{});
+  Object.keys(state.docs).forEach(function(k){ if (state.docs[k] === false) delete state.docs[k]; });
+  lsSet(LS.res, state.reservas); lsSet(LS.meta, state.reservasMeta);
+  lsSet(LS.docs, state.docs);    lsSet(LS.pack, state.packing);
 
-// ── LISTENERS EN TIEMPO REAL ───────────────────────
-let firstTripLoad = true;
-let firstExpLoad = true;
-
-tripRef.onSnapshot({ includeMetadataChanges: true }, doc => {
-  const fromCache = doc.metadata.fromCache;
-  const data = doc.data() || {};
-  state.splitPct = (typeof data.splitPct === 'number') ? data.splitPct : 50;
-  state.checklist = data.checklist || {};
-  state.packing = data.packing || {};
-
-  // Re-render (solo si ya estamos listos, para no tocar antes de que los otros renders corran)
-  const slider = document.getElementById('split-slider');
-  if (slider) slider.value = state.splitPct;
+  const sl = document.getElementById('split-slider');
+  if (sl) sl.value = state.splitPct;
   updateSplitUI(state.splitPct);
-  renderChecklist('checklist-box', checklistData, 'checklist');
-  renderPacking('packing-box', packingData, 'packing');
-  updateProgress();
+  renderReservas(); renderDest(); renderDocs(); renderPacking();
+  updateTotals(); renderAlert();
 
-  if (firstTripLoad) {
-    firstTripLoad = true && false; // once
-    state.ready = true;
-    setSyncStatus(fromCache ? 'offline' : 'connected', fromCache ? 'Sin conexion' : 'Sincronizado');
-    // Intentar migracion una sola vez despues del primer load
-    migrateFromLocalStorageIfNeeded().catch(console.error);
-  } else {
-    setSyncStatus(fromCache ? 'offline' : 'connected', fromCache ? 'Sin conexion' : 'Sincronizado');
-  }
-}, err => {
-  console.error('Trip listener error:', err);
-  setSyncStatus('offline', 'Error conexion');
-});
+  if (!cache) state.fbConnected = true;
+  setSyncStatus(cache?'offline':'connected', cache?'Sin conexión':'Sincronizado');
+  // Siembra one shot: trae los documentos que ya estaban marcados en la versión anterior.
+  if (!cache && !d.docsInit) migrarDocs();
+  firstLoad = false;
+}, function(err){ console.error(err); setSyncStatus('offline','Error de conexión'); });
 
-// Fallback: si Firebase no conecta en 4s (ej. abriendo el archivo local o internet lento),
-// desbloquea la UI igual para que el checklist y la barra de progreso funcionen.
-setTimeout(() => {
-  if (!state.ready) {
-    state.ready = true;
-    updateProgress();
-    setSyncStatus('offline', 'Modo local (sin sync)');
-  }
-}, 4000);
+setTimeout(function(){ if (firstLoad) setSyncStatus('offline','Modo local'); }, 4500);
 
-expensesRef.orderBy('createdAt', 'asc').onSnapshot(snap => {
-  state.expenses = snap.docs.map(d => {
-    const data = d.data();
-    return {
-      fbId: d.id,
-      desc: data.desc,
-      amt: data.amt,
-      cur: data.cur,
-      link: data.link || '',
-      att: data.att || null,
-      createdAt: data.createdAt
-    };
+expensesRef.orderBy('createdAt','asc').onSnapshot(function(snap){
+  state.expenses = snap.docs.map(function(d){
+    const x = d.data();
+    return { fbId:d.id, desc:x.desc, amt:x.amt, cur:x.cur, link:x.link||'', att:x.att||null };
   });
   renderExpenses();
-}, err => {
-  console.error('Expenses listener error:', err);
-});
+}, function(err){ console.error(err); });
 </script>
 </body>
 </html>
