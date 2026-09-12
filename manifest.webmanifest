@@ -1,0 +1,17 @@
+{
+  "name": "Eurotrip 2026",
+  "short_name": "Eurotrip",
+  "description": "Ámsterdam y España, 14 de septiembre al 2 de octubre de 2026. Día por día, alertas, ideas y reservas.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f4ef",
+  "theme_color": "#f5f4ef",
+  "lang": "es",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
