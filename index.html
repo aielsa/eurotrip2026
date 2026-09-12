@@ -56,54 +56,33 @@ input,select{font-family:inherit}
 
 /* ═══════════════ HERO ═══════════════ */
 .hero{
-  position:relative; padding:74px 0 30px; text-align:center; overflow:hidden;
+  position:relative; padding:58px 0 40px; text-align:center; overflow:hidden;
   background:linear-gradient(160deg,#5b21b6 0%,#7c3aed 45%,#8b5cf6 100%); color:#fff;
 }
 .hero::after{
-  content:''; position:absolute; left:0; right:0; bottom:-1px; height:36px;
-  background:var(--bg); border-radius:34px 34px 0 0;
+  content:''; position:absolute; left:0; right:0; bottom:-1px; height:30px;
+  background:var(--bg); border-radius:30px 30px 0 0;
 }
-.hero-flags{font-size:32px;letter-spacing:5px;margin-bottom:12px;opacity:.95}
-.hero h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(38px,10vw,58px);line-height:.98;letter-spacing:-.02em}
-.hero-dates{margin-top:9px;font-size:13px;font-weight:600;letter-spacing:.04em;opacity:.88;text-transform:uppercase}
-.hero-stats{position:relative;z-index:2;display:flex;justify-content:center;gap:8px;margin:22px auto 0;max-width:400px;padding:0 16px}
-.hstat{flex:1;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.24);border-radius:var(--r);padding:11px 4px;backdrop-filter:blur(8px)}
-.hstat b{display:block;font-size:24px;font-weight:900;line-height:1}
-.hstat span{display:block;font-size:9px;font-weight:700;letter-spacing:.1em;opacity:.85;margin-top:3px;text-transform:uppercase}
+.hero-flags{font-size:26px;letter-spacing:5px;margin-bottom:8px;opacity:.95}
+.hero h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(34px,9vw,52px);line-height:.98;letter-spacing:-.02em}
+.hero-dates{margin-top:8px;font-size:12px;font-weight:600;letter-spacing:.04em;opacity:.88;text-transform:uppercase}
 
-/* ═══════════════ ALERTA ═══════════════ */
-.alert{
-  margin-top:-14px;position:relative;z-index:5;background:var(--urg-bg);
-  border:1.5px solid var(--urg-br);border-radius:var(--r);padding:14px 16px;box-shadow:var(--sh);
+/* ═══════════════ HOY ═══════════════ */
+.hoy{
+  position:relative;z-index:5;margin-top:-16px;background:var(--card);border-radius:var(--r-lg);
+  box-shadow:var(--sh-lg);padding:18px 18px 16px;border-top:4px solid var(--c,var(--pu-600));
 }
-.alert-t{font-size:12px;font-weight:900;color:var(--urg);letter-spacing:.04em}
-.alert-b{font-size:13px;color:#7f1d1d;margin-top:6px;line-height:1.55}
-.alert-b b{font-weight:800}
-
-/* ═══════════════ PANEL ═══════════════ */
-.panel{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--sh);padding:18px;margin-top:14px}
-.panel-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px}
-.panel-title{font-size:11px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
-.panel-cd{font-size:13px;font-weight:800;color:var(--pu-700)}
-.tally{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.tally-btn{border:1.5px solid var(--line);border-radius:var(--r);padding:12px 6px;text-align:center;transition:.18s;background:#fff}
-.tally-btn:active{transform:scale(.96)}
-.tally-btn b{display:block;font-size:26px;font-weight:900;line-height:1}
-.tally-btn span{display:block;font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:4px;color:var(--ink-2)}
-.tally-btn.k-ok b{color:var(--ok)}     .tally-btn.k-ok.on{background:var(--ok-bg);border-color:var(--ok-br)}
-.tally-btn.k-todo b{color:var(--todo)} .tally-btn.k-todo.on{background:var(--todo-bg);border-color:var(--todo-br)}
-.tally-btn.k-idea b{color:var(--idea)} .tally-btn.k-idea.on{background:var(--idea-bg);border-color:var(--idea-br)}
-.bars{margin-top:16px;display:flex;flex-direction:column;gap:12px}
-.bar-lbl{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;font-weight:700;margin-bottom:6px}
-.bar-lbl span{color:var(--ink-2)}
-.bar-lbl b{font-size:13px;font-weight:900;color:var(--pu-700)}
-.bar-tr{height:7px;background:var(--line-2);border-radius:100px;overflow:hidden}
-.bar-fl{height:100%;border-radius:100px;transition:width .6s cubic-bezier(.4,0,.2,1)}
-.bar-fl.g{background:linear-gradient(90deg,var(--ok),#34d399)}
-.bar-fl.p{background:linear-gradient(90deg,var(--pu-600),var(--pu-300))}
-.money{margin-top:15px;padding-top:14px;border-top:1px solid var(--line-2);display:flex;justify-content:space-between;align-items:baseline}
-.money span{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
-.money b{font-size:20px;font-weight:900}
+.hoy-k{font-size:10.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--c,var(--pu-700))}
+.hoy-t{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;line-height:1.1;margin-top:5px;letter-spacing:-.01em}
+.hoy-s{font-size:13px;font-weight:700;color:var(--ink-2);margin-top:5px}
+.hoy p{font-size:14px;line-height:1.6;color:var(--ink-2);margin-top:10px}
+.hoy p b{color:var(--ink);font-weight:800}
+.hoy-fijo{margin-top:10px;font-size:13px;line-height:1.6;color:var(--ink-2);font-weight:600}
+.hoy-fijo b{color:var(--ok);font-weight:900;font-variant-numeric:tabular-nums}
+.hoy-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.hoy-btn{font-size:12.5px;font-weight:800;padding:10px 15px;border-radius:11px;background:var(--pu-700);color:#fff;text-decoration:none}
+.hoy-btn.sec{background:var(--pu-100);color:var(--pu-700)}
+.hoy-btn:active{transform:scale(.96)}
 
 /* ═══════════════ SECCIÓN ═══════════════ */
 .section{margin-top:30px}
@@ -111,6 +90,106 @@ input,select{font-family:inherit}
 .sec-icon{width:32px;height:32px;border-radius:10px;background:var(--pu-100);display:grid;place-items:center;font-size:16px;flex-shrink:0}
 .sec-title{font-size:19px;font-weight:900;letter-spacing:-.02em}
 .sec-sub{font-size:11.5px;color:var(--ink-3);font-weight:600;margin-left:auto;text-align:right}
+.sec-intro{font-size:13px;line-height:1.6;color:var(--ink-2);margin:-4px 2px 14px}
+
+/* ═══════════════ TIRA DE DÍAS (sticky) ═══════════════ */
+.strip-wrap{position:sticky;top:0;z-index:60;background:var(--bg);margin:0 calc(-1*var(--pad));padding:8px 0 10px}
+.strip{display:flex;gap:6px;overflow-x:auto;padding:2px var(--pad);-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-padding:0 var(--pad)}
+.strip::-webkit-scrollbar{display:none}
+.sday{flex-shrink:0;width:50px;border-radius:13px;padding:7px 0 6px;text-align:center;background:#fff;border:1.5px solid var(--line);color:var(--ink-2);transition:.16s;position:relative}
+.sday small{display:block;font-size:8.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.sday b{display:block;font-size:17px;font-weight:900;line-height:1.15;margin-top:1px}
+.sday i{display:block;width:16px;height:4px;border-radius:2px;margin:5px auto 0;background:var(--c)}
+.sday.hoy{background:var(--c);border-color:var(--c);color:#fff}
+.sday.hoy i{background:rgba(255,255,255,.7)}
+.sday.on{border-color:var(--c);box-shadow:0 0 0 2px var(--c) inset}
+.sday:active{transform:scale(.94)}
+
+/* ═══════════════ DÍA POR DÍA ═══════════════ */
+.dia{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--sh);margin-bottom:10px;overflow:hidden;border-left:4px solid var(--c);scroll-margin-top:76px;transition:box-shadow .2s}
+.dia.hoy{box-shadow:0 0 0 2px var(--c),var(--sh-lg)}
+.dia-h{display:flex;gap:12px;padding:14px 14px 13px;align-items:flex-start;cursor:pointer}
+.dia-date{width:48px;flex-shrink:0;border-radius:12px;color:#fff;text-align:center;padding:7px 0 6px;background:var(--c)}
+.dia-date small{display:block;font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.dia-date b{display:block;font-size:21px;font-weight:900;line-height:1.05;margin-top:1px}
+.dia-main{flex:1;min-width:0}
+.dia-city{font-size:10.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+.dia-t{font-size:16.5px;font-weight:900;letter-spacing:-.01em;margin-top:2px;line-height:1.25}
+.dia-fijo{margin-top:6px;font-size:12.5px;color:var(--ink-2);font-weight:600;line-height:1.55}
+.dia-fijo b{color:var(--ok);font-weight:900;font-variant-numeric:tabular-nums}
+.dia-fijo .td{color:var(--todo);font-weight:800}
+.dia-chev{align-self:center;width:26px;height:26px;border-radius:50%;background:var(--line-2);color:var(--ink-3);display:grid;place-items:center;font-size:15px;font-weight:900;transform:rotate(90deg);transition:.3s;flex-shrink:0}
+.dia.open .dia-chev{transform:rotate(-90deg)}
+.dia-b{display:none;padding:0 14px 16px}
+.dia.open .dia-b{display:block}
+.dia-lead{font-size:14.5px;line-height:1.6;color:var(--ink);font-weight:600;padding:12px 0 2px;border-top:1px solid var(--line-2)}
+
+.prose p{font-size:14px;line-height:1.68;color:var(--ink-2);margin:0 0 10px}
+.prose p:last-child{margin-bottom:0}
+.prose p strong{color:var(--ink);font-weight:800}
+.prose h4{font-size:10.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:16px 0 7px}
+.box{border-radius:14px;padding:12px 13px;margin-top:14px}
+.box h4{margin:0 0 7px}
+.box p{font-size:13.5px}
+.box-ok{background:#ecfdf5;border:1px solid #a7f3d0}
+.box-ok h4{color:var(--ok)}
+.box-ok p b{color:#065f46;font-variant-numeric:tabular-nums}
+.box-todo{background:var(--todo-bg);border:1px solid var(--todo-br)}
+.box-todo h4{color:#92400e}
+.box-todo p b{color:#92400e}
+.box-alt{background:var(--pu-50);border:1px solid var(--pu-100)}
+.box-alt h4{color:var(--pu-700)}
+.box-alt p{color:#3b2a66}
+.box-alt p strong{color:var(--pu-900)}
+.lnk{font-size:11.5px;font-weight:800;color:var(--pu-700);text-decoration:none;white-space:nowrap;cursor:pointer}
+.lnk.go{color:#92400e}
+.lnk.ok{color:var(--ok)}
+.sep{color:var(--ink-3);padding:0 3px}
+
+/* ═══════════════ DESTINOS ═══════════════ */
+.dests{display:flex;flex-direction:column;gap:11px}
+.dcard{background:var(--card);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);transition:.25s}
+.dcard.open{box-shadow:var(--sh-lg)}
+.dhero{position:relative;height:170px;overflow:hidden;background:var(--pu-600);cursor:pointer}
+.dimg{width:100%;height:100%;object-fit:cover;transition:.5s}
+.dcard.open .dimg{transform:scale(1.05)}
+.dhero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,6,26,.94) 0%,rgba(10,6,26,.78) 34%,rgba(10,6,26,.3) 62%,rgba(10,6,26,.04) 100%)}
+.dflag{position:absolute;top:11px;left:12px;font-size:22px;z-index:2;filter:drop-shadow(0 2px 5px rgba(0,0,0,.4))}
+.dtag{position:absolute;top:13px;right:12px;z-index:2;font-size:9.5px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border-radius:100px;background:rgba(255,255,255,.94);color:var(--pu-700)}
+.dover{position:absolute;left:14px;right:52px;bottom:12px;z-index:2;color:#fff}
+.dname{font-family:'Playfair Display',serif;font-size:25px;font-weight:700;line-height:1.05;text-shadow:0 2px 12px rgba(6,3,18,.75)}
+.dmeta{margin-top:5px;font-size:11.5px;font-weight:700;opacity:.94;text-shadow:0 1px 8px rgba(6,3,18,.7)}
+.dchev{position:absolute;bottom:12px;right:13px;z-index:3;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.94);color:var(--pu-700);display:grid;place-items:center;font-size:17px;font-weight:900;transform:rotate(90deg);transition:.3s}
+.dcard.open .dchev{transform:rotate(-90deg)}
+.dbody{display:none}
+.dcard.open .dbody{display:block}
+.dbody-in{padding:14px 16px 16px}
+.dlinks{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.dlink{font-size:11.5px;font-weight:800;padding:7px 11px;border-radius:9px;background:var(--line-2);color:var(--ink-2);text-decoration:none}
+.dlink.tickets{background:var(--pu-100);color:var(--pu-700)}
+.dlink.maps{background:#dbeafe;color:#1d4ed8}
+
+/* ═══════════════ PANEL RESERVAS ═══════════════ */
+.panel{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--sh);padding:16px;margin-bottom:12px}
+.tally{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tally-btn{border:1.5px solid var(--line);border-radius:var(--r);padding:11px 6px;text-align:center;transition:.18s;background:#fff}
+.tally-btn:active{transform:scale(.96)}
+.tally-btn b{display:block;font-size:24px;font-weight:900;line-height:1}
+.tally-btn span{display:block;font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-top:4px;color:var(--ink-2)}
+.tally-btn.k-ok b{color:var(--ok)}     .tally-btn.k-ok.on{background:var(--ok-bg);border-color:var(--ok-br)}
+.tally-btn.k-todo b{color:var(--todo)} .tally-btn.k-todo.on{background:var(--todo-bg);border-color:var(--todo-br)}
+.tally-btn.k-idea b{color:var(--idea)} .tally-btn.k-idea.on{background:var(--idea-bg);border-color:var(--idea-br)}
+.bars{margin-top:14px;display:flex;flex-direction:column;gap:11px}
+.bar-lbl{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;font-weight:700;margin-bottom:6px}
+.bar-lbl span{color:var(--ink-2)}
+.bar-lbl b{font-size:13px;font-weight:900;color:var(--pu-700)}
+.bar-tr{height:7px;background:var(--line-2);border-radius:100px;overflow:hidden}
+.bar-fl{height:100%;border-radius:100px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+.bar-fl.g{background:linear-gradient(90deg,var(--ok),#34d399)}
+.bar-fl.p{background:linear-gradient(90deg,var(--pu-600),var(--pu-300))}
+.money{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2);display:flex;justify-content:space-between;align-items:baseline}
+.money span{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.money b{font-size:19px;font-weight:900}
 
 /* ═══════════════ FILTROS ═══════════════ */
 .filters{display:flex;gap:7px;overflow-x:auto;padding:2px 2px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -126,12 +205,13 @@ input,select{font-family:inherit}
 .rblock-h .cnt{font-size:10px;padding:2px 7px;border-radius:100px;background:var(--line-2);color:var(--ink-2);letter-spacing:.03em}
 .res{
   background:var(--card);border-radius:var(--r);box-shadow:var(--sh);padding:13px 14px;margin-bottom:8px;
-  display:flex;gap:11px;align-items:flex-start;border-left:3px solid var(--line);transition:.2s;
+  display:flex;gap:11px;align-items:flex-start;border-left:3px solid var(--line);transition:.2s;scroll-margin-top:70px;
 }
 .res.s-ok{border-left-color:var(--ok)}
 .res.s-todo{border-left-color:var(--todo)}
 .res.s-todo.urg{border-left-color:var(--urg);background:linear-gradient(90deg,#fffafa,#fff 40%)}
 .res.s-idea{border-left-color:var(--idea-br);opacity:.84}
+.res.flash{box-shadow:0 0 0 3px var(--pu-300),var(--sh-lg)}
 .res-ic{font-size:19px;line-height:1.2;width:24px;text-align:center;flex-shrink:0}
 .res-main{flex:1;min-width:0}
 .res-t{font-size:14.5px;font-weight:800;line-height:1.3;letter-spacing:-.01em}
@@ -147,7 +227,7 @@ input,select{font-family:inherit}
   background:var(--todo-bg);border:1px dashed var(--todo-br);color:#92400e;
   font-size:11.5px;font-weight:800;
 }
-.res-note{font-size:11.5px;color:var(--ink-3);margin-top:4px;line-height:1.45}
+.res-note{font-size:12px;color:var(--ink-2);margin-top:5px;line-height:1.5}
 .res-warn{font-size:11.5px;color:var(--urg);font-weight:800;margin-top:5px}
 .res-acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
 .res-btn{font-size:11px;font-weight:800;padding:5px 10px;border-radius:8px;background:var(--line-2);color:var(--ink-2);text-decoration:none;transition:.15s}
@@ -169,62 +249,6 @@ input,select{font-family:inherit}
 .res-edit input:focus{outline:none;border-color:var(--pu-500);background:#fff}
 .res-edit-row{display:flex;gap:7px}
 .res-save{background:var(--pu-700);color:#fff;font-size:12px;font-weight:800;padding:8px 16px;border-radius:9px;flex-shrink:0}
-
-/* ═══════════════ ITINERARIO ═══════════════ */
-.itin{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--sh);padding:16px}
-.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-.cal-dow{font-size:9px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);text-align:center;padding-bottom:4px}
-.day{aspect-ratio:1/1.1;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-weight:800;background:var(--line-2);color:var(--ink-3);font-size:12.5px;transition:.16s;padding:2px}
-.day.on{color:#fff}
-.day em{font-style:normal;font-size:7px;font-weight:800;opacity:.92;line-height:1.05;letter-spacing:-.02em;white-space:nowrap;max-width:100%;overflow:hidden}
-.c-ams{background:#6366f1} .c-mad{background:#7c3aed}
-.c-bcn{background:#4f46e5} .c-grx{background:#8b5cf6} .c-ron{background:#6d28d9}
-.c-svq{background:#9333ea} .c-cor{background:#7e22ce} .c-fly{background:#334155}
-.cal-key{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px;padding-top:12px;border-top:1px solid var(--line-2)}
-.kk{display:flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;color:var(--ink-2)}
-.kk i{width:9px;height:9px;border-radius:3px;display:block}
-.route{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-top:14px;padding-top:13px;border-top:1px solid var(--line-2)}
-.rt{font-size:11.5px;font-weight:800;padding:5px 10px;border-radius:100px;background:var(--pu-50);color:var(--pu-700);border:1px solid var(--pu-100)}
-.rt-ar{color:var(--ink-3);font-size:11px;font-weight:700}
-
-/* ═══════════════ DESTINOS ═══════════════ */
-.dests{display:flex;flex-direction:column;gap:11px}
-.dcard{background:var(--card);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);transition:.25s}
-.dcard.open{box-shadow:var(--sh-lg)}
-.dhero{position:relative;height:180px;overflow:hidden;background:var(--pu-600)}
-.dimg{width:100%;height:100%;object-fit:cover;transition:.5s}
-.dcard.open .dimg{transform:scale(1.05)}
-.dhero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,6,26,.94) 0%,rgba(10,6,26,.78) 34%,rgba(10,6,26,.3) 62%,rgba(10,6,26,.04) 100%)}
-.dflag{position:absolute;top:11px;left:12px;font-size:22px;z-index:2;filter:drop-shadow(0 2px 5px rgba(0,0,0,.4))}
-.dtag{position:absolute;top:13px;right:12px;z-index:2;font-size:9.5px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;padding:5px 10px;border-radius:100px;background:rgba(255,255,255,.94);color:var(--pu-700)}
-.dover{position:absolute;left:14px;right:52px;bottom:11px;z-index:2;color:#fff}
-.dname{font-family:'Playfair Display',serif;font-size:25px;font-weight:700;line-height:1.05;text-shadow:0 2px 12px rgba(6,3,18,.75)}
-.dmeta{margin-top:5px;font-size:11.5px;font-weight:700;opacity:.94;text-shadow:0 1px 8px rgba(6,3,18,.7)}
-.dstatus{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
-.dpill{font-size:9px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:100px;backdrop-filter:blur(6px)}
-.dpill.a{background:rgba(5,150,105,.92);color:#fff}
-.dpill.b{background:rgba(217,119,6,.94);color:#fff}
-.dpill.c{background:rgba(255,255,255,.28);color:#fff}
-.dchev{position:absolute;bottom:11px;right:13px;z-index:3;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.94);color:var(--pu-700);display:grid;place-items:center;font-size:17px;font-weight:900;transform:rotate(90deg);transition:.3s}
-.dcard.open .dchev{transform:rotate(-90deg)}
-.dbody{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
-.dcard.open .dbody{max-height:5000px}
-.dbody-in{padding:16px}
-.dbrief{font-size:13px;line-height:1.6;color:var(--ink-2);margin-bottom:14px}
-.dday{background:var(--pu-50);border-radius:var(--r);padding:12px 13px;margin-bottom:8px}
-.dday-h{display:flex;align-items:center;gap:9px;margin-bottom:7px}
-.dday-n{width:32px;height:24px;border-radius:7px;display:grid;place-items:center;flex-shrink:0;font-size:10.5px;font-weight:900;color:#fff}
-.dday-d{font-size:11.5px;font-weight:800}
-.dday-p{font-size:12.5px;line-height:1.65;color:var(--ink-2)}
-.dday-p strong{color:var(--ink);font-weight:800}
-.dhl{margin-top:13px}
-.dhl-t{font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-size:11px;font-weight:700;padding:5px 10px;border-radius:100px;background:var(--line-2);color:var(--ink-2)}
-.dlinks{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}
-.dlink{font-size:11.5px;font-weight:800;padding:7px 11px;border-radius:9px;background:var(--line-2);color:var(--ink-2);text-decoration:none}
-.dlink.tickets{background:var(--pu-100);color:var(--pu-700)}
-.dlink.maps{background:#dbeafe;color:#1d4ed8}
 
 /* ═══════════════ GASTOS ═══════════════ */
 .card{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--sh);padding:16px}
@@ -305,6 +329,7 @@ input,select{font-family:inherit}
   :root{--pad:24px}
   .dests{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
   .dcard.open{grid-column:1/-1}
+  .prose p{font-size:14.5px}
 }
 </style>
 </head>
@@ -325,42 +350,31 @@ input,select{font-family:inherit}
 <div class="hero">
   <div class="hero-flags">🇳🇱 ✈️ 🇪🇸</div>
   <h1>Eurotrip 2026</h1>
-  <div class="hero-dates">14 Sept &middot; 2 Oct 2026</div>
-  <div class="hero-stats">
-    <div class="hstat"><b id="hs-days">--</b><span>días para salir</span></div>
-    <div class="hstat"><b>7</b><span>ciudades</span></div>
-    <div class="hstat"><b>18</b><span>noches</span></div>
-  </div>
+  <div class="hero-dates">14 Sept &middot; 2 Oct 2026 &middot; 7 ciudades</div>
 </div>
 
 <div class="wrap">
 
-  <div id="alert-slot"></div>
+  <div class="hoy" id="hoy"></div>
 
-  <div class="panel">
-    <div class="panel-head">
-      <div class="panel-title">Estado de las reservas</div>
-      <div class="panel-cd" id="panel-cd"></div>
+  <div class="section" id="sec-dias">
+    <div class="sec-head">
+      <div class="sec-icon">🗓️</div>
+      <div class="sec-title">Día por día</div>
+      <div class="sec-sub">toca un día para abrirlo</div>
     </div>
-    <div class="tally">
-      <button class="tally-btn k-ok"   id="t-ok"   onclick="setFilter('ok')"><b id="n-ok">0</b><span>Confirmado</span></button>
-      <button class="tally-btn k-todo" id="t-todo" onclick="setFilter('todo')"><b id="n-todo">0</b><span>Por comprar</span></button>
-      <button class="tally-btn k-idea" id="t-idea" onclick="setFilter('idea')"><b id="n-idea">0</b><span>Opción</span></button>
+    <div class="sec-intro">Lo único que no se mueve es lo que tiene hora en verde. Todo lo demás es un plan bueno con su plan B debajo: si el cuerpo, el clima o las ganas dicen otra cosa, se cambia sin culpa.</div>
+    <div class="strip-wrap"><div class="strip" id="strip"></div></div>
+    <div id="dias"></div>
+  </div>
+
+  <div class="section" id="sec-dest">
+    <div class="sec-head">
+      <div class="sec-icon">🌍</div>
+      <div class="sec-title">Destinos</div>
+      <div class="sec-sub">dónde duermes, cómo llegas, qué sobra</div>
     </div>
-    <div class="bars">
-      <div>
-        <div class="bar-lbl"><span>Reservas cerradas</span><b id="pb-res">0%</b></div>
-        <div class="bar-tr"><div class="bar-fl g" id="pf-res" style="width:0"></div></div>
-      </div>
-      <div>
-        <div class="bar-lbl"><span>Alistamiento: documentos y equipaje</span><b id="pb-prep">0%</b></div>
-        <div class="bar-tr"><div class="bar-fl p" id="pf-prep" style="width:0"></div></div>
-      </div>
-    </div>
-    <div class="money">
-      <span>Gastado y registrado</span>
-      <b id="m-locked">$0</b>
-    </div>
+    <div class="dests" id="dest-grid"></div>
   </div>
 
   <div class="section" id="sec-reservas">
@@ -369,30 +383,29 @@ input,select{font-family:inherit}
       <div class="sec-title">Reservas</div>
       <div class="sec-sub" id="res-sub"></div>
     </div>
+    <div class="panel">
+      <div class="tally">
+        <button class="tally-btn k-ok"   id="t-ok"   onclick="setFilter('ok')"><b id="n-ok">0</b><span>Confirmado</span></button>
+        <button class="tally-btn k-todo" id="t-todo" onclick="setFilter('todo')"><b id="n-todo">0</b><span>Por comprar</span></button>
+        <button class="tally-btn k-idea" id="t-idea" onclick="setFilter('idea')"><b id="n-idea">0</b><span>Opción</span></button>
+      </div>
+      <div class="bars">
+        <div>
+          <div class="bar-lbl"><span>Reservas cerradas</span><b id="pb-res">0%</b></div>
+          <div class="bar-tr"><div class="bar-fl g" id="pf-res" style="width:0"></div></div>
+        </div>
+        <div>
+          <div class="bar-lbl"><span>Alistamiento: documentos y equipaje</span><b id="pb-prep">0%</b></div>
+          <div class="bar-tr"><div class="bar-fl p" id="pf-prep" style="width:0"></div></div>
+        </div>
+      </div>
+      <div class="money">
+        <span>Gastado y registrado</span>
+        <b id="m-locked">$0</b>
+      </div>
+    </div>
     <div class="filters" id="filters"></div>
     <div id="res-list"></div>
-  </div>
-
-  <div class="section">
-    <div class="sec-head">
-      <div class="sec-icon">🗓️</div>
-      <div class="sec-title">Itinerario</div>
-      <div class="sec-sub">19 días</div>
-    </div>
-    <div class="itin">
-      <div class="cal" id="cal"></div>
-      <div class="cal-key" id="cal-key"></div>
-      <div class="route" id="route"></div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="sec-head">
-      <div class="sec-icon">🌍</div>
-      <div class="sec-title">Destinos</div>
-      <div class="sec-sub">toca para abrir</div>
-    </div>
-    <div class="dests" id="dest-grid"></div>
   </div>
 
   <div class="section">
@@ -451,17 +464,17 @@ input,select{font-family:inherit}
   </div>
 
   <div class="foot">
-    Toca el badge de una reserva para cambiar su estado.<br>
-    Toca "editar datos" para guardar el localizador y el costo real.
+    En Reservas, toca el badge para cambiar el estado y "editar datos" para guardar hora, localizador y costo.<br>
+    Lo que guardes ahí aparece en su día y en su destino.
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
+
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
-
 <script>
 /* ══════════════ FIREBASE ══════════════ */
 const firebaseConfig = {
@@ -670,130 +683,6 @@ const reservas = [
     l:'https://www.booking.com/', ll:'Booking' }
 ];
 
-/* ══════════════ DESTINOS ══════════════ */
-const destinations = [
-  { id:'amsterdam', name:'Ámsterdam', flag:'🇳🇱', tag:'3 noches', dates:'15 al 18 Sept',
-    photo:PHOTOS.amsterdam, grad:GRAD.amsterdam,
-    res:['f-mad-ams','h-ams','t-cruise','t-moco','t-rijks','n-redlight','n-church','n-showboat','t-nemo','f-ams-mad'],
-    brief:'Ciudad de canales, museos de clase mundial y encanto bohemio. Arranca con un canal cruise al atardecer el mismo día que llegas, y de ahí: arte en el Museumplein, el Jordaan, el Red Light District y dos noches de salida.',
-    highlights:['Jordaan · canales UNESCO','Evening Canal Cruise','Rijksmuseum','Moco Museum','Red Light District','Vida nocturna','NEMO Science','Albert Cuyp Market'],
-    days:[
-      { num:1, date:'Martes 15 Sept · llegada y canal cruise', plan:'Aterrizar en <strong>Schiphol</strong> (hora por confirmar). Tren a <strong>Amsterdam Centraal</strong>, 15 a 20 min, €5.90. Check in, ducha, y <strong>dormir un rato</strong>, que vienes de vuelo nocturno y la noche termina a las 11. <strong>Atardecer:</strong> paseo suave por los canales del Jordaan, Brouwersgracht y Prinsengracht. <strong>19:00: cena ligera</strong> en <strong>Winkel 43</strong> (apple pie) o <strong>Moeders</strong>. Ligera de verdad, que el barco trae 3 bebidas y queso. <strong>21:25: estar en el muelle</strong> de <strong>Keizersgracht 92H</strong>, el de madera junto al 106. <strong>21:30 a 23:00: SPECTACULAR EVENING CRUISE</strong> en el barco Pure Spirit. Termina en el mismo muelle, y de ahí al hotel a caer.' },
-      { num:2, date:'Miércoles 16 Sept · día de museos y Red Light', plan:'<strong>Mañana suelta</strong> hasta las 11. Opciones sin reserva: <strong>Nine Streets</strong>, el <strong>Bloemenmarkt</strong>, o dormir tarde y desayunar con calma. <strong>11:30: MOCO MUSEUM</strong> (reservado): Banksy y Basquiat, ~1 a 1.5h. <strong>13:00:</strong> almuerzo en <strong>The Seafood Bar</strong>, que queda en Van Baerlestraat a un par de cuadras. <strong>14:00 RIJKSMUSEUM</strong> (reservado, entrada de 14:00 a 15:00): <strong>La Ronda de Noche</strong> de Rembrandt y <strong>La Lechera</strong> de Vermeer. ~2h. Los dos museos están en el <strong>Museumplein</strong>, así que no te mueves de sitio en todo el mediodía. <strong>16:30:</strong> descanso en el hotel, que la noche es larga. <strong>19:00:</strong> cena en <strong>Foodhallen</strong>. <strong>21:00: RED LIGHT DISTRICT a pie</strong>, De Wallen y la Oude Kerk. Cero fotos a las ventanas. <strong>Ya de noche: CLUB (Church o Showboat)</strong>, el que escojan para esta noche. El otro queda para mañana. De Wallen al centro se camina, así que encadena solo.' },
-      { num:3, date:'Jueves 17 Sept', plan:'<strong>10:30 NEMO Science Museum</strong> (reservado, x2 · Oosterdok). La <strong>terraza del techo</strong> tiene las mejores vistas de Ámsterdam y es gratis. ~2h. <strong>Resto del día abierto</strong>, por coordinar con Iván. Ideas: un <strong>canal cruise</strong>, el <strong>Vondelpark</strong>, o los barrios <strong>De Pijp</strong> y <strong>Jordaan</strong>. <strong>Noche: EL OTRO CLUB</strong>, el que no hicieron ayer. ⚠️ Ojo con la hora de acostarse: mañana viernes es check out, Albert Cuyp, el Smokeboat de las 16:00 y vuelo nocturno a Madrid.' },
-      { num:4, date:'Viernes 18 Sept · despedida', plan:'<strong>9:30:</strong> desayuno en <strong>Pancakes Amsterdam</strong>. <strong>11:00:</strong> última mañana relajada por el <strong>Jordaan</strong> o alguna galería. <strong>13:30: Albert Cuyp Market</strong> en De Pijp (stroopwafels calientes, haring, gouda al vacío). <strong>15:00:</strong> check out y equipaje en conserjería. <strong>Tarde libre:</strong> ya no hay boat tour este día, así que aquí cabe lo que se quedó pendiente de la semana, o simplemente café y descanso antes del aeropuerto. <strong>18:00: Vleminckx</strong> (las mejores patatas fritas de la ciudad). <strong>19:00:</strong> tren a Schiphol. <strong>~20:00:</strong> vuelo a Madrid, llegas ~23:30.' }
-    ],
-    links:[
-      {icon:'🖼',label:'Rijksmuseum',url:'https://www.rijksmuseum.nl/en/visit/tickets',type:'tickets'},
-      {icon:'🎭',label:'Moco Museum',url:'https://mocomuseum.com/',type:'tickets'},
-      {icon:'🛶',label:'Pure Boats',url:'https://pureboats.com/cruises/small-group-tours/evening-canal-cruise/',type:'tickets'},
-      {icon:'📍',label:'Maps',url:'https://maps.google.com/?q=Amsterdam+Netherlands',type:'maps'}
-    ]},
-
-  { id:'madrid', name:'Madrid', flag:'🇪🇸', tag:'3 noches', dates:'18 al 21 Sept',
-    photo:PHOTOS.madrid, grad:GRAD.madrid, res:['h-mad1','t-prado','e-escuela','t-reina','tr-mad-bcn'],
-    brief:'Tres noches completas de Madrid, sin salir de la ciudad. El triángulo del arte, el Rastro del domingo con su vermut, tapeo en La Latina y Cava Baja, rooftops de 360 grados, el verde del Retiro, el Palacio Real y el atardecer del Templo de Debod.',
-    highlights:['Reina Sofía · Guernica','El Rastro · domingos','Museo del Prado','Vermut en Cava Baja','Parque del Retiro','Palacio Real','Templo de Debod','Malasaña'],
-    days:[
-      { num:4, date:'Viernes 18 Sept (noche)', plan:'<strong>Vuelo nocturno AMS → MAD</strong> (salida ~20:00, llegada ~23:30). Taxi al hotel. Dormir directo.' },
-      { num:5, date:'Sábado 19 Sept · museo temprano, noche larga', plan:'<strong>10:00: MUSEO REINA SOFÍA</strong>, primera hora y vacío. El <strong>Guernica</strong>, y al lado la sala de <strong>bocetos preparatorios</strong> con las fotos de Dora Maar del proceso día a día. <strong>Dalí</strong> (El gran masturbador, Muchacha en la ventana), <strong>Miró</strong>, <strong>Juan Gris</strong> y la proyección de <strong>Un perro andaluz</strong>. Sube por los <strong>ascensores de cristal exteriores</strong>. Cero fotos al Guernica. ~1.5h. <strong>12:00: PARQUE DEL RETIRO</strong>, que empieza ahí al lado: Palacio de Cristal, el lago con barcas, la rosaleda. <strong>14:00: almuerzo.</strong> <strong>16:00: MALASAÑA</strong>, vintage, cafés third wave, street art y tiendas independientes. <strong>19:30: AZOTEA DEL CÍRCULO DE BELLAS ARTES</strong> para el atardecer, que en septiembre cae sobre las 20:15. Vistas de 360 grados de Madrid. ⚠️ Se cobra entrada para subir y un sábado al sunset se llena: llega temprano o mira si se reserva. Alternativas si hay cola: el mirador del <strong>Riu Plaza España</strong> o el <strong>Hotel Emperador</strong>. <strong>21:30: tapeo y cena por LA LATINA y CAVA BAJA</strong>, patatas bravas, croquetas, jamón ibérico, tortilla. <strong>Y de ahí, a janguear.</strong>' },
-      { num:6, date:'Domingo 20 Sept · el domingo madrileño', plan:'<strong>9:30: EL RASTRO.</strong> El mercado de pulgas más grande de España abre <strong>solo los domingos, de 9:00 a 15:00</strong>, en <strong>La Latina</strong> por la Ribera de Curtidores. Antigüedades, ropa, vinilos, cachivaches y gente. <strong>13:00: el vermut de domingo</strong>, que es la tradición local de verdad, por las tabernas de <strong>Cava Baja</strong> y la <strong>Plaza de la Cebada</strong>. <strong>Tarde: Palacio Real</strong> (el palacio real más grande de Europa occidental) y la <strong>Catedral de la Almudena</strong> al lado. <strong>Atardecer: TEMPLO DE DEBOD</strong>, un templo egipcio auténtico del s.II a.C. regalado a España, con la sierra de fondo. Es el mejor atardecer de Madrid y es gratis. <strong>Noche:</strong> <strong>Malasaña</strong> o el rooftop de la <strong>Azotea del Círculo de Bellas Artes</strong>, el que no hayan hecho el sábado.' },
-    ],
-    links:[
-      {icon:'🎟',label:'Prado',url:'https://www.museodelprado.es/en/visit/tickets',type:'tickets'},
-      {icon:'🖼',label:'Reina Sofía',url:'https://www.museoreinasofia.es/en/visit',type:'tickets'},
-      {icon:'📍',label:'El Rastro',url:'https://maps.google.com/?q=El+Rastro+Madrid',type:'maps'}
-    ]},
-
-  { id:'barcelona', name:'Barcelona', flag:'🎯', tag:'AI Summit', dates:'21 al 24 Sept',
-    photo:PHOTOS.barcelona, grad:GRAD.barcelona, res:['h-bcn','e-summit','e-merce','f-bcn-grx'],
-    brief:'Epicentro del AI Summit Barcelona 2026 en el World Trade Center: más de 10,000 asistentes y 200 speakers. Además el Barrio Gótico medieval, El Born bohemio y Barceloneta frente al Mediterráneo.',
-    highlights:['AI Summit WTC','10,000+ asistentes','200+ speakers','La Mercè','Barrio Gótico','El Born','Barceloneta','Networking'],
-    days:[
-      { num:7, date:'Lunes 21 Sept · a Barcelona temprano', plan:'<strong>7:30: desayuno y check out.</strong> <strong>8:45: en Atocha.</strong> El embarque de Ouigo abre 30 min antes y <strong>cierra 5 min antes de la salida</strong>, con control de billetes y equipaje: no llegues justa. <strong>9:31: OUIGO 06501 a Barcelona</strong>, coche 3, asiento 27A. <strong>12:58: llegas a Sants.</strong> Taxi al hotel del Raval, 10 a 15 min. Check in o deja maletas. <strong>TARDE COMPLETA EN BARCELONA</strong>, y es tu única: <strong>Barrio Gótico</strong> con la Catedral y la Plaça Reial, <strong>El Born</strong> con Santa María del Mar, y bajar a <strong>Barceloneta</strong>. Cena frente al mar. 🎯 <strong>Prep del Summit:</strong> revisar agenda y confirmar meetings. Y comprueba si el <strong>registro abre esta tarde</strong>: muchos entregan la acreditación la víspera y te ahorras la cola de mañana.' },
-      { num:8, date:'Martes 22 Sept · Summit día 1', plan:'<strong>AI SUMMIT BARCELONA</strong>. World Trade Center, frente al puerto. Keynotes principales, expo floor, workshops, networking. Contenido: BTS, keynotes y thought leadership reels para IG y LinkedIn.' },
-      { num:9, date:'Miércoles 23 Sept · Summit día 2', plan:'Sesiones avanzadas, cerrar contactos clave, intercambio de tarjetas, follow ups estratégicos. Últimas demos en expo. Networking lunch y closing ceremony. Mañana es la Mercè y vuelas por la tarde, así que deja la maleta lista esta noche.' },
-      { num:10, date:'Jueves 24 Sept · La Mercè y salida', plan:'<strong>LA MERCÈ</strong>, la fiesta mayor de Barcelona, y te tocó justo el día grande. Es festivo local: la ciudad entera sale a la calle con <strong>castellers</strong> (las torres humanas, en Plaça Sant Jaume), <strong>gegants</strong>, <strong>correfoc</strong> y conciertos gratis. Todo al aire libre y sin entrada. Es mejor contenido que cualquier museo y no lo puedes planificar otro día. <strong>Revisa el programa oficial</strong> unos días antes para ubicar los castellers, que es lo que hay que ver. <strong>Almuerzo temprano y al aeropuerto con tiempo de sobra</strong>: con el festivo hay cortes de calles y el tráfico se pone feo. <strong>Vuelo BCN → Granada 17:15 a 18:55</strong>, confirmado BF5L8V.' }
-    ],
-    links:[
-      {icon:'🎯',label:'AI Summit',url:'https://barcelona.theaisummit.com/',type:''},
-      {icon:'🎉',label:'La Mercè',url:'https://www.barcelona.cat/lamerce/',type:'tickets'},
-      {icon:'📍',label:'WTC Barcelona',url:'https://maps.google.com/?q=World+Trade+Center+Barcelona',type:'maps'}
-    ]},
-
-  { id:'granada', name:'Granada', flag:'🌙', tag:'4 noches', dates:'24 al 28 Sept',
-    photo:PHOTOS.granada, grad:GRAD.granada, res:['h-grx','t-alhambra','t-flamenco-grx'],
-    brief:'La Alhambra: la joya absoluta de la arquitectura islámica en Europa. El Albaicín árabe (UNESCO), teterías de la Calderería Nueva, el Sacromonte gitano. Y en Granada cada bebida incluye tapa gratis.',
-    highlights:['La Alhambra','Palacios Nazaríes','Generalife','Albaicín UNESCO','Mirador San Nicolás','Tapas gratis','Sacromonte','Teterías árabes'],
-    days:[
-      { num:10, date:'Jueves 24 Sept (tarde y noche)', plan:'<strong>Vuelo BCN → Granada 17:15 a 18:55</strong>. Check in en el Airbnb del Albaicín. <strong>Noche:</strong> primera probada de Granada, tapas gratis por <strong>Calle Navas, Plaza Nueva y Calle Elvira</strong>. Si llegas con energía, sube al <strong>Mirador de San Nicolás</strong> para tu primera vista de la Alhambra iluminada.' },
-      { num:11, date:'Viernes 25 Sept · Albaicín de mañana, Alhambra de tarde', plan:'<strong>MAÑANA LIBRE y con fresco: el ALBAICÍN a fondo.</strong> Callejuelas empedradas, las <strong>teterías de la Calderería Nueva</strong> y la <strong>CARRERA DEL DARRO</strong>, la calle más bonita de Granada, con el río abajo y la Alhambra arriba. Almuerza temprano y ligero. <strong>14:00: sube a la Alhambra</strong> con tiempo, que la entrada es larga y hay control. <strong>14:30: LA ALHAMBRA Y EL GENERALIFE.</strong> <strong>Palacios Nazaríes</strong>: los arabescos imposibles, la Fuente de los Leones, el Patio de los Arrayanes reflejando el cielo. <strong>Alcazaba</strong>, la fortaleza, sin una sombra. <strong>Jardines del Generalife</strong>. Sales sobre las 18:00 o 18:30. <strong>Atardecer: MIRADOR DE SAN NICOLÁS</strong>, la Alhambra en luz dorada con Sierra Nevada detrás. LA foto del viaje, y acabas de estar dentro. Cena en el Albaicín.' },
-      { num:12, date:'Sábado 26 Sept', plan:'Mañana: <strong>Capilla Real</strong> (tumbas de los Reyes Católicos) y la <strong>Catedral</strong>. Almuerzo de tapas. Tarde: <strong>Sacromonte</strong>, el barrio gitano de las cuevas, y la <strong>Carrera del Darro</strong>, la calle más bonita de Granada. <strong>Noche: flamenco en cueva del Sacromonte</strong>, zambra auténtica.' },
-      { num:13, date:'Domingo 27 Sept', plan:'Opción relax: barrio <strong>Realejo</strong> (antigua judería, street art de El Niño de las Pinturas), cármenes con jardines, últimas tapas por <strong>Calle Navas</strong>. Atardecer final: <strong>Mirador de San Miguel Alto</strong>, mejor que San Nicolás y con menos gente.' }
-    ],
-    links:[
-      {icon:'🎟',label:'Alhambra',url:'https://www.alhambra-patronato.es/',type:'tickets'},
-      {icon:'📍',label:'Mirador San Nicolás',url:'https://maps.google.com/?q=Mirador+de+San+Nicolas+Granada',type:'maps'},
-      {icon:'📍',label:'Albaicín',url:'https://maps.google.com/?q=Albaicin+Granada+Spain',type:'maps'}
-    ]},
-
-  { id:'ronda', name:'Ronda', flag:'⛰️', tag:'1 noche', dates:'28 Sept',
-    photo:PHOTOS.ronda, grad:GRAD.ronda, res:['car','h-ron'],
-    brief:'Puente Nuevo sobre una garganta de 120 metros, uno de los paisajes más dramáticos de toda España. La plaza de toros más antigua del país (1785) y un road trip épico por la sierra andaluza para llegar.',
-    highlights:['Puente Nuevo · 120m','Tajo de Ronda','Plaza de Toros 1785','Camino de los Molinos','Mirador de Aldehuela','Sierra andaluza','Pueblos blancos'],
-    days:[
-      { num:14, date:'Lunes 28 Sept', plan:'Check out del Airbnb de Granada. Recoger <strong>carro de alquiler</strong> y <strong>conducir Granada → Ronda</strong> (~2h por la A-92 y A-367): sierras andaluzas, olivos infinitos, pueblos blancos. Check out del Airbnb y a la oficina de alquiler. <strong>9:30: recoges el carro</strong> (llega 9:15, el papeleo tarda). <strong>Directo a Ronda</strong>, ~2h por la A-92 y A-367: sierras andaluzas, olivos infinitos y pueblos blancos por la ventana. <strong>Llegas sobre las 11:45.</strong> Come algo, y a partir de las <strong>13:30 haces check in</strong> en el apartamento. Tienes el pueblo entero desde el mediodía hasta la noche. <strong>Puente Nuevo sobre el Tajo</strong>, garganta de 120m. <strong>BAJA AL FONDO por el Camino de los Molinos</strong>: es la caminata de naturaleza del día, con la subida de vuelta dura de verdad, y desde abajo el puente se ve en toda su escala. Drone obligatorio. <strong>Plaza de Toros</strong>, la más antigua de España, y el casco antiguo. <strong>Si cuadra el barranquismo</strong> (3h, encuentro en los Baños Árabes), va aquí por la tarde y sustituye la bajada a pie. <strong>Vuelve al Puente Nuevo al atardecer</strong>: con luz de tarde es otra cosa distinta a como lo viste al mediodía. Cena con vistas al Tajo.' }
-    ],
-    links:[
-      {icon:'🚗',label:'Rentalcars',url:'https://www.rentalcars.com/',type:''},
-      {icon:'📍',label:'Puente Nuevo',url:'https://maps.google.com/?q=Puente+Nuevo+Ronda+Spain',type:'maps'}
-    ]},
-
-  { id:'sevilla', name:'Sevilla', flag:'🌺', tag:'2 noches', dates:'29 Sept al 1 Oct',
-    photo:PHOTOS.sevilla, grad:GRAD.sevilla, res:['t-caminito','h-svq','t-alcazar','t-giralda','t-flamenco-svq','t-cadiz'],
-    brief:'Real Alcázar, el palacio mudéjar donde filmaron Game of Thrones. Plaza de España al golden hour: semicircular, con cerámica pintada de cada provincia. Triana, cuna del flamenco. Y en el camino desde Ronda, Setenil de las Bodegas y sus calles bajo la roca.',
-    highlights:['Setenil de las Bodegas','Real Alcázar · GoT','Plaza de España','Catedral y Giralda','Santa Cruz','Triana','Flamenco','Las Setas'],
-    days:[
-      { num:15, date:'Martes 29 Sept · Setenil y llegada a Sevilla', plan:'Check out de Ronda, que va hasta las 11:30. <strong>9:30: RONDA → SETENIL DE LAS BODEGAS</strong>, 20 min. Calles construidas debajo de un saliente de roca: las <strong>Cuevas del Sol</strong> y las <strong>Cuevas de la Sombra</strong>. Es el sitio más raro y más fotogénico del viaje. <strong>12:00: almuerzo ahí mismo</strong>, debajo de la roca, tierra de embutidos y carne a la brasa. <strong>13:30: SETENIL → SEVILLA</strong> (~2h). <strong>15:30: llegada.</strong> Acércate con las maletas en carro hasta donde puedas, descarga y haz check in. <strong>16:30: devuelves el carro en SANTA JUSTA</strong> (10 min desde Santa Cruz) y vuelves al centro en taxi. Bonus: el jueves sales desde ahí, así que ya sabes dónde queda. <strong>Tarde sin reloj:</strong> asiéntate y camina el <strong>barrio de Santa Cruz</strong>, con olor a azahar y patios escondidos. <strong>19:30: PLAZA DE ESPAÑA al golden hour</strong>, semicircular, con la cerámica de cada provincia y el canal con barcas. Cruzar a <strong>Triana</strong>, cuna del flamenco. Cena junto al <strong>Guadalquivir</strong> con la Torre del Oro iluminada.' },
-      { num:16, date:'Miércoles 30 Sept · Sevilla a fondo', plan:'<strong>9:30: REAL ALCÁZAR</strong> a primera hora, que es cuando está vacío y la luz en los jardines es la buena. Palacio mudéjar espectacular, los jardines de Dorne en Game of Thrones. ~2h. <strong>12:00: CATEDRAL Y GIRALDA</strong>, la gótica más grande del mundo. Se sube la Giralda por rampas, no por escaleras. <strong>Almuerzo</strong> en Santa Cruz. <strong>Tarde: METROPOL PARASOL</strong> o Las Setas, el mirador de madera sobre la ciudad vieja, y el <strong>Mercado de Triana</strong>. <strong>Noche: FLAMENCO en tablao auténtico</strong>, que es el cierre de Andalucía. <em>Este día ya no compite con nada: al soltar Arcos, el Alcázar se movió aquí y te sobra tiempo.</em>' },
-    ],
-    links:[
-      {icon:'🎟',label:'Real Alcázar',url:'https://www.alcazarsevilla.org/',type:'tickets'},
-      {icon:'⛪',label:'Catedral',url:'https://www.catedraldesevilla.es/',type:'tickets'},
-      {icon:'📍',label:'Setenil',url:'https://maps.google.com/?q=Setenil+de+las+Bodegas+Spain',type:'maps'},
-      {icon:'📍',label:'Plaza de España',url:'https://maps.google.com/?q=Plaza+de+Espana+Sevilla',type:'maps'}
-    ]},
-
-  { id:'cordoba', name:'Córdoba y cierre', flag:'🕌', tag:'parada y 1 noche', dates:'1 al 2 Oct',
-    photo:PHOTOS.cordoba, grad:GRAD.cordoba, res:['tr-svq-cor','t-mezquita','tr-cor-mad','h-mad2'],
-    brief:'La Mezquita Catedral: 856 columnas de mármol con arcos rojos y blancos formando un bosque hipnótico, con una catedral renacentista incrustada dentro. Judería medieval, Puente Romano, patios cordobeses, salmorejo y flamenquín.',
-    highlights:['Mezquita Catedral','856 columnas','Judería medieval','Puente Romano','Calleja de las Flores','Patios cordobeses','Salmorejo','Flamenquín'],
-    days:[
-      { num:17, date:'Jueves 1 Oct · Córdoba de paso y cierre en Madrid', plan:'<strong>8:15 desayuno · 9:00 check out</strong> (la ventana va de 7:00 a 12:00) <strong>· 9:15 taxi a Santa Justa</strong>, son 10 min desde Santa Cruz. <strong>9:55: AVANT a CÓRDOBA</strong> (44 min). Córdoba está EN la ruta a Madrid, no es un desvío: el AVE para ahí igual. <strong>10:39: llegas a Córdoba (estación Julio Anguita). Deja las maletas en la CONSIGNA</strong> (confírmala antes) y taxi o 20 min a pie al centro. <strong>11:30 a 13:00: LA MEZQUITA CATEDRAL</strong>, el bosque de <strong>856 columnas</strong> de mármol con arcos rojos y blancos, y una catedral renacentista incrustada dentro. Reserva el turno online. <strong>13:00 a 14:00: PUENTE ROMANO</strong> sobre el Guadalquivir y la <strong>Judería</strong>. Si sobra, la <strong>Calleja de las Flores</strong>. <strong>14:00: almuerzo</strong>, salmorejo y flamenquín, que los inventaron aquí. <strong>15:45: de vuelta a la estación</strong> por las maletas. <strong>~16:30: tren a MADRID</strong> (~1h45). <strong>~18:15: llegada a Atocha</strong>, y el apartamento está a 5 min andando. Check in en <strong>Atocha19</strong> (ventana de 15:00 a 22:00, y ojo que después de las 23:00 cobran €25 de recargo). <strong>Noche: Mercado de San Miguel y CENA DE CIERRE DEL VIAJE.</strong> ⚠️ No intentes ver Córdoba entera: Mezquita y Puente Romano, y ya.' },
-      { num:18, date:'Viernes 2 Oct · vuelta', plan:'Check out de Atocha19 entre 6:00 y 12:00. Atocha está a 5 min, así que te queda la mañana libre. <strong>Vuelo MAD → SJU 16:15</strong>, Iberia directo, 8h35. <strong>Llegas a San Juan a las 18:50</strong> esa misma noche.' }
-    ],
-    links:[
-      {icon:'🎟',label:'Mezquita',url:'https://mezquita-catedraldecordoba.es/',type:'tickets'},
-      {icon:'📍',label:'Puente Romano',url:'https://maps.google.com/?q=Puente+Romano+Cordoba+Spain',type:'maps'}
-    ]}
-];
-
-/* ══════════════ CALENDARIO ══════════════ */
-const dias = [
-  {d:14,c:'fly',lb:'vuelo',dow:1},{d:15,c:'ams',lb:'AMS',dow:2},{d:16,c:'ams',lb:'AMS',dow:3},
-  {d:17,c:'ams',lb:'AMS',dow:4},{d:18,c:'mad',lb:'MAD',dow:5},{d:19,c:'mad',lb:'MAD',dow:6},
-  {d:20,c:'mad',lb:'Rastro',dow:0},{d:21,c:'bcn',lb:'BCN',dow:1},{d:22,c:'bcn',lb:'Summit',dow:2},
-  {d:23,c:'bcn',lb:'Summit',dow:3},{d:24,c:'grx',lb:'GRX',dow:4},{d:25,c:'grx',lb:'Alhambra',dow:5},
-  {d:26,c:'grx',lb:'GRX',dow:6},{d:27,c:'grx',lb:'GRX',dow:0},{d:28,c:'ron',lb:'Ronda',dow:1},
-  {d:29,c:'svq',lb:'Caminito',dow:2},{d:30,c:'svq',lb:'SVQ',dow:3},{d:1,c:'cor',lb:'Córdoba',dow:4},
-  {d:2,c:'fly',lb:'vuelta',dow:5}
-];
-const calKey = [
-  {c:'fly',n:'Vuelo'},{c:'ams',n:'Ámsterdam'},{c:'mad',n:'Madrid'},
-  {c:'bcn',n:'Barcelona'},{c:'grx',n:'Granada'},{c:'ron',n:'Ronda'},{c:'svq',n:'Sevilla'},{c:'cor',n:'Córdoba'}
-];
-const rutaChips = ['🇵🇷 SJU','🇳🇱 Ámsterdam','🇪🇸 Madrid','🎯 Barcelona','🌙 Granada','⛰️ Ronda','🌺 Sevilla','🕌 Córdoba','🇪🇸 Madrid','🇵🇷 SJU'];
-
 /* ══════════════ DOCUMENTOS ══════════════ */
 const docsData = [
   { cat:'Documentos', icon:'📄', items:[
@@ -840,8 +729,242 @@ const packingData = [
   ]}
 ];
 
-/* ══════════════ ESTADO ══════════════ */
 const EUR_USD = 1.08;
+
+/* ══════════════ CIUDADES ══════════════ */
+const CITY = {
+  fly:{n:'Vuelo',     c:'#334155', f:'✈️'},
+  ams:{n:'Ámsterdam', c:'#6366f1', f:'🇳🇱'},
+  mad:{n:'Madrid',    c:'#7c3aed', f:'🇪🇸'},
+  bcn:{n:'Barcelona', c:'#4f46e5', f:'🎯'},
+  grx:{n:'Granada',   c:'#8b5cf6', f:'🌙'},
+  ron:{n:'Ronda',     c:'#6d28d9', f:'⛰️'},
+  svq:{n:'Sevilla',   c:'#9333ea', f:'🌺'},
+  cor:{n:'Córdoba',   c:'#7e22ce', f:'🕌'}
+};
+
+/* ══════════════════════════════════════════════════════════════
+   DÍA POR DÍA
+   f: fecha ISO · c: ciudad (color) · ciudad: etiqueta · t: título
+   lead: la frase del día · fijo: reservas de ese día con su etiqueta
+   plan: párrafos · alt: párrafos del plan B
+   El estado de cada reserva (ok / todo / idea) se lee en vivo:
+   lo que está en verde es lo que no se mueve, lo ámbar falta comprar,
+   lo gris son opciones. Cambia en Reservas y cambia aquí.
+   ══════════════════════════════════════════════════════════════ */
+const itinerario = [
+  { f:'2026-09-14', dow:'Lun', d:14, c:'fly', ciudad:'San Juan → Madrid', t:'Salida desde San Juan',
+    lead:'El único compromiso del día es el vuelo. Todo lo demás es cerrar la casa con calma.',
+    fijo:[{id:'f-sju-mad', lb:'17:15 sale el vuelo SJU → MAD'}],
+    plan:'<p><strong>14:30, en el aeropuerto.</strong> Iberia es vuelo internacional con documentación en mostrador, y SJU un lunes a media tarde se llena. Dos horas y media es el margen cómodo, no el mínimo. Pasaporte, licencia de conducir (la vas a necesitar en Granada) y las tarjetas ya avisadas al banco.</p><p><strong>17:15, despegas.</strong> Directo, 8 horas y 15 minutos. Cena en el avión y a dormir lo antes posible: aterrizas a las 07:30 hora de Madrid, que son la 01:30 tuyas, y ese mismo día conectas a Ámsterdam y terminas en un barco a las 23:00. La noche del avión es la única que tienes entre San Juan y el canal cruise.</p>',
+    alt:'<p>Si el vuelo se retrasa, lo que hay que vigilar es la conexión de Madrid a Ámsterdam, porque son billetes separados y nadie te reprotege. Revisa cuánto margen hay entre las 07:30 y la salida a AMS; si es menos de tres horas, deja identificado el siguiente vuelo del día por si acaso.</p><p>Si pierdes la conexión, Madrid tiene vuelos a Ámsterdam toda la tarde y el hotel de Ámsterdam ya está pagado: llegas más tarde, no pierdes la noche.</p>' },
+
+  { f:'2026-09-15', dow:'Mar', d:15, c:'ams', ciudad:'Ámsterdam · día 1', t:'Llegada y canal cruise',
+    lead:'Día de aterrizar, dormir un rato y cerrar con el barco. Nada más es obligatorio.',
+    fijo:[{id:'f-mad-ams', lb:'MAD → AMS, hora por confirmar'},{id:'h-ams', lb:'Check in, alojamiento de Ámsterdam'},{id:'t-cruise', lb:'21:30 Evening Cruise, Keizersgracht 92H'}],
+    plan:'<p><strong>07:30 aterrizas en Madrid</strong> y conectas a Ámsterdam. La hora del vuelo a AMS no está en el dashboard: ponla en la reserva con "editar datos" para que salga aquí. Desde Schiphol, el tren a <strong>Amsterdam Centraal</strong> sale cada pocos minutos, tarda 15 a 20 y cuesta unos €5.90; se paga con la tarjeta en el torno.</p><p><strong>Check in, ducha y dormir.</strong> Vienes de vuelo nocturno y la noche termina a las 23:00. Si el cuarto no está listo, deja las maletas y duerme igual en cuanto puedas: un café en el Jordaan y un banco junto al canal valen lo mismo que un plan.</p><p><strong>Atardecer suave por los canales</strong> del Jordaan, Brouwersgracht y Prinsengracht, sin ruta. <strong>19:00, cena ligera</strong> en Winkel 43 (la apple pie) o Moeders. Ligera de verdad: el barco trae tres bebidas y queso.</p><p><strong>21:25, en el muelle</strong> de Keizersgracht 92H, el de madera junto al 106. <strong>21:30 a 23:00, el Spectacular Evening Cruise</strong> en el Pure Spirit. Termina en el mismo muelle, y de ahí a caer.</p>',
+    alt:'<p>Si llegan destruidos, el barco es lo único que no se mueve. Duerme hasta las 18:00 si hace falta y sal directo al muelle. Si llueve, escribe a Pure Boats (+31 20 215 7420) para saber si el barco va cubierto antes de vestirte para eso.</p><p>Si el vuelo se retrasa tanto que no llegas a las 21:25, llama a Pure Boats antes de darlo por perdido: pregunta si pueden moverte al miércoles o al jueves. Cambiar es más barato que perderlo.</p>' },
+
+  { f:'2026-09-16', dow:'Mié', d:16, c:'ams', ciudad:'Ámsterdam · día 2', t:'Museos de día, Red Light de noche',
+    lead:'El mediodía es el Museumplein: dos museos sin moverte de sitio. La noche es larga, así que la tarde se descansa.',
+    fijo:[{id:'t-moco', lb:'11:30 Moco Museum'},{id:'t-rijks', lb:'14:00 Rijksmuseum'},{id:'n-redlight', lb:'21:00 Red Light District'},{id:'n-church', lb:'Noche: Club Church (una de las dos noches)'},{id:'n-showboat', lb:'Noche: Showboat (la otra noche)'}],
+    plan:'<p><strong>Mañana suelta hasta las 11.</strong> Nine Streets, el Bloemenmarkt, o dormir tarde y desayunar con calma. No hay nada que reservar.</p><p><strong>11:30, Moco Museum.</strong> Banksy y Basquiat, entre una hora y hora y media. <strong>13:00, almuerzo</strong> en The Seafood Bar, en Van Baerlestraat, a un par de cuadras. <strong>14:00, Rijksmuseum</strong>, entrada de 14:00 a 15:00: La Ronda de Noche de Rembrandt y La Lechera de Vermeer, unas dos horas. Los dos museos están en el Museumplein, así que el mediodía entero es a pie.</p><p><strong>16:30, descanso en el hotel.</strong> <strong>19:00, cena</strong> en Foodhallen. <strong>21:00, Red Light District a pie</strong>: De Wallen y la Oude Kerk. La única regla, y la hacen cumplir: cero fotos a las ventanas.</p><p><strong>Ya de noche, club.</strong> Church o Showboat, el que escojan para hoy; el otro queda para mañana. De Wallen al centro se camina, así que encadena solo.</p>',
+    alt:'<p>Si se levantan tarde, lo que se sacrifica es el desayuno largo, no el Moco: la entrada es con hora. Si solo quieren un museo, el que no se toca es el Rijksmuseum. Si no hay ganas de club, el Red Light se camina en una hora y de ahí a la cama; el club pasa al jueves.</p><p>Club Church programa una fiesta distinta cada noche, con su dress code y su política de entrada: mira el calendario antes de decidir qué noche van, porque aquí la noche escoge la fiesta. Showboat no está verificado (ni horario ni precio); confírmalo antes de contar con él.</p>' },
+
+  { f:'2026-09-17', dow:'Jue', d:17, c:'ams', ciudad:'Ámsterdam · día 3', t:'NEMO y día abierto',
+    lead:'Una sola hora fija, a las 10:30. El resto se decide en el desayuno.',
+    fijo:[{id:'t-nemo', lb:'10:30 NEMO Science Museum'}],
+    plan:'<p><strong>10:30, NEMO Science Museum</strong>, en el Oosterdok, dos tickets confirmados. La terraza del techo tiene la mejor vista de Ámsterdam y es gratis, así que súbete aunque el museo se haga corto. Unas dos horas.</p><p><strong>Resto del día abierto</strong>, por cuadrar con Iván. Lo que mejor encaja sin reservar: el Vondelpark en bicicleta, De Pijp con sus cafés, o el Jordaan otra vez pero de día. Si prefieren agua, hay barcos abiertos de una hora que salen del Damrak sin reserva.</p><p><strong>Noche: el otro club</strong>, el que no hicieron ayer. Ojo con la hora de acostarse: mañana es check out, Albert Cuyp y vuelo nocturno a Madrid.</p>',
+    alt:'<p>Si llueve, el Stedelijk (arte moderno) está en el mismo Museumplein de ayer, y Foodhallen aguanta una tarde entera. No cuentes con la Casa de Ana Frank: las entradas se agotan semanas antes y no venden en taquilla.</p><p>Si el cuerpo pide un día de nada, este es el día para eso. El viernes ya trae maletas y aeropuerto.</p>' },
+
+  { f:'2026-09-18', dow:'Vie', d:18, c:'ams', ciudad:'Ámsterdam → Madrid', t:'Última mañana y vuelo nocturno',
+    lead:'Ámsterdam se despide con el mercado. La noche es de avión y de dormir en Madrid.',
+    fijo:[{id:'f-ams-mad', lb:'~20:00 vuelo AMS → MAD, llega ~23:30'},{id:'h-mad1', lb:'Llegada al Airbnb de Madrid'}],
+    plan:'<p><strong>9:30, desayuno</strong> en Pancakes Amsterdam. <strong>Check out</strong> a la hora del hotel y las maletas en conserjería. Última mañana relajada por el Jordaan o alguna galería.</p><p><strong>13:30, Albert Cuyp Market</strong> en De Pijp: stroopwafels calientes, haring y gouda al vacío para traer. <strong>Tarde libre</strong>: aquí cabe lo que quedó pendiente de la semana, o simplemente café y descanso antes del aeropuerto.</p><p><strong>18:00, Vleminckx</strong>, las mejores patatas fritas de la ciudad. <strong>19:00, tren a Schiphol</strong> desde Centraal. <strong>~20:00, vuelo a Madrid</strong>, llegas cerca de las 23:30. Taxi al Airbnb y a dormir: mañana el museo es a las 10:00.</p>',
+    alt:'<p>La hora exacta del vuelo AMS → MAD no está en el dashboard: ponla en la reserva. Si el vuelo se retrasa, avisa al host del Airbnb con la hora nueva, que llegar de madrugada sin avisar es lo que rompe un check in.</p><p>Si la tarde se hace larga, De Pijp y el Sarphatipark están al lado del mercado y no hay que volver al centro.</p>' },
+
+  { f:'2026-09-19', dow:'Sáb', d:19, c:'mad', ciudad:'Madrid · día 1', t:'Museo temprano, noche larga',
+    lead:'El Reina Sofía a primera hora, vacío. Después el día baja de ritmo hasta el rooftop del atardecer.',
+    fijo:[{id:'t-reina', lb:'10:00 Reina Sofía'},{id:'t-prado', lb:'Prado, descartado a favor del Reina Sofía'}],
+    plan:'<p><strong>10:00, Museo Reina Sofía</strong>, primera hora y casi sola frente al Guernica. Al lado, la sala de bocetos preparatorios con las fotos de Dora Maar del proceso día a día: eso es lo que casi nadie mira y lo mejor para alguien que crea. Dalí, Miró, Juan Gris y la proyección de Un perro andaluz. Sube por los ascensores de cristal exteriores. Cero fotos al Guernica. Hora y media.</p><p><strong>12:00, Parque del Retiro</strong>, que empieza ahí al lado: Palacio de Cristal, el lago con barcas, la rosaleda. <strong>14:00, almuerzo. 16:00, Malasaña</strong>: vintage, cafés, street art y tiendas independientes.</p><p><strong>19:30, Azotea del Círculo de Bellas Artes</strong> para el atardecer, que en septiembre cae sobre las 20:15. Se cobra entrada y un sábado se llena: llega temprano o mira si se reserva. <strong>21:30, tapeo por La Latina y Cava Baja</strong>: bravas, croquetas, jamón, tortilla. Y de ahí, a janguear.</p>',
+    alt:'<p>Si el rooftop tiene cola, el mirador del Riu Plaza España o el Hotel Emperador dan el mismo atardecer. Si llegaste tarde anoche y el cuerpo no da, lo que se suelta es el Retiro, no el museo: el Reina Sofía a las 10:00 es lo que paga esas €24.</p><p>Si quieren más arte, el Prado queda como opción y no como plan: son tres horas de maratón y hoy ya tienes noche.</p>' },
+
+  { f:'2026-09-20', dow:'Dom', d:20, c:'mad', ciudad:'Madrid · día 2', t:'El domingo madrileño',
+    lead:'Rastro, vermut y el atardecer en Debod. Cero entradas, cero reservas. Esta noche la maleta queda lista.',
+    fijo:[],
+    plan:'<p><strong>9:30, El Rastro.</strong> El mercado de pulgas más grande de España abre solo los domingos, de 9:00 a 15:00, en La Latina por la Ribera de Curtidores. Antigüedades, vinilos, cachivaches y gente. Temprano hay menos gentío.</p><p><strong>13:00, el vermut de domingo</strong>, que es la tradición local de verdad, por las tabernas de Cava Baja y la Plaza de la Cebada. <strong>Tarde: Palacio Real</strong> y la Catedral de la Almudena al lado.</p><p><strong>Atardecer: Templo de Debod</strong>, un templo egipcio auténtico del siglo II a.C. con la sierra de fondo. El mejor atardecer de Madrid y es gratis. <strong>Noche tranquila.</strong> Mañana el tren es a las 9:31 y el embarque cierra a las 9:26: la maleta se cierra hoy.</p>',
+    alt:'<p>Si llueve, el Rastro se deshace: cámbialo por el Prado, que los domingos abre de 10:00 a 19:00 y es gratis de 17:00 a 19:00. Si el Palacio Real está cerrado por un acto oficial (pasa), los Jardines de Sabatini están justo debajo y la Almudena sigue abierta.</p><p>Si el sábado se quedó sin rooftop, hoy el Círculo de Bellas Artes tiene menos cola.</p>' },
+
+  { f:'2026-09-21', dow:'Lun', d:21, c:'bcn', ciudad:'Madrid → Barcelona', t:'Ouigo a las 9:31 y tarde entera en Barcelona',
+    lead:'La mañana es de reloj: el embarque cierra a las 9:26. Desde la 1:00 Barcelona es tuya, y es tu única tarde libre ahí.',
+    fijo:[{id:'tr-mad-bcn', lb:'9:31 Ouigo Atocha → Sants, embarque cierra 9:26'},{id:'h-bcn', lb:'Check in Niu Barcelona, Rambla del Raval 8'}],
+    plan:'<p><strong>7:30, desayuno y check out. 8:45, en Atocha.</strong> Ouigo hace control de billetes y equipaje: el embarque abre 30 minutos antes y cierra cinco minutos antes de la salida. Tu tarifa PLUS incluye maleta de mano, de cabina y una XL; si apareces con más, son 25€ en el andén.</p><p><strong>9:31, Ouigo 06501</strong>, coche 3, asiento 27A, localizador H5D3MG. <strong>12:58, Sants.</strong> Taxi al Niu Barcelona Hotel, en la Rambla del Raval, 10 a 15 minutos. Check in o deja las maletas.</p><p><strong>Tarde completa en Barcelona</strong>, y es la única: Barrio Gótico con la Catedral y la Plaça Reial, El Born con Santa María del Mar, y bajar a la Barceloneta. Cena frente al mar. Antes, comprueba si el <strong>registro del Summit abre esta tarde</strong>: muchos entregan la acreditación la víspera y te ahorras la cola de mañana.</p>',
+    alt:'<p>Si pierdes el Ouigo, el billete no se reembolsa: compra en taquilla el siguiente Renfe o Iryo, que salen cada media hora o cada hora. Si el tren llega con más de 30 minutos de retraso, guarda el billete: Ouigo devuelve el 50% en un vale, y es el único operador que lo sigue haciendo.</p><p>Si llueve por la tarde, El Born aguanta bajo techo: el Mercat de Santa Caterina y los cafés de la zona.</p>' },
+
+  { f:'2026-09-22', dow:'Mar', d:22, c:'bcn', ciudad:'Barcelona · Summit', t:'AI Summit, día 1',
+    lead:'Día de trabajo. El World Trade Center está frente al puerto, a 20 minutos a pie del Raval.',
+    fijo:[{id:'e-summit', lb:'AI Summit Barcelona, World Trade Center'}],
+    plan:'<p><strong>AI Summit Barcelona</strong> en el World Trade Center, en el Moll de Barcelona. Keynotes principales, expo floor, workshops y networking. Desde el hotel del Raval son unos 20 minutos a pie bajando por la Rambla.</p><p><strong>Contenido:</strong> behind the scenes, keynotes y reels de thought leadership para IG y LinkedIn. Tarjetas de presentación en el bolsillo desde la mañana.</p><p><strong>Noche:</strong> lo que salga del networking. Si no sale nada, cena en El Born o en la Barceloneta, que quedan de camino.</p>',
+    alt:'<p>Si una franja del programa no vale la pena, la ciudad está a 15 minutos: la Catedral, el Gótico y la Barceloneta son la escapada natural entre sesiones. Si el Summit tiene after, ve: mañana también es Summit pero no hay hora fija de entrada.</p>' },
+
+  { f:'2026-09-23', dow:'Mié', d:23, c:'bcn', ciudad:'Barcelona · Summit', t:'AI Summit, día 2',
+    lead:'Cerrar contactos y dejar la maleta lista. Mañana es la Mercè y vuelas por la tarde.',
+    fijo:[{id:'e-summit', lb:'AI Summit, último día'}],
+    plan:'<p><strong>Sesiones avanzadas</strong>, cerrar contactos clave, intercambio de tarjetas y follow ups. Últimas demos en la expo, networking lunch y closing ceremony.</p><p><strong>Noche: maleta lista.</strong> Mañana es festivo, la ciudad se llena y sales para el aeropuerto a media tarde. Lo que no esté empacado hoy se empaca corriendo.</p>',
+    alt:'<p>Si el closing se alarga o hay fiesta de cierre, quédate: el jueves no tiene hora fija hasta el vuelo de las 17:15, y los castellers son al mediodía.</p>' },
+
+  { f:'2026-09-24', dow:'Jue', d:24, c:'grx', ciudad:'Barcelona → Granada', t:'La Mercè y vuelo a Granada',
+    lead:'Te tocó el día grande de la fiesta mayor. Se camina, no se compra nada, y se sale al aeropuerto con mucho margen.',
+    fijo:[{id:'e-merce', lb:'La Mercè, todo el día'},{id:'f-bcn-grx', lb:'17:15 Vueling BCN → GRX, llega 18:55'},{id:'h-grx', lb:'Check in Airbnb del Albaicín'}],
+    plan:'<p><strong>Check out y maletas en el hotel.</strong> <strong>La Mercè</strong> es festivo local: castellers (las torres humanas, en la Plaça Sant Jaume hacia el mediodía), gegants, correfoc y conciertos gratis en la calle. Revisa el programa oficial la víspera para ubicar los castellers, que es lo que hay que ver.</p><p><strong>Almuerzo temprano y al aeropuerto a las 14:30 a más tardar.</strong> Con el festivo hay cortes de calles y el tráfico se pone feo: el margen normal no sirve hoy. <strong>17:15, Vueling a Granada</strong>, directo, localizador BF5L8V. <strong>18:55, aterrizas.</strong> Taxi al Albaicín, unos 30 minutos.</p><p><strong>Noche: primera probada de Granada.</strong> Tapa gratis con cada bebida por Calle Navas, Plaza Nueva y Calle Elvira. Si llegas con energía, sube al Mirador de San Nicolás para la primera vista de la Alhambra iluminada.</p>',
+    alt:'<p>Si las calles del centro están cortadas, no dependas de un taxi: el Aerobús sale de Plaça Catalunya cada pocos minutos y llega a la T1 en 35, y el metro L9 Sud llega a la T1 sin tocar el tráfico. Si el vuelo se retrasa, avisa al host del Airbnb: el Albaicín de noche con maletas se hace en taxi hasta donde el taxi pueda.</p>' },
+
+  { f:'2026-09-25', dow:'Vie', d:25, c:'grx', ciudad:'Granada · día 1', t:'Albaicín de mañana, Alhambra de tarde',
+    lead:'La única entrada del viaje que no perdona la hora. La mañana es libre y con fresco; a las 14:00 estás subiendo.',
+    fijo:[{id:'t-alhambra', lb:'14:30 Alhambra y Generalife, turno de tarde'}],
+    plan:'<p><strong>Mañana libre y con fresco: el Albaicín a fondo.</strong> Callejuelas empedradas, las teterías de la Calderería Nueva y la Carrera del Darro, la calle más bonita de Granada, con el río abajo y la Alhambra arriba. Almuerza temprano y ligero.</p><p><strong>14:00, sube a la Alhambra</strong> con tiempo, que la entrada es larga y hay control. <strong>14:30, Alhambra y Generalife.</strong> Palacios Nazaríes con la Fuente de los Leones y el Patio de los Arrayanes, la Alcazaba sin una sombra, y los jardines del Generalife. Gorra, agua y protector: es la hora de más calor. Sales sobre las 18:00.</p><p><strong>Atardecer: Mirador de San Nicolás.</strong> La Alhambra en luz dorada con Sierra Nevada detrás, y acabas de estar dentro. Cena en el Albaicín.</p>',
+    alt:'<p>Confirma en el billete si las 14:30 son la entrada al recinto o la hora de los Palacios Nazaríes: no es lo mismo. Los Nazaríes tienen ventana propia de media hora, y si la pierdes no entras y no hay reembolso. Si es la de los Nazaríes, a las 14:00 tienes que estar ya en la puerta de los Palacios, no en la taquilla.</p><p>Si el calor aprieta, la Alcazaba se deja para el final del recorrido. Y si San Nicolás está a reventar al atardecer, el Mirador de San Miguel Alto queda diez minutos más arriba con la mitad de gente.</p>' },
+
+  { f:'2026-09-26', dow:'Sáb', d:26, c:'grx', ciudad:'Granada · día 2', t:'Capilla Real, Sacromonte y flamenco',
+    lead:'Día sin hora fija. El flamenco en cueva se reserva el mismo día.',
+    fijo:[{id:'t-flamenco-grx', lb:'Noche: flamenco en cueva del Sacromonte'}],
+    plan:'<p><strong>Mañana: Capilla Real</strong>, con las tumbas de los Reyes Católicos, y la <strong>Catedral</strong> al lado. Almuerzo de tapas por el centro.</p><p><strong>Tarde: Sacromonte</strong>, el barrio gitano de las cuevas, subiendo desde el Paseo de los Tristes. Es la caminata del día, y la vista de la Alhambra desde ese lado es otra.</p><p><strong>Noche: flamenco en cueva</strong>, zambra auténtica, unos €30 por persona. Se reserva el mismo día sin problema; pregunta en el Airbnb cuál recomiendan, que las cuevas cambian mucho de calidad.</p>',
+    alt:'<p>Si el flamenco no llama, la noche es de tapas por Elvira y Plaza Nueva, y ya. Si quieren naturaleza en vez de monumento, desde el Paseo de los Tristes sale el camino a la Fuente del Avellano: media hora río arriba con el bosque de la Alhambra encima, gratis y sin nadie.</p>' },
+
+  { f:'2026-09-27', dow:'Dom', d:27, c:'grx', ciudad:'Granada · día 3', t:'Realejo y último atardecer',
+    lead:'El día flexible de Granada: aquí cae lo que se haya quedado fuera. Esta noche se prepara la salida en carro.',
+    fijo:[],
+    plan:'<p><strong>Día relax por el Realejo</strong>, la antigua judería, con el street art de El Niño de las Pinturas y los cármenes con jardines. Últimas tapas por Calle Navas.</p><p><strong>Atardecer final: Mirador de San Miguel Alto</strong>, más arriba que San Nicolás y con menos gente. Lleva agua, la subida es empinada.</p><p><strong>Noche: preparar la salida.</strong> Mañana el carro se recoge a las 9:30 en la estación de tren y el Airbnb está en el Albaicín: pide el taxi para las 9:00 con maletas. Licencia, pasaporte y el itinerario 73527918359633 a mano.</p>',
+    alt:'<p>Si el viernes o el sábado dejaron algo fuera (Capilla Real, Sacromonte, la Carrera del Darro con luz), hoy es el día. Si el domingo pide no hacer nada, no hagas nada: Ronda mañana es callejeo y subida.</p>' },
+
+  { f:'2026-09-28', dow:'Lun', d:28, c:'ron', ciudad:'Granada → Ronda', t:'Carro, sierra y el Tajo',
+    lead:'El carro se recoge a las 9:30. A las 11:45 estás en Ronda con el pueblo entero desde el mediodía hasta la noche.',
+    fijo:[{id:'car', lb:'9:30 recogida del carro, estación Renfe de Granada'},{id:'h-ron', lb:'Check in Balcones del Tajo desde las 13:30'},{id:'a-barranco', lb:'Tarde: barranquismo dentro del Tajo'},{id:'a-mina', lb:'Mina de Agua, Casa del Rey Moro'},{id:'r-torcal', lb:'El Torcal, desvío de la mañana'}],
+    plan:'<p><strong>9:00, taxi con las maletas</strong> del Albaicín a la estación de Renfe, en la Avenida de los Andaluces. <strong>9:30, Budget</strong>: Renault Austral o similar, kilometraje ilimitado, a nombre de Iván. Código del parking 2879e. Llega 15 minutos antes y saca fotos del carro por los cuatro lados.</p><p><strong>Directo a Ronda</strong>, unas dos horas por la A-92 y la A-367: sierras, olivos y pueblos blancos por la ventana. <strong>11:45, llegas.</strong> Come algo, y a partir de las 13:30 haces check in en Balcones del Tajo, Calle Rosario 12. Les avisaste que llegas entre 13:00 y 14:00.</p><p><strong>Tarde: el Tajo.</strong> El Puente Nuevo sobre la garganta de 120 metros, y bajar al fondo por el Camino de los Molinos, que es la caminata de naturaleza del día: desde abajo el puente se ve en toda su escala, y la subida de vuelta es dura de verdad. Drone. Después la Plaza de Toros, la más antigua de España, y el casco antiguo.</p><p><strong>Vuelve al Puente Nuevo al atardecer:</strong> con luz de tarde es otro sitio. Cena con vistas al Tajo.</p>',
+    alt:'<p>Si Horizon confirma el barranquismo (piden grupo de cuatro y ustedes son dos), la tarde es eso: tres horas bajando el río Guadalevín por dentro del Tajo, encuentro en los Baños Árabes, y sustituye al Camino de los Molinos. Necesitas escarpines y que el seguro cubra deporte de aventura. Si no confirman, el Camino de los Molinos da la misma naturaleza a pie.</p><p>La versión suave de bajar al río es la Mina de Agua de la Casa del Rey Moro: 231 escalones del siglo XIV excavados en la pared del Tajo. Confirma que esté abierta, ha tenido cierres. El Torcal queda como opción y la recomendación es soltarlo: son cuatro horas de desvío por un campo de rocas, con maletas en el carro y sin sombra.</p>' },
+
+  { f:'2026-09-29', dow:'Mar', d:29, c:'svq', ciudad:'Ronda → Setenil → Sevilla', t:'Setenil y llegada a Sevilla',
+    lead:'Un solo desvío, a 20 minutos, y el carro se devuelve a las 16:30. El golden hour es en la Plaza de España.',
+    fijo:[{id:'r-pueblos', lb:'9:30 Ronda → Setenil (9:50 a 13:30) → Sevilla 15:30'},{id:'h-svq', lb:'Check in nüa cicerone desde las 14:00'},{id:'car', lb:'16:30 devolución del carro en Santa Justa'},{id:'t-caminito', lb:'Caminito del Rey, sin cupo'}],
+    plan:'<p><strong>Check out de Ronda</strong> (va hasta las 11:30, pero sales a las 9:30). <strong>9:50, Setenil de las Bodegas</strong>: calles enteras metidas debajo de un techo de roca natural, las Cuevas del Sol y las Cuevas de la Sombra. El sitio más raro y más fotogénico del viaje, y el que llevabas años queriendo ver. Con el mirador del Carmen y la torre son hora y media; el resto es callejear sin prisa.</p><p><strong>12:00, almuerzo ahí mismo</strong>, debajo de la roca: tierra de embutidos y carne a la brasa. <strong>13:30, sales.</strong> Setenil a Sevilla son unas dos horas. <strong>15:30, llegas.</strong> Acércate con el carro hasta donde Santa Cruz lo permita, descarga las maletas en nüa cicerone, Mesón del Moro 10, y haz check in. Avísales que llegas en coche a descargar: es calle estrecha.</p><p><strong>16:30, devuelves el carro en Santa Justa</strong>, diez minutos desde Santa Cruz, y vuelves al centro en taxi. El jueves sales de esa misma estación, así que ya la conoces. <strong>Tarde sin reloj</strong> por el barrio de Santa Cruz. <strong>19:30, Plaza de España al golden hour</strong>, y de ahí cruzar a Triana para cenar junto al Guadalquivir con la Torre del Oro iluminada.</p>',
+    alt:'<p>Si Setenil se hace corto, Zahara de la Sierra queda a 35 minutos con su castillo sobre el embalse, pero es desvío al norte y te come la tarde de Sevilla: solo si de verdad sobra tiempo. Arcos lo soltaste a propósito para llegar con luz.</p><p>El Caminito del Rey no tiene cupo para hoy; si aparece un turno de mañana en el link, se reactiva y se cae Setenil. Un turno de tarde no lo cojas: te destroza la llegada a Sevilla y la devolución del carro.</p><p>Si vas justa de hora con el carro, lo que se recorta es el almuerzo largo, no la devolución: el contrato dice 16:30.</p>' },
+
+  { f:'2026-09-30', dow:'Mié', d:30, c:'svq', ciudad:'Sevilla · día 2', t:'Sevilla a fondo',
+    lead:'Alcázar a primera hora y el resto sin reloj. Esta noche se compran los dos trenes de mañana si no están.',
+    fijo:[{id:'t-alcazar', lb:'9:30 Real Alcázar'},{id:'t-giralda', lb:'12:00 Catedral y Giralda'},{id:'t-flamenco-svq', lb:'Noche: flamenco en tablao'},{id:'t-cadiz', lb:'Day trip a Cádiz, compite con Sevilla'}],
+    plan:'<p><strong>9:30, Real Alcázar</strong>, primera hora: vacío y con la luz buena en los jardines. Palacio mudéjar, los jardines de Dorne de Game of Thrones. Unas dos horas. Se compra online y se llena: cómpralo ya.</p><p><strong>12:00, Catedral y Giralda</strong>, la gótica más grande del mundo. La Giralda se sube por rampas, no por escaleras. <strong>Almuerzo</strong> en Santa Cruz.</p><p><strong>Tarde: Las Setas</strong> (Metropol Parasol), el mirador de madera sobre la ciudad vieja, y el Mercado de Triana. <strong>Noche: flamenco en tablao</strong>, el cierre de Andalucía.</p>',
+    alt:'<p>Si el Alcázar de las 9:30 está agotado, coge la primera hora que quede y mueve la Catedral detrás. Si el calor de la tarde aprieta, Las Setas se dejan para el atardecer, que es cuando mejor se ven.</p><p>Cádiz está como opción, a hora y media en tren, pero compite con Sevilla a fondo: escoge una y suelta la otra, no caben las dos. Y antes de dormir, los dos billetes de mañana comprados por separado (Sevilla a Córdoba y Córdoba a Madrid), nunca el directo.</p>' },
+
+  { f:'2026-10-01', dow:'Jue', d:1, c:'cor', ciudad:'Sevilla → Córdoba → Madrid', t:'Córdoba de paso y cena de cierre',
+    lead:'Córdoba está en la ruta del tren, no es desvío. Mezquita, Puente Romano y ya. La noche es la de cierre en Madrid.',
+    fijo:[{id:'tr-svq-cor', lb:'9:55 Avant Sevilla → Córdoba'},{id:'t-mezquita', lb:'11:30 Mezquita Catedral'},{id:'tr-cor-mad', lb:'~16:30 tren Córdoba → Madrid'},{id:'h-mad2', lb:'Check in Atocha19, de 15:00 a 22:00'}],
+    plan:'<p><strong>8:15 desayuno, 9:00 check out, 9:15 taxi a Santa Justa.</strong> <strong>9:55, Avant a Córdoba</strong>, 44 minutos. <strong>10:39, llegas</strong> a la estación de Córdoba. Deja las maletas en la consigna (confírmala antes) y taxi o 20 minutos a pie al centro.</p><p><strong>11:30 a 13:00, la Mezquita Catedral</strong>: el bosque de 856 columnas con arcos rojos y blancos y una catedral incrustada dentro. Como tú ya fuiste, la guía eres tú. <strong>13:00 a 14:00, Puente Romano y la Judería</strong>, y si sobra, la Calleja de las Flores. <strong>14:00, almuerzo</strong>: salmorejo y flamenquín, que los inventaron aquí.</p><p><strong>15:45, de vuelta a la estación</strong> por las maletas. <strong>~16:30, tren a Madrid</strong>, hora y cuarenta y cinco. <strong>~18:15, Atocha</strong>, y Atocha19 está a cinco minutos a pie. Check in entre 15:00 y 22:00; después de las 23:00 cobran €25. <strong>Noche: Mercado de San Miguel y cena de cierre del viaje.</strong></p>',
+    alt:'<p>Si el Avant de las 9:55 no tiene plaza, el AVE de las 9:34 llega a las 10:15 por unos €11 más. Nunca el de la tarde: llegarías con la Mezquita cerrando. Para Córdoba a Madrid, compra tarifa que permita cambio y compara con Ouigo, que también para en Córdoba y es el único que sigue indemnizando retrasos.</p><p>Si Córdoba se hace pesada o hace calor, salta el Puente Romano y almuerza en la Judería. Si el tren llega tarde a Madrid, avisa a Atocha19 antes de las 23:00.</p>' },
+
+  { f:'2026-10-02', dow:'Vie', d:2, c:'fly', ciudad:'Madrid → San Juan', t:'Vuelta a casa',
+    lead:'Mañana libre en Madrid y vuelo a las 16:15. A las 18:50 estás en San Juan.',
+    fijo:[{id:'f-sju-mad', lb:'16:15 vuelo MAD → SJU, llega 18:50'}],
+    plan:'<p><strong>Check out de Atocha19</strong> entre las 6:00 y las 12:00. Te queda la mañana: desayuno largo por Huertas o el Retiro otra vez, que está a diez minutos.</p><p><strong>13:00, salir para el aeropuerto.</strong> Iberia sale de la T4; desde Atocha, el Cercanías llega a la T4 en unos 25 minutos, o taxi con tarifa fija al aeropuerto. <strong>16:15, vuelo MAD → SJU</strong>, directo, 8 horas y 35 minutos. <strong>18:50, San Juan.</strong></p>',
+    alt:'<p>Si quieres la mañana sin maletas, Atocha tiene consigna. Si el Cercanías da problema, el taxi desde Atocha a la T4 es media hora sin tráfico.</p>' }
+];
+
+/* ══════════════ DESTINOS ══════════════ */
+const destinations = [
+  { id:'amsterdam', name:'Ámsterdam', flag:'🇳🇱', tag:'3 noches', dates:'15 al 18 Sept', c:'ams',
+    photo:PHOTOS.amsterdam, grad:GRAD.amsterdam, hotel:'h-ams',
+    res:['f-mad-ams','h-ams','t-cruise','t-moco','t-rijks','n-redlight','n-church','n-showboat','t-nemo','f-ams-mad'],
+    intro:'<p>Ciudad de canales, museos de clase mundial y encanto bohemio. Arranca con un canal cruise al atardecer el mismo día que llegas, y de ahí: arte en el Museumplein, el Jordaan, el Red Light District y dos noches de salida.</p>',
+    dormir:'<p>Tres noches, del 15 al 18, $630 pagados. El nombre, la dirección y el localizador no están en el dashboard: guárdalos en la reserva con "editar datos" y aparecen aquí.</p>',
+    llegar:'<p>Llegas el martes 15 desde Madrid, en el vuelo de la mañana (hora por confirmar), y desde Schiphol el tren a Centraal tarda 15 a 20 minutos. Sales el viernes 18 en vuelo nocturno a Madrid, sobre las 20:00, con llegada cerca de las 23:30. Dentro de la ciudad todo se hace a pie o en tranvía; los museos del Museumplein y el NEMO quedan a 25 minutos andando del centro.</p>',
+    flex:'<p>Lo que se cayó a propósito: Van Gogh, la Fabrique des Lumières y el Smokeboat. Si sobra tiempo, el Stedelijk está en el mismo Museumplein, el Vondelpark se hace en bicicleta, y hay barcos abiertos de una hora saliendo del Damrak sin reserva. La Casa de Ana Frank no: se agota semanas antes.</p><p>Los clubes son la parte movible: Church y Showboat, uno cada noche, y el orden lo decide el calendario de Church.</p>',
+    links:[
+      {icon:'🖼',label:'Rijksmuseum',url:'https://www.rijksmuseum.nl/en/visit/tickets',type:'tickets'},
+      {icon:'🎭',label:'Moco Museum',url:'https://mocomuseum.com/',type:'tickets'},
+      {icon:'🛶',label:'Pure Boats',url:'https://pureboats.com/cruises/small-group-tours/evening-canal-cruise/',type:'tickets'},
+      {icon:'📍',label:'Maps',url:'https://maps.google.com/?q=Amsterdam+Netherlands',type:'maps'}
+    ]},
+
+  { id:'madrid', name:'Madrid', flag:'🇪🇸', tag:'3 noches + cierre', dates:'18 al 21 Sept · 1 Oct', c:'mad',
+    photo:PHOTOS.madrid, grad:GRAD.madrid, hotel:'h-mad1',
+    res:['h-mad1','t-prado','e-escuela','t-reina','tr-mad-bcn','h-mad2'],
+    intro:'<p>Tres noches completas de Madrid sin salir de la ciudad, y una noche más de cierre al final. El Reina Sofía a primera hora, el Rastro del domingo con su vermut, tapeo en La Latina y Cava Baja, rooftops de 360 grados, el verde del Retiro, el Palacio Real y el atardecer del Templo de Debod.</p>',
+    dormir:'<p>Del 18 al 21, tres noches en un Airbnb de $560, ya pagado; la dirección y el contacto del host no están aquí, guárdalos en la reserva. Y la noche del 1 de octubre, Atocha19 Apartment, en Atocha 19, a cinco minutos de la estación: confirmación 6284.097.511, PIN 1150, $179. Check in de 15:00 a 22:00; pasadas las 23:00 cobran €25.</p>',
+    llegar:'<p>Llegas el viernes 18 de noche desde Ámsterdam y sales el lunes 21 en el Ouigo de las 9:31 desde Atocha, con el embarque cerrado a las 9:26. Vuelves el jueves 1 en tren desde Córdoba sobre las 18:15, y el viernes 2 el vuelo a San Juan sale de la T4 a las 16:15: desde Atocha, Cercanías a la T4 en 25 minutos o taxi.</p>',
+    flex:'<p>Toledo se cayó a propósito para aprovechar Madrid, y la escuela de IA ya no cabe en el calendario: reencuádrala como videollamada con tu contacto. El Prado queda de opción si un día pide más arte (domingos gratis de 17:00 a 19:00). Si el rooftop del Círculo tiene cola, el Riu Plaza España o el Hotel Emperador. Si llueve el domingo, el Rastro se deshace y el Prado lo reemplaza.</p>',
+    links:[
+      {icon:'🖼',label:'Reina Sofía',url:'https://www.museoreinasofia.es/en/visit',type:'tickets'},
+      {icon:'🎟',label:'Prado',url:'https://www.museodelprado.es/en/visit/tickets',type:'tickets'},
+      {icon:'📍',label:'El Rastro',url:'https://maps.google.com/?q=El+Rastro+Madrid',type:'maps'}
+    ]},
+
+  { id:'barcelona', name:'Barcelona', flag:'🎯', tag:'AI Summit', dates:'21 al 24 Sept', c:'bcn',
+    photo:PHOTOS.barcelona, grad:GRAD.barcelona, hotel:'h-bcn',
+    res:['h-bcn','e-summit','e-merce','f-bcn-grx'],
+    intro:'<p>Epicentro del AI Summit Barcelona 2026 en el World Trade Center: más de 10,000 asistentes y 200 speakers. Además el Barrio Gótico medieval, El Born bohemio, la Barceloneta frente al Mediterráneo, y el día de salida cae justo en la Mercè, la fiesta mayor.</p>',
+    dormir:'<p>Niu Barcelona Hotel, Rambla del Raval 8, del 21 al 24. Booking 15920204369785792567, $539.48 pagados completos el 20 de junio. Desde el hotel al World Trade Center son unos 20 minutos a pie bajando por la Rambla.</p>',
+    llegar:'<p>Llegas el lunes 21 a Sants a las 12:58 en Ouigo, y de ahí taxi de 10 a 15 minutos. Sales el jueves 24 en Vueling a Granada a las 17:15, localizador BF5L8V, y ese día es la Mercè: al aeropuerto a las 14:30 a más tardar, en Aerobús desde Plaça Catalunya o en metro L9 Sud si las calles están cortadas.</p>',
+    flex:'<p>La Sagrada Familia se cayó (no había entradas y el 24 es festivo), y la reemplaza la Mercè, que es mejor contenido y no se mueve de fecha. La tarde del lunes es la única libre: Gótico, Born y Barceloneta. Si una franja del Summit no vale, la ciudad está a 15 minutos. Si llueve, el Mercat de Santa Caterina y los cafés del Born.</p>',
+    links:[
+      {icon:'🎯',label:'AI Summit',url:'https://barcelona.theaisummit.com/',type:''},
+      {icon:'🎉',label:'La Mercè',url:'https://www.barcelona.cat/lamerce/',type:'tickets'},
+      {icon:'📍',label:'WTC Barcelona',url:'https://maps.google.com/?q=World+Trade+Center+Barcelona',type:'maps'}
+    ]},
+
+  { id:'granada', name:'Granada', flag:'🌙', tag:'4 noches', dates:'24 al 28 Sept', c:'grx',
+    photo:PHOTOS.granada, grad:GRAD.granada, hotel:'h-grx',
+    res:['h-grx','t-alhambra','t-flamenco-grx'],
+    intro:'<p>La Alhambra, la joya absoluta de la arquitectura islámica en Europa. El Albaicín árabe, las teterías de la Calderería Nueva, el Sacromonte gitano. Y en Granada cada bebida trae su tapa gratis.</p>',
+    dormir:'<p>Airbnb en el Albaicín, cuatro noches del 24 al 28, $529 pagados. La dirección y el localizador no están aquí: guárdalos en la reserva. Ojo con las maletas: el Albaicín es cuesta y empedrado, y el taxi llega hasta donde llega.</p>',
+    llegar:'<p>Llegas el jueves 24 a las 18:55 en Vueling desde Barcelona, y del aeropuerto al Albaicín son unos 30 minutos en taxi. Sales el lunes 28 en carro de Budget, recogida a las 9:30 en la estación de Renfe (Avenida de los Andaluces, código de parking 2879e): taxi con las maletas desde el Airbnb a las 9:00.</p>',
+    flex:'<p>Lo que se soltó: el Hammam, las Alpujarras y los baños árabes. Lo que queda es Alhambra, Albaicín, Sacromonte y tapas, y el domingo 27 es el día colchón: lo que se caiga del viernes o el sábado aterriza ahí. Si el flamenco en cueva no convence, la noche es de tapas. Si piden naturaleza, el camino a la Fuente del Avellano desde el Paseo de los Tristes.</p>',
+    links:[
+      {icon:'🎟',label:'Alhambra',url:'https://www.alhambra-patronato.es/',type:'tickets'},
+      {icon:'📍',label:'Mirador San Nicolás',url:'https://maps.google.com/?q=Mirador+de+San+Nicolas+Granada',type:'maps'},
+      {icon:'📍',label:'Albaicín',url:'https://maps.google.com/?q=Albaicin+Granada+Spain',type:'maps'}
+    ]},
+
+  { id:'ronda', name:'Ronda', flag:'⛰️', tag:'1 noche', dates:'28 al 29 Sept', c:'ron',
+    photo:PHOTOS.ronda, grad:GRAD.ronda, hotel:'h-ron',
+    res:['car','h-ron','a-barranco','a-mina','r-torcal'],
+    intro:'<p>El Puente Nuevo sobre una garganta de 120 metros, uno de los paisajes más dramáticos de España. La plaza de toros más antigua del país, un road trip por la sierra andaluza para llegar, y al día siguiente Setenil de camino a Sevilla.</p>',
+    dormir:'<p>Apartamento Balcones del Tajo, Calle Rosario 12, una noche del 28 al 29. Confirmación 6961.974.953, PIN 9457, $169, cancelación gratis hasta el 20 de septiembre. Check in de 13:30 a 21:30 (avisaste que llegas entre 13:00 y 14:00), check out hasta las 11:30.</p>',
+    llegar:'<p>Llegas el lunes 28 en carro desde Granada, unas dos horas por la A-92 y la A-367, sobre las 11:45. Sales el martes 29 a las 9:30 hacia Setenil, a 20 minutos, y de ahí a Sevilla.</p>',
+    flex:'<p>Ronda es el día sin reservas: todo es callejeo y el Tajo. El barranquismo de Horizon es lo único que puede cambiarle la forma a la tarde, y depende de que junten grupo de cuatro; si no, el Camino de los Molinos. La Mina de Agua es la versión suave de bajar al río. El Torcal está como opción y la recomendación es soltarlo.</p>',
+    links:[
+      {icon:'🧗‍♀️',label:'Horizon Aventura',url:'https://www.horizonaventura.com/barranco-tajo-de-ronda/',type:'tickets'},
+      {icon:'📍',label:'Puente Nuevo',url:'https://maps.google.com/?q=Puente+Nuevo+Ronda+Spain',type:'maps'}
+    ]},
+
+  { id:'sevilla', name:'Sevilla', flag:'🌺', tag:'2 noches', dates:'29 Sept al 1 Oct', c:'svq',
+    photo:PHOTOS.sevilla, grad:GRAD.sevilla, hotel:'h-svq',
+    res:['r-pueblos','t-caminito','h-svq','t-alcazar','t-giralda','t-flamenco-svq','t-cadiz'],
+    intro:'<p>El Real Alcázar, el palacio mudéjar donde filmaron Game of Thrones. La Plaza de España al golden hour, semicircular, con la cerámica de cada provincia. Triana, cuna del flamenco. Y en el camino desde Ronda, Setenil de las Bodegas y sus calles bajo la roca.</p>',
+    dormir:'<p>nüa cicerone, Calle Mesón del Moro 10, en Santa Cruz, dos noches del 29 al 1. Confirmación 6374.060.574, PIN 8313, $318 no reembolsables y ya cobrados. Check in de 14:00 a 23:00, check out de 7:00 a 12:00. Es calle estrecha y zona restringida: avísales que llegas en coche a descargar.</p>',
+    llegar:'<p>Llegas el martes 29 en carro desde Setenil sobre las 15:30, descargas primero y devuelves en la estación de Santa Justa a las 16:30, que no está en el centro (diez minutos en coche, vuelta en taxi). Sales el jueves 1 desde esa misma estación en el Avant de las 9:55 a Córdoba.</p>',
+    flex:'<p>Cádiz queda de opción y compite con Sevilla a fondo: una o la otra. Si el Alcázar de las 9:30 se agota, la primera hora que quede y la Catedral detrás. El flamenco en tablao es el cierre natural de Andalucía, pero si el cuerpo no da, Triana de noche vale igual. Los dos trenes del jueves se compran por separado, nunca el directo a Madrid.</p>',
+    links:[
+      {icon:'🎟',label:'Real Alcázar',url:'https://www.alcazarsevilla.org/',type:'tickets'},
+      {icon:'⛪',label:'Catedral',url:'https://www.catedraldesevilla.es/',type:'tickets'},
+      {icon:'📍',label:'Setenil',url:'https://maps.google.com/?q=Setenil+de+las+Bodegas+Spain',type:'maps'},
+      {icon:'📍',label:'Plaza de España',url:'https://maps.google.com/?q=Plaza+de+Espana+Sevilla',type:'maps'}
+    ]},
+
+  { id:'cordoba', name:'Córdoba', flag:'🕌', tag:'parada de 4 h', dates:'1 Oct', c:'cor',
+    photo:PHOTOS.cordoba, grad:GRAD.cordoba, hotel:null,
+    res:['tr-svq-cor','t-mezquita','tr-cor-mad'],
+    intro:'<p>La Mezquita Catedral: 856 columnas de mármol con arcos rojos y blancos formando un bosque hipnótico, con una catedral renacentista incrustada dentro. Judería, Puente Romano, salmorejo y flamenquín. Tú ya fuiste, Iván no: por eso se para.</p>',
+    dormir:'<p>En Córdoba no duermes: es una parada de cuatro horas entre dos trenes, con las maletas en la consigna de la estación (confírmala antes). La noche del 1 es Atocha19 en Madrid, a cinco minutos de la estación.</p>',
+    llegar:'<p>El Avant de las 9:55 desde Santa Justa llega a las 10:39, y el tren a Madrid sale sobre las 16:30 y llega a Atocha cerca de las 18:15. Los dos billetes se compran por separado y el segundo con tarifa que permita cambio: es el único tren del viaje en el que vas con el reloj suelto.</p>',
+    flex:'<p>No intentes ver Córdoba entera: Mezquita, Puente Romano y almuerzo. Si el Avant no tiene plaza, el AVE de las 9:34. Si hace calor o se hace pesado, se salta el Puente Romano. Para la vuelta, compara Renfe con Ouigo, que también para en Córdoba y es el único que sigue indemnizando retrasos.</p>',
+    links:[
+      {icon:'🎟',label:'Mezquita',url:'https://mezquita-catedraldecordoba.es/',type:'tickets'},
+      {icon:'🚄',label:'Renfe',url:'https://www.renfe.com/es/en',type:''},
+      {icon:'📍',label:'Puente Romano',url:'https://maps.google.com/?q=Puente+Romano+Cordoba+Spain',type:'maps'}
+    ]}
+];
+
+
+/* ══════════════ ESTADO ══════════════ */
 const LS = { res:'res-v3', meta:'resmeta-v3', docs:'docs-v3', pack:'pk-viaje2' };
 function lsGet(k){ try{ return JSON.parse(localStorage.getItem(k)||'{}'); }catch(e){ return {}; } }
 function lsSet(k,o){ try{ localStorage.setItem(k,JSON.stringify(o)); }catch(e){} }
@@ -854,6 +977,7 @@ const state = {
   expenses: [], splitPct: 50, fbConnected: false
 };
 let filtro = 'all';
+const abiertos = new Set();
 
 function estadoDe(r){ return state.reservas[r.id] || r.est; }
 function metaDe(r){ return state.reservasMeta[r.id] || {}; }
@@ -866,14 +990,198 @@ function costoDe(r){
 function notaDe(r){ const m = metaDe(r); return (m.nota !== undefined && m.nota !== '') ? m.nota : (r.n || ''); }
 function horaDe(r){ const m = metaDe(r); return (m.hora !== undefined && m.hora !== '') ? m.hora : (r.h || ''); }
 function faltaHora(r){ return estadoDe(r) === 'ok' && !horaDe(r); }
+function byId(id){ return reservas.find(function(x){ return x.id === id; }); }
 
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 function money(n,c){ const s = c==='USD'?'$':'€'; return s + Number(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
 function diasRestantes(){ return Math.ceil((new Date('2026-09-14T00:00:00') - new Date())/864e5); }
 
+/* ══════════════ HOY ══════════════ */
+// ?hoy=2026-09-25 en la URL simula un día del viaje (para revisar sin esperar).
+const HOY_OVERRIDE = new URLSearchParams(location.search).get('hoy');
+function hoyKey(){
+  if (HOY_OVERRIDE) return HOY_OVERRIDE;
+  const n = new Date(); const p = function(x){ return String(x).padStart(2,'0'); };
+  return n.getFullYear() + '-' + p(n.getMonth()+1) + '-' + p(n.getDate());
+}
+function idxHoy(){
+  const k = hoyKey();
+  const i = itinerario.findIndex(function(x){ return x.f === k; });
+  if (i >= 0) return i;
+  return k < itinerario[0].f ? -1 : itinerario.length;
+}
+function idxFoco(){ const i = idxHoy(); return i < 0 ? 0 : (i >= itinerario.length ? itinerario.length-1 : i); }
+
+function fijoDe(day){
+  return (day.fijo||[]).map(function(x){ const r = byId(x.id); return r ? {r:r, lb:x.lb, e:estadoDe(r)} : null; }).filter(Boolean);
+}
+function lineaFijo(day){
+  const f = fijoDe(day);
+  const ok = f.filter(function(x){ return x.e==='ok'; });
+  const td = f.filter(function(x){ return x.e==='todo'; });
+  const parts = ok.map(function(x){ return '<b>' + esc(x.lb) + '</b>'; });
+  if (td.length) parts.push('<span class="td">⏳ ' + td.length + ' por comprar</span>');
+  return parts.length ? parts.join('<span class="sep">·</span>') : '<span style="color:var(--ink-3)">Sin hora fija: día libre</span>';
+}
+function pendientes(){
+  const nTodo = reservas.filter(function(r){ return estadoDe(r)==='todo'; }).length;
+  let dTot=0, dDone=0;
+  docsData.forEach(function(c){ c.items.forEach(function(i){ dTot++; if (state.docs[i.id]) dDone++; }); });
+  let pTot=0, pDone=0;
+  packingData.forEach(function(c,ci){ c.items.forEach(function(_,ii){ pTot++; if (state.packing[ci+'-'+ii]) pDone++; }); });
+  return { todo:nTodo, docs:dTot-dDone, pack:pTot-pDone };
+}
+function renderHoy(){
+  const el = document.getElementById('hoy');
+  const i = idxHoy();
+  const p = pendientes();
+  if (i === -1){
+    const d = diasRestantes(); const first = itinerario[0];
+    el.style.setProperty('--c', CITY.fly.c);
+    el.innerHTML =
+      '<div class="hoy-k">' + (d === 1 ? 'Sales mañana' : 'Faltan ' + d + ' días') + '</div>' +
+      '<div class="hoy-t">Lunes 14, vuelo a las 17:15</div>' +
+      '<div class="hoy-s">SJU → Madrid, directo · en el aeropuerto a las 14:30</div>' +
+      '<p>Quedan <b>' + p.todo + ' reservas por comprar</b> (la más cercana es el Reina Sofía del sábado 19), <b>' + p.docs + ' cosas de logística</b> y <b>' + p.pack + ' de equipaje</b> sin marcar. Nada de eso bloquea el vuelo: lo que no se cierre desde casa se cierra desde el teléfono.</p>' +
+      '<div class="hoy-acts"><a class="hoy-btn" onclick="abrirDia(0,true)">Ver el día 1</a><a class="hoy-btn sec" href="#sec-reservas">Lo que falta</a></div>';
+    return;
+  }
+  if (i >= itinerario.length){
+    el.style.setProperty('--c', CITY.fly.c);
+    el.innerHTML = '<div class="hoy-k">Viaje terminado</div><div class="hoy-t">Bienvenida a casa</div><p>Los gastos y las reservas quedan guardados aquí para cuando quieras cerrar cuentas.</p>';
+    return;
+  }
+  const day = itinerario[i]; const next = itinerario[i+1]; const city = CITY[day.c];
+  el.style.setProperty('--c', city.c);
+  el.innerHTML =
+    '<div class="hoy-k">Hoy · ' + esc(day.dow) + ' ' + day.d + ' · día ' + (i+1) + ' de ' + itinerario.length + '</div>' +
+    '<div class="hoy-t">' + esc(day.t) + '</div>' +
+    '<div class="hoy-s">' + city.f + ' ' + esc(day.ciudad) + '</div>' +
+    '<p>' + esc(day.lead) + '</p>' +
+    '<div class="hoy-fijo">' + lineaFijo(day) + '</div>' +
+    (next ? '<p style="margin-top:8px;font-size:12.5px"><b>Mañana:</b> ' + esc(next.t) + ', ' + esc(next.ciudad) + '.</p>' : '') +
+    '<div class="hoy-acts"><a class="hoy-btn" onclick="abrirDia(' + i + ',true)">Abrir el día completo</a>' +
+    (next ? '<a class="hoy-btn sec" onclick="abrirDia(' + (i+1) + ',true)">Ver mañana</a>' : '') + '</div>';
+}
+
+/* ══════════════ TIRA DE DÍAS ══════════════ */
+function renderStrip(){
+  const hoy = idxHoy();
+  document.getElementById('strip').innerHTML = itinerario.map(function(day,i){
+    return '<button class="sday' + (i===hoy?' hoy':'') + (abiertos.has(i)?' on':'') + '" style="--c:' + CITY[day.c].c + '" onclick="abrirDia(' + i + ',true)">' +
+      '<small>' + esc(day.dow) + '</small><b>' + day.d + '</b><i></i></button>';
+  }).join('');
+}
+function abrirDia(i, scroll){
+  abiertos.add(i);
+  const el = document.getElementById('dia-' + i);
+  if (el) el.classList.add('open');
+  renderStrip();
+  if (scroll && el) setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'start'}); }, 30);
+}
+function toggleDia(i){
+  if (abiertos.has(i)) abiertos.delete(i); else abiertos.add(i);
+  const el = document.getElementById('dia-' + i);
+  if (el) el.classList.toggle('open', abiertos.has(i));
+  renderStrip();
+}
+
+/* ══════════════ DÍA POR DÍA ══════════════ */
+function lineaReserva(x, modo){
+  const r = x.r, conf = confDe(r), cost = costoDe(r);
+  let s = '<b>' + esc(x.lb) + '</b>';
+  if (modo === 'ok'){
+    if (conf) s += ', ' + esc(conf);
+    else if (cost > 0) s += ', ' + money(cost,'USD') + (r.pagado ? ' pagado' : '');
+    s += ' <a class="lnk" onclick="irAReserva(\'' + r.id + '\')">detalles</a>';
+  } else if (modo === 'todo'){
+    if (r.ce) s += ', ' + esc(r.ce);
+    if (r.l) s += ' <a class="lnk go" href="' + esc(r.l) + '" target="_blank" rel="noopener">comprar ↗</a>';
+    s += ' <a class="lnk ok" onclick="setEstado(\'' + r.id + '\',\'ok\')">ya está</a>';
+    s += ' <a class="lnk" onclick="irAReserva(\'' + r.id + '\')">detalles</a>';
+  } else {
+    if (r.ce) s += ', ' + esc(r.ce);
+    s += ' <a class="lnk" onclick="irAReserva(\'' + r.id + '\')">detalles</a>';
+  }
+  return s;
+}
+function diaHTML(day, i){
+  const city = CITY[day.c];
+  const f = fijoDe(day);
+  const ok = f.filter(function(x){ return x.e==='ok'; });
+  const td = f.filter(function(x){ return x.e==='todo'; });
+  const id = f.filter(function(x){ return x.e==='idea'; });
+  const hoy = i === idxHoy();
+  return '<article class="dia' + (abiertos.has(i)?' open':'') + (hoy?' hoy':'') + '" id="dia-' + i + '" style="--c:' + city.c + '">' +
+    '<div class="dia-h" onclick="toggleDia(' + i + ')">' +
+      '<div class="dia-date"><small>' + esc(day.dow) + '</small><b>' + day.d + '</b></div>' +
+      '<div class="dia-main">' +
+        '<div class="dia-city">' + city.f + ' ' + esc(day.ciudad) + (hoy ? ' · hoy' : '') + '</div>' +
+        '<div class="dia-t">' + esc(day.t) + '</div>' +
+        '<div class="dia-fijo">' + lineaFijo(day) + '</div>' +
+      '</div>' +
+      '<div class="dia-chev">›</div>' +
+    '</div>' +
+    '<div class="dia-b prose">' +
+      '<div class="dia-lead">' + esc(day.lead) + '</div>' +
+      '<h4>El plan</h4>' + day.plan +
+      (ok.length ? '<div class="box box-ok"><h4>Lo que ya está fijo</h4><p>' + ok.map(function(x){ return lineaReserva(x,'ok'); }).join('<br>') + '</p></div>' : '') +
+      (td.length ? '<div class="box box-todo"><h4>Falta comprar</h4><p>' + td.map(function(x){ return lineaReserva(x,'todo'); }).join('<br>') + '</p></div>' : '') +
+      '<div class="box box-alt"><h4>Si cambia el plan</h4>' + day.alt +
+        (id.length ? '<p><strong>Opciones abiertas:</strong> ' + id.map(function(x){ return lineaReserva(x,'idea'); }).join(' <span class="sep">·</span> ') + '</p>' : '') +
+      '</div>' +
+    '</div>' +
+  '</article>';
+}
+function renderDias(){
+  document.getElementById('dias').innerHTML = itinerario.map(diaHTML).join('');
+}
+
+/* ══════════════ DESTINOS ══════════════ */
+function renderDest(){
+  document.getElementById('dest-grid').innerHTML = destinations.map(function(d){
+    const rs  = (d.res||[]).map(byId).filter(Boolean);
+    const ok  = rs.filter(function(r){ return estadoDe(r)==='ok'; });
+    const td  = rs.filter(function(r){ return estadoDe(r)==='todo'; });
+    const hotel = d.hotel ? byId(d.hotel) : null;
+    let dormirEstado = '';
+    if (hotel){
+      const e = estadoDe(hotel), m = metaDe(hotel);
+      dormirEstado = '<p>' + (e==='ok' ? '✅ Reservado' : '⏳ Sin reservar') +
+        (m.conf ? ', ' + esc(m.conf) : '') + (m.hora ? ', ' + esc(m.hora).replace(/\n/g,' · ') : '') +
+        (m.nota ? '. ' + esc(m.nota) : '') + ' <a class="lnk" onclick="irAReserva(\'' + hotel.id + '\')">editar</a></p>';
+    }
+    const cerrado = ok.length
+      ? '<p>' + ok.map(function(r){ const h = horaDe(r); return '<b>' + esc(r.t) + '</b>' + (h ? ', ' + esc(h.split('\n')[0]) : '') + ' <a class="lnk" onclick="irAReserva(\'' + r.id + '\')">detalles</a>'; }).join('<br>') + '</p>'
+      : '<p>Nada reservado todavía.</p>';
+    const falta = td.length
+      ? '<div class="box box-todo"><h4>Falta comprar</h4><p>' + td.map(function(r){ return '<b>' + esc(r.t) + '</b>' + (r.ce ? ', ' + esc(r.ce) : '') + (r.l ? ' <a class="lnk go" href="' + esc(r.l) + '" target="_blank" rel="noopener">comprar ↗</a>' : '') + ' <a class="lnk ok" onclick="setEstado(\'' + r.id + '\',\'ok\')">ya está</a>'; }).join('<br>') + '</p></div>'
+      : '';
+    return '<div class="dcard" id="dest-' + d.id + '" style="--c:' + CITY[d.c].c + '">' +
+      '<div class="dhero" onclick="toggleCard(this.parentElement,event)">' +
+        '<img class="dimg" src="' + d.photo + '" alt="' + esc(d.name) + '" loading="lazy" ' +
+        'onerror="this.style.display=\'none\';this.parentElement.style.background=\'' + d.grad + '\'">' +
+        '<div class="dflag">' + d.flag + '</div>' +
+        '<div class="dtag">' + esc(d.tag) + '</div>' +
+        '<div class="dover"><div class="dname">' + esc(d.name) + '</div><div class="dmeta">📅 ' + esc(d.dates) + ' · ' + ok.length + ' reservado' + (td.length ? ' · ' + td.length + ' por comprar' : '') + '</div></div>' +
+        '<div class="dchev">›</div>' +
+      '</div>' +
+      '<div class="dbody"><div class="dbody-in prose">' +
+        d.intro +
+        '<h4>Dónde duermes</h4>' + d.dormir + dormirEstado +
+        '<h4>Cómo llegas y cómo sales</h4>' + d.llegar +
+        '<div class="box box-ok"><h4>Lo que ya está cerrado</h4>' + cerrado + '</div>' +
+        falta +
+        '<div class="box box-alt"><h4>Si sobra tiempo o algo se cae</h4>' + d.flex + '</div>' +
+        '<div class="dlinks">' + d.links.map(function(l){ return '<a class="dlink ' + l.type + '" href="' + esc(l.url) + '" target="_blank" rel="noopener">' + l.icon + ' ' + esc(l.label) + '</a>'; }).join('') + '</div>' +
+      '</div></div></div>';
+  }).join('');
+}
+function toggleCard(card,e){ if (e.target.closest('a')) return; card.classList.toggle('open'); }
+
 /* ══════════════ RESERVAS ══════════════ */
 const FILTROS = [
-  {k:'all', n:'Todo'}, {k:'urg', n:'🔴 Urgente'}, {k:'sinhora', n:'🕐 Sin hora'},
+  {k:'all', n:'Todo'}, {k:'sinhora', n:'🕐 Sin hora'},
   {k:'todo', n:'⏳ Por comprar'}, {k:'ok', n:'✅ Confirmado'}, {k:'idea', n:'💭 Opción'}
 ];
 function setFilter(k){
@@ -882,22 +1190,21 @@ function setFilter(k){
   document.getElementById('sec-reservas').scrollIntoView({behavior:'smooth', block:'start'});
 }
 function renderFiltros(){
-  document.getElementById('filters').innerHTML = FILTROS.map(f =>
-    '<button class="fchip ' + (filtro===f.k?'on':'') + '" onclick="setFilter(\'' + f.k + '\')">' + f.n + '</button>'
-  ).join('');
+  document.getElementById('filters').innerHTML = FILTROS.map(function(f){
+    return '<button class="fchip ' + (filtro===f.k?'on':'') + '" onclick="setFilter(\'' + f.k + '\')">' + f.n + '</button>';
+  }).join('');
 }
 function pasaFiltro(r){
   const e = estadoDe(r);
   if (filtro === 'all') return true;
-  if (filtro === 'urg') return !!r.urg && e === 'todo';
   if (filtro === 'sinhora') return faltaHora(r);
   return e === filtro;
 }
 function renderReservas(){
   const bloques = [];
-  reservas.forEach(r => {
+  reservas.forEach(function(r){
     if (!pasaFiltro(r)) return;
-    let b = bloques.find(x => x.n === r.b);
+    let b = bloques.find(function(x){ return x.n === r.b; });
     if (!b) { b = {n:r.b, items:[]}; bloques.push(b); }
     b.items.push(r);
   });
@@ -906,8 +1213,8 @@ function renderReservas(){
     el.innerHTML = '<div class="exp-empty">Nada en este filtro. Toca el chip otra vez para ver todo.</div>';
     return;
   }
-  el.innerHTML = bloques.map(b => {
-    const okN = b.items.filter(r => estadoDe(r)==='ok').length;
+  el.innerHTML = bloques.map(function(b){
+    const okN = b.items.filter(function(r){ return estadoDe(r)==='ok'; }).length;
     return '<div class="rblock"><div class="rblock-h"><span>' + esc(b.n) +
       '</span><span class="ln"></span><span class="cnt">' + okN + '/' + b.items.length + '</span></div>' +
       b.items.map(resHTML).join('') + '</div>';
@@ -915,11 +1222,10 @@ function renderReservas(){
 }
 function resHTML(r){
   const e = estadoDe(r);
-  const urgente = !!r.urg && e === 'todo';
   const conf = confDe(r), nota = notaDe(r), costo = costoDe(r), m = metaDe(r);
   const hora = horaDe(r);
-  const badgeCls = e==='ok' ? 'b-ok' : e==='idea' ? 'b-idea' : (urgente ? 'b-urg' : 'b-todo');
-  const badgeTxt = e==='ok' ? '✓ Listo' : e==='idea' ? 'Opción' : (urgente ? 'Urgente' : 'Falta');
+  const badgeCls = e==='ok' ? 'b-ok' : e==='idea' ? 'b-idea' : 'b-todo';
+  const badgeTxt = e==='ok' ? '✓ Listo' : e==='idea' ? 'Opción' : 'Falta';
   const costoTxt = e==='ok'
     ? (costo > 0 ? money(costo,'USD') + (r.pagado ? ' pagado' : '') : '')
     : (r.ce ? esc(r.ce) : '');
@@ -933,14 +1239,13 @@ function resHTML(r){
   const horaHTML = e !== 'ok' ? ''
     : hora ? '<div class="res-hora"><span>🕐</span><span>' + esc(hora).replace(/\n/g,'<br>') + '</span></div>'
            : '<div class="res-nohora"><span>🕐</span><span>Falta la hora. Ponla en "editar datos".</span></div>';
-  return '<div class="res s-' + e + (urgente?' urg':'') + '" id="r-' + r.id + '">' +
+  return '<div class="res s-' + e + '" id="r-' + r.id + '">' +
     '<div class="res-ic">' + r.ic + '</div>' +
     '<div class="res-main">' +
       '<div class="res-t">' + esc(r.t) + '</div>' +
       '<div class="res-when">' + esc(r.w) + '</div>' +
       horaHTML +
       (e==='ok' && conf ? '<div class="res-conf">🔖 ' + esc(conf) + '</div>' : '') +
-      (urgente ? '<div class="res-warn">⚠️ Faltan ' + diasRestantes() + ' días y sigue sin comprarse</div>' : '') +
       (nota ? '<div class="res-note">' + esc(nota) + '</div>' : '') +
       '<div class="res-acts">' +
         (r.l ? '<a class="res-btn go" href="' + esc(r.l) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">' + esc(r.ll||'Abrir') + ' ↗</a>' : '') +
@@ -965,6 +1270,17 @@ function toggleEdit(id){
   const el = document.getElementById('r-'+id);
   if (el) el.classList.toggle('editing');
 }
+function irAReserva(id){
+  if (filtro !== 'all'){ filtro = 'all'; renderFiltros(); renderReservas(); syncTallyUI(); }
+  const el = document.getElementById('r-'+id);
+  if (!el) return;
+  el.scrollIntoView({behavior:'smooth', block:'center'});
+  el.classList.add('flash');
+  setTimeout(function(){ el.classList.remove('flash'); }, 1800);
+}
+function repintar(){
+  renderHoy(); renderStrip(); renderDias(); renderDest(); renderReservas(); updateTotals();
+}
 function saveMeta(id){
   const hora  = document.getElementById('ed-hora-'+id).value.trim();
   const conf  = document.getElementById('ed-conf-'+id).value.trim();
@@ -973,30 +1289,34 @@ function saveMeta(id){
   state.reservasMeta[id] = { hora:hora, conf:conf, costo:costo, nota:nota };
   lsSet(LS.meta, state.reservasMeta);
   tripRef.set({ reservasMeta: { [id]: { hora:hora, conf:conf, costo:costo, nota:nota } } }, { merge:true }).catch(console.error);
-  renderReservas(); renderDest(); updateTotals();
+  repintar();
   showToast('Guardado 🔖');
 }
-function cicloEstado(id){
-  const r = reservas.find(x => x.id === id);
+function setEstado(id, nuevo){
+  const r = byId(id);
   if (!r) return;
-  const orden = ['todo','ok','idea'];
-  const nuevo = orden[(orden.indexOf(estadoDe(r)) + 1) % 3];
   state.reservas[id] = nuevo;
   lsSet(LS.res, state.reservas);
   tripRef.set({ reservas: { [id]: nuevo } }, { merge:true }).catch(console.error);
-  renderReservas(); renderDest(); updateTotals(); renderAlert();
+  repintar();
   if (nuevo === 'ok'){
     showToast('Confirmado ✓');
-    if (reservas.filter(x => estadoDe(x)!=='idea').every(x => estadoDe(x)==='ok')) confetti();
-  }
+    if (reservas.filter(function(x){ return estadoDe(x)!=='idea'; }).every(function(x){ return estadoDe(x)==='ok'; })) confetti();
+  } else showToast(nuevo === 'todo' ? 'Marcado por comprar' : 'Marcado como opción');
+}
+function cicloEstado(id){
+  const r = byId(id);
+  if (!r) return;
+  const orden = ['todo','ok','idea'];
+  setEstado(id, orden[(orden.indexOf(estadoDe(r)) + 1) % 3]);
 }
 
 /* ══════════════ TOTALES ══════════════ */
 function updateTotals(){
-  const activas = reservas.filter(r => estadoDe(r) !== 'idea');
-  const nOk   = reservas.filter(r => estadoDe(r)==='ok').length;
-  const nTodo = reservas.filter(r => estadoDe(r)==='todo').length;
-  const nIdea = reservas.filter(r => estadoDe(r)==='idea').length;
+  const activas = reservas.filter(function(r){ return estadoDe(r) !== 'idea'; });
+  const nOk   = reservas.filter(function(r){ return estadoDe(r)==='ok'; }).length;
+  const nTodo = reservas.filter(function(r){ return estadoDe(r)==='todo'; }).length;
+  const nIdea = reservas.filter(function(r){ return estadoDe(r)==='idea'; }).length;
   document.getElementById('n-ok').textContent = nOk;
   document.getElementById('n-todo').textContent = nTodo;
   document.getElementById('n-idea').textContent = nIdea;
@@ -1006,123 +1326,47 @@ function updateTotals(){
   document.getElementById('pf-res').style.width = pctRes + '%';
 
   let dTot=0, dDone=0;
-  docsData.forEach(c => c.items.forEach(i => { dTot++; if (state.docs[i.id]) dDone++; }));
-  packingData.forEach((c,ci) => c.items.forEach((_,ii) => { dTot++; if (state.packing[ci+'-'+ii]) dDone++; }));
+  docsData.forEach(function(c){ c.items.forEach(function(i){ dTot++; if (state.docs[i.id]) dDone++; }); });
+  packingData.forEach(function(c,ci){ c.items.forEach(function(_,ii){ dTot++; if (state.packing[ci+'-'+ii]) dDone++; }); });
   const pctPrep = dTot ? Math.round(dDone/dTot*100) : 0;
   document.getElementById('pb-prep').textContent = pctPrep + '%';
   document.getElementById('pf-prep').style.width = pctPrep + '%';
 
-  const urgN = reservas.filter(r => r.urg && estadoDe(r)==='todo').length;
   const shN  = reservas.filter(faltaHora).length;
   document.getElementById('res-sub').innerHTML =
-    (urgN ? '<b style="color:var(--urg)">' + urgN + ' urgentes</b>' : nTodo + ' por comprar') +
-    (shN ? '<br><b style="color:var(--todo)">' + shN + ' sin hora</b>' : '');
-
-  const d = diasRestantes();
-  document.getElementById('hs-days').textContent = d > 0 ? d : '0';
-  document.getElementById('panel-cd').textContent = d > 0 ? ('faltan ' + d + ' días') : '¡es hoy!';
+    nTodo + ' por comprar' + (shN ? '<br><b style="color:var(--todo)">' + shN + ' sin hora</b>' : '');
   syncTallyUI();
 }
 function syncTallyUI(){
-  ['ok','todo','idea'].forEach(k => {
+  ['ok','todo','idea'].forEach(function(k){
     const b = document.getElementById('t-'+k);
     if (b) b.classList.toggle('on', filtro === k);
   });
 }
 
-/* ══════════════ ALERTA ══════════════ */
-function renderAlert(){
-  const urg = reservas.filter(r => r.urg && estadoDe(r)==='todo');
-  const slot = document.getElementById('alert-slot');
-  if (!urg.length){ slot.innerHTML = ''; return; }
-  const nombres = urg.map(function(r){ return esc(r.t.split('·')[0].trim()); });
-  const top = nombres.slice(0,4).join(', ');
-  const resto = nombres.length > 4 ? (' y ' + (nombres.length-4) + ' más') : '';
-  slot.innerHTML =
-    '<div class="alert"><div class="alert-t">🔴 ' + urg.length + ' reservas críticas sin comprar</div>' +
-    '<div class="alert-b">Faltan <b>' + diasRestantes() + ' días</b> para salir. Se agotan o suben de precio: <b>' +
-    top + resto + '</b>. Toca <b>Urgente</b> abajo para verlas todas.</div></div>';
-}
-
-/* ══════════════ DESTINOS ══════════════ */
-function renderDest(){
-  document.getElementById('dest-grid').innerHTML = destinations.map(d => {
-    const rs  = (d.res||[]).map(id => reservas.find(r => r.id===id)).filter(Boolean);
-    const act = rs.filter(r => estadoDe(r)!=='idea');
-    const ok  = act.filter(r => estadoDe(r)==='ok').length;
-    const urg = rs.filter(r => r.urg && estadoDe(r)==='todo').length;
-    const dorm = rs.find(r => r.ic==='🏨' || r.ic==='🏠');
-    const dormOk = dorm && estadoDe(dorm)==='ok';
-    return '<div class="dcard" id="dest-' + d.id + '" onclick="toggleCard(this,event)">' +
-      '<div class="dhero">' +
-        '<img class="dimg" src="' + d.photo + '" alt="' + esc(d.name) + '" loading="lazy" ' +
-        'onerror="this.style.display=\'none\';this.parentElement.style.background=\'' + d.grad + '\'">' +
-        '<div class="dflag">' + d.flag + '</div>' +
-        '<div class="dtag">' + esc(d.tag) + '</div>' +
-        '<div class="dover">' +
-          '<div class="dname">' + esc(d.name) + '</div>' +
-          '<div class="dmeta">📅 ' + esc(d.dates) + '</div>' +
-          '<div class="dstatus">' +
-            (dorm ? '<span class="dpill ' + (dormOk?'a':'b') + '">' + (dormOk?'🛏 Alojamiento ✓':'🛏 Sin alojamiento') + '</span>' : '') +
-            (act.length ? '<span class="dpill ' + (ok===act.length?'a':'c') + '">' + ok + '/' + act.length + ' reservado</span>' : '') +
-            (urg ? '<span class="dpill b">' + urg + ' urgente' + (urg>1?'s':'') + '</span>' : '') +
-          '</div>' +
-        '</div>' +
-        '<div class="dchev">›</div>' +
-      '</div>' +
-      '<div class="dbody"><div class="dbody-in">' +
-        '<div class="dbrief">' + esc(d.brief) + '</div>' +
-        d.days.map(day =>
-          '<div class="dday"><div class="dday-h">' +
-          '<div class="dday-n" style="background:' + d.grad + '">D' + day.num + '</div>' +
-          '<div class="dday-d">' + esc(day.date) + '</div></div>' +
-          '<div class="dday-p">' + day.plan + '</div></div>').join('') +
-        '<div class="dhl"><div class="dhl-t">Highlights</div><div class="chips">' +
-          d.highlights.map(h => '<span class="chip">' + esc(h) + '</span>').join('') +
-        '</div></div>' +
-        '<div class="dlinks">' +
-          d.links.map(l => '<a class="dlink ' + l.type + '" href="' + esc(l.url) + '" target="_blank" rel="noopener">' + l.icon + ' ' + esc(l.label) + '</a>').join('') +
-        '</div>' +
-      '</div></div></div>';
-  }).join('');
-}
-function toggleCard(card,e){ if (e.target.closest('a')) return; card.classList.toggle('open'); }
-
-/* ══════════════ CALENDARIO ══════════════ */
-function renderCal(){
-  const dows = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
-  let html = dows.map(x => '<div class="cal-dow">' + x + '</div>').join('');
-  for (let i = 0; i < dias[0].dow; i++) html += '<div></div>';
-  html += dias.map(x => '<div class="day on c-' + x.c + '"><span>' + x.d + '</span><em>' + esc(x.lb) + '</em></div>').join('');
-  document.getElementById('cal').innerHTML = html;
-  document.getElementById('cal-key').innerHTML = calKey.map(k => '<div class="kk"><i class="c-' + k.c + '"></i>' + k.n + '</div>').join('');
-  document.getElementById('route').innerHTML = rutaChips.map((c,i) =>
-    '<span class="rt">' + c + '</span>' + (i<rutaChips.length-1 ? '<span class="rt-ar">→</span>' : '')).join('');
-}
-
 /* ══════════════ DOCS Y EQUIPAJE ══════════════ */
 function renderDocs(){
-  document.getElementById('docs-box').innerHTML = docsData.map(cat => {
-    const done = cat.items.filter(i => state.docs[i.id]).length;
+  document.getElementById('docs-box').innerHTML = docsData.map(function(cat){
+    const done = cat.items.filter(function(i){ return state.docs[i.id]; }).length;
     return '<div class="ccat" onclick="toggleCat(this,event)"><div class="ccat-h">' +
       '<span class="ccat-ic">' + cat.icon + '</span>' +
       '<span class="ccat-t">' + esc(cat.cat) + '</span>' +
       '<span class="ccat-b ' + (done===cat.items.length?'done':'') + '">' + done + '/' + cat.items.length + '</span>' +
       '<span class="ccat-cv">›</span></div>' +
       '<div class="citems"><div class="citems-in">' +
-      cat.items.map(i =>
-        '<div class="citem ' + (state.docs[i.id]?'checked':'') + '" onclick="toggleDoc(event,\'' + i.id + '\')">' +
+      cat.items.map(function(i){
+        return '<div class="citem ' + (state.docs[i.id]?'checked':'') + '" onclick="toggleDoc(event,\'' + i.id + '\')">' +
         '<div class="cbox"><span class="cmark">✓</span></div><div class="cinfo">' +
         '<div class="clabel">' + esc(i.label) + '</div>' +
         (i.sub ? '<div class="csub">' + esc(i.sub) + '</div>' : '') +
         (i.link ? '<a class="clink" href="' + esc(i.link) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">🔗 ' + esc(i.linkLbl||'Link') + '</a>' : '') +
-        '</div></div>').join('') +
+        '</div></div>'; }).join('') +
       '</div></div></div>';
   }).join('');
 }
 function renderPacking(){
-  document.getElementById('packing-box').innerHTML = packingData.map((cat,ci) => {
-    const done = cat.items.filter((_,ii) => state.packing[ci+'-'+ii]).length;
+  document.getElementById('packing-box').innerHTML = packingData.map(function(cat,ci){
+    const done = cat.items.filter(function(_,ii){ return state.packing[ci+'-'+ii]; }).length;
     const tlbl = cat.temp==='cold'?'15-18°':cat.temp==='warm'?'22-28°':'26-32°';
     return '<div class="ccat" onclick="toggleCat(this,event)"><div class="ccat-h">' +
       '<span class="ccat-ic">' + cat.icon + '</span>' +
@@ -1131,10 +1375,10 @@ function renderPacking(){
       '<span class="ccat-b ' + (done===cat.items.length?'done':'') + '">' + done + '/' + cat.items.length + '</span>' +
       '<span class="ccat-cv">›</span></div>' +
       '<div class="citems"><div class="citems-in">' +
-      cat.items.map((i,ii) =>
-        '<div class="citem ' + (state.packing[ci+'-'+ii]?'checked':'') + '" onclick="togglePack(event,' + ci + ',' + ii + ')">' +
+      cat.items.map(function(i,ii){
+        return '<div class="citem ' + (state.packing[ci+'-'+ii]?'checked':'') + '" onclick="togglePack(event,' + ci + ',' + ii + ')">' +
         '<div class="cbox"><span class="cmark">✓</span></div>' +
-        '<div class="cinfo"><div class="clabel">' + esc(i.label) + '</div></div></div>').join('') +
+        '<div class="cinfo"><div class="clabel">' + esc(i.label) + '</div></div></div>'; }).join('') +
       '</div></div></div>';
   }).join('');
 }
@@ -1156,7 +1400,7 @@ function toggleDoc(e,id){
   lsSet(LS.docs, state.docs);
   e.currentTarget.classList.toggle('checked', v);
   const full = bumpBadge(e.currentTarget);
-  updateTotals();
+  updateTotals(); renderHoy();
   tripRef.set({ docs: { [id]: v } }, { merge:true }).catch(console.error);
   if (v && full) { showToast('Categoría completa 🎉'); confetti(); }
 }
@@ -1168,7 +1412,7 @@ function togglePack(e,ci,ii){
   lsSet(LS.pack, state.packing);
   e.currentTarget.classList.toggle('checked', v);
   const full = bumpBadge(e.currentTarget);
-  updateTotals();
+  updateTotals(); renderHoy();
   tripRef.set({ packing: { [k]: v } }, { merge:true }).catch(console.error);
   if (v && full) { showToast('Categoría completa 🎉'); confetti(); }
 }
@@ -1342,18 +1586,26 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 
+
 /* ══════════════ INIT ══════════════ */
+abiertos.add(idxFoco());
 renderFiltros();
-renderReservas();
+renderHoy();
+renderStrip();
+renderDias();
 renderDest();
-renderCal();
+renderReservas();
 renderDocs();
 renderPacking();
 renderExpenses();
 updateSplitUI(state.splitPct);
 updateTotals();
-renderAlert();
-setInterval(function(){ updateTotals(); renderAlert(); }, 60000);
+setInterval(function(){ updateTotals(); renderHoy(); }, 60000);
+// La tira arranca centrada en el día de hoy.
+setTimeout(function(){
+  const s = document.getElementById('strip'); const b = s && s.children[idxFoco()];
+  if (b) s.scrollLeft = Math.max(0, b.offsetLeft - s.clientWidth/2 + b.offsetWidth/2);
+}, 60);
 
 /* ══════════════ SYNC ══════════════ */
 let docsMigrados = false;
@@ -1383,8 +1635,7 @@ tripRef.onSnapshot({includeMetadataChanges:true}, function(doc){
   const sl = document.getElementById('split-slider');
   if (sl) sl.value = state.splitPct;
   updateSplitUI(state.splitPct);
-  renderReservas(); renderDest(); renderDocs(); renderPacking();
-  updateTotals(); renderAlert();
+  repintar(); renderDocs(); renderPacking();
 
   if (!cache) state.fbConnected = true;
   setSyncStatus(cache?'offline':'connected', cache?'Sin conexión':'Sincronizado');
