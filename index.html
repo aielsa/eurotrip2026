@@ -668,8 +668,9 @@ const reservas = [
     l:'https://www.iberia.com/pr/gestion-de-reservas/', ll:'Mi reserva' },
 
   { id:'f-mad-ams', b:'Ámsterdam · 15 al 18 sept', ic:'✈️', t:'MAD ↔ AMS · ida y vuelta',
-    w:'Mar 15 sept ida · vie 18 sept vuelta ~20:00', est:'ok', c:709.88, pagado:true,
-    n:'Registrado como €657.30. Cubre los dos tramos de Ámsterdam.',
+    w:'Mar 15 sept ida · vie 18 sept vuelta', est:'ok', c:709.88, pagado:true,
+    h:'IDA mar 15 sept · sale MAD 11:30 → llega AMS ~14:00\nVUELTA vie 18 sept · sale AMS 19:25 → llega MAD ~22:00',
+    n:'Registrado como €657.30. Cubre los dos tramos de Ámsterdam. Confirmados los dos.',
     l:'https://www.klm.com/', ll:'KLM' },
   { id:'h-ams', b:'Ámsterdam · 15 al 18 sept', ic:'🏨', t:'Alojamiento Ámsterdam · 3 noches',
     w:'15 al 18 sept', est:'ok', c:630, pagado:true,
@@ -708,8 +709,8 @@ const reservas = [
     w:'La otra noche, mié 16 o jue 17', est:'ok', h:'Mié 16 o jue 17 · noche · sin reserva',
     n:'No requiere reserva.' },
   { id:'f-ams-mad', b:'Ámsterdam · 15 al 18 sept', ic:'✈️', t:'AMS → MAD · nocturno',
-    w:'Vie 18 sept ~20:00, llega ~23:30', est:'ok',
-    n:'Va incluido en el tiquete de €657.30 de arriba.', l:'https://www.klm.com/', ll:'KLM' },
+    w:'Vie 18 sept', est:'ok', h:'Vie 18 sept · sale AMS 19:25 → llega MAD ~22:00',
+    n:'Va incluido en el tiquete de €657.30 de arriba. En Schiphol a las 17:30.', l:'https://www.klm.com/', ll:'KLM' },
 
   { id:'h-mad1', b:'Madrid · 18 al 21 sept', ic:'🏨', t:'Alojamiento Madrid · 3 noches',
     w:'18 al 21 sept', est:'ok', c:560, pagado:true,
@@ -889,8 +890,8 @@ const itinerario = [
 
   { f:'2026-09-15', dow:'Mar', d:15, c:'ams', ciudad:'Ámsterdam · día 1', t:'Llegada y canal cruise',
     lead:'Día de aterrizar, dormir un rato y cerrar con el barco. Nada más es obligatorio.',
-    fijo:[{id:'f-mad-ams', lb:'MAD → AMS, hora por confirmar'},{id:'h-ams', lb:'Check in, alojamiento de Ámsterdam'},{id:'t-cruise', lb:'21:30 Evening Cruise, Keizersgracht 92H'}],
-    plan:'<p><strong>07:30 aterrizas en Madrid</strong> y conectas a Ámsterdam. La hora del vuelo a AMS no está en el dashboard: ponla en la reserva con "editar datos" para que salga aquí. Desde Schiphol, el tren a <strong>Amsterdam Centraal</strong> sale cada pocos minutos, tarda 15 a 20 y cuesta unos €5.90; se paga con la tarjeta en el torno.</p><p><strong>Check in, ducha y dormir.</strong> Vienes de vuelo nocturno y la noche termina a las 23:00. Si el cuarto no está listo, deja las maletas y duerme igual en cuanto puedas: un café en el Jordaan y un banco junto al canal valen lo mismo que un plan.</p><p><strong>Atardecer suave por los canales</strong> del Jordaan, Brouwersgracht y Prinsengracht, sin ruta. <strong>19:00, cena ligera</strong> en Winkel 43 (la apple pie) o Moeders. Ligera de verdad: el barco trae tres bebidas y queso.</p><p><strong>21:25, en el muelle</strong> de Keizersgracht 92H, el de madera junto al 106. <strong>21:30 a 23:00, el Spectacular Evening Cruise</strong> en el Pure Spirit. Termina en el mismo muelle, y de ahí a caer.</p>',
+    fijo:[{id:'f-mad-ams', lb:'11:30 vuelo MAD → AMS, llega ~14:00'},{id:'h-ams', lb:'Check in, alojamiento de Ámsterdam'},{id:'t-cruise', lb:'21:30 Evening Cruise, Keizersgracht 92H'}],
+    plan:'<p><strong>07:30 aterrizas en Madrid</strong> y a las <strong>11:30 sale el vuelo a Ámsterdam</strong>: cuatro horas de margen, en la puerta a las 10:30. Aterrizas sobre las 14:00. Desde Schiphol, el tren a <strong>Amsterdam Centraal</strong> sale cada pocos minutos, tarda 15 a 20 y cuesta unos €5.90; se paga con la tarjeta en el torno.</p><p><strong>Check in, ducha y dormir.</strong> Vienes de vuelo nocturno y la noche termina a las 23:00. Si el cuarto no está listo, deja las maletas y duerme igual en cuanto puedas: un café en el Jordaan y un banco junto al canal valen lo mismo que un plan.</p><p><strong>Atardecer suave por los canales</strong> del Jordaan, Brouwersgracht y Prinsengracht, sin ruta. <strong>19:00, cena ligera</strong> en Winkel 43 (la apple pie) o Moeders. Ligera de verdad: el barco trae tres bebidas y queso.</p><p><strong>21:25, en el muelle</strong> de Keizersgracht 92H, el de madera junto al 106. <strong>21:30 a 23:00, el Spectacular Evening Cruise</strong> en el Pure Spirit. Termina en el mismo muelle, y de ahí a caer.</p>',
     alt:'<p>Si llegan destruidos, el barco es lo único que no se mueve. Duerme hasta las 18:00 si hace falta y sal directo al muelle. Si llueve, escribe a Pure Boats (+31 20 215 7420) para saber si el barco va cubierto antes de vestirte para eso.</p><p>Si el vuelo se retrasa tanto que no llegas a las 21:25, llama a Pure Boats antes de darlo por perdido: pregunta si pueden moverte al miércoles o al jueves. Cambiar es más barato que perderlo.</p>' },
 
   { f:'2026-09-16', dow:'Mié', d:16, c:'ams', ciudad:'Ámsterdam · día 2', t:'Museos de día, Red Light de noche',
@@ -906,10 +907,10 @@ const itinerario = [
     alt:'<p>Si llueve, el Stedelijk (arte moderno) está en el mismo Museumplein de ayer, y Foodhallen aguanta una tarde entera. No cuentes con la Casa de Ana Frank: las entradas se agotan semanas antes y no venden en taquilla.</p><p>Si el cuerpo pide un día de nada, este es el día para eso. El viernes ya trae maletas y aeropuerto.</p>' },
 
   { f:'2026-09-18', dow:'Vie', d:18, c:'ams', ciudad:'Ámsterdam → Madrid', t:'Última mañana y vuelo nocturno',
-    lead:'Ámsterdam se despide con el mercado. La noche es de avión y de dormir en Madrid.',
-    fijo:[{id:'f-ams-mad', lb:'~20:00 vuelo AMS → MAD, llega ~23:30'},{id:'h-mad1', lb:'Llegada al Airbnb de Madrid'}],
-    plan:'<p><strong>9:30, desayuno</strong> en Pancakes Amsterdam. <strong>Check out</strong> a la hora del hotel y las maletas en conserjería. Última mañana relajada por el Jordaan o alguna galería.</p><p><strong>13:30, Albert Cuyp Market</strong> en De Pijp: stroopwafels calientes, haring y gouda al vacío para traer. <strong>Tarde libre</strong>: aquí cabe lo que quedó pendiente de la semana, o simplemente café y descanso antes del aeropuerto.</p><p><strong>18:00, Vleminckx</strong>, las mejores patatas fritas de la ciudad. <strong>19:00, tren a Schiphol</strong> desde Centraal. <strong>~20:00, vuelo a Madrid</strong>, llegas cerca de las 23:30. Taxi al Airbnb y a dormir: mañana el museo es a las 10:00.</p>',
-    alt:'<p>La hora exacta del vuelo AMS → MAD no está en el dashboard: ponla en la reserva. Si el vuelo se retrasa, avisa al host del Airbnb con la hora nueva, que llegar de madrugada sin avisar es lo que rompe un check in.</p><p>Si la tarde se hace larga, De Pijp y el Sarphatipark están al lado del mercado y no hay que volver al centro.</p>' },
+    lead:'Ámsterdam se despide con el mercado. A las 16:30 se sale para Schiphol; a las 22:00 estás en Madrid.',
+    fijo:[{id:'f-ams-mad', lb:'19:25 vuelo AMS → MAD, llega ~22:00'},{id:'h-mad1', lb:'Llegada al Airbnb de Madrid'}],
+    plan:'<p><strong>9:30, desayuno</strong> en Pancakes Amsterdam. <strong>Check out</strong> a la hora del hotel y las maletas en conserjería. Última mañana relajada por el Jordaan o alguna galería.</p><p><strong>13:30, Albert Cuyp Market</strong> en De Pijp: stroopwafels calientes, haring y gouda al vacío para traer. <strong>15:30, Vleminckx</strong>, las mejores patatas fritas de la ciudad. <strong>16:30, maletas y tren a Schiphol</strong> desde Centraal, para estar en el aeropuerto a las 17:30. <strong>19:25, vuelo a Madrid</strong>, llegas sobre las 22:00. Taxi al Airbnb y a dormir: mañana el museo es a las 10:00.</p>',
+    alt:'<p>Si el vuelo se retrasa, avisa al host del Airbnb con la hora nueva. Si el mercado se alarga, lo que se cae es Vleminckx, no el tren de las 16:30.</p>' },
 
   { f:'2026-09-19', dow:'Sáb', d:19, c:'mad', ciudad:'Madrid · día 1', t:'Museo temprano, noche larga',
     lead:'El Reina Sofía a primera hora, vacío. Después el día baja de ritmo hasta el rooftop del atardecer.',
@@ -1003,7 +1004,7 @@ const destinations = [
     res:['f-mad-ams','h-ams','t-cruise','t-moco','t-rijks','n-redlight','n-church','n-showboat','t-nemo','f-ams-mad'],
     intro:'<p>Ciudad de canales, museos de clase mundial y encanto bohemio. Arranca con un canal cruise al atardecer el mismo día que llegas, y de ahí: arte en el Museumplein, el Jordaan, el Red Light District y dos noches de salida.</p>',
     dormir:'<p>Tres noches, del 15 al 18, $630 pagados. El nombre, la dirección y el localizador no están en el dashboard: guárdalos en la reserva con "editar datos" y aparecen aquí.</p>',
-    llegar:'<p>Llegas el martes 15 desde Madrid, en el vuelo de la mañana (hora por confirmar), y desde Schiphol el tren a Centraal tarda 15 a 20 minutos. Sales el viernes 18 en vuelo nocturno a Madrid, sobre las 20:00, con llegada cerca de las 23:30. Dentro de la ciudad todo se hace a pie o en tranvía; los museos del Museumplein y el NEMO quedan a 25 minutos andando del centro.</p>',
+    llegar:'<p>Llegas el martes 15 desde Madrid en el vuelo de las 11:30 (aterrizas ~14:00), y desde Schiphol el tren a Centraal tarda 15 a 20 minutos. Sales el viernes 18 en el vuelo de las 19:25 a Madrid, con llegada sobre las 22:00. Dentro de la ciudad todo se hace a pie o en tranvía; los museos del Museumplein y el NEMO quedan a 25 minutos andando del centro.</p>',
     flex:'<p>Lo que se cayó a propósito: Van Gogh, la Fabrique des Lumières y el Smokeboat. Si sobra tiempo, el Stedelijk está en el mismo Museumplein, el Vondelpark se hace en bicicleta, y hay barcos abiertos de una hora saliendo del Damrak sin reserva. La Casa de Ana Frank no: se agota semanas antes.</p><p>Los clubes son la parte movible: Church y Showboat, uno cada noche, y el orden lo decide el calendario de Church.</p>',
     links:[
       {icon:'🖼',label:'Rijksmuseum',url:'https://www.rijksmuseum.nl/en/visit/tickets',type:'tickets'},
@@ -1017,7 +1018,7 @@ const destinations = [
     res:['h-mad1','t-prado','t-reina','tr-mad-bcn','h-mad2'],
     intro:'<p>Tres noches completas de Madrid sin salir de la ciudad, y una noche más de cierre al final. El Reina Sofía a primera hora, el Rastro del domingo con su vermut, tapeo en La Latina y Cava Baja, rooftops de 360 grados, el verde del Retiro, el Palacio Real y el atardecer del Templo de Debod.</p>',
     dormir:'<p>Del 18 al 21, tres noches en un Airbnb de $560, ya pagado; la dirección y el contacto del host no están aquí, guárdalos en la reserva. Y la noche del 1 de octubre, Atocha19 Apartment, en Atocha 19, a cinco minutos de la estación: confirmación 6284.097.511, PIN 1150, $179. Check in de 15:00 a 22:00; pasadas las 23:00 cobran €25.</p>',
-    llegar:'<p>Llegas el viernes 18 de noche desde Ámsterdam y sales el lunes 21 en el Ouigo de las 9:31 desde Atocha, con el embarque cerrado a las 9:26. Vuelves el jueves 1 en tren desde Córdoba sobre las 18:15, y el viernes 2 el vuelo a San Juan sale de la T4 a las 16:15: desde Atocha, Cercanías a la T4 en 25 minutos o taxi.</p>',
+    llegar:'<p>Llegas el viernes 18 sobre las 22:00 desde Ámsterdam y sales el lunes 21 en el Ouigo de las 9:31 desde Atocha, con el embarque cerrado a las 9:26. Vuelves el jueves 1 en tren desde Córdoba sobre las 18:15, y el viernes 2 el vuelo a San Juan sale de la T4 a las 16:15: desde Atocha, Cercanías a la T4 en 25 minutos o taxi.</p>',
     flex:'<p>Toledo se cayó a propósito para aprovechar Madrid. El Prado queda de opción si un día pide más arte (domingos gratis de 17:00 a 19:00). Si el rooftop del Círculo tiene cola, el Riu Plaza España o el Hotel Emperador. Si llueve el domingo, el Rastro se deshace y el Prado lo reemplaza.</p>',
     links:[
       {icon:'🖼',label:'Reina Sofía',url:'https://www.museoreinasofia.es/en/visit',type:'tickets'},
@@ -1103,8 +1104,8 @@ const eventos = [
   { id:'e0914-vuelo', f:'2026-09-14', h:'17:15', salir:'14:30', tipo:'vuelo', t:'Vuelo SJU → Madrid, Iberia', s:'Directo, 8h15. Pasaporte, licencia y las tarjetas avisadas al banco.', res:'f-sju-mad' },
 
   { id:'e0915-llega', f:'2026-09-15', h:'07:30', tipo:'vuelo', t:'Aterrizas en Madrid', s:'Conexión a Ámsterdam. Son billetes separados: mira la hora del siguiente.', res:'f-sju-mad' },
-  { id:'e0915-ams', f:'2026-09-15', h:'', tipo:'vuelo', t:'Vuelo Madrid → Ámsterdam', s:'La hora no está en el dashboard: ponla en la reserva con «editar datos» y aparece aquí con su alarma.', res:'f-mad-ams', horaDeRes:true },
-  { id:'e0915-checkin', f:'2026-09-15', h:'', tipo:'checkin', t:'Check in en Ámsterdam', s:'Hora del hotel por confirmar. Si el cuarto no está listo, deja las maletas y duerme cuando puedas.', res:'h-ams' },
+  { id:'e0915-ams', f:'2026-09-15', h:'11:30', salir:'10:30', tipo:'vuelo', t:'Vuelo Madrid → Ámsterdam', s:'Aterrizas a las 7:30, tienes 4 horas. En la puerta a las 10:30. Llegas a AMS ~14:00.', res:'f-mad-ams' },
+  { id:'e0915-checkin', f:'2026-09-15', h:'15:00', tipo:'checkin', t:'Check in en Ámsterdam', s:'Si llegas antes, deja las maletas y duerme cuando puedas.', res:'h-ams', horaDeRes:true },
   { id:'e0915-cruise', f:'2026-09-15', h:'21:30', salir:'21:00', tipo:'entrada', t:'Evening Cruise, Pure Boats', s:'Muelle de Keizersgracht 92H a las 21:25. Tickets en el wallet. Cena ligera antes.', res:'t-cruise' },
 
   { id:'e0916-moco', f:'2026-09-16', h:'11:30', salir:'11:00', tipo:'entrada', t:'Moco Museum', s:'Museumplein. Entrada con hora.', res:'t-moco' },
@@ -1114,9 +1115,9 @@ const eventos = [
   { id:'e0917-nemo', f:'2026-09-17', h:'10:30', salir:'10:00', tipo:'entrada', t:'NEMO Science Museum', s:'Oosterdok, dos tickets. La terraza del techo es gratis.', res:'t-nemo' },
   { id:'e0917-noche', f:'2026-09-17', h:'23:30', tipo:'aviso', t:'Ojo con la hora de acostarse', s:'Mañana es check out, Albert Cuyp y vuelo nocturno a Madrid.' },
 
-  { id:'e0918-checkout', f:'2026-09-18', h:'', tipo:'checkout', t:'Check out en Ámsterdam', s:'A la hora del hotel: confírmala. Deja las maletas en conserjería y recógelas antes de las 19:00.', res:'h-ams' },
-  { id:'e0918-tren', f:'2026-09-18', h:'19:00', salir:'18:30', tipo:'tren', t:'Tren a Schiphol desde Centraal', s:'15 a 20 minutos. Compra con la tarjeta en el torno.' },
-  { id:'e0918-vuelo', f:'2026-09-18', h:'20:00', salir:'18:30', tipo:'vuelo', t:'Vuelo Ámsterdam → Madrid (~20:00)', s:'Llegas cerca de las 23:30. Avisa al host del Airbnb la hora real.', res:'f-ams-mad', horaDeRes:true },
+  { id:'e0918-checkout', f:'2026-09-18', h:'', tipo:'checkout', t:'Check out en Ámsterdam', s:'A la hora del hotel: confírmala. Deja las maletas en conserjería y recógelas antes de las 16:30.', res:'h-ams' },
+  { id:'e0918-tren', f:'2026-09-18', h:'17:00', salir:'16:40', tipo:'tren', t:'Tren a Schiphol desde Centraal', s:'15 a 20 minutos. Compra con la tarjeta en el torno.' },
+  { id:'e0918-vuelo', f:'2026-09-18', h:'19:25', salir:'16:40', tipo:'vuelo', t:'Vuelo Ámsterdam → Madrid', s:'En Schiphol a las 17:30. Llegas a Madrid ~22:00, taxi al Airbnb.', res:'f-ams-mad' },
 
   { id:'e0919-reina', f:'2026-09-19', h:'10:00', salir:'09:30', tipo:'entrada', t:'Museo Reina Sofía', s:'Primera hora, vacío. Cero fotos al Guernica.', res:'t-reina' },
   { id:'e0919-azotea', f:'2026-09-19', h:'19:30', salir:'19:00', tipo:'aviso', t:'Azotea del Círculo de Bellas Artes', s:'Atardece sobre las 20:15. Un sábado se llena: llega antes.' },
@@ -1206,14 +1207,14 @@ const IDEA_TIPOS = [
 const RESUMEN = {
   '2026-09-14': { pasos:[['14:30','En el aeropuerto SJU','Pasaporte, licencia, tarjetas avisadas'],['17:15','Vuelo a Madrid','Iberia directo, 8h15. Cena y a dormir']],
     b:['Si se retrasa: vigila la conexión a Ámsterdam, son billetes separados','Si la pierdes: hay vuelos toda la tarde y el hotel ya está pagado'] },
-  '2026-09-15': { pasos:[['07:30','Aterrizas en Madrid','Conexión a Ámsterdam'],['—','Vuelo MAD → AMS','Hora por confirmar en Reservas'],['—','Tren Schiphol → Centraal','15 min · €5.90 con tarjeta'],['—','Check in, ducha y dormir','La noche termina a las 23:00'],['—','Jordaan Festival · Appeltjesmarkt','Último día, música gratis, 10 min del muelle'],['19:00','Cena ligera','Winkel 43 o Moeders'],['21:25','Muelle Keizersgracht 92H','Junto al 106'],['21:30','Evening Cruise','Pure Spirit · 3 bebidas y queso']],
+  '2026-09-15': { pasos:[['07:30','Aterrizas en Madrid','4 horas de margen'],['11:30','Vuelo MAD → AMS','En la puerta a las 10:30'],['14:00','Schiphol → Centraal','Tren, 15 min · €5.90 con tarjeta'],['—','Check in, ducha y dormir','La noche termina a las 23:00'],['—','Jordaan Festival · Appeltjesmarkt','Último día, música gratis, 10 min del muelle'],['19:00','Cena ligera','Winkel 43 o Moeders'],['21:25','Muelle Keizersgracht 92H','Junto al 106'],['21:30','Evening Cruise','Pure Spirit · 3 bebidas y queso']],
     b:['Destruidos: duerme hasta las 18:00, el barco es lo único fijo','Lluvia: pregunta a Pure Boats si va cubierto (+31 20 215 7420)','No llegas a las 21:25: llama y cambia de día antes de perderlo'] },
   '2026-09-16': { pasos:[['—','Mañana suelta','Nine Streets o Bloemenmarkt'],['11:30','Moco Museum','Banksy y Basquiat · 1h'],['13:00','Almuerzo','The Seafood Bar'],['14:00','Rijksmuseum','Ronda de Noche y La Lechera · 2h'],['16:30','Descanso en el hotel',''],['19:00','Cena','Foodhallen'],['21:00','Red Light District','De Wallen · cero fotos a las ventanas'],['—','Club','Church o Showboat, el otro mañana']],
     b:['Tarde: se sacrifica el desayuno largo, no el Moco','Un solo museo: el Rijksmuseum','Sin club: el Red Light se camina en 1h y a la cama','Church tiene fiesta distinta cada noche, mira el calendario antes'] },
   '2026-09-17': { pasos:[['10:30','NEMO Science Museum','Oosterdok · la terraza es gratis'],['—','Día abierto','Vondelpark en bici, De Pijp, Jordaan'],['—','Noche: el otro club','Mañana es check out y vuelo']],
     b:['Lluvia: Stedelijk (mismo Museumplein) o Foodhallen','Ana Frank no: se agota semanas antes','Día de nada: este es el día para eso'] },
-  '2026-09-18': { pasos:[['09:30','Desayuno','Pancakes Amsterdam'],['—','Check out','Maletas en conserjería'],['13:30','Albert Cuyp Market','De Pijp · stroopwafels y gouda'],['—','Tarde libre',''],['18:00','Vleminckx','Las mejores patatas fritas'],['19:00','Tren a Schiphol','Desde Centraal'],['20:00','Vuelo a Madrid','Llegas ~23:30, taxi al Airbnb']],
-    b:['Pon la hora real del vuelo en Reservas','Retraso: avisa al host la hora nueva','Tarde larga: De Pijp y Sarphatipark, al lado del mercado'] },
+  '2026-09-18': { pasos:[['09:30','Desayuno','Pancakes Amsterdam'],['—','Check out','Maletas en conserjería'],['13:30','Albert Cuyp Market','De Pijp · stroopwafels y gouda'],['15:30','Vleminckx','Las mejores patatas fritas'],['16:30','Maletas y tren a Schiphol','Desde Centraal, 15 min'],['17:30','En Schiphol',''],['19:25','Vuelo a Madrid','Llegas ~22:00, taxi al Airbnb']],
+    b:['Retraso: avisa al host del Airbnb la hora nueva','Si el mercado se alarga: Vleminckx se cae, el tren no'] },
   '2026-09-19': { pasos:[['10:00','Reina Sofía','Guernica y bocetos de Dora Maar · 1.5h'],['12:00','Retiro','Palacio de Cristal, lago, rosaleda'],['14:00','Almuerzo',''],['16:00','Malasaña','Vintage y cafés'],['19:30','Azotea Círculo de Bellas Artes','Atardece ~20:15, llega antes'],['21:30','Tapeo','La Latina y Cava Baja']],
     b:['Cola en el rooftop: Riu Plaza España o Hotel Emperador','Cansada: suelta el Retiro, no el museo','Más arte: el Prado es opción, no plan'] },
   '2026-09-20': { pasos:[['09:30','El Rastro','La Latina · solo domingos hasta las 15:00'],['13:00','Vermut de domingo','Cava Baja y Plaza de la Cebada'],['—','Palacio Real y Almudena',''],['—','Templo de Debod','Atardecer · gratis'],['20:00','Maleta lista','Mañana Ouigo 9:31, cierra 9:26']],
