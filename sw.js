@@ -1,7 +1,7 @@
 /* Eurotrip 2026 · service worker
    index.html va por la red primero (para no quedarse con una versión vieja) y cae al caché sin señal.
    Fotos, íconos, fuentes y el SDK de Firebase se guardan en caché la primera vez. */
-const V = 'eurotrip-v4';
+const V = 'eurotrip-v6';
 const SHELL = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'icon-180.png',
   'photos/amsterdam.jpg', 'photos/madrid.jpg', 'photos/barcelona.jpg', 'photos/granada.jpg', 'photos/ronda.jpg', 'photos/sevilla.jpg', 'photos/cordoba.jpg'];
 

@@ -701,12 +701,12 @@ const reservas = [
     h:'Mié 16 sept · desde las 21:00',
     n:'De Wallen y la Oude Kerk. No se reserva ni se paga. 🔴 Cero fotos a las ventanas, es la única regla y la hacen cumplir.' },
   { id:'n-church', b:'Ámsterdam · 15 al 18 sept', ic:'🕺', t:'Club Church',
-    w:'Una de las dos noches, mié 16 o jue 17', est:'todo',
-    n:'Cada noche tiene una fiesta distinta con su propio dress code y su propia política de entrada. Mira el calendario ANTES de decidir qué noche van, porque aquí la noche escoge la fiesta y no al revés.',
+    w:'Una de las dos noches, mié 16 o jue 17', est:'ok', h:'Mié 16 o jue 17 · noche · sin reserva',
+    n:'No requiere reserva. Cada noche tiene una fiesta distinta con su propio dress code: mira el calendario antes de escoger la noche.',
     l:'https://www.clubchurch.nl/', ll:'Calendario' },
   { id:'n-showboat', b:'Ámsterdam · 15 al 18 sept', ic:'🎭', t:'Showboat',
-    w:'La otra noche, mié 16 o jue 17', est:'todo',
-    n:'No tengo verificado el horario, el precio ni si pide entrada por adelantado. Confírmalo antes de contar con él para esa noche.' },
+    w:'La otra noche, mié 16 o jue 17', est:'ok', h:'Mié 16 o jue 17 · noche · sin reserva',
+    n:'No requiere reserva.' },
   { id:'f-ams-mad', b:'Ámsterdam · 15 al 18 sept', ic:'✈️', t:'AMS → MAD · nocturno',
     w:'Vie 18 sept ~20:00, llega ~23:30', est:'ok',
     n:'Va incluido en el tiquete de €657.30 de arriba.', l:'https://www.klm.com/', ll:'KLM' },
@@ -719,10 +719,6 @@ const reservas = [
     w:'Sáb 19 sept', est:'idea', ce:'€15 c/u',
     n:'Descartado a favor del Reina Sofía (23 ago): son 3h de maratón y ese sábado ya tienes Retiro, Malasaña, tapeo y rooftop. Si algún día lo retomas, lo bueno es El Jardín de las Delicias del Bosco, las Pinturas Negras de Goya y Las Meninas.',
     l:'https://www.museodelprado.es/en/visit/tickets', ll:'Tickets' },
-  { id:'e-escuela', b:'Madrid · 18 al 21 sept', ic:'🎓', t:'Escuela de IA de Madrid · visita',
-    w:'Sin ventana disponible', est:'idea',
-    n:'🔴 YA NO CABE EN EL VIAJE. Tu tren sale a las 9:31 del lunes, así que la mañana laborable desapareció, y el jueves 1 llegas a Madrid a las 18:15 con maletas. 💡 REENCUÁDRALO: pídele a tu contacto una VIDEOLLAMADA en vez de la visita. Para lo que tú haces, media hora hablando con alguien que enseña IA ahí vale más que ver un edificio, y no te cuesta un día de viaje. ⚠️ Falta definir CUÁL es: si es UC3M (Getafe o Leganés) o UFV (Pozuelo) están fuera de Madrid, 30 a 40 min cada vía, y con el tren a las 14:00 no da. Si es IE, está en la Castellana y sí cabe. 📩 Y no son museos: son universidades operando. Escribe con antelación pidiendo visita, que UFV por ejemplo hace jornadas de puertas abiertas y visitas privadas con cita.',
-    l:'', ll:'' },
   { id:'t-reina', b:'Madrid · 18 al 21 sept', ic:'🖼️', t:'Museo Reina Sofía',
     w:'Sáb 19 sept · 10:00', est:'todo', ce:'€12 c/u, €24 los dos',
     h:'Sáb 19 sept · 10:00, primera hora',
@@ -772,26 +768,15 @@ const reservas = [
     h:'Recogida lun 28 · 9:30 AM · estación de Granada\nDevolución mar 29 · 4:30 PM · Santa Justa, Sevilla',
     conf:'Itinerario 73527918359633 · a nombre de Ivan Gabriel', c:192.30, pagado:true,
     n:'MidsizeElite, 5 plazas, KILOMETRAJE ILIMITADO. 📍 RECOGIDA: Renfe, Avda de los Andaluces S/N, Granada. Código de acceso al parking: 2879e. Tu Airbnb está en el Albaicín, así que baja en taxi con las maletas. 📍 DEVOLUCIÓN: Renfe Santa Justa, Sevilla, que NO está en el centro. Descarga primero en el alojamiento y luego vas a devolver. Bonus: el jueves sales desde ahí mismo, así que ya conoces el sitio. ⚠️ Llega 15 min antes en Granada, y saca fotos del coche por los cuatro lados antes de arrancar y al devolverlo.' },
-  { id:'a-barranco', b:'Ronda · 28 al 29 sept', ic:'🧗‍♀️', t:'Barranquismo DENTRO del Tajo de Ronda',
-    w:'Lun 28 sept · tarde', est:'todo', ce:'€48 c/u, ~€96 los dos',
-    n:'🔥 ESTO ES LO QUE BUSCABAS: descenso por el río Guadalevín por dentro del Tajo, con rápel por cuerda, toboganes naturales y saltos a pozas. 3 horas. Operador: Horizon Naturaleza y Aventura. Punto de encuentro en los BAÑOS ÁRABES, o sea en el pueblo, sin desviarte. INCLUYE guía certificado, seguro, casco, arnés, cuerda, neopreno, bolsas estancas, botiquín y REPORTAJE FOTOGRÁFICO, que te resuelve el contenido sin arriesgar tu cámara. 🔴 EL PROBLEMA: grupo mínimo de 4 personas y ustedes son 2. Escríbeles YA para confirmar que hay salida ese día y que opera a finales de septiembre, que eso no lo dice la web. ⚠️ Piden nivel físico y técnico medio-alto, no es un paseo. Mínimo 18 años. 🎒 Tienes que llevar: bañador, ZAPATOS DE AGUA (escarpines), agua, toalla y ropa seca para cambiarte. Los escarpines no están en tu lista de equipaje. 💡 Si sale, SUSTITUYE al Camino de los Molinos: bajas el Tajo por dentro y mojada, que es mejor.',
-    l:'https://www.horizonaventura.com/barranco-tajo-de-ronda/', ll:'Horizon Aventura' },
   { id:'a-mina', b:'Ronda · 28 al 29 sept', ic:'🪜', t:'Mina de Agua · Casa del Rey Moro',
     w:'Lun 28 sept', est:'idea', ce:'~€10 c/u',
     n:'La versión suave de bajar al río: una escalera del siglo XIV excavada en la pared del Tajo, 231 escalones tallados en la roca que bajan 60 metros hasta el Guadalevín. La hicieron los musulmanes para abastecer de agua a la ciudad durante los asedios. Escalones húmedos y resbalosos, la subida cansa. ⚠️ La Casa del Rey Moro ha tenido cierres por conservación: confirma que esté abierta antes de contar con ella.' },
-  { id:'r-torcal', b:'Ronda · 28 al 29 sept', ic:'🏔️', t:'El Torcal de Antequera · solo si te sobra el día',
-    w:'Lun 28 sept · desvío de la mañana', est:'idea',
-    n:'⚖️ MI RECOMENDACIÓN ES QUE LO SUELTES. Es un campo de roca caliza y no hay nada más: ni pueblo, ni monumento, ni sitio donde sentarse. En 30 min ya viste lo que hay y te quedan 1.5h de caminar entre lo mismo, sin sombra, con maletas en el carro. Te come 4h del día que llegas a Ronda, y ese mismo día tienes el Tajo, que es mejor naturaleza y no cuesta desvío. 🥾 SI AUN ASÍ QUIERES IR, hazlo corto: ruta VERDE de 45 min más el mirador de Las Ventanillas, no la amarilla. Llegas 10:00, sales 11:30, estás en Ronda a la 1:00. Eso es 2.5h de desvío en vez de 4. ⚠️ Parking chico que se llena y cortan la subida; cero sombra a 1,200 m.' },
   { id:'h-ron', b:'Ronda · 28 al 29 sept', ic:'🏨', t:'Apartamento Balcones del Tajo',
     w:'Lun 28 al mar 29 sept · 1 noche', est:'ok', conf:'Conf. 6961.974.953 · PIN 9457', c:169, pagado:true,
     h:'Check in lun 28 · 13:30 a 21:30\nCheck out mar 29 · 05:00 a 11:30',
     n:'12 Calle Rosario. Les avisaste que llegas entre 13:00 y 14:00. Cancelación gratis hasta el 20 de sept.',
     l:'https://www.booking.com/', ll:'Booking' },
 
-  { id:'t-caminito', b:'Sevilla · 29 sept al 1 oct', ic:'🥾', t:'Caminito del Rey',
-    w:'Mar 29 sept', est:'idea', ce:'€10 a €15 c/u',
-    n:'❌ SIN DISPONIBILIDAD para el 29 ni para casi todo septiembre, ni en el oficial ni en GetYourGuide. Lo dejo aquí en gris por si liberan cupo: revisa el link de vez en cuando y en la web oficial sueltan ~50 entradas en taquilla del acceso norte el mismo día, con cola desde las 7:00. Si apareciera algo de MAÑANA, se vuelve a activar y se cae la ruta de pueblos blancos. Si es de tarde, no lo cojas: te destroza la llegada a Sevilla.',
-    l:'https://www.getyourguide.com/caminito-del-rey-l89646/caminito-del-rey-giris-bileti-t425999/', ll:'Entrada sin guía' },
   { id:'r-pueblos', b:'Sevilla · 29 sept al 1 oct', ic:'🏘️', t:'Setenil de las Bodegas · camino a Sevilla',
     w:'Mar 29 sept · mañana', est:'ok',
     h:'Mar 29 sept · Ronda 9:30 → Setenil 9:50 a 13:30 → Sevilla 15:30 → carro a las 16:30',
@@ -809,10 +794,6 @@ const reservas = [
     w:'Mié 30 sept', est:'idea', ce:'€12 c/u', l:'https://www.catedraldesevilla.es/', ll:'Info' },
   { id:'t-flamenco-svq', b:'Sevilla · 29 sept al 1 oct', ic:'💃', t:'Flamenco en tablao',
     w:'Mié 30 sept · noche', est:'idea', ce:'~€25 a €40 c/u' },
-  { id:'t-cadiz', b:'Sevilla · 29 sept al 1 oct', ic:'🏖️', t:'Day trip a Cádiz',
-    w:'Mié 30 sept', est:'idea', ce:'~€15 tren',
-    n:'Compite con Sevilla a fondo. Escoge una y suelta la otra, no caben las dos.' },
-
   { id:'tr-svq-cor', b:'Córdoba y cierre · 1 al 2 oct', ic:'🚄', t:'AVE Sevilla → Córdoba',
     w:'Jue 1 oct · mañana', est:'todo', ce:'~€15 a €25',
     n:'⏰ EL AVANT DE LAS 09:55 (llega 10:39, €17.85 por persona). Es el más barato de toda la mañana y sale a una hora humana: te levantas normal, check out a las 9:00 y taxi a Santa Justa. Que sea Avant en vez de AVE da igual: son 44 min contra 41, mismos raíles, y cuesta la mitad. 🥈 Alternativa: el AVE de las 09:34 (llega 10:15, €29.05 pp), que te da una hora más en Córdoba por €11 más cada una. 🚫 NUNCA el de las 17:02 aunque salga a €18: llegarías con la Mezquita cerrando y sin poder dormir en Madrid. 🎫 DOS BILLETES SEPARADOS (Sevilla a Córdoba y Córdoba a Madrid), NUNCA el directo Sevilla a Madrid: con el directo no te puedes bajar y volver a subir. 🚕 Sale de Santa Justa, 10 a 15 min en taxi desde Santa Cruz.',
@@ -837,7 +818,7 @@ const docsData = [
     {id:'d-pasaporte', pre:true, label:'Pasaporte vigente con 6+ meses', sub:'Verificar fecha de expiración'},
     {id:'d-licencia', pre:true, label:'Licencia de conducir vigente', sub:'Para el carro en Andalucía'},
     {id:'d-copias', pre:true, label:'Copias digitales en la nube', sub:'Pasaporte, seguro y todas las reservas'},
-    {id:'d-seguro', label:'🔴 Seguro de viaje Europa · 18 días', sub:'OJO: los seguros estándar EXCLUYEN deportes de aventura. Si hacen el barranquismo del Tajo, necesitas cobertura específica o no estás cubierta si te lesionas', link:'https://www.worldnomads.com/', linkLbl:'World Nomads'}
+    {id:'d-seguro', label:'🔴 Seguro de viaje Europa · 18 días', sub:'Cobertura médica en Europa y cancelación. El barranquismo se descartó, así que el estándar basta', link:'https://www.worldnomads.com/', linkLbl:'World Nomads'}
   ]},
   { cat:'Conectividad y dinero', icon:'📱', items:[
     {id:'d-esim', label:'eSIM o plan internacional de data', sub:'18 días, dos países', link:'https://www.airalo.com/', linkLbl:'Airalo'},
@@ -986,21 +967,21 @@ const itinerario = [
 
   { f:'2026-09-28', dow:'Lun', d:28, c:'ron', ciudad:'Granada → Ronda', t:'Carro, sierra y el Tajo',
     lead:'El carro se recoge a las 9:30. A las 11:45 estás en Ronda con el pueblo entero desde el mediodía hasta la noche.',
-    fijo:[{id:'car', lb:'9:30 recogida del carro, estación Renfe de Granada'},{id:'h-ron', lb:'Check in Balcones del Tajo desde las 13:30'},{id:'a-barranco', lb:'Tarde: barranquismo dentro del Tajo'},{id:'a-mina', lb:'Mina de Agua, Casa del Rey Moro'},{id:'r-torcal', lb:'El Torcal, desvío de la mañana'}],
-    plan:'<p><strong>9:00, taxi con las maletas</strong> del Albaicín a la estación de Renfe, en la Avenida de los Andaluces. <strong>9:30, Budget</strong>: Renault Austral o similar, kilometraje ilimitado, a nombre de Iván. Código del parking 2879e. Llega 15 minutos antes y saca fotos del carro por los cuatro lados.</p><p><strong>Directo a Ronda</strong>, unas dos horas por la A-92 y la A-367: sierras, olivos y pueblos blancos por la ventana. <strong>11:45, llegas.</strong> Come algo, y a partir de las 13:30 haces check in en Balcones del Tajo, Calle Rosario 12. Les avisaste que llegas entre 13:00 y 14:00.</p><p><strong>Tarde: el Tajo.</strong> El Puente Nuevo sobre la garganta de 120 metros, y bajar al fondo por el Camino de los Molinos, que es la caminata de naturaleza del día: desde abajo el puente se ve en toda su escala, y la subida de vuelta es dura de verdad. Drone. Después la Plaza de Toros, la más antigua de España, y el casco antiguo.</p><p><strong>Vuelve al Puente Nuevo al atardecer:</strong> con luz de tarde es otro sitio. Cena con vistas al Tajo.</p>',
-    alt:'<p>Si Horizon confirma el barranquismo (piden grupo de cuatro y ustedes son dos), la tarde es eso: tres horas bajando el río Guadalevín por dentro del Tajo, encuentro en los Baños Árabes, y sustituye al Camino de los Molinos. Necesitas escarpines y que el seguro cubra deporte de aventura. Si no confirman, el Camino de los Molinos da la misma naturaleza a pie.</p><p>La versión suave de bajar al río es la Mina de Agua de la Casa del Rey Moro: 231 escalones del siglo XIV excavados en la pared del Tajo. Confirma que esté abierta, ha tenido cierres. El Torcal queda como opción y la recomendación es soltarlo: son cuatro horas de desvío por un campo de rocas, con maletas en el carro y sin sombra.</p>' },
+    fijo:[{id:'car', lb:'9:30 recogida del carro, estación Renfe de Granada'},{id:'h-ron', lb:'Check in Balcones del Tajo desde las 13:30'},{id:'a-mina', lb:'Mina de Agua, Casa del Rey Moro'}],
+    plan:'<p><strong>9:00, taxi con las maletas</strong> del Albaicín a la estación de Renfe, en la Avenida de los Andaluces. <strong>9:30, Budget</strong>: Renault Austral o similar, kilometraje ilimitado, a nombre de Iván. Código del parking 2879e. Llega 15 minutos antes y saca fotos del carro por los cuatro lados.</p><p><strong>Directo a Ronda</strong>, unas dos horas por la A-92 y la A-367: sierras, olivos y pueblos blancos por la ventana. <strong>11:45, llegas.</strong> Come algo, y a partir de las 13:30 haces check in en Balcones del Tajo, Calle Rosario 12. Les avisaste que llegas entre 13:00 y 14:00.</p><p><strong>Tarde: bajar al río.</strong> El Puente Nuevo sobre la garganta de 120 metros, y de ahí al fondo del Tajo por el <strong>Camino de los Molinos</strong>: arranca en el Arco de Cristo (Plaza de María Auxiliadora), baja en zigzag hasta el Guadalevín y desde abajo el puente se ve en toda su escala. Una hora ida y vuelta, gratis, con la subida dura de verdad. Drone. Después, por la parte baja, el <strong>Puente Viejo</strong>, los <strong>Baños Árabes</strong> y los <strong>Jardines de Cuenca</strong>, que bajan en terrazas con el río al lado. Y la Plaza de Toros, la más antigua de España.</p><p><strong>Vuelve al Puente Nuevo al atardecer:</strong> con luz de tarde es otro sitio. Cena con vistas al Tajo.</p>',
+    alt:'<p>Tres formas de bajar al río, de más a menos piernas: el Camino de los Molinos (hasta el fondo, gratis, subida dura), la Mina de Agua de la Casa del Rey Moro (231 escalones del siglo XIV excavados dentro de la roca hasta el Guadalevín, unos €10, confirma que esté abierta porque ha tenido cierres), y los Jardines de Cuenca hasta el Puente Viejo (terrazas, sombra, el río al lado, sin esfuerzo).</p><p>Hazlo antes de las 17:00 con luz, con tenis y agua. El barranquismo se descartó.</p>' },
 
   { f:'2026-09-29', dow:'Mar', d:29, c:'svq', ciudad:'Ronda → Setenil → Sevilla', t:'Setenil y llegada a Sevilla',
     lead:'Un solo desvío, a 20 minutos, y el carro se devuelve a las 16:30. El golden hour es en la Plaza de España.',
-    fijo:[{id:'r-pueblos', lb:'9:30 Ronda → Setenil (9:50 a 13:30) → Sevilla 15:30'},{id:'h-svq', lb:'Check in nüa cicerone desde las 14:00'},{id:'car', lb:'16:30 devolución del carro en Santa Justa'},{id:'t-caminito', lb:'Caminito del Rey, sin cupo'}],
+    fijo:[{id:'r-pueblos', lb:'9:30 Ronda → Setenil (9:50 a 13:30) → Sevilla 15:30'},{id:'h-svq', lb:'Check in nüa cicerone desde las 14:00'},{id:'car', lb:'16:30 devolución del carro en Santa Justa'}],
     plan:'<p><strong>Check out de Ronda</strong> (va hasta las 11:30, pero sales a las 9:30). <strong>9:50, Setenil de las Bodegas</strong>: calles enteras metidas debajo de un techo de roca natural, las Cuevas del Sol y las Cuevas de la Sombra. El sitio más raro y más fotogénico del viaje, y el que llevabas años queriendo ver. Con el mirador del Carmen y la torre son hora y media; el resto es callejear sin prisa.</p><p><strong>12:00, almuerzo ahí mismo</strong>, debajo de la roca: tierra de embutidos y carne a la brasa. <strong>13:30, sales.</strong> Setenil a Sevilla son unas dos horas. <strong>15:30, llegas.</strong> Acércate con el carro hasta donde Santa Cruz lo permita, descarga las maletas en nüa cicerone, Mesón del Moro 10, y haz check in. Avísales que llegas en coche a descargar: es calle estrecha.</p><p><strong>16:30, devuelves el carro en Santa Justa</strong>, diez minutos desde Santa Cruz, y vuelves al centro en taxi. El jueves sales de esa misma estación, así que ya la conoces. <strong>Tarde sin reloj</strong> por el barrio de Santa Cruz. <strong>19:30, Plaza de España al golden hour</strong>, y de ahí cruzar a Triana para cenar junto al Guadalquivir con la Torre del Oro iluminada.</p>',
-    alt:'<p>Si Setenil se hace corto, Zahara de la Sierra queda a 35 minutos con su castillo sobre el embalse, pero es desvío al norte y te come la tarde de Sevilla: solo si de verdad sobra tiempo. Arcos lo soltaste a propósito para llegar con luz.</p><p>El Caminito del Rey no tiene cupo para hoy; si aparece un turno de mañana en el link, se reactiva y se cae Setenil. Un turno de tarde no lo cojas: te destroza la llegada a Sevilla y la devolución del carro.</p><p>Si vas justa de hora con el carro, lo que se recorta es el almuerzo largo, no la devolución: el contrato dice 16:30.</p>' },
+    alt:'<p>Si Setenil se hace corto, Zahara de la Sierra queda a 35 minutos con su castillo sobre el embalse, pero es desvío al norte y te come la tarde de Sevilla: solo si de verdad sobra tiempo. Arcos lo soltaste a propósito para llegar con luz.</p><p>Si vas justa de hora con el carro, lo que se recorta es el almuerzo largo, no la devolución: el contrato dice 16:30.</p>' },
 
   { f:'2026-09-30', dow:'Mié', d:30, c:'svq', ciudad:'Sevilla · día 2', t:'Sevilla a fondo',
     lead:'Alcázar a primera hora y el resto sin reloj. Esta noche se compran los dos trenes de mañana si no están.',
-    fijo:[{id:'t-alcazar', lb:'9:30 Real Alcázar'},{id:'t-giralda', lb:'12:00 Catedral y Giralda'},{id:'t-flamenco-svq', lb:'Noche: flamenco en tablao'},{id:'t-cadiz', lb:'Day trip a Cádiz, compite con Sevilla'}],
+    fijo:[{id:'t-alcazar', lb:'9:30 Real Alcázar'},{id:'t-giralda', lb:'12:00 Catedral y Giralda'},{id:'t-flamenco-svq', lb:'Noche: flamenco en tablao'}],
     plan:'<p><strong>9:30, Real Alcázar</strong>, primera hora: vacío y con la luz buena en los jardines. Palacio mudéjar, los jardines de Dorne de Game of Thrones. Unas dos horas. Se compra online y se llena: cómpralo ya.</p><p><strong>12:00, Catedral y Giralda</strong>, la gótica más grande del mundo. La Giralda se sube por rampas, no por escaleras. <strong>Almuerzo</strong> en Santa Cruz.</p><p><strong>Tarde: Las Setas</strong> (Metropol Parasol), el mirador de madera sobre la ciudad vieja, y el Mercado de Triana. <strong>Noche: flamenco en tablao</strong>, el cierre de Andalucía.</p>',
-    alt:'<p>Si el Alcázar de las 9:30 está agotado, coge la primera hora que quede y mueve la Catedral detrás. Si el calor de la tarde aprieta, Las Setas se dejan para el atardecer, que es cuando mejor se ven.</p><p>Cádiz está como opción, a hora y media en tren, pero compite con Sevilla a fondo: escoge una y suelta la otra, no caben las dos. Y antes de dormir, los dos billetes de mañana comprados por separado (Sevilla a Córdoba y Córdoba a Madrid), nunca el directo.</p>' },
+    alt:'<p>Si el Alcázar de las 9:30 está agotado, coge la primera hora que quede y mueve la Catedral detrás. Si el calor de la tarde aprieta, Las Setas se dejan para el atardecer, que es cuando mejor se ven.</p><p>Antes de dormir, los dos billetes de mañana comprados por separado (Sevilla a Córdoba y Córdoba a Madrid), nunca el directo.</p>' },
 
   { f:'2026-10-01', dow:'Jue', d:1, c:'cor', ciudad:'Sevilla → Córdoba → Madrid', t:'Córdoba de paso y cena de cierre',
     lead:'Córdoba está en la ruta del tren, no es desvío. Mezquita, Puente Romano y ya. La noche es la de cierre en Madrid.',
@@ -1033,11 +1014,11 @@ const destinations = [
 
   { id:'madrid', name:'Madrid', flag:'🇪🇸', tag:'3 noches + cierre', dates:'18 al 21 Sept · 1 Oct', c:'mad',
     photo:PHOTOS.madrid, grad:GRAD.madrid, hotel:'h-mad1',
-    res:['h-mad1','t-prado','e-escuela','t-reina','tr-mad-bcn','h-mad2'],
+    res:['h-mad1','t-prado','t-reina','tr-mad-bcn','h-mad2'],
     intro:'<p>Tres noches completas de Madrid sin salir de la ciudad, y una noche más de cierre al final. El Reina Sofía a primera hora, el Rastro del domingo con su vermut, tapeo en La Latina y Cava Baja, rooftops de 360 grados, el verde del Retiro, el Palacio Real y el atardecer del Templo de Debod.</p>',
     dormir:'<p>Del 18 al 21, tres noches en un Airbnb de $560, ya pagado; la dirección y el contacto del host no están aquí, guárdalos en la reserva. Y la noche del 1 de octubre, Atocha19 Apartment, en Atocha 19, a cinco minutos de la estación: confirmación 6284.097.511, PIN 1150, $179. Check in de 15:00 a 22:00; pasadas las 23:00 cobran €25.</p>',
     llegar:'<p>Llegas el viernes 18 de noche desde Ámsterdam y sales el lunes 21 en el Ouigo de las 9:31 desde Atocha, con el embarque cerrado a las 9:26. Vuelves el jueves 1 en tren desde Córdoba sobre las 18:15, y el viernes 2 el vuelo a San Juan sale de la T4 a las 16:15: desde Atocha, Cercanías a la T4 en 25 minutos o taxi.</p>',
-    flex:'<p>Toledo se cayó a propósito para aprovechar Madrid, y la escuela de IA ya no cabe en el calendario: reencuádrala como videollamada con tu contacto. El Prado queda de opción si un día pide más arte (domingos gratis de 17:00 a 19:00). Si el rooftop del Círculo tiene cola, el Riu Plaza España o el Hotel Emperador. Si llueve el domingo, el Rastro se deshace y el Prado lo reemplaza.</p>',
+    flex:'<p>Toledo se cayó a propósito para aprovechar Madrid. El Prado queda de opción si un día pide más arte (domingos gratis de 17:00 a 19:00). Si el rooftop del Círculo tiene cola, el Riu Plaza España o el Hotel Emperador. Si llueve el domingo, el Rastro se deshace y el Prado lo reemplaza.</p>',
     links:[
       {icon:'🖼',label:'Reina Sofía',url:'https://www.museoreinasofia.es/en/visit',type:'tickets'},
       {icon:'🎟',label:'Prado',url:'https://www.museodelprado.es/en/visit/tickets',type:'tickets'},
@@ -1072,23 +1053,23 @@ const destinations = [
 
   { id:'ronda', name:'Ronda', flag:'⛰️', tag:'1 noche', dates:'28 al 29 Sept', c:'ron',
     photo:PHOTOS.ronda, grad:GRAD.ronda, hotel:'h-ron',
-    res:['car','h-ron','a-barranco','a-mina','r-torcal'],
+    res:['car','h-ron','a-mina'],
     intro:'<p>El Puente Nuevo sobre una garganta de 120 metros, uno de los paisajes más dramáticos de España. La plaza de toros más antigua del país, un road trip por la sierra andaluza para llegar, y al día siguiente Setenil de camino a Sevilla.</p>',
     dormir:'<p>Apartamento Balcones del Tajo, Calle Rosario 12, una noche del 28 al 29. Confirmación 6961.974.953, PIN 9457, $169, cancelación gratis hasta el 20 de septiembre. Check in de 13:30 a 21:30 (avisaste que llegas entre 13:00 y 14:00), check out hasta las 11:30.</p>',
     llegar:'<p>Llegas el lunes 28 en carro desde Granada, unas dos horas por la A-92 y la A-367, sobre las 11:45. Sales el martes 29 a las 9:30 hacia Setenil, a 20 minutos, y de ahí a Sevilla.</p>',
-    flex:'<p>Ronda es el día sin reservas: todo es callejeo y el Tajo. El barranquismo de Horizon es lo único que puede cambiarle la forma a la tarde, y depende de que junten grupo de cuatro; si no, el Camino de los Molinos. La Mina de Agua es la versión suave de bajar al río. El Torcal está como opción y la recomendación es soltarlo.</p>',
+    flex:'<p>Ronda es el día sin reservas: callejeo y bajar al río. Tres formas: el Camino de los Molinos hasta el fondo, la Mina de Agua por dentro de la roca, o los Jardines de Cuenca hasta el Puente Viejo sin esfuerzo.</p>',
     links:[
-      {icon:'🧗‍♀️',label:'Horizon Aventura',url:'https://www.horizonaventura.com/barranco-tajo-de-ronda/',type:'tickets'},
+      {icon:'🪜',label:'Casa del Rey Moro',url:'https://maps.google.com/?q=Casa+del+Rey+Moro+Ronda',type:'maps'},
       {icon:'📍',label:'Puente Nuevo',url:'https://maps.google.com/?q=Puente+Nuevo+Ronda+Spain',type:'maps'}
     ]},
 
   { id:'sevilla', name:'Sevilla', flag:'🌺', tag:'2 noches', dates:'29 Sept al 1 Oct', c:'svq',
     photo:PHOTOS.sevilla, grad:GRAD.sevilla, hotel:'h-svq',
-    res:['r-pueblos','t-caminito','h-svq','t-alcazar','t-giralda','t-flamenco-svq','t-cadiz'],
+    res:['r-pueblos','h-svq','t-alcazar','t-giralda','t-flamenco-svq'],
     intro:'<p>El Real Alcázar, el palacio mudéjar donde filmaron Game of Thrones. La Plaza de España al golden hour, semicircular, con la cerámica de cada provincia. Triana, cuna del flamenco. Y en el camino desde Ronda, Setenil de las Bodegas y sus calles bajo la roca.</p>',
     dormir:'<p>nüa cicerone, Calle Mesón del Moro 10, en Santa Cruz, dos noches del 29 al 1. Confirmación 6374.060.574, PIN 8313, $318 no reembolsables y ya cobrados. Check in de 14:00 a 23:00, check out de 7:00 a 12:00. Es calle estrecha y zona restringida: avísales que llegas en coche a descargar.</p>',
     llegar:'<p>Llegas el martes 29 en carro desde Setenil sobre las 15:30, descargas primero y devuelves en la estación de Santa Justa a las 16:30, que no está en el centro (diez minutos en coche, vuelta en taxi). Sales el jueves 1 desde esa misma estación en el Avant de las 9:55 a Córdoba.</p>',
-    flex:'<p>Cádiz queda de opción y compite con Sevilla a fondo: una o la otra. Si el Alcázar de las 9:30 se agota, la primera hora que quede y la Catedral detrás. El flamenco en tablao es el cierre natural de Andalucía, pero si el cuerpo no da, Triana de noche vale igual. Los dos trenes del jueves se compran por separado, nunca el directo a Madrid.</p>',
+    flex:'<p>Si el Alcázar de las 9:30 se agota, la primera hora que quede y la Catedral detrás. El flamenco en tablao es el cierre natural de Andalucía, pero si el cuerpo no da, Triana de noche vale igual. Los dos trenes del jueves se compran por separado, nunca el directo a Madrid.</p>',
     links:[
       {icon:'🎟',label:'Real Alcázar',url:'https://www.alcazarsevilla.org/',type:'tickets'},
       {icon:'⛪',label:'Catedral',url:'https://www.catedraldesevilla.es/',type:'tickets'},
@@ -1166,7 +1147,6 @@ const eventos = [
   { id:'e0928-taxi', f:'2026-09-28', h:'09:00', salir:'08:45', tipo:'checkout', t:'Check out y taxi a la estación de Renfe', s:'Del Albaicín a la Avenida de los Andaluces.', res:'h-grx' },
   { id:'e0928-carro', f:'2026-09-28', h:'09:30', salir:'09:00', tipo:'carro', t:'Recogida del carro, Budget', s:'Estación Renfe de Granada, parking 2879e. Fotos por los cuatro lados.', res:'car' },
   { id:'e0928-checkin', f:'2026-09-28', h:'13:30', tipo:'checkin', t:'Check in Balcones del Tajo', s:'Calle Rosario 12, de 13:30 a 21:30. Avisaste entre 13:00 y 14:00.', res:'h-ron' },
-  { id:'e0928-barranco', f:'2026-09-28', h:'15:00', salir:'14:30', tipo:'entrada', t:'Barranquismo dentro del Tajo, Horizon', s:'Encuentro en los Baños Árabes. Solo si confirmaron grupo. Escarpines, bañador, toalla.', res:'a-barranco' },
   { id:'e0928-puente', f:'2026-09-28', h:'19:30', tipo:'aviso', t:'Puente Nuevo al atardecer', s:'Con luz de tarde es otro sitio.' },
 
   { id:'e0929-checkout', f:'2026-09-29', h:'09:30', salir:'09:00', tipo:'checkout', t:'Check out de Ronda, salida a Setenil', s:'La ventana va hasta las 11:30, pero sales a las 9:30 para tener Setenil con fresco.', res:'h-ron' },
@@ -1226,7 +1206,7 @@ const IDEA_TIPOS = [
 const RESUMEN = {
   '2026-09-14': { pasos:[['14:30','En el aeropuerto SJU','Pasaporte, licencia, tarjetas avisadas'],['17:15','Vuelo a Madrid','Iberia directo, 8h15. Cena y a dormir']],
     b:['Si se retrasa: vigila la conexión a Ámsterdam, son billetes separados','Si la pierdes: hay vuelos toda la tarde y el hotel ya está pagado'] },
-  '2026-09-15': { pasos:[['07:30','Aterrizas en Madrid','Conexión a Ámsterdam'],['—','Vuelo MAD → AMS','Hora por confirmar en Reservas'],['—','Tren Schiphol → Centraal','15 min · €5.90 con tarjeta'],['—','Check in, ducha y dormir','La noche termina a las 23:00'],['19:00','Cena ligera','Winkel 43 o Moeders'],['21:25','Muelle Keizersgracht 92H','Junto al 106'],['21:30','Evening Cruise','Pure Spirit · 3 bebidas y queso']],
+  '2026-09-15': { pasos:[['07:30','Aterrizas en Madrid','Conexión a Ámsterdam'],['—','Vuelo MAD → AMS','Hora por confirmar en Reservas'],['—','Tren Schiphol → Centraal','15 min · €5.90 con tarjeta'],['—','Check in, ducha y dormir','La noche termina a las 23:00'],['—','Jordaan Festival · Appeltjesmarkt','Último día, música gratis, 10 min del muelle'],['19:00','Cena ligera','Winkel 43 o Moeders'],['21:25','Muelle Keizersgracht 92H','Junto al 106'],['21:30','Evening Cruise','Pure Spirit · 3 bebidas y queso']],
     b:['Destruidos: duerme hasta las 18:00, el barco es lo único fijo','Lluvia: pregunta a Pure Boats si va cubierto (+31 20 215 7420)','No llegas a las 21:25: llama y cambia de día antes de perderlo'] },
   '2026-09-16': { pasos:[['—','Mañana suelta','Nine Streets o Bloemenmarkt'],['11:30','Moco Museum','Banksy y Basquiat · 1h'],['13:00','Almuerzo','The Seafood Bar'],['14:00','Rijksmuseum','Ronda de Noche y La Lechera · 2h'],['16:30','Descanso en el hotel',''],['19:00','Cena','Foodhallen'],['21:00','Red Light District','De Wallen · cero fotos a las ventanas'],['—','Club','Church o Showboat, el otro mañana']],
     b:['Tarde: se sacrifica el desayuno largo, no el Moco','Un solo museo: el Rijksmuseum','Sin club: el Red Light se camina en 1h y a la cama','Church tiene fiesta distinta cada noche, mira el calendario antes'] },
@@ -1252,12 +1232,12 @@ const RESUMEN = {
     b:['Sin flamenco: tapas por Elvira y ya','Naturaleza: camino a la Fuente del Avellano, 30 min río arriba'] },
   '2026-09-27': { pasos:[['—','Realejo','Street art y cármenes'],['—','Últimas tapas','Calle Navas'],['—','San Miguel Alto','Atardecer final · lleva agua'],['20:00','Preparar la salida','Taxi 9:00 · licencia · itinerario 73527918359633']],
     b:['Lo que se cayó del viernes o sábado aterriza aquí','Día de nada: mañana es callejeo y subida'] },
-  '2026-09-28': { pasos:[['09:00','Taxi a Renfe','Con maletas, Avda. de los Andaluces'],['09:30','Carro Budget','Parking 2879e · fotos x4'],['—','A-92 y A-367','2h de sierra'],['11:45','Ronda',''],['13:30','Check in','Balcones del Tajo, Rosario 12'],['—','Puente Nuevo y Camino de los Molinos','Bajar al fondo, subida dura'],['—','Plaza de Toros y casco antiguo',''],['—','Puente Nuevo al atardecer','Cena con vistas']],
-    b:['Horizon confirma: barranquismo 3h desde los Baños Árabes, escarpines','No confirma: Camino de los Molinos','Suave: Mina de Agua, 231 escalones (confirma que abra)','Torcal: suéltalo, 4h de desvío por rocas'] },
+  '2026-09-28': { pasos:[['09:00','Taxi a Renfe','Con maletas, Avda. de los Andaluces'],['09:30','Carro Budget','Parking 2879e · fotos x4'],['—','A-92 y A-367','2h de sierra'],['11:45','Ronda',''],['13:30','Check in','Balcones del Tajo, Rosario 12'],['—','Bajar al río · Camino de los Molinos','Desde el Arco de Cristo hasta el fondo del Tajo · el puente desde abajo · 1h ida y vuelta'],['—','Puente Viejo, Baños Árabes y Jardines de Cuenca','La parte baja del río, fácil y con sombra'],['—','Plaza de Toros y casco antiguo',''],['—','Puente Nuevo al atardecer','Cena con vistas']],
+    b:['Con menos piernas: Mina de Agua de la Casa del Rey Moro, 231 escalones por dentro de la roca hasta el río (~€10, confirma que abra)','La subida del Camino de los Molinos es dura: agua, tenis y hacerlo antes de las 17:00 con luz','Sin tiempo para el fondo: los Jardines de Cuenca bajan en terrazas hasta el Puente Viejo, con el río al lado'] },
   '2026-09-29': { pasos:[['09:30','Salida de Ronda','Check out hasta 11:30'],['09:50','Setenil','Cuevas del Sol y de la Sombra · 2h'],['12:00','Almuerzo bajo la roca','Embutidos y brasa'],['13:30','Setenil → Sevilla','2h'],['15:30','Descargar en nüa cicerone','Mesón del Moro 10 · avisa que llegas en coche'],['16:30','Devolver carro','Santa Justa · taxi de vuelta'],['—','Santa Cruz sin reloj',''],['19:30','Plaza de España','Golden hour · luego Triana']],
-    b:['Setenil corto: Zahara a 35 min, pero come tarde de Sevilla','Caminito con turno de mañana: se reactiva y cae Setenil','Justa de hora: recorta el almuerzo, no la devolución'] },
+    b:['Setenil corto: Zahara a 35 min, pero come tarde de Sevilla','Justa de hora: recorta el almuerzo, no la devolución'] },
   '2026-09-30': { pasos:[['09:30','Real Alcázar','Primera hora · compra ya'],['12:00','Catedral y Giralda','Rampas'],['—','Almuerzo','Santa Cruz'],['—','Las Setas y Mercado de Triana',''],['21:00','Flamenco en tablao',''],['21:30','Comprar los 2 trenes','Sevilla→Córdoba y Córdoba→Madrid por separado']],
-    b:['Alcázar agotado a las 9:30: primera hora libre y la Catedral detrás','Calor: Las Setas al atardecer','Cádiz compite con Sevilla: una o la otra'] },
+    b:['Alcázar agotado a las 9:30: primera hora libre y la Catedral detrás','Calor: Las Setas al atardecer'] },
   '2026-10-01': { pasos:[['08:15','Desayuno',''],['09:00','Check out','Taxi a Santa Justa 9:15'],['09:55','Avant a Córdoba','44 min'],['10:39','Córdoba','Consigna en la estación'],['11:30','Mezquita Catedral','856 columnas · hasta 13:00'],['13:00','Puente Romano y Judería',''],['14:00','Almuerzo','Salmorejo y flamenquín'],['15:45','A la estación','Por las maletas'],['16:30','Tren a Madrid','1h45'],['18:15','Atocha19','5 min a pie · antes de las 23:00'],['—','Mercado de San Miguel','Cena de cierre']],
     b:['Sin plaza en el Avant: AVE 9:34','Tarifa con cambio para la vuelta y compara con Ouigo','Pesado o calor: salta el Puente Romano'] },
   '2026-10-02': { pasos:[['—','Check out','Hasta las 12:00'],['—','Mañana libre','Huertas o Retiro'],['13:00','Salir a la T4','Cercanías 25 min o taxi'],['16:15','Vuelo a San Juan','Iberia directo · llegas 18:50']],
@@ -1274,8 +1254,9 @@ const SPOTS = {
     {e:'🎭', t:'Moco Museum', s:'Mié 16 · 11:30', res:'t-moco', q:'Moco Museum Amsterdam'},
     {e:'🖼️', t:'Rijksmuseum', s:'Mié 16 · 14:00', res:'t-rijks', q:'Rijksmuseum'},
     {e:'🔴', t:'Red Light District', s:'Mié 16 · 21:00', res:'n-redlight', q:'De Wallen Amsterdam'},
-    {e:'🕺', t:'Club Church', s:'Mié 16 o jue 17', res:'n-church', q:'Club Church Amsterdam'},
-    {e:'🎭', t:'Showboat', s:'La otra noche', res:'n-showboat', q:'Showboat Amsterdam'},
+    {e:'🎪', t:'Jordaan Festival · Appeltjesmarkt', s:'Mar 15 · último día · gratis', q:'Appeltjesmarkt Amsterdam'},
+    {e:'🕺', t:'Club Church', s:'Mié 16 o jue 17 · sin reserva', res:'n-church', q:'Club Church Amsterdam'},
+    {e:'🎭', t:'Showboat', s:'La otra noche · sin reserva', res:'n-showboat', q:'Showboat Amsterdam'},
     {e:'🔬', t:'NEMO Science Museum', s:'Jue 17 · 10:30', res:'t-nemo', q:'NEMO Science Museum'},
     {e:'🧀', t:'Albert Cuyp Market', s:'Vie 18 · 13:30', q:'Albert Cuyp Markt'},
     {e:'🥧', t:'Winkel 43', s:'Apple pie · cena ligera mar 15', q:'Winkel 43 Amsterdam'},
@@ -1321,11 +1302,10 @@ const SPOTS = {
   ],
   ron:[
     {e:'🌉', t:'Puente Nuevo', s:'Lun 28 · mediodía y atardecer', q:'Puente Nuevo Ronda'},
-    {e:'🥾', t:'Camino de los Molinos', s:'Lun 28 · bajar al fondo del Tajo', q:'Camino de los Molinos Ronda'},
-    {e:'🧗‍♀️', t:'Barranquismo en el Tajo · Horizon', s:'Lun 28 · falta confirmar', res:'a-barranco', q:'Baños Árabes de Ronda'},
-    {e:'🪜', t:'Mina de Agua · Casa del Rey Moro', s:'Opción suave', res:'a-mina', q:'Casa del Rey Moro Ronda'},
-    {e:'🐂', t:'Plaza de Toros', s:'Lun 28', q:'Plaza de Toros de Ronda'},
-    {e:'🏔️', t:'El Torcal', s:'Opción · recomendado soltar', res:'r-torcal', q:'El Torcal de Antequera'}
+    {e:'🌊', t:'Bajar al río · Camino de los Molinos', s:'Lun 28 · el fondo del Tajo, gratis', q:'Camino de los Molinos Ronda'},
+    {e:'🪜', t:'Mina de Agua · Casa del Rey Moro', s:'Lun 28 · 231 escalones dentro de la roca', res:'a-mina', q:'Casa del Rey Moro Ronda'},
+    {e:'🏛️', t:'Puente Viejo, Baños Árabes y Jardines de Cuenca', s:'Lun 28 · la parte baja del río', q:'Puente Viejo Ronda'},
+    {e:'🐂', t:'Plaza de Toros', s:'Lun 28', q:'Plaza de Toros de Ronda'}
   ],
   svq:[
     {e:'🏘️', t:'Setenil de las Bodegas', s:'Mar 29 · 9:50', res:'r-pueblos', q:'Setenil de las Bodegas'},
@@ -1337,8 +1317,7 @@ const SPOTS = {
     {e:'🍄', t:'Las Setas', s:'Mié 30 · tarde o atardecer', q:'Setas de Sevilla'},
     {e:'🛒', t:'Mercado de Triana', s:'Mié 30 · tarde', q:'Mercado de Triana'},
     {e:'💃', t:'Flamenco en tablao', s:'Mié 30 · noche', res:'t-flamenco-svq', q:'tablao flamenco Sevilla'},
-    {e:'🏖️', t:'Cádiz', s:'Opción · compite con Sevilla', res:'t-cadiz', q:'Cadiz'},
-    {e:'🥾', t:'Caminito del Rey', s:'Sin cupo', res:'t-caminito', q:'Caminito del Rey'}
+
   ],
   cor:[
     {e:'🕌', t:'Mezquita Catedral', s:'Jue 1 · 11:30', res:'t-mezquita', q:'Mezquita Catedral de Cordoba'},
@@ -1487,7 +1466,7 @@ function proximaAlerta(now){
 }
 
 /* ══════════════ CLIMA ══════════════ */
-function wxDe(c, f){ const d = state.wx[c]; return d && d.dias && d.dias[f] ? d.dias[f] : null; }
+function wxDe(c, f){ const d = state.wx[c]; const w = d && d.dias && d.dias[f]; return (w && w.max != null && w.code != null) ? w : null; }
 function wxCiudad(day){ return WX_DIA[day.f] || (day.c === 'fly' ? null : day.c); }
 function wxTxt(w){ const m = WMO[w.code] || ['🌡️','']; return {e:m[0], l:m[1]}; }
 function cargarClima(force){
@@ -1500,7 +1479,7 @@ function cargarClima(force){
       '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&timezone=auto&forecast_days=16';
     fetch(url).then(function(r){ return r.json(); }).then(function(j){
       const d = j.daily; const dias = {};
-      d.time.forEach(function(f,i){ dias[f] = { code:d.weather_code[i], max:Math.round(d.temperature_2m_max[i]), min:Math.round(d.temperature_2m_min[i]), pop:d.precipitation_probability_max[i] }; });
+      d.time.forEach(function(f,i){ if (d.temperature_2m_max[i] == null || d.weather_code[i] == null) return; dias[f] = { code:d.weather_code[i], max:Math.round(d.temperature_2m_max[i]), min:Math.round(d.temperature_2m_min[i]), pop:d.precipitation_probability_max[i] || 0 }; });
       state.wx[c] = { t: Date.now(), dias: dias };
       lsSet(LS.wx, state.wx);
       renderHoyScreen(); renderDia();
